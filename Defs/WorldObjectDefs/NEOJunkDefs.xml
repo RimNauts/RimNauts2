@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<WorldObjectDef>
+		<defName>Junk1</defName>
+		<label>space junk</label>
+		<description>A random piece of space debris.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/SpaceWaste_A</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/SpaceWaste_A</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+	</WorldObjectDef>
+
+	<WorldObjectDef>
+		<defName>Junk2</defName>
+		<label>space junk</label>
+		<description>A random piece of space debris.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/Bship</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/Bship</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+	</WorldObjectDef>
+
+	<WorldObjectDef>
+		<defName>Junk3</defName>
+		<label>space junk</label>
+		<description>A random piece of space debris.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/Bship2</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/Bship2</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+	</WorldObjectDef>  
+  
+	<WorldObjectDef>
+		<defName>Junk4</defName>
+		<label>space junk</label>
+		<description>A random piece of space debris.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/Bship3</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/Bship3</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+	</WorldObjectDef>   
+ 
+	<WorldObjectDef>
+		<defName>Junk5</defName>
+		<label>space junk1</label>
+		<description>A random piece of space junk.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/Chunks_Gold_outlineless</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/Junk1</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+	</WorldObjectDef>   
+
+	<WorldObjectDef>
+		<defName>Junk6</defName>
+		<label>space junk2</label>
+		<description>A random piece of space debris.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/Chunks_Gold_outlineless</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/Junk</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+	</WorldObjectDef>  
+
+   	<WorldObjectDef>
+		<defName>Junk7</defName>
+		<label>space junk</label>
+		<description>A random piece of space debris.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/asteroid</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/asteroid</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+  	</WorldObjectDef>  
+
+   	<WorldObjectDef>
+		<defName>Junk8</defName>
+		<label>space junk</label>
+		<description>A random piece of space debris.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/asteroid_B</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/asteroid_B</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+  	</WorldObjectDef>   
+  
+   	<WorldObjectDef>
+		<defName>Junk9</defName>
+		<label>space junk</label>
+		<description>A random piece of space debris.</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Junk/asteroid_C</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Junk/asteroid_C</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+  	</WorldObjectDef> 
+</Defs>

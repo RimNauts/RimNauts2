@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  	<!-- Asteroid (Ice/Small) -->
+  	<TerrainDef Name="asteroidIceSmall" ParentName="NaturalTerrainBase">
+		<defName>asteroidIceSmall</defName>
+		<label>asteroid ice</label>
+		<description>Asteroid covered in small amounts of ice.</description>
+		<texturePath>Terrain/Surfaces/asteroidIce</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>340</renderPrecedence>
+		<pathCost>2</pathCost>
+		<statBases>
+			<Beauty>0</Beauty>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Diggable</li>
+		</affordances>
+		<fertility>0.0</fertility>
+		<takeFootprints>True</takeFootprints>
+	</TerrainDef>
+  	<!-- Asteroid (Ice/Medium) -->
+  	<TerrainDef Name="asteroidIceMedium" ParentName="NaturalTerrainBase">
+		<defName>asteroidIceMedium</defName>
+		<label>asteroid ice medium</label>
+		<description>Asteroid coverd in ice.</description>
+		<texturePath>Terrain/Surfaces/asteroidIcePlus</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>340</renderPrecedence>
+		<pathCost>2</pathCost>
+		<statBases>
+			<Beauty>0</Beauty>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Diggable</li>
+		</affordances>
+		<fertility>0.0</fertility>
+		<takeFootprints>True</takeFootprints>
+	</TerrainDef>
+  	<!-- Asteroid (Ice/High) -->
+  	<TerrainDef Name="asteroidIceHigh" ParentName="NaturalTerrainBase">
+		<defName>asteroidIceHigh</defName>
+		<label>asteroid ice high</label>
+		<description>Asteroid coverd in high amounts of ice</description>
+		<texturePath>Terrain/Surfaces/asteroidIcePluPlus</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>340</renderPrecedence>
+		<pathCost>2</pathCost>
+		<statBases>
+			<Beauty>0</Beauty>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Diggable</li>
+		</affordances>
+		<fertility>0.0</fertility>
+		<takeFootprints>True</takeFootprints>
+	</TerrainDef>
+</Defs>

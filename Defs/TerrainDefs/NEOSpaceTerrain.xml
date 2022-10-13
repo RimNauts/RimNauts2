@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Vacuum -->
+	<TerrainDef>
+		<defName>OpenSpace</defName>
+		<label>vacuum</label>
+		<texturePath>Terrain/Surfaces/space</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>20</renderPrecedence>
+		<passability>Impassable</passability>
+		<pathCost>300</pathCost>
+		<changeable>false</changeable>
+		<filthAcceptanceMask>
+			<li>None</li>
+		</filthAcceptanceMask>
+		<fertility>0</fertility>
+		<avoidWander>true</avoidWander>
+		<holdSnow>false</holdSnow>
+    <affordances>
+      <li>MovingFluid</li>
+    </affordances>
+  	</TerrainDef>
+</Defs>

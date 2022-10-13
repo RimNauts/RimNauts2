@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- (Base) Lunar Highland -->
+	<ThingDef ParentName="UglyRockBase" Name="BiomesNEO_HighlandRockBase">
+		<defName>BiomesNEO_HighlandRock</defName>
+		<label>lunar highland rock</label>
+		<generateCommonality>0</generateCommonality>
+		<description>The Highlands rocks are largely Anorthosite, which is a kind of igneous rock that forms when lava cools more slowly.</description>
+		<graphicData>
+			<color>(210,210,210)</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Beauty>-1</Beauty>
+		</statBases>
+		<building>
+			<mineableThing>BiomesNEO_ChunkHighland</mineableThing>
+			<mineableDropChance>0.25</mineableDropChance>
+			<smoothedThing>BiomesNEO_SmoothedHighland</smoothedThing>
+		</building>
+	</ThingDef>
+	<!-- Smooth Highland -->
+	<ThingDef ParentName="BiomesNEO_HighlandRockBase">
+		<defName>BiomesNEO_SmoothedHighland</defName>
+		<label>smoothed highland rock</label>
+		<description>Smoothed and polished lunar highland</description>
+		<graphicData>
+			<texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+			<color>(210,210,210)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>35</MarketValue>
+			<Beauty>2</Beauty>
+		</statBases>
+		<building>
+			<isNaturalRock>false</isNaturalRock>
+			<canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+			<smoothedThing />
+		</building>
+		<saveCompressible>false</saveCompressible>
+		<repairEffect>Repair</repairEffect>
+	</ThingDef>
+	<!-- Highland Chunk-->
+	<ThingDef ParentName="ChunkRockBase">
+		<defName>BiomesNEO_ChunkHighland</defName>
+		<label>lunar highland chunk</label>
+		<graphicData>
+			<color>(210,210,210)</color>
+		</graphicData>
+		<statBases>
+			<Mass>11</Mass>
+		</statBases>
+		<soundDrop>ChunkRock_Drop</soundDrop>
+		<butcherProducts>
+			<BiomesNEO_BlocksHighland>20</BiomesNEO_BlocksHighland>
+		</butcherProducts>
+	</ThingDef>
+	<!-- Highland Blocks -->
+	<ThingDef ParentName="StoneBlocksBase">
+		<defName>BiomesNEO_BlocksHighland</defName>
+		<label>lunar highland blocks</label>
+		<description>Blocks of solid lunar highland.</description>
+		<graphicData>
+			<color>(210,210,210)</color>
+		</graphicData>
+		<statBases>
+			<Mass>1.0</Mass>
+		</statBases>
+		<stuffProps>
+			<color>(210,210,210)</color>
+			<soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+			<soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+			<soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+			<stuffAdjective>lunar highland</stuffAdjective>
+			<statFactors>
+				<Beauty>1.35</Beauty>
+				<MaxHitPoints>1.2</MaxHitPoints>
+				<WorkToBuild>5.5</WorkToBuild>
+				<WorkToMake>1.15</WorkToMake>
+			</statFactors>
+			<statOffsets>
+				<Beauty>1</Beauty>
+			</statOffsets>
+			<commonality>0</commonality>
+		</stuffProps>
+	</ThingDef>
+	<!-- Highland Blocks order -->
+	<RecipeDef ParentName="MakeStoneBlocksBase">
+		<defName>BiomesNEO_Make_StoneBlocksHighland</defName>
+		<label>make lunar highland blocks</label>
+		<description>Cuts lunar highland chunks into usable blocks.</description>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BiomesNEO_ChunkHighland</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BiomesNEO_ChunkHighland</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<BiomesNEO_BlocksHighland>20</BiomesNEO_BlocksHighland>
+		</products>
+	</RecipeDef>
+	<!-- Highland Tiles -->
+	<TerrainDef ParentName="TileStoneBase">
+		<defName>BiomesNEO_TileHighland</defName>
+		<label>lunar highland tile</label>
+		<color>(210,210,210)</color>
+    <statBases>
+      <Beauty>2</Beauty>
+    </statBases>
+		<costList>
+			<BiomesNEO_BlocksHighland>4</BiomesNEO_BlocksHighland>
+		</costList>
+	</TerrainDef>
+	<!-- Highland Flagstone -->
+	<TerrainDef ParentName="FlagstoneBase">
+		<defName>BiomesNEO_FlagstoneHighland</defName>
+		<label>lunar highland flagstone</label>
+		<color>(210,210,210)</color>
+    <statBases>
+      <Beauty>1</Beauty>
+    </statBases>
+		<costList>
+			<BiomesNEO_BlocksHighland>4</BiomesNEO_BlocksHighland>
+		</costList>
+	</TerrainDef>
+</Defs>

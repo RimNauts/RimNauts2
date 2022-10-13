@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<WorldObjectDef>
+		<defName>HotMoon</defName>
+		<label>hot moon</label>
+		<description>This near earth object is very hot!</description>
+		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<texture>NEOs/Rimroids/gassymoon</texture>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>NEOs/Rimroids/gassymoon</expandingIconTexture>
+		<expandingIconPriority>6</expandingIconPriority>
+		<mapGenerator>MoonMap</mapGenerator>
+		<comps>
+			<li Class="WorldObjectCompProperties_Abandon" />
+		</comps>
+	</WorldObjectDef>
+	</Defs>

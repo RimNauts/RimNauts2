@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Lunar Highlands -->
+	<TerrainDef Name="lunarHighland" ParentName="NaturalTerrainBase">
+		<defName>lunarHighland</defName>
+		<label>lunar highlands</label>
+		<description>Lunar Highlands.</description>
+		<texturePath>Terrain/Surfaces/lunarHighland</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>340</renderPrecedence>
+		<pathCost>2</pathCost>
+		<statBases>
+			<Beauty>0</Beauty>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Sand</generatedFilth>
+		<fertility>0.0</fertility>
+		<takeFootprints>True</takeFootprints>
+	</TerrainDef>
+  	<!-- Lunar Maria -->
+	<TerrainDef Name="lunarMaria" ParentName="NaturalTerrainBase">
+		<defName>lunarMaria</defName>
+		<label>lunar maria</label>
+		<description>Lunar Maria.</description>
+		<texturePath>Terrain/Surfaces/lunarMaria</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>350</renderPrecedence>
+		<pathCost>5</pathCost>
+		<statBases>
+			<Beauty>0</Beauty>
+			<Cleanliness>-2</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Sand</generatedFilth>
+		<fertility>0.0</fertility>
+		<takeFootprints>True</takeFootprints>
+	</TerrainDef>
+</Defs>
