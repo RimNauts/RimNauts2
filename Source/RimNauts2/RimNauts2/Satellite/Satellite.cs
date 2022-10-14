@@ -57,7 +57,7 @@ namespace RimNauts2 {
         }
 
         public override void Print(LayerSubMesh subMesh) {
-            RimWorld.Planet.WorldRendererUtility.PrintQuadTangentialToPlanet(DrawPos, 10.7f * Find.WorldGrid.averageTileSize, 0.008f, subMesh, false, false, true);
+            RimWorld.Planet.WorldRendererUtility.PrintQuadTangentialToPlanet(DrawPos, 10f * Find.WorldGrid.averageTileSize, 0.008f, subMesh, false, false, true);
         }
 
         public override void Draw() {
