@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Reflection;
-using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using System.Linq;
 
 namespace RimNauts2 {
     [StaticConstructorOnStartup]
-    public class Satellite : MapParent {
+    public class Satellite : RimWorld.Planet.MapParent {
         public override Vector3 DrawPos {
             get {
                 return get_parametric_ellipse();
@@ -49,7 +48,7 @@ namespace RimNauts2 {
             Scribe_Values.Look(ref time_offset, "timeOffset", 0, false);
             Scribe_Values.Look(ref max_orbits, "maxOrbits", default, false);
             Scribe_Values.Look(ref shift_orbits, "shiftOrbits", default, false);
-            get_instance_field(typeof(WorldObject), this, "BaseDrawSize");
+            get_instance_field(typeof(RimWorld.Planet.WorldObject), this, "BaseDrawSize");
         }
 
         internal static object get_instance_field(Type type, object instance, string fieldName) {
@@ -58,17 +57,17 @@ namespace RimNauts2 {
         }
 
         public override void Print(LayerSubMesh subMesh) {
-            WorldRendererUtility.PrintQuadTangentialToPlanet(DrawPos, 10.7f * Find.WorldGrid.averageTileSize, 0.008f, subMesh, false, false, true);
+            RimWorld.Planet.WorldRendererUtility.PrintQuadTangentialToPlanet(DrawPos, 10.7f * Find.WorldGrid.averageTileSize, 0.008f, subMesh, false, false, true);
         }
 
         public override void Draw() {
-            WorldRendererUtility.DrawQuadTangentialToPlanet(DrawPos, 10f * Find.WorldGrid.averageTileSize, 0.008f, Material, false, false, null);
+            RimWorld.Planet.WorldRendererUtility.DrawQuadTangentialToPlanet(DrawPos, 10f * Find.WorldGrid.averageTileSize, 0.008f, Material, false, false, null);
         }
 
         public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject) {
             alsoRemoveWorldObject = true;
             if ((from ob in Find.World.worldObjects.AllWorldObjects
-                 where ob is TravelingTransportPods pods && ((int) typeof(TravelingTransportPods).GetField("initialTile", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(ob) == Tile || pods.destinationTile == Tile)
+                 where ob is RimWorld.Planet.TravelingTransportPods pods && ((int) typeof(RimWorld.Planet.TravelingTransportPods).GetField("initialTile", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(ob) == Tile || pods.destinationTile == Tile)
                  select ob).Count() > 0) {
                 return false;
             }
@@ -86,7 +85,7 @@ namespace RimNauts2 {
         public bool has_map = false;
         public Map map;
         public float period;
-        public Tile real_tile;
+        public RimWorld.Planet.Tile real_tile;
         public int time_offset = 0;
     }
 }

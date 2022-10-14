@@ -1,12 +1,10 @@
-﻿using RimWorld;
-
-namespace RimNauts2 {
-    [DefOf]
+﻿namespace RimNauts2 {
+    [RimWorld.DefOf]
     public static class MoonDefOf {
-        public static BiomeDef RockMoonBiome;
+        public static RimWorld.BiomeDef RockMoonBiome;
 
         static MoonDefOf() {
-            DefOfHelper.EnsureInitializedInCtor(typeof(MoonDefOf));
+            RimWorld.DefOfHelper.EnsureInitializedInCtor(typeof(MoonDefOf));
         }
     }
 }

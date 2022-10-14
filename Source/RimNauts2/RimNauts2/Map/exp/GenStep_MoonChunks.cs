@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
 using Verse.Noise;
-using RimWorld;
 
 namespace RimNauts2 {
     public class GenStep_MoonChunks : GenStep {
@@ -12,12 +10,10 @@ namespace RimNauts2 {
             }
         }
         public override void Generate(Map map, GenStepParams parms) {
-            if (map.TileInfo.WaterCovered) {
-                return;
-            }
-            this.freqFactorNoise = new Perlin(0.014999999664723873, 2.0, 0.5, 6, Rand.Range(0, 999999), QualityMode.Medium);
-            this.freqFactorNoise = new ScaleBias(1.0, 1.0, this.freqFactorNoise);
-            NoiseDebugUI.StoreNoiseRender(this.freqFactorNoise, "rock_chunks_freq_factor");
+            if (map.TileInfo.WaterCovered) return;
+            freqFactorNoise = new Perlin(0.014999999664723873, 2.0, 0.5, 6, Rand.Range(0, 999999), QualityMode.Medium);
+            freqFactorNoise = new ScaleBias(1.0, 1.0, freqFactorNoise);
+            NoiseDebugUI.StoreNoiseRender(freqFactorNoise, "rock_chunks_freq_factor");
             MapGenFloatGrid elevation = MapGenerator.Elevation;
             foreach (IntVec3 intVec in map.AllCells) {
                 float num = 0.006f * this.freqFactorNoise.GetValue(intVec);
@@ -28,7 +24,7 @@ namespace RimNauts2 {
             this.freqFactorNoise = null;
         }
         private void GrowLowRockFormationFrom(IntVec3 root, Map map) {
-            ThingDef filth_RubbleRock = ThingDefOf.Filth_RubbleRock;
+            ThingDef filth_RubbleRock = RimWorld.ThingDefOf.Filth_RubbleRock;
             ThingDef mineableThing = Find.World.NaturalRockTypesIn(map.Tile).RandomElement<ThingDef>().building.mineableThing;
             Rot4 random = Rot4.Random;
             MapGenFloatGrid elevation = MapGenerator.Elevation;
@@ -44,7 +40,7 @@ namespace RimNauts2 {
                     if (elevation[intVec] > 0.55f) {
                         return;
                     }
-                    if (!map.terrainGrid.TerrainAt(intVec).affordances.Contains(TerrainAffordanceDefOf.Heavy)) {
+                    if (!map.terrainGrid.TerrainAt(intVec).affordances.Contains(RimWorld.TerrainAffordanceDefOf.Heavy)) {
                         return;
                     }
                     GenSpawn.Spawn(mineableThing, intVec, map, WipeMode.Vanish);
@@ -62,7 +58,7 @@ namespace RimNauts2 {
                                     }
                                 }
                                 if (!flag) {
-                                    FilthMaker.TryMakeFilth(c, map, filth_RubbleRock, 1, FilthSourceFlags.None);
+                                    RimWorld.FilthMaker.TryMakeFilth(c, map, filth_RubbleRock, 1, RimWorld.FilthSourceFlags.None);
                                 }
                             }
                         }
@@ -71,8 +67,5 @@ namespace RimNauts2 {
             }
         }
         private ModuleBase freqFactorNoise;
-        private const float ThreshLooseRock = 0.55f;
-        private const float PlaceProbabilityPerCell = 0.006f;
-        private const float RubbleProbability = 0.5f;
     }
 }

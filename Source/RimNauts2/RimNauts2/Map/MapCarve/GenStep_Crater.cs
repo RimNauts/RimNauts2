@@ -1,6 +1,5 @@
 ﻿using System;
 using Verse;
-using RimWorld;
 using System.Linq;
 
 namespace RimNauts2 {
@@ -10,15 +9,14 @@ namespace RimNauts2 {
                 return 1148858716;
             }
         }
+
         public void wideBrush(IntVec3 pos, string defName, Map map, int halfWidth) {
             for (int dz = -halfWidth; dz <= halfWidth; dz++) {
-                map.terrainGrid.SetTerrain(new IntVec3(pos.x, 0, pos.z + dz), DefDatabase<TerrainDef>.GetNamed("lunarMaria"));
+                map.terrainGrid.SetTerrain(new IntVec3(pos.x, 0, pos.z + dz), DefDatabase<TerrainDef>.GetNamed(defName));
             }
-
-
         }
-        public override void Generate(Map map, GenStepParams parms) {
 
+        public override void Generate(Map map, GenStepParams parms) {
             int radius = (map.Size.x / 2) - 3;
             for (int ind = 1; ind <= Rand.RangeInclusive(4, 10); ind++) {
                 int dz = (int) ((Rand.Value - 0.5) * map.Size.z);
@@ -42,7 +40,7 @@ namespace RimNauts2 {
             }
             foreach (IntVec3 intVec in map.AllCells) {
                 if (((intVec.x - map.Center.x) * (intVec.x - map.Center.x)) + ((intVec.z - map.Center.z) * (intVec.z - map.Center.z)) >= (radius * radius)) {
-                    Thing thing = GenSpawn.Spawn(ThingDefOf.Sandstone, intVec, map, WipeMode.Vanish);
+                    Thing thing = GenSpawn.Spawn(RimWorld.ThingDefOf.Sandstone, intVec, map, WipeMode.Vanish);
                     thing.Destroy(DestroyMode.Vanish);
                     if (DefDatabase<TerrainDef>.AllDefs.Contains<TerrainDef>(TerrainDef.Named("OpenSpace"))) {
                         map.terrainGrid.SetTerrain(intVec, DefDatabase<TerrainDef>.GetNamed("OpenSpace"));
@@ -54,6 +52,7 @@ namespace RimNauts2 {
             }
             MapGenerator.PlayerStartSpot = new IntVec3(1, 0, 1);
         }
+
         public void thingSwap(Map map, IntVec3 location, string targetDef, string swapDef) {
             try {
                 if (map.thingGrid.ThingAt<Thing>(location).def.defName.Equals(targetDef)) {
@@ -62,15 +61,13 @@ namespace RimNauts2 {
             } catch { }
         }
 
-        public void terrainSwap(Map map, IntVec3 location, string targetDef, string swapDef) {
+        public void terrainSwap(Map map, IntVec3 location, string targetDef) {
             try {
                 if (map.terrainGrid.TerrainAt(location).defName.Equals(targetDef)) {
                     map.terrainGrid.SetTerrain(location, DefDatabase<TerrainDef>.GetNamed(targetDef));
                 }
             } catch { }
         }
-
-
 
         public void genCrater(IntVec3 position, IntVec3 size, Map map) {
             float A_coef = 1f / (float) (size.x * size.x);
@@ -79,7 +76,6 @@ namespace RimNauts2 {
             float m_const = 0.75f * size.z;
             float o_const = 0.87f * size.x;
             float p_const = 0.87f * size.z;
-
             float a_coef = 1f / (n_const * n_const);
             float b_coef = 1f / (m_const * m_const);
             float c_coef = 1f / (o_const * o_const);

@@ -1,16 +1,13 @@
 ﻿using System.Collections.Generic;
-using RimWorld;
 using System.Linq;
-using RimWorld.Planet;
 using Verse;
-using UnityEngine;
 
 namespace RimNauts2 {
     class Satellites : GameComponent {
         public Satellites(Game game) : base() { }
 
-        public Tile getTile(int tileNum) {
-            return Find.World.grid.tiles.ElementAt<Tile>(tileNum);
+        public RimWorld.Planet.Tile getTile(int tileNum) {
+            return Find.World.grid.tiles.ElementAt(tileNum);
         }
 
         public bool applySatelliteSurface(int tileNum) {
@@ -18,14 +15,14 @@ namespace RimNauts2 {
                 List<int> neighbors = new List<int>();
                 Find.World.grid.GetTileNeighbors(tileNum, neighbors);
                 foreach (int tile in neighbors) {
-                    Find.World.grid.tiles.ElementAt(tile).biome = DefDatabase<BiomeDef>.GetNamed("RockMoonBiome");
+                    Find.World.grid.tiles.ElementAt(tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
                 }
                 Find.World.grid.tiles.ElementAt(tileNum).elevation = 100f;
-                Find.World.grid.tiles.ElementAt(tileNum).hilliness = Hilliness.Flat;
+                Find.World.grid.tiles.ElementAt(tileNum).hilliness = RimWorld.Planet.Hilliness.Flat;
                 Find.World.grid.tiles.ElementAt(tileNum).rainfall = 0f;
                 Find.World.grid.tiles.ElementAt(tileNum).swampiness = 0f;
                 Find.World.grid.tiles.ElementAt(tileNum).temperature = -40f;
-                Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<BiomeDef>.GetNamed("RockMoonBiome");
+                Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
                 return true;
             } catch {
                 return false;
@@ -33,12 +30,10 @@ namespace RimNauts2 {
         }
 
         public bool tryGenSatellite() {
-            int tile = Find.World.grid.TilesCount - this.numberOfSatellites - 2;
-            Vector3 baseVec = satDef.getOrbitVectorBase;
-            Vector3 varVec = satDef.getOrbitVectorRange;
+            int tile = Find.World.grid.TilesCount - numberOfSatellites - 2;
             try {
-                Satellite worldObject_SmallMoon = (Satellite) WorldObjectMaker.MakeWorldObject(
-                DefDatabase<WorldObjectDef>.GetNamed(satDef.WorldObjectDefNames.RandomElement<string>(), true));
+                Satellite worldObject_SmallMoon = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def.WorldObjectDefNames.RandomElement(), true));
                 worldObject_SmallMoon.Tile = tile;
                 Find.WorldObjects.Add(worldObject_SmallMoon);
                 this.numberOfSatellites += 1;
@@ -52,14 +47,14 @@ namespace RimNauts2 {
         }
 
         public void updateSatellites() {
-            foreach (MapParent obj in this.satellites) {
-                obj.SetFaction(Faction.OfPlayer);
+            foreach (RimWorld.Planet.MapParent obj in this.satellites) {
+                obj.SetFaction(RimWorld.Faction.OfPlayer);
             }
         }
 
         public bool tryGenSatellite(int tile, List<string> satellite_types) {
             try {
-                Satellite worldObject_SmallMoon = (Satellite) WorldObjectMaker.MakeWorldObject(DefDatabase<WorldObjectDef>.GetNamed(satellite_types.RandomElement<string>(), true));
+                Satellite worldObject_SmallMoon = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(DefDatabase<RimWorld.WorldObjectDef>.GetNamed(satellite_types.RandomElement<string>(), true));
                 worldObject_SmallMoon.Tile = tile;
                 Find.WorldObjects.Add(worldObject_SmallMoon);
                 return true;
@@ -104,12 +99,8 @@ namespace RimNauts2 {
             this.numberOfSatellites -= 1;
         }
 
-        public bool tryGenSatelliteMap(int tile) {
-            return false;
-        }
-
         public int numberOfSatellites = 0;
-        SatelliteDef satDef = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
+        readonly SatelliteDef def = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
         public List<Satellite> satellites = new List<Satellite>();
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using RimWorld;
 using UnityEngine;
 using Verse;
 using System.Collections.Generic;
@@ -26,7 +25,7 @@ namespace RimNauts2 {
                 Find.MapUI.Notify_SwitchedMap();
             }
             Current.Game.GetComponent<Satellites>().updateSatellites();
-            Find.LetterStack.ReceiveLetter("Look at that moon!", "You can clearly see the surface of the moon with the telescope. Imagine visiting such a place!", LetterDefOf.NeutralEvent, null);
+            Find.LetterStack.ReceiveLetter("Look at that moon!", "You can clearly see the surface of the moon with the telescope. Imagine visiting such a place!", RimWorld.LetterDefOf.NeutralEvent, null);
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {

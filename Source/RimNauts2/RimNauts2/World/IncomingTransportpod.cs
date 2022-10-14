@@ -1,27 +1,22 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using HarmonyLib;
-using RimWorld;
-using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
 namespace RimNauts2 {
-    [HarmonyPatch(typeof(TravelingTransportPods))]
+    [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods))]
     [HarmonyPatch("End", MethodType.Getter)]
-    public static class ToSatellite {
+    public static class IncomingTransportpod {
         [HarmonyPostfix]
-        public static void EndAtShip(TravelingTransportPods __instance, ref Vector3 __result) {
-
+        public static void EndAtShip(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
             int destinationTile = __instance.destinationTile;
-            foreach (WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
+            foreach (RimWorld.Planet.WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
                                                 where o is Satellite
                                                 select o) {
                 if (worldObject.Tile == destinationTile) {
                     __result = worldObject.DrawPos;
                 }
             }
-
         }
     }
 }

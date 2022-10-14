@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HarmonyLib;
-using RimWorld;
-using UnityEngine;
+﻿using HarmonyLib;
 using Verse;
-using Verse.Noise;
 
 namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.GenStep_RocksFromGrid), "Generate")]

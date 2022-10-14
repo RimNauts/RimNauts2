@@ -1,18 +1,17 @@
 ﻿using System;
 using HarmonyLib;
-using RimWorld.Planet;
 using Verse;
 using UnityEngine;
 
 namespace RimNauts2 {
-    [HarmonyPatch(typeof(WorldRendererUtility), "HiddenBehindTerrainNow")]
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldRendererUtility), "HiddenBehindTerrainNow")]
     internal static class HideIcons {
         internal static void Postfix(Vector3 pos, ref bool __result) {
             Vector3 center = Find.WorldCameraDriver.CurrentlyLookingAtPointOnSphere;
             // ignore icons on surface (settlements)
             if (Vector3.Distance(pos, center) < 110) return;
             // hide NEOs when zooming in
-            if ((int) Find.WorldCameraDriver.CurrentZoom < (int) WorldCameraZoomRange.VeryFar) {
+            if ((int) Find.WorldCameraDriver.CurrentZoom < (int) RimWorld.Planet.WorldCameraZoomRange.VeryFar) {
                 __result = true;
                 return;
             }
