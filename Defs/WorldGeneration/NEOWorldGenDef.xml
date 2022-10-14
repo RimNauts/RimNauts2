@@ -3,6 +3,6 @@
 	<WorldGenStepDef>
 		<defName>Moons</defName>
 		<order>700</order>
-		<worldGenStep Class="RimNauts2.WorldGenStep_Moons"/>
+		<worldGenStep Class="RimNauts2.Generate_Satellites"/>
 	</WorldGenStepDef>
 </Defs>

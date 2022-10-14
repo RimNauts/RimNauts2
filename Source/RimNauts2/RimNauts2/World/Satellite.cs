@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using RimWorld;
 using System.Linq;
 using RimWorld.Planet;
 using Verse;
-using System.Reflection;
 using UnityEngine;
-using HarmonyLib;
-using System.Security.Policy;
 
 namespace RimNauts2 {
-    class Gamecomp_SatellitesInOrbit : GameComponent {
-        public Gamecomp_SatellitesInOrbit(Game game) : base() {
-        }
+    class Satellite : GameComponent {
+        public Satellite(Game game) : base() { }
+
         public Tile getTile(int tileNum) {
             return Find.World.grid.tiles.ElementAt<Tile>(tileNum);
         }
+
         public bool applySatelliteSurface(int tileNum) {
             try {
                 List<int> neighbors = new List<int>();
@@ -35,7 +32,6 @@ namespace RimNauts2 {
             }
         }
 
-
         public bool tryGenSatellite() {
             int tile = Find.World.grid.TilesCount - this.numberOfSatellites - 2;
             Vector3 baseVec = satDef.getOrbitVectorBase;
@@ -54,15 +50,16 @@ namespace RimNauts2 {
                 Log.Error("Failed to add satellite"); return false;
             }
         }
+
         public void updateSatellites() {
             foreach (MapParent obj in this.satellites) {
                 obj.SetFaction(Faction.OfPlayer);
             }
         }
-        public bool tryGenSatellite(int tile) {
+
+        public bool tryGenSatellite(int tile, List<string> satellite_types) {
             try {
-                //this.defs.AddRange(this.satDef.getWorldObjectDefNames);
-                WorldObjectChild_Satellite worldObject_SmallMoon = (WorldObjectChild_Satellite) WorldObjectMaker.MakeWorldObject(DefDatabase<WorldObjectDef>.GetNamed(defs.RandomElement<string>(), true));
+                WorldObjectChild_Satellite worldObject_SmallMoon = (WorldObjectChild_Satellite) WorldObjectMaker.MakeWorldObject(DefDatabase<WorldObjectDef>.GetNamed(satellite_types.RandomElement<string>(), true));
                 worldObject_SmallMoon.Tile = tile;
                 Find.WorldObjects.Add(worldObject_SmallMoon);
                 return true;
@@ -101,16 +98,18 @@ namespace RimNauts2 {
             this.numberOfSatellites = 0;
             this.satellites = new List<WorldObjectChild_Satellite>();
         }
+
         public void removeSatellite(WorldObjectChild_Satellite satellite) {
             this.satellites.Remove(satellite);
             this.numberOfSatellites -= 1;
         }
+
         public bool tryGenSatelliteMap(int tile) {
             return false;
         }
+
         public int numberOfSatellites = 0;
         SatelliteDef satDef = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
         public List<WorldObjectChild_Satellite> satellites = new List<WorldObjectChild_Satellite>();
-        List<string> defs = new List<string>() { "Junk1", "Junk2", "Junk3", "Junk4", "Junk5", "Junk6", "Junk7", "Junk8", "Junk9" };
     }
 }

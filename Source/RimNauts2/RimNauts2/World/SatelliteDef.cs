@@ -9,6 +9,30 @@ using UnityEngine;
 
 namespace RimNauts2 {
     class SatelliteDef : Def {
+        public static int total_satellite_amount = 200;
+        public static float asteroid_percent = 0.90f;
+        public static float ore_percent = 0.05f;
+        public static float junk_percent = 0.05f;
+
+        public static List<string> asteroid_defs = new List<string>() {
+            "asteroid_1",
+            "asteroid_2",
+            "asteroid_3",
+        };
+
+        public static List<string> asteroid_ore_defs = new List<string>() {
+            "ore_steel",
+            "ore_gold",
+            "ore_plasteel",
+        };
+
+        public static List<string> junk_defs = new List<string>() {
+            "junk_1",
+            "junk_2",
+            "junk_3",
+            "junk_4",
+        };
+
         public List<string> WorldObjectDefNames = new List<string>() { "RockMoon" };
         public List<string> getWorldObjectDefNames {
             get {

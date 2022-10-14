@@ -21,7 +21,7 @@ namespace RimNauts2 {
         }
         public override void Initialize(CompProperties props) {
             base.Initialize(props);
-            this.numberOfMoons = Current.Game.GetComponent<Gamecomp_SatellitesInOrbit>().numberOfSatellites;
+            this.numberOfMoons = Current.Game.GetComponent<Satellite>().numberOfSatellites;
 
 
 
@@ -29,10 +29,10 @@ namespace RimNauts2 {
 
         public void lookAtMoon() {
             Map map2 = null;
-            if (Current.Game.GetComponent<Gamecomp_SatellitesInOrbit>().numberOfSatellites == 0) {
-                Current.Game.GetComponent<Gamecomp_SatellitesInOrbit>().tryGenSatellite();
+            if (Current.Game.GetComponent<Satellite>().numberOfSatellites == 0) {
+                Current.Game.GetComponent<Satellite>().tryGenSatellite();
 
-                map2 = Current.Game.GetComponent<Gamecomp_SatellitesInOrbit>().makeMoonMap();
+                map2 = Current.Game.GetComponent<Satellite>().makeMoonMap();
 
                 CameraJumper.TryJump(map2.Center, map2);
                 Find.MapUI.Notify_SwitchedMap();
@@ -40,7 +40,7 @@ namespace RimNauts2 {
 
             }
 
-            Current.Game.GetComponent<Gamecomp_SatellitesInOrbit>().updateSatellites();
+            Current.Game.GetComponent<Satellite>().updateSatellites();
             Find.LetterStack.ReceiveLetter("Look at that moon!", "You can clearly see the surface of the moon with the telescope. Imagine visiting such a place!", LetterDefOf.NeutralEvent, null);
 
 
@@ -48,7 +48,7 @@ namespace RimNauts2 {
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
 
-            if (Current.Game.GetComponent<Gamecomp_SatellitesInOrbit>().numberOfSatellites == 0) {
+            if (Current.Game.GetComponent<Satellite>().numberOfSatellites == 0) {
                 yield return new Command_Action {
                     defaultLabel = "Look at the Moon!",
                     icon = ContentFinder<Texture2D>.Get("UI/teleIcon", true),

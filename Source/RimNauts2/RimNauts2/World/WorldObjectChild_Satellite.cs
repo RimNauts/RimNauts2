@@ -94,7 +94,7 @@ namespace RimNauts2 {
         }
 
         public override void PostRemove() {
-            Current.Game.GetComponent<Gamecomp_SatellitesInOrbit>().removeSatellite(this);
+            Current.Game.GetComponent<Satellite>().removeSatellite(this);
             base.PostRemove();
         }
 
