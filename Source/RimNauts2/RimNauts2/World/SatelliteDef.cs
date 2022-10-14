@@ -18,6 +18,12 @@ namespace RimNauts2 {
             "asteroid_1",
             "asteroid_2",
             "asteroid_3",
+            "asteroid_4",
+            "asteroid_5",
+            "asteroid_6",
+            "asteroid_7",
+            "asteroid_8",
+            "asteroid_9",
         };
 
         public static List<string> asteroid_ore_defs = new List<string>() {

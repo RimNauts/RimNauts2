@@ -5,7 +5,7 @@
 		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
 		<useDynamicDrawer>false</useDynamicDrawer>
 		<expandingIcon>true</expandingIcon>
-		<expandingIconPriority>6</expandingIconPriority>
+		<expandingIconPriority>1001</expandingIconPriority>
   	</WorldObjectDef>
 	<!-- asteroid -->
    	<WorldObjectDef ParentName="satellite">
@@ -28,6 +28,48 @@
 		<description>asteroid</description>
 		<texture>NEOs/Junk/asteroid_3</texture>
 		<expandingIconTexture>NEOs/Junk/asteroid_3</expandingIconTexture>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="satellite">
+		<defName>asteroid_4</defName>
+		<label>asteroid</label>
+		<description>asteroid</description>
+		<texture>NEOs/Junk/asteroid_4</texture>
+		<expandingIconTexture>NEOs/Junk/asteroid_4</expandingIconTexture>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="satellite">
+		<defName>asteroid_5</defName>
+		<label>asteroid</label>
+		<description>asteroid</description>
+		<texture>NEOs/Junk/asteroid_5</texture>
+		<expandingIconTexture>NEOs/Junk/asteroid_5</expandingIconTexture>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="satellite">
+		<defName>asteroid_6</defName>
+		<label>asteroid</label>
+		<description>asteroid</description>
+		<texture>NEOs/Junk/asteroid_6</texture>
+		<expandingIconTexture>NEOs/Junk/asteroid_6</expandingIconTexture>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="satellite">
+		<defName>asteroid_7</defName>
+		<label>asteroid</label>
+		<description>asteroid</description>
+		<texture>NEOs/Junk/asteroid_7</texture>
+		<expandingIconTexture>NEOs/Junk/asteroid_7</expandingIconTexture>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="satellite">
+		<defName>asteroid_8</defName>
+		<label>asteroid</label>
+		<description>asteroid</description>
+		<texture>NEOs/Junk/asteroid_8</texture>
+		<expandingIconTexture>NEOs/Junk/asteroid_8</expandingIconTexture>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="satellite">
+		<defName>asteroid_9</defName>
+		<label>asteroid</label>
+		<description>asteroid</description>
+		<texture>NEOs/Junk/asteroid_9</texture>
+		<expandingIconTexture>NEOs/Junk/asteroid_9</expandingIconTexture>
   	</WorldObjectDef>
 	<!-- ore -->
 	<WorldObjectDef ParentName="satellite">
