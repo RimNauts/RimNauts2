@@ -74,7 +74,7 @@
     <Compile Include="World\ToSatellite.cs" />
     <Compile Include="World\WorldGenStep_Moons.cs" />
     <Compile Include="World\WorldObjectChild_Satellite.cs" />
-    <Compile Include="World\WorldRendererUtility_HiddenBehindTerrainNow.cs" />
+    <Compile Include="World\HideIcons.cs" />
     <Compile Include="World\World_AddNaturalRockTypes.cs" />
   </ItemGroup>
   <ItemGroup />
