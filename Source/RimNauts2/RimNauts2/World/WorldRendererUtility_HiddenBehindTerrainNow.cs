@@ -23,7 +23,6 @@ namespace RimNauts2 {
             float alt = altper * (maxAlt - minAlt) + maxAlt;
             __result = Vector3.Angle(normalized, currentlyLookingAtPointOnSphere) > (Math.Acos(115 / alt) + Math.Acos(115 / mag)) * (180 / 3.14);
             if (mag < 115) __result = Vector3.Angle(normalized, currentlyLookingAtPointOnSphere) > 73f;
-
         }
     }
 }

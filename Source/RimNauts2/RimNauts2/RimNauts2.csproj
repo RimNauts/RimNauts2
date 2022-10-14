@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -66,7 +67,7 @@
     <Compile Include="World\FromSatellite.cs" />
     <Compile Include="Satellite\Gamecomp_SatellitesInOrbit.cs" />
     <Compile Include="Satellite\MoonDefOf.cs" />
-    <Compile Include="Satellite\PawnsArrivalModeWorker_CanUseWith_Patch.cs" />
+    <Compile Include="Filter\IncidentWorker_CanFireNow.cs" />
     <Compile Include="Satellite\RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Satellite\SatelliteDef.cs" />
