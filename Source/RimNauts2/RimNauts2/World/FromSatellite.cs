@@ -15,7 +15,7 @@ namespace RimNauts2 {
         public static void StartAtShip(TravelingTransportPods __instance, ref Vector3 __result) {
             int num = (int) typeof(TravelingTransportPods).GetField("initialTile", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
             foreach (WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
-                                                where o is WorldObjectChild_Satellite
+                                                where o is Satellite
                                                 select o) {
                 if (worldObject.Tile == num) {
                     __result = worldObject.DrawPos;

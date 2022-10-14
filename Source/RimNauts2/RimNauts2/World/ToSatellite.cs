@@ -15,7 +15,7 @@ namespace RimNauts2 {
 
             int destinationTile = __instance.destinationTile;
             foreach (WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
-                                                where o is WorldObjectChild_Satellite
+                                                where o is Satellite
                                                 select o) {
                 if (worldObject.Tile == destinationTile) {
                     __result = worldObject.DrawPos;

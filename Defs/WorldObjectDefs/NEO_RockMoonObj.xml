@@ -4,7 +4,7 @@
 		<defName>RockMoon</defName>
 		<label>small moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<worldObjectClass>RimNauts2.Satellite</worldObjectClass>
 		<texture>NEOs/Rimroids/smallmoon</texture>
 		<useDynamicDrawer>false</useDynamicDrawer>
 		<expandingIcon>true</expandingIcon>

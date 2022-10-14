@@ -5,21 +5,21 @@ namespace RimNauts2 {
         private void generate_satellites() {
             // generate asteroids
             for (int i = 0; i < SatelliteDef.total_satellite_amount * SatelliteDef.asteroid_percent; i++) {
-                Current.Game.GetComponent<Satellite>().tryGenSatellite(
+                Current.Game.GetComponent<Satellites>().tryGenSatellite(
                     Find.World.grid.TilesCount - 1,
                     SatelliteDef.asteroid_defs
                 );
             }
             // generate ores
             for (int i = 0; i < SatelliteDef.total_satellite_amount * SatelliteDef.ore_percent; i++) {
-                Current.Game.GetComponent<Satellite>().tryGenSatellite(
+                Current.Game.GetComponent<Satellites>().tryGenSatellite(
                     Find.World.grid.TilesCount - 1,
                     SatelliteDef.asteroid_ore_defs
                 );
             }
             // generate junk
             for (int i = 0; i < SatelliteDef.total_satellite_amount * SatelliteDef.junk_percent; i++) {
-                Current.Game.GetComponent<Satellite>().tryGenSatellite(
+                Current.Game.GetComponent<Satellites>().tryGenSatellite(
                     Find.World.grid.TilesCount - 1,
                     SatelliteDef.junk_defs
                 );

@@ -2,7 +2,7 @@
 <Defs>
 	<WorldObjectDef Name="satellite">
 		<defName>satellite</defName>
-		<worldObjectClass>RimNauts2.WorldObjectChild_Satellite</worldObjectClass>
+		<worldObjectClass>RimNauts2.Satellite</worldObjectClass>
 		<useDynamicDrawer>false</useDynamicDrawer>
 		<expandingIcon>true</expandingIcon>
 		<expandingIconPriority>1001</expandingIconPriority>
