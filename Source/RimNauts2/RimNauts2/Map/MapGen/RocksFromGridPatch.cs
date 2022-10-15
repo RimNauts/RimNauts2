@@ -3,8 +3,8 @@ using Verse;
 
 namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.GenStep_RocksFromGrid), "Generate")]
-    static class RocksFromGridPatch {
-        static bool Prefix(Map map, GenStepParams parms) {
+    public static class RocksFromGridPatch {
+        public static bool Prefix(Map map, GenStepParams parms) {
             // check if it's our biome. If not, skip the patch
             if (map.Biome.defName != "RockMoonBiome") {
                 return true;

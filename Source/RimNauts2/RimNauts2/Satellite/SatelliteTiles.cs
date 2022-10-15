@@ -22,6 +22,7 @@ namespace RimNauts2 {
         }
 
         public static void remove_satellite(Satellite satellite) {
+            if (satellite.is_moon) Satellites.moon_exists = false;
             Satellites.cachedWorldObjectTiles.Remove(satellite.Tile);
         }
     }

@@ -7,7 +7,7 @@ namespace RimNauts2 {
     public class Comp_MoonScope : ThingComp {
         public void lookAtMoon() {
             Map map2;
-            if (!Current.Game.GetComponent<Satellites>().moon_exists) {
+            if (!Satellites.moon_exists) {
                 map2 = Current.Game.GetComponent<Satellites>().makeMoonMap();
                 if (map2 == null) return;
                 CameraJumper.TryJump(map2.Center, map2);
@@ -18,7 +18,7 @@ namespace RimNauts2 {
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-            if (!Current.Game.GetComponent<Satellites>().moon_exists) {
+            if (!Satellites.moon_exists) {
                 yield return new Command_Action {
                     defaultLabel = "Look at the Moon!",
                     icon = ContentFinder<Texture2D>.Get("UI/teleIcon", true),

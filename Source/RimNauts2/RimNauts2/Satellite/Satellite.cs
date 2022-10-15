@@ -10,11 +10,11 @@ namespace RimNauts2 {
         readonly SatelliteDef SatelliteCore = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
         public Vector3 max_orbits;
         public Vector3 shift_orbits;
-        public bool has_map = false;
         public Map map;
         public float period;
         public RimWorld.Planet.Tile real_tile;
         public int time_offset = 0;
+        public bool is_moon = false;
 
         public override Vector3 DrawPos {
             get {

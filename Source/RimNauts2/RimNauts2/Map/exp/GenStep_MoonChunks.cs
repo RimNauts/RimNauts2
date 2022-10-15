@@ -25,7 +25,7 @@ namespace RimNauts2 {
         }
         private void GrowLowRockFormationFrom(IntVec3 root, Map map) {
             ThingDef filth_RubbleRock = RimWorld.ThingDefOf.Filth_RubbleRock;
-            ThingDef mineableThing = Find.World.NaturalRockTypesIn(map.Tile).RandomElement<ThingDef>().building.mineableThing;
+            ThingDef mineableThing = Find.World.NaturalRockTypesIn(map.Tile).RandomElement().building.mineableThing;
             Rot4 random = Rot4.Random;
             MapGenFloatGrid elevation = MapGenerator.Elevation;
             IntVec3 intVec = root;

@@ -4,7 +4,7 @@ using Verse;
 
 namespace RimNauts2 {
     public class Satellites : GameComponent {
-        public bool moon_exists = false;
+        public static bool moon_exists = false;
         readonly SatelliteDef def = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
         public static Dictionary<int, Satellite> cachedWorldObjectTiles = new Dictionary<int, Satellite>();
 
@@ -40,15 +40,15 @@ namespace RimNauts2 {
                     moon_exists = true;
                     return null;
                 }
-                Satellite worldObject_SmallMoon = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def.WorldObjectDefNames.RandomElement(), true));
-                worldObject_SmallMoon.Tile = gen_new_tile(tile);
-                Find.WorldObjects.Add(worldObject_SmallMoon);
-                applySatelliteSurface(worldObject_SmallMoon.Tile);
-                worldObject_SmallMoon.real_tile = getTile(worldObject_SmallMoon.Tile);
-                worldObject_SmallMoon.has_map = true;
-                SatelliteTiles_Utilities.add_satellite(worldObject_SmallMoon);
-                return worldObject_SmallMoon;
+                satellite.Tile = gen_new_tile(tile);
+                Find.WorldObjects.Add(satellite);
+                applySatelliteSurface(satellite.Tile);
+                satellite.real_tile = getTile(satellite.Tile);
+                satellite.is_moon = true;
+                SatelliteTiles_Utilities.add_satellite(satellite);
+                return satellite;
             } catch {
                 Log.Error("Failed to add satellite");
                 return null;
