@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Map\MapCarve\GenStep_Crater.cs" />
     <Compile Include="Map\MapGen\ElevationFertilityPatch.cs" />
     <Compile Include="Map\MapGen\GenStep_MoonRocks.cs" />
     <Compile Include="Map\MapGen\GenStep_MoonTerrain.cs" />

@@ -10,13 +10,7 @@
 			<li>Terrain</li>
 			<li>CavesTerrain</li>
 			<li>RockChunks</li>
-			<li>Crater</li>
 			<li>Fog</li>
 		</genSteps>
 	</MapGeneratorDef>
-	<GenStepDef>
-		<defName>Crater</defName>
-		<order>1001</order>
-		<genStep Class="RimNauts2.GenStep_Crater" />
-	</GenStepDef>
 </Defs>
