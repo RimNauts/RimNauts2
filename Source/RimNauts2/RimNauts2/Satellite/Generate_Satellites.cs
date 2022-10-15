@@ -3,8 +3,21 @@ using Verse;
 
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
+        public override int SeedPart {
+            get {
+                return 133714088;
+            }
+        }
+
+        public override void GenerateFresh(string seed) {
+            generate_satellites();
+        }
+
+        public override void GenerateFromScribe(string seed) {
+            generate_satellites();
+        }
+
         private void generate_satellites() {
-            // generate asteroids
             for (int i = 0; i < total_satellite_amount; i++) {
                 // branch to generate junk
                 if (i < total_satellite_amount * 0.05f) {
@@ -16,21 +29,6 @@ namespace RimNauts2 {
                 } else if (i < total_satellite_amount * 0.90f) {
                     Current.Game.GetComponent<Satellites>().tryGenSatellite(i, asteroid_defs);
                 }
-            }
-            Log.Message("Generated asteroids");
-        }
-
-        public override void GenerateFresh(string seed) {
-            generate_satellites();
-        }
-
-        public override void GenerateFromScribe(string seed) {
-            generate_satellites();
-        }
-
-        public override int SeedPart {
-            get {
-                return 133714088;
             }
         }
 

@@ -2,14 +2,12 @@
 using Verse;
 
 namespace RimNauts2 {
-    [HarmonyPatch(typeof(RimWorld.GenStep_Terrain), "Generate")]
+    [HarmonyPatch(typeof(RimWorld.GenStep_Terrain), nameof(RimWorld.GenStep_Terrain.Generate))]
     public static class TerrainPatch {
+        [HarmonyPrefix]
         public static bool Prefix(Map map, GenStepParams parms) {
-            // check if it's our biome. If not, skip the patch
-            if (map.Biome.defName != "RockMoonBiome") {
-                return true;
-            }
-
+            if (map.Biome.defName != "RockMoonBiome") return true;
+            // use custom terrain generator
             new GenStep_MoonTerrain().Generate(map, parms);
             return false;
         }

@@ -59,7 +59,7 @@
     <Compile Include="Map\MapGen\GenStep_MoonTerrain.cs" />
     <Compile Include="Map\MapGen\RocksFromGridPatch.cs" />
     <Compile Include="Map\MapGen\TerrainPatch.cs" />
-    <Compile Include="Satellite\BiomeWorker_Satellite.cs" />
+    <Compile Include="Biome\BiomeWorker_Satellite.cs" />
     <Compile Include="Satellite\CompProperties_MoonScope.cs" />
     <Compile Include="Satellite\Comp_MoonScope.cs" />
     <Compile Include="Satellite\SatelliteTiles.cs" />

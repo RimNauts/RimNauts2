@@ -13,10 +13,7 @@ namespace RimNauts2 {
         }
 
         public override void Generate(Map map, GenStepParams parms) {
-            //check if it's our biome. If not, skip
-            if (map.Biome.defName != "RockMoonBiome") {
-                return;
-            }
+            if (map.Biome.defName != "RockMoonBiome") return;
             mapRadiusSize = map.Size.x / 2;
             List<IntVec3> list = new List<IntVec3>();
             MapGenFloatGrid fertility = MapGenerator.Fertility;

@@ -6,3 +6,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>", Scope = "member", Target = "~M:RimNauts2.Satellites.#ctor(Verse.Game)")]
+[assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>", Scope = "member", Target = "~M:RimNauts2.ElevationFertilityPatch.Postfix(Verse.Map,Verse.GenStepParams)")]

@@ -5,10 +5,10 @@ using Verse;
 using Verse.Noise;
 
 namespace RimNauts2 {
-    [HarmonyPatch(typeof(RimWorld.GenStep_ElevationFertility), "Generate")]
+    [HarmonyPatch(typeof(RimWorld.GenStep_ElevationFertility), nameof(RimWorld.GenStep_ElevationFertility.Generate))]
     public static class ElevationFertilityPatch {
+        [HarmonyPostfix]
         public static void Postfix(Map map, GenStepParams parms) {
-            // check if it's our biome. If not, skip the patch
             if (map.Biome.defName != "RockMoonBiome") return;
             // Map generation is based mostly on these two grids. We're making custom grids.
             MapGenFloatGrid fertility = MapGenerator.Fertility;

@@ -4,8 +4,9 @@ using Verse;
 using UnityEngine;
 
 namespace RimNauts2 {
-    [HarmonyPatch(typeof(RimWorld.Planet.WorldRendererUtility), "HiddenBehindTerrainNow")]
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldRendererUtility), nameof(RimWorld.Planet.WorldRendererUtility.HiddenBehindTerrainNow))]
     internal static class HideIcons {
+        [HarmonyPostfix]
         internal static void Postfix(Vector3 pos, ref bool __result) {
             Vector3 center = Find.WorldCameraDriver.CurrentlyLookingAtPointOnSphere;
             // ignore icons on surface (settlements)

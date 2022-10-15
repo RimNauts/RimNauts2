@@ -4,8 +4,9 @@ using Verse;
 using HarmonyLib;
 
 namespace RimNauts2 {
-    [HarmonyPatch(typeof(RimWorld.Planet.World), "NaturalRockTypesIn")]
+    [HarmonyPatch(typeof(RimWorld.Planet.World), nameof(RimWorld.Planet.World.NaturalRockTypesIn))]
     internal static class World_AddNaturalRockTypes {
+        [HarmonyPostfix]
         internal static void Postfix(int tile, ref IEnumerable<ThingDef> __result, ref RimWorld.Planet.World __instance) {
             Traverse traverse = Traverse.Create(__instance);
             RimWorld.Planet.WorldGrid value = traverse.Field("grid").GetValue<RimWorld.Planet.WorldGrid>();

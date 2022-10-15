@@ -8,7 +8,7 @@ namespace RimNauts2 {
 
         public List<string> getWorldObjectDefNames {
             get {
-                return (List<string>) this.WorldObjectDefNames;
+                return WorldObjectDefNames;
             }
         }
 

@@ -93,6 +93,8 @@ namespace RimNauts2 {
             } catch {
                 if (Prefs.DevMode) Log.Message("RimNauts2: Didn't find space weather.");
             }
+
+
             Find.World.WorldUpdate();
             return map2;
         }

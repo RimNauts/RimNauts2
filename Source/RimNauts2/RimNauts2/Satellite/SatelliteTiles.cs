@@ -14,19 +14,6 @@ namespace RimNauts2 {
         }
     }
 
-    public static class SatelliteTiles_Utilities {
-        public static void add_satellite(Satellite satellite) {
-            Satellites.cachedWorldObjectTiles[satellite.Tile].PostRemove();
-            Satellites.cachedWorldObjectTiles.Remove(satellite.Tile);
-            Satellites.cachedWorldObjectTiles.Add(satellite.Tile, satellite);
-        }
-
-        public static void remove_satellite(Satellite satellite) {
-            if (satellite.is_moon) Satellites.moon_exists = false;
-            Satellites.cachedWorldObjectTiles.Remove(satellite.Tile);
-        }
-    }
-
     [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "AddToCache")]
     public static class WorldObjectRegister {
         [HarmonyPrefix]
@@ -44,6 +31,19 @@ namespace RimNauts2 {
             if (o is Satellite) {
                 Satellites.cachedWorldObjectTiles.Remove(o.Tile);
             }
+        }
+    }
+
+    public static class SatelliteTiles_Utilities {
+        public static void add_satellite(Satellite satellite) {
+            Satellites.cachedWorldObjectTiles[satellite.Tile].PostRemove();
+            Satellites.cachedWorldObjectTiles.Remove(satellite.Tile);
+            Satellites.cachedWorldObjectTiles.Add(satellite.Tile, satellite);
+        }
+
+        public static void remove_satellite(Satellite satellite) {
+            if (satellite.is_moon) Satellites.moon_exists = false;
+            Satellites.cachedWorldObjectTiles.Remove(satellite.Tile);
         }
     }
 }
