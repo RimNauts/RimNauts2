@@ -7,6 +7,15 @@ using System.Linq;
 namespace RimNauts2 {
     [StaticConstructorOnStartup]
     public class Satellite : RimWorld.Planet.MapParent {
+        readonly SatelliteDef SatelliteCore = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
+        public Vector3 max_orbits;
+        public Vector3 shift_orbits;
+        public bool has_map = false;
+        public Map map;
+        public float period;
+        public RimWorld.Planet.Tile real_tile;
+        public int time_offset = 0;
+
         public override Vector3 DrawPos {
             get {
                 return get_parametric_ellipse();
@@ -58,11 +67,27 @@ namespace RimNauts2 {
         }
 
         public override void Print(LayerSubMesh subMesh) {
-            RimWorld.Planet.WorldRendererUtility.PrintQuadTangentialToPlanet(DrawPos, 10f * Find.WorldGrid.averageTileSize, 0.008f, subMesh, false, false, true);
+            RimWorld.Planet.WorldRendererUtility.PrintQuadTangentialToPlanet(
+                DrawPos,
+                10f * Find.WorldGrid.averageTileSize,
+                0.008f,
+                subMesh,
+                false,
+                false,
+                true
+            );
         }
 
         public override void Draw() {
-            RimWorld.Planet.WorldRendererUtility.DrawQuadTangentialToPlanet(DrawPos, 10f * Find.WorldGrid.averageTileSize, 0.008f, Material, false, false, null);
+            RimWorld.Planet.WorldRendererUtility.DrawQuadTangentialToPlanet(
+                DrawPos,
+                10f * Find.WorldGrid.averageTileSize,
+                0.008f,
+                Material,
+                false,
+                false,
+                null
+            );
         }
 
         public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject) {
@@ -79,14 +104,5 @@ namespace RimNauts2 {
             SatelliteTiles_Utilities.remove_satellite(this);
             base.PostRemove();
         }
-
-        readonly SatelliteDef SatelliteCore = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
-        public Vector3 max_orbits;
-        public Vector3 shift_orbits;
-        public bool has_map = false;
-        public Map map;
-        public float period;
-        public RimWorld.Planet.Tile real_tile;
-        public int time_offset = 0;
     }
 }
