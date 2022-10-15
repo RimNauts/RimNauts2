@@ -3,36 +3,7 @@ using Verse;
 
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
-        public override int SeedPart {
-            get {
-                return 133714088;
-            }
-        }
-
-        public override void GenerateFresh(string seed) {
-            generate_satellites();
-        }
-
-        public override void GenerateFromScribe(string seed) {
-            generate_satellites();
-        }
-
-        private void generate_satellites() {
-            for (int i = 0; i < total_satellite_amount; i++) {
-                // branch to generate junk
-                if (i < total_satellite_amount * 0.05f) {
-                    Current.Game.GetComponent<Satellites>().tryGenSatellite(i, junk_defs);
-                // branch to generate ore
-                } else if (i < total_satellite_amount * 0.05f) {
-                    Current.Game.GetComponent<Satellites>().tryGenSatellite(i, asteroid_ore_defs);
-                // branch to generate asteroid
-                } else if (i < total_satellite_amount * 0.90f) {
-                    Current.Game.GetComponent<Satellites>().tryGenSatellite(i, asteroid_defs);
-                }
-            }
-        }
-
-        public readonly static int total_satellite_amount = 200;
+        public readonly static int total_satellite_amount = 1000;
         private readonly List<string> asteroid_defs = new List<string>() {
             "asteroid_1",
             "asteroid_2",
@@ -55,5 +26,25 @@ namespace RimNauts2 {
             "junk_3",
             "junk_4",
         };
+
+        public override int SeedPart {
+            get {
+                return 133714088;
+            }
+        }
+
+        public override void GenerateFresh(string seed) {
+            generate_satellites();
+        }
+
+        public override void GenerateFromScribe(string seed) {
+            generate_satellites();
+        }
+
+        private void generate_satellites() {
+            for (int i = 0; i < total_satellite_amount; i++) {
+                Current.Game.GetComponent<Satellites>().tryGenSatellite(i, Satellite_Type.Asteroid, asteroid_defs);
+            }
+        }
     }
 }

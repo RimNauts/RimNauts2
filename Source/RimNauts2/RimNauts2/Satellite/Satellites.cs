@@ -34,19 +34,20 @@ namespace RimNauts2 {
 
         public Satellite tryGenSatellite() {
             try {
-                int i = Generate_Satellites.total_satellite_amount + 1;
-                int tile = gen_new_tile(i);
+                int tile = gen_new_tile(Generate_Satellites.total_satellite_amount + 1);
                 if (cachedWorldObjectTiles.ContainsKey(tile) && cachedWorldObjectTiles[tile] is Satellite) {
+                    Find.WorldObjects.Add(cachedWorldObjectTiles[tile]);
                     moon_exists = true;
                     return null;
                 }
                 Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def.WorldObjectDefNames.RandomElement(), true));
+                    DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def.WorldObjectDefNames.RandomElement(), true)
+                );
                 satellite.Tile = gen_new_tile(tile);
                 Find.WorldObjects.Add(satellite);
                 applySatelliteSurface(satellite.Tile);
                 satellite.real_tile = getTile(satellite.Tile);
-                satellite.is_moon = true;
+                satellite.type = Satellite_Type.Moon;
                 SatelliteTiles_Utilities.add_satellite(satellite);
                 return satellite;
             } catch {
@@ -61,13 +62,14 @@ namespace RimNauts2 {
             }
         }
 
-        public void tryGenSatellite(int i, List<string> satellite_types) {
+        public void tryGenSatellite(int i, Satellite_Type type, List<string> satellite_types) {
             int tile = gen_new_tile(i);
-            if (cachedWorldObjectTiles.ContainsKey(tile) && cachedWorldObjectTiles[tile] is Satellite) return;
+            if (cachedWorldObjectTiles.ContainsKey(tile) && cachedWorldObjectTiles[tile] is Satellite) Find.WorldObjects.Add(cachedWorldObjectTiles[tile]);
             Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed(satellite_types.RandomElement(), true)
             );
             satellite.Tile = tile;
+            satellite.type = type;
             Find.WorldObjects.Add(satellite);
             SatelliteTiles_Utilities.add_satellite(satellite);
         }
