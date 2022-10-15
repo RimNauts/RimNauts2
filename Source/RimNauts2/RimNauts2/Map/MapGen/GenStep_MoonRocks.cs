@@ -4,7 +4,6 @@ using Verse;
 
 namespace RimNauts2 {
     public class GenStep_MoonRocks : GenStep {
-        private int mapRadiusSize = 125;
         private readonly float maxMineableValue = 3.40282347E+38f;
 
         public override int SeedPart {
@@ -18,7 +17,6 @@ namespace RimNauts2 {
             public float minGridVal;
         }
 
-
         public static ThingDef RockDefAt(float fertility) {
             ThingDef thingDef = ThingDef.Named("BiomesNEO_HighlandRock");
             // Changes the ratio of rock types
@@ -28,7 +26,6 @@ namespace RimNauts2 {
 
         public override void Generate(Map map, GenStepParams parms) {
             if (map.Biome.defName != "RockMoonBiome") return;
-            mapRadiusSize = map.Size.x / 2;
             map.regionAndRoomUpdater.Enabled = false;
             float num = 0.7f;
             List<RoofThreshold> list = new List<RoofThreshold> {
@@ -45,7 +42,7 @@ namespace RimNauts2 {
             MapGenFloatGrid caves = MapGenerator.Caves;
             MapGenFloatGrid fertility = MapGenerator.Fertility;
             foreach (IntVec3 current in map.AllCells) {
-                if (IsInRadius(current)) {
+                if (IsInRadius(current, map.Center, map.Size)) {
                     float num2 = elevation[current];
                     if (num2 > num) {
                         if (caves[current] <= 0f) {
@@ -93,11 +90,11 @@ namespace RimNauts2 {
             return c.Roofed(map) && c.GetRoof(map).isNatural;
         }
 
-        private bool IsInRadius(IntVec3 current) {
-            bool inRadius = false;
-            if (Math.Sqrt(Math.Pow(current.x - mapRadiusSize, 2) + Math.Pow(current.z - mapRadiusSize, 2)) < mapRadiusSize) inRadius = true;
+        private bool IsInRadius(IntVec3 current, IntVec3 center, IntVec3 size) {
+            bool inRadius = true;
+            int radius = (size.x / 2) - 9;
+            if (((current.x - (center.x - 1)) * (current.x - center.x)) + ((current.z - (center.z - 1)) * (current.z - center.z)) >= (radius * radius)) inRadius = false;
             return inRadius;
         }
-
     }
 }
