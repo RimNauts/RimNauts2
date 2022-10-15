@@ -16,7 +16,7 @@
 			<li>Map_RaidBeacon</li>
 		</IncidentTargetTags>
 		<mapGenerator>MoonMap</mapGenerator>
-		<expandingIconPriority>6</expandingIconPriority>
+		<expandingIconPriority>1002</expandingIconPriority>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon" />
 		</comps>

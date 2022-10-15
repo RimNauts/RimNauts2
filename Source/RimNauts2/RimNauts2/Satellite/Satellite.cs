@@ -14,11 +14,12 @@ namespace RimNauts2 {
         }
 
         public Vector3 get_parametric_ellipse() {
-            Vector3 vec3 = new Vector3();
             int time = Find.TickManager.TicksGame;
-            vec3.x = max_orbits.x * (float) Math.Cos(6.28f / period * (time + time_offset)) + shift_orbits.x;
-            vec3.z = max_orbits.z * (float) Math.Sin(6.28f / period * (time + time_offset)) + shift_orbits.z;
-            vec3.y = max_orbits.y * (float) Math.Cos(6.28f / period * (time + time_offset)) + shift_orbits.y;
+            Vector3 vec3 = new Vector3 {
+                x = max_orbits.x * (float) Math.Cos(6.28f / period * (time + time_offset)) + shift_orbits.x,
+                z = max_orbits.z * (float) Math.Sin(6.28f / period * (time + time_offset)) + shift_orbits.z,
+                y = max_orbits.y * (float) Math.Cos(6.28f / period * (time + time_offset)) + shift_orbits.y
+            };
             return vec3;
         }
 
@@ -75,7 +76,7 @@ namespace RimNauts2 {
         }
 
         public override void PostRemove() {
-            Current.Game.GetComponent<Satellites>().removeSatellite(this);
+            SatelliteTiles_Utilities.remove_satellite(this);
             base.PostRemove();
         }
 

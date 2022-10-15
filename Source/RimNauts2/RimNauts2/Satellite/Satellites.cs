@@ -3,104 +3,99 @@ using System.Linq;
 using Verse;
 
 namespace RimNauts2 {
-    class Satellites : GameComponent {
+    public class Satellites : GameComponent {
+        public bool moon_exists = false;
+        readonly SatelliteDef def = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
+        public static Dictionary<int, Satellite> cachedWorldObjectTiles = new Dictionary<int, Satellite>();
+
         public Satellites(Game game) : base() { }
 
         public RimWorld.Planet.Tile getTile(int tileNum) {
             return Find.World.grid.tiles.ElementAt(tileNum);
         }
 
-        public bool applySatelliteSurface(int tileNum) {
-            try {
-                List<int> neighbors = new List<int>();
-                Find.World.grid.GetTileNeighbors(tileNum, neighbors);
-                foreach (int tile in neighbors) {
-                    Find.World.grid.tiles.ElementAt(tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
-                }
-                Find.World.grid.tiles.ElementAt(tileNum).elevation = 100f;
-                Find.World.grid.tiles.ElementAt(tileNum).hilliness = RimWorld.Planet.Hilliness.Flat;
-                Find.World.grid.tiles.ElementAt(tileNum).rainfall = 0f;
-                Find.World.grid.tiles.ElementAt(tileNum).swampiness = 0f;
-                Find.World.grid.tiles.ElementAt(tileNum).temperature = -40f;
-                Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
-                return true;
-            } catch {
-                return false;
-            }
+        public int gen_new_tile(int i) {
+            return (Find.World.grid.TilesCount - 1) - i;
         }
 
-        public bool tryGenSatellite() {
-            int tile = Find.World.grid.TilesCount - numberOfSatellites - 2;
+        public void applySatelliteSurface(int tileNum) {
+            List<int> neighbors = new List<int>();
+            Find.World.grid.GetTileNeighbors(tileNum, neighbors);
+            foreach (int tile in neighbors) {
+                Find.World.grid.tiles.ElementAt(tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
+            }
+            Find.World.grid.tiles.ElementAt(tileNum).elevation = 100f;
+            Find.World.grid.tiles.ElementAt(tileNum).hilliness = RimWorld.Planet.Hilliness.Flat;
+            Find.World.grid.tiles.ElementAt(tileNum).rainfall = 0f;
+            Find.World.grid.tiles.ElementAt(tileNum).swampiness = 0f;
+            Find.World.grid.tiles.ElementAt(tileNum).temperature = -40f;
+            Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
+        }
+
+        public Satellite tryGenSatellite() {
             try {
+                int i = Generate_Satellites.total_satellite_amount + 1;
+                if (cachedWorldObjectTiles.ContainsKey(i) && cachedWorldObjectTiles[i] is Satellite) {
+                    moon_exists = true;
+                    return null;
+                }
                 Satellite worldObject_SmallMoon = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def.WorldObjectDefNames.RandomElement(), true));
-                worldObject_SmallMoon.Tile = tile;
+                worldObject_SmallMoon.Tile = gen_new_tile(i);
+                Log.Message(worldObject_SmallMoon.Tile.ToString()); //////
                 Find.WorldObjects.Add(worldObject_SmallMoon);
-                this.numberOfSatellites += 1;
-                this.satellites.Add(worldObject_SmallMoon);
-                this.applySatelliteSurface(tile);
-                worldObject_SmallMoon.real_tile = getTile(tile);
-                return true;
+                applySatelliteSurface(worldObject_SmallMoon.Tile);
+                worldObject_SmallMoon.real_tile = getTile(worldObject_SmallMoon.Tile);
+                worldObject_SmallMoon.has_map = true;
+                SatelliteTiles_Utilities.add_satellite(worldObject_SmallMoon);
+                return worldObject_SmallMoon;
             } catch {
-                Log.Error("Failed to add satellite"); return false;
+                Log.Error("Failed to add satellite");
+                return null;
             }
         }
 
         public void updateSatellites() {
-            foreach (RimWorld.Planet.MapParent obj in this.satellites) {
+            foreach (RimWorld.Planet.MapParent obj in cachedWorldObjectTiles.Values) {
                 obj.SetFaction(RimWorld.Faction.OfPlayer);
             }
         }
 
-        public bool tryGenSatellite(int tile, List<string> satellite_types) {
-            try {
-                Satellite worldObject_SmallMoon = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(DefDatabase<RimWorld.WorldObjectDef>.GetNamed(satellite_types.RandomElement<string>(), true));
-                worldObject_SmallMoon.Tile = tile;
-                Find.WorldObjects.Add(worldObject_SmallMoon);
-                return true;
-            } catch {
-                Log.Error("Failed to add satellite"); return false;
-            }
+        public void tryGenSatellite(int i, List<string> satellite_types) {
+            int tile = gen_new_tile(i);
+            if (cachedWorldObjectTiles.ContainsKey(tile) && cachedWorldObjectTiles[tile] is Satellite) return;
+            Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed(satellite_types.RandomElement(), true)
+            );
+            satellite.Tile = tile;
+            Log.Message(satellite.Tile.ToString()); //////
+            Find.WorldObjects.Add(satellite);
+            SatelliteTiles_Utilities.add_satellite(satellite);
         }
 
         public Map makeMoonMap() {
-            Log.Message("Look at that moon!");
-            Satellite target = this.satellites.Find((Satellite x) => !x.has_map);
-            this.satellites.Remove(target);
+            Satellite target = tryGenSatellite();
+            if (moon_exists) {
+                return null;
+            } else {
+                moon_exists = true;
+            }
             Map map2 = MapGenerator.GenerateMap(new IntVec3(300, 1, 300), target, target.MapGeneratorDef, target.ExtraGenStepDefs, null);
-            target.has_map = true;
-            this.satellites.Add(target);
             try {
-                bool flag = false;
                 List<WeatherDef> wdefs = DefDatabase<WeatherDef>.AllDefs.ToList();
                 foreach (WeatherDef defer in wdefs) {
                     if (defer.defName.Equals("OuterSpaceWeather")) {
-                        flag = true;
+                        if (Prefs.DevMode) Log.Message("RimNauts2: Found space weather.");
+                        map2.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
+                        break;
                     }
                 }
-                if (flag) {
-                    Log.Message("set weather");
-                    map2.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
-                } else {
-                    Log.Message("no weather");
-                }
-            } catch { if (Prefs.DevMode) Log.Message("No space weather catch"); }
+                if (Prefs.DevMode) Log.Message("RimNauts2: Didn't find space weather.");
+            } catch {
+                if (Prefs.DevMode) Log.Message("RimNauts2: Didn't find space weather.");
+            }
             Find.World.WorldUpdate();
             return map2;
         }
-
-        public void resetSatellite() {
-            this.numberOfSatellites = 0;
-            this.satellites = new List<Satellite>();
-        }
-
-        public void removeSatellite(Satellite satellite) {
-            this.satellites.Remove(satellite);
-            this.numberOfSatellites -= 1;
-        }
-
-        public int numberOfSatellites = 0;
-        readonly SatelliteDef def = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
-        public List<Satellite> satellites = new List<Satellite>();
     }
 }

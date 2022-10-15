@@ -65,6 +65,7 @@
     <Compile Include="Satellite\BiomeWorker_Satellite.cs" />
     <Compile Include="Satellite\CompProperties_MoonScope.cs" />
     <Compile Include="Satellite\Comp_MoonScope.cs" />
+    <Compile Include="Satellite\SatelliteTiles.cs" />
     <Compile Include="World\OutgoingTransportpod.cs" />
     <Compile Include="Satellite\Satellites.cs" />
     <Compile Include="Satellite\MoonDefOf.cs" />

@@ -5,26 +5,19 @@ namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
         private void generate_satellites() {
             // generate asteroids
-            for (int i = 0; i < total_satellite_amount * asteroid_percent; i++) {
-                Current.Game.GetComponent<Satellites>().tryGenSatellite(
-                    Find.World.grid.TilesCount - 1,
-                    asteroid_defs
-                );
+            for (int i = 0; i < total_satellite_amount; i++) {
+                // branch to generate junk
+                if (i < total_satellite_amount * 0.05f) {
+                    Current.Game.GetComponent<Satellites>().tryGenSatellite(i, junk_defs);
+                // branch to generate ore
+                } else if (i < total_satellite_amount * 0.05f) {
+                    Current.Game.GetComponent<Satellites>().tryGenSatellite(i, asteroid_ore_defs);
+                // branch to generate asteroid
+                } else if (i < total_satellite_amount * 0.90f) {
+                    Current.Game.GetComponent<Satellites>().tryGenSatellite(i, asteroid_defs);
+                }
             }
-            // generate ores
-            for (int i = 0; i < total_satellite_amount * ore_percent; i++) {
-                Current.Game.GetComponent<Satellites>().tryGenSatellite(
-                    Find.World.grid.TilesCount - 1,
-                    asteroid_ore_defs
-                );
-            }
-            // generate junk
-            for (int i = 0; i < total_satellite_amount * junk_percent; i++) {
-                Current.Game.GetComponent<Satellites>().tryGenSatellite(
-                    Find.World.grid.TilesCount - 1,
-                    junk_defs
-                );
-            }
+            Log.Message("Generated asteroids");
         }
 
         public override void GenerateFresh(string seed) {
@@ -41,10 +34,7 @@ namespace RimNauts2 {
             }
         }
 
-        private readonly int total_satellite_amount = 200;
-        private readonly float asteroid_percent = 0.90f;
-        private readonly float ore_percent = 0.05f;
-        private readonly float junk_percent = 0.05f;
+        public readonly static int total_satellite_amount = 200;
         private readonly List<string> asteroid_defs = new List<string>() {
             "asteroid_1",
             "asteroid_2",

@@ -5,22 +5,11 @@ using System.Collections.Generic;
 
 namespace RimNauts2 {
     public class Comp_MoonScope : ThingComp {
-        public CompProperties_MoonScope Props {
-            get {
-                return props as CompProperties_MoonScope;
-            }
-        }
-
-        public override void Initialize(CompProperties props) {
-            base.Initialize(props);
-            numberOfMoons = Current.Game.GetComponent<Satellites>().numberOfSatellites;
-        }
-
         public void lookAtMoon() {
             Map map2;
-            if (Current.Game.GetComponent<Satellites>().numberOfSatellites == 0) {
-                Current.Game.GetComponent<Satellites>().tryGenSatellite();
+            if (!Current.Game.GetComponent<Satellites>().moon_exists) {
                 map2 = Current.Game.GetComponent<Satellites>().makeMoonMap();
+                if (map2 == null) return;
                 CameraJumper.TryJump(map2.Center, map2);
                 Find.MapUI.Notify_SwitchedMap();
             }
@@ -29,7 +18,7 @@ namespace RimNauts2 {
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-            if (Current.Game.GetComponent<Satellites>().numberOfSatellites == 0) {
+            if (!Current.Game.GetComponent<Satellites>().moon_exists) {
                 yield return new Command_Action {
                     defaultLabel = "Look at the Moon!",
                     icon = ContentFinder<Texture2D>.Get("UI/teleIcon", true),
@@ -39,9 +28,5 @@ namespace RimNauts2 {
             }
             yield break;
         }
-
-        public bool triggerFlag = false;
-        public int numberOfMoons = 1;
-        public int numberOfMaps = 0;
     }
 }
