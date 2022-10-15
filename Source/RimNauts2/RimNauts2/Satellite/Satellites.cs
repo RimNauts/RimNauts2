@@ -35,14 +35,14 @@ namespace RimNauts2 {
         public Satellite tryGenSatellite() {
             try {
                 int i = Generate_Satellites.total_satellite_amount + 1;
-                if (cachedWorldObjectTiles.ContainsKey(i) && cachedWorldObjectTiles[i] is Satellite) {
+                int tile = gen_new_tile(i);
+                if (cachedWorldObjectTiles.ContainsKey(tile) && cachedWorldObjectTiles[tile] is Satellite) {
                     moon_exists = true;
                     return null;
                 }
                 Satellite worldObject_SmallMoon = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def.WorldObjectDefNames.RandomElement(), true));
-                worldObject_SmallMoon.Tile = gen_new_tile(i);
-                Log.Message(worldObject_SmallMoon.Tile.ToString()); //////
+                worldObject_SmallMoon.Tile = gen_new_tile(tile);
                 Find.WorldObjects.Add(worldObject_SmallMoon);
                 applySatelliteSurface(worldObject_SmallMoon.Tile);
                 worldObject_SmallMoon.real_tile = getTile(worldObject_SmallMoon.Tile);
@@ -68,7 +68,6 @@ namespace RimNauts2 {
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed(satellite_types.RandomElement(), true)
             );
             satellite.Tile = tile;
-            Log.Message(satellite.Tile.ToString()); //////
             Find.WorldObjects.Add(satellite);
             SatelliteTiles_Utilities.add_satellite(satellite);
         }
