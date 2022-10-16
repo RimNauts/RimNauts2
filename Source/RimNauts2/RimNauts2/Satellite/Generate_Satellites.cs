@@ -1,10 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using HarmonyLib;
+using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 using Verse;
+using System.Threading;
 
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
         public readonly static int total_satellite_amount = 1000;
-        private readonly List<string> asteroid_defs = new List<string>() {
+        public readonly static int total_moon_amount = 1;
+        private readonly static List<string> asteroid_defs = new List<string>() {
             "asteroid_1",
             "asteroid_2",
             "asteroid_3",
@@ -26,6 +31,9 @@ namespace RimNauts2 {
             "junk_3",
             "junk_4",
         };
+        private readonly List<string> moon_defs = new List<string>() {
+            "RockMoon",
+        };
 
         public override int SeedPart {
             get {
@@ -35,17 +43,53 @@ namespace RimNauts2 {
 
         public override void GenerateFresh(string seed) {
             generate_satellites();
+            genrate_moons();
         }
 
         public override void GenerateFromScribe(string seed) {
-            generate_satellites();
+            GenerateFresh(seed);
         }
 
         private void generate_satellites() {
-            int i = 0;
-            while (i < total_satellite_amount) {
-                Current.Game.GetComponent<Satellites>().tryGenSatellite(i, Satellite_Type.Asteroid, asteroid_defs);
-                i++;
+            SatelliteContainer.clear();
+            List<int> suitable_tile_ids = new List<int>();
+
+            for (int i = 0; i < Find.World.grid.TilesCount; i++) {
+                if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean") {
+                    suitable_tile_ids.Add(i);
+                    if (suitable_tile_ids.Count() >= total_satellite_amount) break;
+                }
+            }
+
+            foreach (int tile_id in suitable_tile_ids) {
+                Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                        DefDatabase<RimWorld.WorldObjectDef>.GetNamed(asteroid_defs.RandomElement(), true)
+                );
+                satellite.Tile = tile_id;
+                satellite.type = Satellite_Type.Asteroid;
+                Find.WorldObjects.Add(satellite);
+                SatelliteContainer.add(satellite);
+            }
+        }
+
+        private void genrate_moons() {
+            List<int> suitable_tile_ids = new List<int>();
+
+            for (int i = 0; i < Find.World.grid.TilesCount; i++) {
+                if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean") {
+                    suitable_tile_ids.Add(i);
+                    if (suitable_tile_ids.Count() >= total_moon_amount) break;
+                }
+            }
+
+            foreach (int tile_id in suitable_tile_ids) {
+                Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                    DefDatabase<RimWorld.WorldObjectDef>.GetNamed(moon_defs.RandomElement(), true)
+                );
+                satellite.Tile = tile_id;
+                satellite.type = Satellite_Type.Moon;
+                Find.WorldObjects.Add(satellite);
+                SatelliteContainer.add(satellite);
             }
         }
     }

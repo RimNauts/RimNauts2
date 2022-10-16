@@ -75,7 +75,7 @@
 		<WorldObjectDefNames>
 			<li>RockMoon</li>
 		</WorldObjectDefNames>
-		<maxOrbits>(300,00,300)</maxOrbits> <!--(x,y,z) abs values of ellipse when crossing respective axis -->
+		<maxOrbits>(250,0,250)</maxOrbits> <!--(x,y,z) abs values of ellipse when crossing respective axis -->
 		<shiftOrbits>(0,0,0)</shiftOrbits><!--(x,y,z) abs values offsets of center of ellipse -->
 		<spread>(0.40,0.00,0.40)</spread><!--(x,y,z) precentage values of how far they can spread -->
   	</RimNauts2.SatelliteDef>

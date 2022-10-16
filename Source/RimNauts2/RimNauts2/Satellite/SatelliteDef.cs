@@ -13,20 +13,20 @@ namespace RimNauts2 {
         public IntVec3 shiftOrbits = new IntVec3(20, 20, 20);
         public Vector3 spread = new Vector3(0.25f, 0.25f, 0.25f);
 
-        public List<string> getWorldObjectDefNames => this.WorldObjectDefNames;
+        public List<string> getWorldObjectDefNames => WorldObjectDefNames;
 
-        public Vector3 getOrbitVectorBase => this.orbitVectorBase.ToVector3();
+        public Vector3 getOrbitVectorBase => orbitVectorBase.ToVector3();
 
-        public Vector3 getOrbitVectorRange => this.orbitVectorRange.ToVector3();
+        public Vector3 getOrbitVectorRange => orbitVectorRange.ToVector3();
 
-        public float getOrbitPeriod => this.orbitPeriod;
+        public float getOrbitPeriod => orbitPeriod;
 
-        public float getOrbitPeriodVar => this.orbitPeriodVar;
+        public float getOrbitPeriodVar => orbitPeriodVar;
 
-        public Vector3 getMaxOrbits => this.maxOrbits.ToVector3();
+        public Vector3 getMaxOrbits => maxOrbits.ToVector3();
 
-        public Vector3 getShiftOrbits => this.shiftOrbits.ToVector3();
+        public Vector3 getShiftOrbits => shiftOrbits.ToVector3();
 
-        public Vector3 getSpread => this.spread;
+        public Vector3 getSpread => spread;
     }
 }

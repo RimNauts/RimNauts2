@@ -36,7 +36,13 @@ namespace RimNauts2 {
 
         public override void PostAdd() {
             spread = SatelliteCore.getSpread;
-            max_orbits = randomize_vector(SatelliteCore.getMaxOrbits, false);
+            max_orbits = SatelliteCore.getMaxOrbits;
+            if (type == Satellite_Type.Moon) {
+                max_orbits.x = 400;
+                max_orbits.y = 0;
+                max_orbits.z = 400;
+            }
+            max_orbits = randomize_vector(max_orbits, false);
             shift_orbits = randomize_vector(SatelliteCore.getShiftOrbits, false);
             period = (int) random_orbit(SatelliteCore.getOrbitPeriod, SatelliteCore.getOrbitPeriodVar);
             time_offset = Rand.Range(0, (int) period);
@@ -105,7 +111,7 @@ namespace RimNauts2 {
         }
 
         public override void PostRemove() {
-            SatelliteTiles_Utilities.remove_satellite(this);
+            SatelliteContainer.remove(this);
             base.PostRemove();
         }
     }

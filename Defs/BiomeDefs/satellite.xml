@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<BiomeDef>
+		<defName>SatelliteBiome</defName>
+		<label>satellite</label>
+		<description>satellite</description>
+		<workerClass>BiomeWorker_Ocean</workerClass>
+        <canBuildBase>false</canBuildBase>
+        <allowRoads>false</allowRoads>
+        <allowRivers>false</allowRivers>
+        <hasVirtualPlants>false</hasVirtualPlants>
+        <texture>World/Biomes/Ocean</texture>
+        <impassable>true</impassable>
+  	</BiomeDef>
+</Defs>
