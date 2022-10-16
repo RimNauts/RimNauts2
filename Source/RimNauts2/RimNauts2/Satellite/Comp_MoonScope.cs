@@ -4,10 +4,10 @@ using Verse;
 using System.Collections.Generic;
 
 namespace RimNauts2 {
-    public class Comp_MoonScope : RimWorld.Planet.WorldObjectComp {
+    public class Comp_MoonScope : ThingComp {
         public void generate_moon_map() {
             Map map2;
-            if (Satellites.rock_moon_tile != -1 && !Satellites.has_moon_map) {
+            if (!Satellites.has_moon_map) {
                 map2 = Current.Game.GetComponent<Satellites>().makeMoonMap();
                 if (map2 == null) return;
                 CameraJumper.TryJump(map2.Center, map2);
@@ -16,7 +16,7 @@ namespace RimNauts2 {
             Current.Game.GetComponent<Satellites>().updateSatellites();
         }
 
-        public override IEnumerable<Gizmo> GetGizmos() {
+        public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             if (!Satellites.has_moon_map) {
                 yield return new Command_Action {
                     defaultLabel = "Settle",

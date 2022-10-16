@@ -64,8 +64,27 @@ namespace RimNauts2 {
         }
 
         public Map makeMoonMap() {
-            Satellite target = SatelliteContainer.satellites[rock_moon_tile];
-            Map map2 = MapGenerator.GenerateMap(new IntVec3(300, 1, 300), target, target.MapGeneratorDef, target.ExtraGenStepDefs, null);
+            int tile_id = -1;
+
+            for (int i = 0; i < Find.World.grid.TilesCount; i++) {
+                if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean") {
+                    tile_id = i;
+                    break;
+                }
+            }
+
+            if (tile_id == -1) return null;
+
+            Satellite moon = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RockMoon", true)
+            );
+            moon.Tile = tile_id;
+            moon.type = Satellite_Type.Moon;
+            rock_moon_tile = tile_id;
+            applySatelliteSurface(tile_id);
+            Find.WorldObjects.Add(moon);
+            SatelliteContainer.add(moon);
+            Map map2 = MapGenerator.GenerateMap(new IntVec3(300, 1, 300), moon, moon.MapGeneratorDef, moon.ExtraGenStepDefs, null);
             try {
                 List<WeatherDef> wdefs = DefDatabase<WeatherDef>.AllDefs.ToList();
                 foreach (WeatherDef defer in wdefs) {

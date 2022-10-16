@@ -43,7 +43,6 @@ namespace RimNauts2 {
 
         public override void GenerateFresh(string seed) {
             generate_satellites();
-            genrate_moons();
         }
 
         public override void GenerateFromScribe(string seed) {
@@ -53,9 +52,14 @@ namespace RimNauts2 {
         private void generate_satellites() {
             SatelliteContainer.clear();
             List<int> suitable_tile_ids = new List<int>();
+            int skips = total_moon_amount;
 
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean") {
+                    if (skips != 0) {
+                        skips--;
+                        continue;
+                    }
                     suitable_tile_ids.Add(i);
                     if (suitable_tile_ids.Count() >= total_satellite_amount) break;
                 }
@@ -67,28 +71,6 @@ namespace RimNauts2 {
                 );
                 satellite.Tile = tile_id;
                 satellite.type = Satellite_Type.Asteroid;
-                Find.WorldObjects.Add(satellite);
-                SatelliteContainer.add(satellite);
-            }
-        }
-
-        private void genrate_moons() {
-            List<int> suitable_tile_ids = new List<int>();
-
-            for (int i = 0; i < Find.World.grid.TilesCount; i++) {
-                if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean") {
-                    suitable_tile_ids.Add(i);
-                    if (suitable_tile_ids.Count() >= total_moon_amount) break;
-                }
-            }
-
-            foreach (int tile_id in suitable_tile_ids) {
-                Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                    DefDatabase<RimWorld.WorldObjectDef>.GetNamed(moon_defs.RandomElement(), true)
-                );
-                satellite.Tile = tile_id;
-                satellite.type = Satellite_Type.Moon;
-                Satellites.rock_moon_tile = tile_id;
                 Find.WorldObjects.Add(satellite);
                 SatelliteContainer.add(satellite);
             }

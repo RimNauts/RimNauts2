@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace RimNauts2 {
     public static class SatelliteContainer {
@@ -22,10 +18,6 @@ namespace RimNauts2 {
 
         public static void clear() {
             satellites.Clear();
-        }
-
-        public static int total() {
-            return satellites.Count;
         }
     }
 }

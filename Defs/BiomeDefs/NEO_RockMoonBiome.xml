@@ -5,12 +5,21 @@
 		<label>barrenMoon</label>
 		<description>Rocky Moon</description>
 		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
+    	<canAutoChoose>false</canAutoChoose>
+		<allowRoads>false</allowRoads>
+		<allowRivers>false</allowRivers>
+    	<allowFarmingCamps>false</allowFarmingCamps>
 		<animalDensity>0</animalDensity>
 		<plantDensity>0</plantDensity>
 		<hasVirtualPlants>false</hasVirtualPlants>
-		<settlementSelectionWeight>0.9</settlementSelectionWeight>
-		<movementDifficulty>1</movementDifficulty>
+		<settlementSelectionWeight>0.01</settlementSelectionWeight>
+		<movementDifficulty>2</movementDifficulty>
+    	<texture>World/Biomes/Ocean</texture>
 		<forageability>0</forageability>
+    	<isExtremeBiome>true</isExtremeBiome>
+		<soundsAmbient>
+			<li>Ambient_Wind_Desolate</li>
+		</soundsAmbient>
 		<diseaseMtbDays>90</diseaseMtbDays>
 		<diseases>
 			<li>
@@ -30,9 +39,15 @@
 				<max>999</max>
 			</li>
 		</terrainsByFertility>
-    <texture>World/Biomes/Ocean</texture>
 		<baseWeatherCommonalities>
 			<Clear>1</Clear>
+			<Fog>0</Fog>
+			<Rain>0</Rain>
+			<DryThunderstorm>0</DryThunderstorm>
+			<RainyThunderstorm>0</RainyThunderstorm>
+			<FoggyRain>0</FoggyRain>
+			<SnowGentle>0</SnowGentle>
+			<SnowHard>0</SnowHard>
 		</baseWeatherCommonalities>
 		<wildPlants><!-- nothing --></wildPlants>
 		<wildAnimals><!-- nothing --></wildAnimals>
