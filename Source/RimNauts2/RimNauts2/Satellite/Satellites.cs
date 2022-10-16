@@ -4,7 +4,8 @@ using Verse;
 
 namespace RimNauts2 {
     public class Satellites : GameComponent {
-        public static bool moon_exists = false;
+        public static int rock_moon_tile = -1;
+        public static bool has_moon_map = false;
         readonly SatelliteDef def = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
 
         public Satellites(Game game) : base() { }
@@ -36,7 +37,8 @@ namespace RimNauts2 {
                 int tile = gen_new_tile(Generate_Satellites.total_satellite_amount + 1);
                 if (SatelliteContainer.exists(tile)) {
                     Find.WorldObjects.Add(SatelliteContainer.satellites[tile]);
-                    moon_exists = true;
+                    rock_moon_tile = tile;
+                    has_moon_map = true;
                     return null;
                 }
                 Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
@@ -62,12 +64,7 @@ namespace RimNauts2 {
         }
 
         public Map makeMoonMap() {
-            Satellite target = tryGenSatellite();
-            if (moon_exists) {
-                return null;
-            } else {
-                moon_exists = true;
-            }
+            Satellite target = SatelliteContainer.satellites[rock_moon_tile];
             Map map2 = MapGenerator.GenerateMap(new IntVec3(300, 1, 300), target, target.MapGeneratorDef, target.ExtraGenStepDefs, null);
             try {
                 List<WeatherDef> wdefs = DefDatabase<WeatherDef>.AllDefs.ToList();
@@ -82,8 +79,6 @@ namespace RimNauts2 {
             } catch {
                 if (Prefs.DevMode) Log.Message("RimNauts2: Didn't find space weather.");
             }
-
-
             Find.World.WorldUpdate();
             return map2;
         }

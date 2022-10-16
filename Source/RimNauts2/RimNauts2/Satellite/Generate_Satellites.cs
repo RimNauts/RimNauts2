@@ -88,6 +88,7 @@ namespace RimNauts2 {
                 );
                 satellite.Tile = tile_id;
                 satellite.type = Satellite_Type.Moon;
+                Satellites.rock_moon_tile = tile_id;
                 Find.WorldObjects.Add(satellite);
                 SatelliteContainer.add(satellite);
             }

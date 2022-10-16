@@ -4,26 +4,25 @@ using Verse;
 using System.Collections.Generic;
 
 namespace RimNauts2 {
-    public class Comp_MoonScope : ThingComp {
-        public void lookAtMoon() {
+    public class Comp_MoonScope : RimWorld.Planet.WorldObjectComp {
+        public void generate_moon_map() {
             Map map2;
-            if (!Satellites.moon_exists) {
+            if (Satellites.rock_moon_tile != -1 && !Satellites.has_moon_map) {
                 map2 = Current.Game.GetComponent<Satellites>().makeMoonMap();
                 if (map2 == null) return;
                 CameraJumper.TryJump(map2.Center, map2);
                 Find.MapUI.Notify_SwitchedMap();
             }
             Current.Game.GetComponent<Satellites>().updateSatellites();
-            Find.LetterStack.ReceiveLetter("Look at that moon!", "You can clearly see the surface of the moon with the telescope. Imagine visiting such a place!", RimWorld.LetterDefOf.NeutralEvent, null);
         }
 
-        public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-            if (!Satellites.moon_exists) {
+        public override IEnumerable<Gizmo> GetGizmos() {
+            if (!Satellites.has_moon_map) {
                 yield return new Command_Action {
-                    defaultLabel = "Look at the Moon!",
+                    defaultLabel = "Settle",
                     icon = ContentFinder<Texture2D>.Get("UI/teleIcon", true),
-                    defaultDesc = "Look at the moon's surface through the refracting telescope.",
-                    action = new Action(lookAtMoon)
+                    defaultDesc = "Settle the moon.",
+                    action = new Action(generate_moon_map)
                 };
             }
             yield break;
