@@ -16,6 +16,7 @@ namespace RimNauts2 {
         public float period;
         public RimWorld.Planet.Tile real_tile;
         public int time_offset = 0;
+        public float speed = Rand.Range(0.5f, 1.5f);
 
         public override Vector3 DrawPos {
             get {
@@ -26,9 +27,9 @@ namespace RimNauts2 {
         public Vector3 get_parametric_ellipse() {
             int time = Find.TickManager.TicksGame;
             Vector3 vec3 = new Vector3 {
-                x = max_orbits.x * (float) Math.Cos(6.28f / period * (time + time_offset)) + shift_orbits.x,
-                z = max_orbits.z * (float) Math.Sin(6.28f / period * (time + time_offset)) + shift_orbits.z,
-                y = max_orbits.y * (float) Math.Cos(6.28f / period * (time + time_offset)) + shift_orbits.y,
+                x = max_orbits.x * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)) + shift_orbits.x,
+                z = max_orbits.z * (float) Math.Sin(6.28f / period * ((speed * time) + time_offset)) + shift_orbits.z,
+                y = max_orbits.y * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)) + shift_orbits.y,
             };
             return vec3;
         }

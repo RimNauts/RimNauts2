@@ -42,8 +42,10 @@ namespace RimNauts2 {
         }
 
         private void generate_satellites() {
-            for (int i = 0; i < total_satellite_amount; i++) {
+            int i = 0;
+            while (i < total_satellite_amount) {
                 Current.Game.GetComponent<Satellites>().tryGenSatellite(i, Satellite_Type.Asteroid, asteroid_defs);
+                i++;
             }
         }
     }
