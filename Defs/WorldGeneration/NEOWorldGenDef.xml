@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<WorldGenStepDef>
-		<defName>Moons</defName>
+		<defName>AsteroidBelt</defName>
 		<order>700</order>
 		<worldGenStep Class="RimNauts2.Generate_Satellites"/>
 	</WorldGenStepDef>

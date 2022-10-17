@@ -114,7 +114,7 @@ namespace RimNauts2 {
             if (type == Satellite_Type.Moon) {
                 Satellites.has_moon_map = false;
                 Satellites.rock_moon_tile = -1;
-                Find.World.grid.tiles.ElementAt(Tile).biome = RimWorld.BiomeDefOf.Ocean;
+                Find.World.grid.tiles.ElementAt(Tile).biome = BiomeDefOf.SatelliteBiome;
             }
             SatelliteContainer.remove(this);
             base.PostRemove();

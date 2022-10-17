@@ -41,7 +41,7 @@ namespace RimNauts2 {
             int tile_id = -1;
 
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
-                if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean") {
+                if (Find.World.grid.tiles.ElementAt(i).biome == BiomeDefOf.SatelliteBiome) {
                     tile_id = i;
                     break;
                 }

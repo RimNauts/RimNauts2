@@ -34,6 +34,7 @@ namespace RimNauts2 {
 
         public override int SeedPart {
             get {
+                SetSatelliteBiome.i = 0;
                 return 133714088;
             }
         }
@@ -52,7 +53,7 @@ namespace RimNauts2 {
             int skips = total_moon_amount;
 
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
-                if (Find.World.grid.tiles.ElementAt(i).biome == RimWorld.BiomeDefOf.Ocean) {
+                if (Find.World.grid.tiles.ElementAt(i).biome == BiomeDefOf.SatelliteBiome) {
                     if (skips != 0) {
                         skips--;
                         continue;
