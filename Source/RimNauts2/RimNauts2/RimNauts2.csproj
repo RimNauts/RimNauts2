@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biome\BiomeWorker_Satellite.cs" />
+    <Compile Include="Biome\SetSatelliteBiome.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Map\MapGen\ElevationFertilityPatch.cs" />
     <Compile Include="Map\MapGen\GenStep_MoonRocks.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Satellite\SatelliteDef.cs" />
     <Compile Include="Satellite\Generate_Satellites.cs" />
     <Compile Include="Satellite\Satellite.cs" />
+    <Compile Include="World\ChangeBiomeMaterial.cs" />
     <Compile Include="World\HideIcons.cs" />
     <Compile Include="World\Transport.cs" />
   </ItemGroup>
