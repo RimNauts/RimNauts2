@@ -63,6 +63,7 @@
     <Compile Include="Map\MapGen\TerrainPatch.cs" />
     <Compile Include="Satellite\Moon\CompProperties_MoonScope.cs" />
     <Compile Include="Satellite\Moon\Comp_MoonScope.cs" />
+    <Compile Include="Satellite\Moon\GenerateMapButton.cs" />
     <Compile Include="Satellite\SatelliteContainer.cs" />
     <Compile Include="Satellite\Satellites.cs" />
     <Compile Include="Satellite\Moon\BiomeDefOf.cs" />

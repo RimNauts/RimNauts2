@@ -18,6 +18,7 @@
 		<mapGenerator>MoonMap</mapGenerator>
 		<expandingIconPriority>1002</expandingIconPriority>
 		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 		</comps>
 	</WorldObjectDef>

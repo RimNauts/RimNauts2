@@ -50,28 +50,33 @@ namespace RimNauts2 {
         private void generate_satellites() {
             SatelliteContainer.clear();
             List<int> suitable_tile_ids = new List<int>();
-            int skips = total_moon_amount;
+            int moons_added = 0;
+            int satellites_added = 0;
 
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
+                if (Find.World.grid.tiles.ElementAt(i).biome == BiomeDefOf.RockMoonBiome) moons_added++;
                 if (Find.World.grid.tiles.ElementAt(i).biome == BiomeDefOf.SatelliteBiome) {
-                    if (skips != 0) {
-                        skips--;
-                        continue;
-                    }
                     suitable_tile_ids.Add(i);
-                    if (suitable_tile_ids.Count() >= total_satellite_amount) break;
+
+                    if (moons_added < total_moon_amount) {
+                        add_satellite(i, moon_defs, Satellite_Type.Moon);
+                        moons_added++;
+                    } else if (satellites_added < total_satellite_amount) {
+                        add_satellite(i, asteroid_defs, Satellite_Type.Asteroid);
+                        satellites_added++;
+                    } else break;
                 }
             }
+        }
 
-            foreach (int tile_id in suitable_tile_ids) {
-                Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                        DefDatabase<RimWorld.WorldObjectDef>.GetNamed(asteroid_defs.RandomElement(), true)
+        private void add_satellite(int tile_id, List<string> defs, Satellite_Type type) {
+            Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                        DefDatabase<RimWorld.WorldObjectDef>.GetNamed(defs.RandomElement(), true)
                 );
-                satellite.Tile = tile_id;
-                satellite.type = Satellite_Type.Asteroid;
-                Find.WorldObjects.Add(satellite);
-                SatelliteContainer.add(satellite);
-            }
+            satellite.Tile = tile_id;
+            satellite.type = type;
+            Find.WorldObjects.Add(satellite);
+            SatelliteContainer.add(satellite);
         }
     }
 }
