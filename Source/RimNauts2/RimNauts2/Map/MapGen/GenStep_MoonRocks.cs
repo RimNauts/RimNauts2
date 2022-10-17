@@ -17,14 +17,14 @@ namespace RimNauts2 {
         }
 
         public static ThingDef RockDefAt(float fertility) {
-            ThingDef thingDef = ThingDef.Named("BiomesNEO_HighlandRock");
+            ThingDef thingDef = ThingDef.Named("Marble");
             // Changes the ratio of rock types
-            if (fertility > 0.4f) thingDef = ThingDef.Named("BiomesNEO_MariaRock");
+            if (fertility > 0.4f) thingDef = ThingDef.Named("Slate");
             return thingDef;
         }
 
         public override void Generate(Map map, GenStepParams parms) {
-            if (map.Biome.defName != "RockMoonBiome") return;
+            if (map.Biome != BiomeDefOf.RockMoonBiome) return;
             map.regionAndRoomUpdater.Enabled = false;
             float num = 0.7f;
             List<RoofThreshold> list = new List<RoofThreshold> {

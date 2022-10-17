@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Verse;
 
 namespace RimNauts2 {
-    /*[HarmonyPatch(typeof(RimWorld.IncidentWorker), "CanFireNow")]
+    [HarmonyPatch(typeof(RimWorld.IncidentWorker), "CanFireNow")]
     public class IncidentWorker_CanFireNow {
         [HarmonyPostfix]
         public static void Postfix(ref RimWorld.IncidentWorker __instance, ref bool __result) {
@@ -14,7 +14,7 @@ namespace RimNauts2 {
         [HarmonyPostfix]
         public static void Postfix(RimWorld.IncidentParms parms, ref bool __result) {
             if (!__result) return;
-            bool incident_not_on_moon_biome = Find.WorldGrid[parms.target.Tile].biome != MoonDefOf.RockMoonBiome;
+            bool incident_not_on_moon_biome = Find.WorldGrid[parms.target.Tile].biome != BiomeDefOf.RockMoonBiome;
             if (incident_not_on_moon_biome) return;
             if (allowed_incidents.Contains(incident)) return;
             __result = false;
@@ -37,5 +37,5 @@ namespace RimNauts2 {
             "ResourcePodCrash",
             "ShipChunkDrop",
         };
-    }*/
+    }
 }

@@ -9,7 +9,7 @@ namespace RimNauts2 {
     public static class ElevationFertilityPatch {
         [HarmonyPostfix]
         public static void Postfix(Map map, GenStepParams parms) {
-            if (map.Biome.defName != "RockMoonBiome") return;
+            if (map.Biome != BiomeDefOf.RockMoonBiome) return;
             // Map generation is based mostly on these two grids. We're making custom grids.
             MapGenFloatGrid fertility = MapGenerator.Fertility;
             MapGenFloatGrid elevation = MapGenerator.Elevation;

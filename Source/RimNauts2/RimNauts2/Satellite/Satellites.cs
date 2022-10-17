@@ -21,14 +21,14 @@ namespace RimNauts2 {
             List<int> neighbors = new List<int>();
             Find.World.grid.GetTileNeighbors(tileNum, neighbors);
             foreach (int tile in neighbors) {
-                Find.World.grid.tiles.ElementAt(tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
+                Find.World.grid.tiles.ElementAt(tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(BiomeDefOf.RockMoonBiome.defName);
             }
             Find.World.grid.tiles.ElementAt(tileNum).elevation = 100f;
             Find.World.grid.tiles.ElementAt(tileNum).hilliness = RimWorld.Planet.Hilliness.Flat;
             Find.World.grid.tiles.ElementAt(tileNum).rainfall = 0f;
             Find.World.grid.tiles.ElementAt(tileNum).swampiness = 0f;
             Find.World.grid.tiles.ElementAt(tileNum).temperature = -40f;
-            Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
+            Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(BiomeDefOf.RockMoonBiome.defName);
         }
 
         public void updateSatellites() {

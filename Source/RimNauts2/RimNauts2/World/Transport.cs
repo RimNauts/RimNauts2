@@ -9,10 +9,15 @@ namespace RimNauts2 {
     public static class TransportpodSatelliteIgnoreMaxRange {
         [HarmonyPostfix]
         public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            bool to_moon = Find.World.grid.tiles.ElementAt(start).biome == RimWorld.BiomeDef.Named("RockMoonBiome");
-            bool from_moon = Find.World.grid.tiles.ElementAt(end).biome == RimWorld.BiomeDef.Named("RockMoonBiome");
-            if (to_moon || from_moon) {
+            bool to_moon = Find.World.grid.tiles.ElementAt(start).biome == BiomeDefOf.RockMoonBiome;
+            if (to_moon) {
                 __result = 1;
+                return;
+            }
+            bool from_moon = Find.World.grid.tiles.ElementAt(end).biome == BiomeDefOf.RockMoonBiome;
+            if (from_moon) {
+                __result = 1;
+                return;
             }
         }
     }
