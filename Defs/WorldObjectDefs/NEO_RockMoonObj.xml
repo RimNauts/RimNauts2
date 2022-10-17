@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<WorldObjectDef>
-		<defName>RockMoon</defName>
+		<defName>Moon</defName>
 		<label>small moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<worldObjectClass>RimNauts2.Satellite</worldObjectClass>
-		<texture>NEOs/Rimroids/smallmoon</texture>
+		<texture>NEOs/Rimroids/RimNauts2_Moon</texture>
 		<useDynamicDrawer>false</useDynamicDrawer>
 		<expandingIcon>true</expandingIcon>
-		<expandingIconTexture>NEOs/Rimroids/smallmoon</expandingIconTexture>
+		<expandingIconTexture>NEOs/Rimroids/RimNauts2_Moon</expandingIconTexture>
 		<IncidentTargetTags>
 			<li>Map_PlayerHome</li>
 			<li>Map_TempIncident</li>
@@ -25,9 +25,6 @@
   
 	<RimNauts2.SatelliteDef>
 		<defName>SatelliteCore</defName>
-		<WorldObjectDefNames>
-			<li>RockMoon</li>
-		</WorldObjectDefNames>
 		<maxOrbits>(250,0,250)</maxOrbits> <!--(x,y,z) abs values of ellipse when crossing respective axis -->
 		<shiftOrbits>(0,0,0)</shiftOrbits><!--(x,y,z) abs values offsets of center of ellipse -->
 		<spread>(0.40,0.00,0.40)</spread><!--(x,y,z) precentage values of how far they can spread -->

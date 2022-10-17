@@ -30,7 +30,7 @@ namespace RimNauts2 {
             "junk_4",
         };
         private readonly List<string> moon_defs = new List<string>() {
-            "RockMoon",
+            "Moon",
         };
 
         public override int SeedPart {

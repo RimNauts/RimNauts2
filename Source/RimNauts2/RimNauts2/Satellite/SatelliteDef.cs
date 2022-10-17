@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace RimNauts2 {
     class SatelliteDef : Def {
-        public List<string> WorldObjectDefNames = new List<string>() { "RockMoon" };
         public IntVec3 orbitVectorBase = new IntVec3(200, 40, 0);
         public IntVec3 orbitVectorRange = new IntVec3(150, 10, 0);
         public float orbitPeriod = 36000f;
@@ -12,8 +11,6 @@ namespace RimNauts2 {
         public IntVec3 maxOrbits = new IntVec3(400, 50, 200);
         public IntVec3 shiftOrbits = new IntVec3(20, 20, 20);
         public Vector3 spread = new Vector3(0.25f, 0.25f, 0.25f);
-
-        public List<string> getWorldObjectDefNames => WorldObjectDefNames;
 
         public Vector3 getOrbitVectorBase => orbitVectorBase.ToVector3();
 
