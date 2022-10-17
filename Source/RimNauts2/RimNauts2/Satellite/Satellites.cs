@@ -37,23 +37,14 @@ namespace RimNauts2 {
             }
         }
 
-        public Map makeMoonMap() {
-            int tile_id = -1;
-
-            for (int i = 0; i < Find.World.grid.TilesCount; i++) {
-                if (Find.World.grid.tiles.ElementAt(i).biome == BiomeDefOf.SatelliteBiome) {
-                    tile_id = i;
-                    break;
-                }
-            }
-
-            if (tile_id == -1) return null;
-
+        public Map generate_moon_map(int tile_id, string def_name) {
             Satellite moon = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RockMoon", true)
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def_name, true)
             );
+            moon.def_name = def_name;
             moon.Tile = tile_id;
             moon.type = Satellite_Type.Moon;
+            moon.has_map = true;
             rock_moon_tile = tile_id;
             applySatelliteSurface(tile_id);
             Find.WorldObjects.Add(moon);
@@ -68,10 +59,7 @@ namespace RimNauts2 {
                         break;
                     }
                 }
-                if (Prefs.DevMode) Log.Message("RimNauts2: Didn't find space weather.");
-            } catch {
-                if (Prefs.DevMode) Log.Message("RimNauts2: Didn't find space weather.");
-            }
+            } catch { }
             Find.World.WorldUpdate();
             return map2;
         }

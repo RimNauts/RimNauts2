@@ -8,6 +8,7 @@ namespace RimNauts2 {
     [StaticConstructorOnStartup]
     public class Satellite : RimWorld.Planet.MapParent {
         readonly SatelliteDef SatelliteCore = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
+        public string def_name;
         public Satellite_Type type;
         public Vector3 max_orbits;
         public Vector3 shift_orbits;
@@ -17,12 +18,9 @@ namespace RimNauts2 {
         public RimWorld.Planet.Tile real_tile;
         public int time_offset = 0;
         public float speed = Rand.Range(0.5f, 1.5f);
+        public bool has_map = false;
 
-        public override Vector3 DrawPos {
-            get {
-                return get_parametric_ellipse();
-            }
-        }
+        public override Vector3 DrawPos => get_parametric_ellipse();
 
         public Vector3 get_parametric_ellipse() {
             int time = Find.TickManager.TicksGame;
@@ -35,23 +33,22 @@ namespace RimNauts2 {
         }
 
         public override void PostAdd() {
-            spread = SatelliteCore.getSpread;
-            max_orbits = SatelliteCore.getMaxOrbits;
-            if (type == Satellite_Type.Moon) {
-                max_orbits.x = 400;
-                max_orbits.y = 0;
-                max_orbits.z = 400;
+            if (spread == default) spread = SatelliteCore.getSpread;
+            if (max_orbits == default) {
+                if (type == Satellite_Type.Moon) {
+                    max_orbits.x = 400;
+                    max_orbits.y = 0;
+                    max_orbits.z = 400;
+                } else max_orbits = SatelliteCore.getMaxOrbits;
+                max_orbits = randomize_vector(max_orbits, false);
             }
-            max_orbits = randomize_vector(max_orbits, false);
-            shift_orbits = randomize_vector(SatelliteCore.getShiftOrbits, false);
-            period = (int) random_orbit(SatelliteCore.getOrbitPeriod, SatelliteCore.getOrbitPeriodVar);
-            time_offset = Rand.Range(0, (int) period);
+            if (shift_orbits == default) shift_orbits = randomize_vector(SatelliteCore.getShiftOrbits, false);
+            if (period == default) period = (int) random_orbit(SatelliteCore.getOrbitPeriod, SatelliteCore.getOrbitPeriodVar);
+            if (time_offset == default) time_offset = Rand.Range(0, (int) period);
             base.PostAdd();
         }
 
-        public float random_orbit(float min, float range) {
-            return min + (range * (Rand.Value - 0.5f));
-        }
+        public float random_orbit(float min, float range) => min + (range * (Rand.Value - 0.5f));
 
         public Vector3 randomize_vector(Vector3 vec, bool rand_direction) {
             return new Vector3 {
@@ -111,13 +108,34 @@ namespace RimNauts2 {
         }
 
         public override void PostRemove() {
+            int buffer_tile_id = Tile;
+            string buffer_def_name = def_name;
+            Satellite_Type buffer_type = type;
+            Vector3 buffer_max_orbits = max_orbits;
+            Vector3 buffer_shift_orbits = shift_orbits;
+            Vector3 buffer_spread = spread;
+            float buffer_period = period;
+            int buffer_time_offset = time_offset;
+            float buffer_speed = speed;
             if (type == Satellite_Type.Moon) {
                 Satellites.has_moon_map = false;
                 Satellites.rock_moon_tile = -1;
                 Find.World.grid.tiles.ElementAt(Tile).biome = BiomeDefOf.SatelliteBiome;
+                
             }
             SatelliteContainer.remove(this);
             base.PostRemove();
+            if (type == Satellite_Type.Moon) Generate_Satellites.add_satellite(
+                buffer_tile_id,
+                buffer_def_name,
+                buffer_type,
+                buffer_max_orbits,
+                buffer_shift_orbits,
+                buffer_spread,
+                buffer_period,
+                buffer_time_offset,
+                buffer_speed
+            );
         }
     }
 

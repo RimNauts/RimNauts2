@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 
 namespace RimNauts2 {
@@ -39,13 +40,7 @@ namespace RimNauts2 {
             }
         }
 
-        public override void GenerateFresh(string seed) {
-            generate_satellites();
-        }
-
-        public override void GenerateFromScribe(string seed) {
-            GenerateFresh(seed);
-        }
+        public override void GenerateFresh(string seed) => generate_satellites();
 
         private void generate_satellites() {
             SatelliteContainer.clear();
@@ -70,11 +65,40 @@ namespace RimNauts2 {
         }
 
         private void add_satellite(int tile_id, List<string> defs, Satellite_Type type) {
+            string def_name = defs.RandomElement();
             Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                        DefDatabase<RimWorld.WorldObjectDef>.GetNamed(defs.RandomElement(), true)
-                );
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def_name, true)
+            );
             satellite.Tile = tile_id;
+            satellite.def_name = def_name;
             satellite.type = type;
+            Find.WorldObjects.Add(satellite);
+            SatelliteContainer.add(satellite);
+        }
+
+        public static void add_satellite(
+            int tile_id,
+            string def_name,
+            Satellite_Type type,
+            Vector3 max_orbits,
+            Vector3 shift_orbits,
+            Vector3 spread,
+            float period,
+            int time_offset,
+            float speed
+        ) {
+            Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def_name, true)
+            );
+            satellite.Tile = tile_id;
+            satellite.def_name = def_name;
+            satellite.type = type;
+            satellite.max_orbits = max_orbits;
+            satellite.shift_orbits = shift_orbits;
+            satellite.spread = spread;
+            satellite.period = period;
+            satellite.time_offset = time_offset;
+            satellite.speed = speed;
             Find.WorldObjects.Add(satellite);
             SatelliteContainer.add(satellite);
         }
