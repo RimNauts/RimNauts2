@@ -6,7 +6,6 @@ namespace RimNauts2 {
     public class Satellites : GameComponent {
         public static int rock_moon_tile = -1;
         public static bool has_moon_map = false;
-        readonly SatelliteDef def = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
 
         public Satellites(Game game) : base() { }
 
@@ -30,31 +29,6 @@ namespace RimNauts2 {
             Find.World.grid.tiles.ElementAt(tileNum).swampiness = 0f;
             Find.World.grid.tiles.ElementAt(tileNum).temperature = -40f;
             Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RockMoonBiome");
-        }
-
-        public Satellite tryGenSatellite() {
-            try {
-                int tile = gen_new_tile(Generate_Satellites.total_satellite_amount + 1);
-                if (SatelliteContainer.exists(tile)) {
-                    Find.WorldObjects.Add(SatelliteContainer.satellites[tile]);
-                    rock_moon_tile = tile;
-                    has_moon_map = true;
-                    return null;
-                }
-                Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                    DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def.WorldObjectDefNames.RandomElement(), true)
-                );
-                satellite.Tile = gen_new_tile(tile);
-                Find.WorldObjects.Add(satellite);
-                applySatelliteSurface(satellite.Tile);
-                satellite.real_tile = getTile(satellite.Tile);
-                satellite.type = Satellite_Type.Moon;
-                SatelliteContainer.add(satellite);
-                return satellite;
-            } catch {
-                Log.Error("Failed to add satellite");
-                return null;
-            }
         }
 
         public void updateSatellites() {

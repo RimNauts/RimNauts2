@@ -60,11 +60,11 @@
     <Compile Include="Map\MapGen\GenStep_MoonTerrain.cs" />
     <Compile Include="Map\MapGen\RocksFromGridPatch.cs" />
     <Compile Include="Map\MapGen\TerrainPatch.cs" />
-    <Compile Include="Satellite\CompProperties_MoonScope.cs" />
-    <Compile Include="Satellite\Comp_MoonScope.cs" />
+    <Compile Include="Satellite\Moon\CompProperties_MoonScope.cs" />
+    <Compile Include="Satellite\Moon\Comp_MoonScope.cs" />
     <Compile Include="Satellite\SatelliteContainer.cs" />
     <Compile Include="Satellite\Satellites.cs" />
-    <Compile Include="Satellite\MoonDefOf.cs" />
+    <Compile Include="Satellite\Moon\MoonDefOf.cs" />
     <Compile Include="Filter\IncidentWorker_CanFireNow.cs" />
     <Compile Include="RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

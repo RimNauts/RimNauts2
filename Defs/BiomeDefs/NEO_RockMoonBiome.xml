@@ -27,18 +27,6 @@
 				<commonality>100</commonality>
 			</li>
 		</diseases>
-		<terrainsByFertility>
-			<li>
-				<terrain>lunarMaria</terrain>
-				<min>-999</min>
-				<max>0</max>
-			</li>
-			<li>
-				<terrain>lunarHighland</terrain>
-				<min>0</min>
-				<max>999</max>
-			</li>
-		</terrainsByFertility>
 		<baseWeatherCommonalities>
 			<Clear>1</Clear>
 			<Fog>0</Fog>

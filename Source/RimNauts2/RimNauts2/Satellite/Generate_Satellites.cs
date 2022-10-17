@@ -1,9 +1,6 @@
-﻿using HarmonyLib;
-using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Verse;
-using System.Threading;
 
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
