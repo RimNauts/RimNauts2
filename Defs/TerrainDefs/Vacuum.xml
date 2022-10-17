@@ -4,7 +4,7 @@
 	<TerrainDef>
 		<defName>OpenSpace</defName>
 		<label>vacuum</label>
-		<texturePath>Terrain/Surfaces/space</texturePath>
+		<texturePath>Terrain/Surfaces/vacuum</texturePath>
 		<edgeType>FadeRough</edgeType>
 		<renderPrecedence>20</renderPrecedence>
 		<passability>Impassable</passability>
