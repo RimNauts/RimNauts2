@@ -24,6 +24,7 @@ namespace RimNauts2 {
             foreach (RimWorld.TerrainPatchMaker current2 in map.Biome.terrainPatchMakers) {
                 current2.Cleanup();
             }
+            MapGenerator.PlayerStartSpot = new IntVec3(1, 0, 1);
         }
 
         private TerrainDef TerrainFrom(IntVec3 current, IntVec3 center, IntVec3 size, float fertility) {

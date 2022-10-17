@@ -3,7 +3,6 @@
 	<MapGeneratorDef Name="MoonMap">
 	<defName>MoonMap</defName>
 		<genSteps>
-			<li>FindPlayerStartSpot</li>
 			<li>ElevationFertility</li>
 			<li>Caves</li>
 			<li>RocksFromGrid</li>
