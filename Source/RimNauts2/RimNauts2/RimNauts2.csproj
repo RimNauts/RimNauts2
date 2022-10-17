@@ -73,8 +73,6 @@
     <Compile Include="Satellite\Satellite.cs" />
     <Compile Include="World\HideIcons.cs" />
     <Compile Include="World\Transport.cs" />
-    <Compile Include="World\TransportpodFromSatellite.cs" />
-    <Compile Include="World\TransportpodToSatellite.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig">
