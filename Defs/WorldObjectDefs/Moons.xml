@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<WorldObjectDef ParentName="satellite">
+	<WorldObjectDef Name="moon" ParentName="satellite">
 		<defName>Moon</defName>
-		<label>small moon</label>
+		<label>moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_Moon</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_Moon</expandingIconTexture>
@@ -18,6 +18,14 @@
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
 		</comps>
+	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="moon">
+		<defName>Moon_Base</defName>
+		<label>moon base</label>
+		<description>One of what could be many, many moons orbiting this rimworld.</description>
+		<texture>Satellites/Moons/RimNauts2_Moon_Base</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_Moon_Base</expandingIconTexture>
 	</WorldObjectDef>
   
 	<RimNauts2.SatelliteDef>

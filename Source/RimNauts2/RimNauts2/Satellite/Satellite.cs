@@ -125,9 +125,9 @@ namespace RimNauts2 {
             }
             SatelliteContainer.remove(this);
             base.PostRemove();
-            if (type == Satellite_Type.Moon) Generate_Satellites.add_satellite(
+            if (type == Satellite_Type.Moon) _ = Generate_Satellites.copy_satellite(
                 buffer_tile_id,
-                buffer_def_name,
+                buffer_def_name.Substring(0, buffer_def_name.Length - 5),
                 buffer_type,
                 buffer_max_orbits,
                 buffer_shift_orbits,

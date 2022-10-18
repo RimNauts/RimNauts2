@@ -73,7 +73,7 @@ namespace RimNauts2 {
             SatelliteContainer.add(satellite);
         }
 
-        public static void add_satellite(
+        public static Satellite copy_satellite(
             int tile_id,
             string def_name,
             Satellite_Type type,
@@ -98,6 +98,7 @@ namespace RimNauts2 {
             satellite.speed = speed;
             Find.WorldObjects.Add(satellite);
             SatelliteContainer.add(satellite);
+            return satellite;
         }
     }
 }
