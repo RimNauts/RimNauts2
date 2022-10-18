@@ -1,14 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<WorldObjectDef>
+	<WorldObjectDef ParentName="satellite">
 		<defName>Moon</defName>
 		<label>small moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<worldObjectClass>RimNauts2.Satellite</worldObjectClass>
-		<texture>NEOs/Rimroids/RimNauts2_Moon</texture>
-		<useDynamicDrawer>false</useDynamicDrawer>
-		<expandingIcon>true</expandingIcon>
-		<expandingIconTexture>NEOs/Rimroids/RimNauts2_Moon</expandingIconTexture>
+		<texture>Satellites/Moons/RimNauts2_Moon</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_Moon</expandingIconTexture>
 		<IncidentTargetTags>
 			<li>Map_PlayerHome</li>
 			<li>Map_TempIncident</li>

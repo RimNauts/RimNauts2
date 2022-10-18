@@ -9,7 +9,7 @@
         <useDynamicDrawer>true</useDynamicDrawer>
         <expandingIcon>true</expandingIcon>
         <expandingIconTexture>World/WorldObjects/Expanding/TravelingTransportPods</expandingIconTexture>
-        <expandingIconPriority>1002</expandingIconPriority>
+        <expandingIconPriority>1003</expandingIconPriority>
         <expandMore>true</expandMore>
         <allowCaravanIncidentsWhichGenerateMap>true</allowCaravanIncidentsWhichGenerateMap>
     </WorldObjectDef>

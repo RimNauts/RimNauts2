@@ -8,26 +8,23 @@ namespace RimNauts2 {
         public readonly static int total_satellite_amount = 1000;
         public readonly static int total_moon_amount = 1;
         private readonly static List<string> asteroid_defs = new List<string>() {
-            "asteroid_1",
-            "asteroid_2",
-            "asteroid_3",
-            "asteroid_4",
-            "asteroid_5",
-            "asteroid_6",
-            "asteroid_7",
-            "asteroid_8",
-            "asteroid_9",
+            "RimNauts2_Asteroid_1",
+            "RimNauts2_Asteroid_2",
+            "RimNauts2_Asteroid_3",
+            "RimNauts2_Asteroid_4",
+            "RimNauts2_Asteroid_5",
+            "RimNauts2_Asteroid_6",
+            "RimNauts2_Asteroid_7",
+            "RimNauts2_Asteroid_8",
+            "RimNauts2_Asteroid_9",
         };
         private readonly List<string> asteroid_ore_defs = new List<string>() {
-            "ore_steel",
-            "ore_gold",
-            "ore_plasteel",
+            "RimNauts2_Ore_Steel",
+            "RimNauts2_Ore_Gold",
+            "RimNauts2_Ore_Plasteel",
         };
         private readonly List<string> junk_defs = new List<string>() {
-            "junk_1",
-            "junk_2",
-            "junk_3",
-            "junk_4",
+            "RimNauts2_Waste_Satellite",
         };
         private readonly List<string> moon_defs = new List<string>() {
             "Moon",
