@@ -63,7 +63,7 @@ namespace RimNauts2 {
             Find.World.grid.tiles.ElementAt(tileNum).hilliness = RimWorld.Planet.Hilliness.Flat;
             Find.World.grid.tiles.ElementAt(tileNum).rainfall = 0f;
             Find.World.grid.tiles.ElementAt(tileNum).swampiness = 0f;
-            Find.World.grid.tiles.ElementAt(tileNum).temperature = -40f;
+            Find.World.grid.tiles.ElementAt(tileNum).temperature = -100f;
             Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(BiomeDefOf.RockMoonBiome.defName);
         }
 
