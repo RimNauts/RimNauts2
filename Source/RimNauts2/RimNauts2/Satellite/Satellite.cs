@@ -117,12 +117,7 @@ namespace RimNauts2 {
             float buffer_period = period;
             int buffer_time_offset = time_offset;
             float buffer_speed = speed;
-            if (type == Satellite_Type.Moon) {
-                Satellites.has_moon_map = false;
-                Satellites.rock_moon_tile = -1;
-                Find.World.grid.tiles.ElementAt(Tile).biome = BiomeDefOf.SatelliteBiome;
-                
-            }
+            if (type == Satellite_Type.Moon)  Find.World.grid.tiles.ElementAt(Tile).biome = BiomeDefOf.SatelliteBiome;
             SatelliteContainer.remove(this);
             base.PostRemove();
             if (type == Satellite_Type.Moon) _ = Generate_Satellites.copy_satellite(

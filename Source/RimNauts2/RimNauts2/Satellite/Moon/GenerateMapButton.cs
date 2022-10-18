@@ -38,7 +38,7 @@ namespace RimNauts2 {
 
             satellite.has_map = true;
             applySatelliteSurface(satellite.Tile);
-            Map map = MapGenerator.GenerateMap(new IntVec3(300, 1, 300), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+            Map map = MapGenerator.GenerateMap(new IntVec3(250, 1, 250), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
             try {
                 List<WeatherDef> wdefs = DefDatabase<WeatherDef>.AllDefs.ToList();
                 foreach (WeatherDef defer in wdefs) {

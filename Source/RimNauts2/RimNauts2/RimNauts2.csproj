@@ -63,7 +63,6 @@
     <Compile Include="Map\MapGen\TerrainPatch.cs" />
     <Compile Include="Satellite\Moon\GenerateMapButton.cs" />
     <Compile Include="Satellite\SatelliteContainer.cs" />
-    <Compile Include="Satellite\Satellites.cs" />
     <Compile Include="Satellite\Moon\BiomeDefOf.cs" />
     <Compile Include="Filter\IncidentWorker_CanFireNow.cs" />
     <Compile Include="RimNauts2.cs" />
