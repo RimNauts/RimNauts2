@@ -67,7 +67,6 @@
     <Compile Include="Filter\IncidentWorker_CanFireNow.cs" />
     <Compile Include="RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Satellite\SatelliteDef.cs" />
     <Compile Include="Satellite\Generate_Satellites.cs" />
     <Compile Include="Satellite\Satellite.cs" />
     <Compile Include="World\ChangeBiomeMaterial.cs" />

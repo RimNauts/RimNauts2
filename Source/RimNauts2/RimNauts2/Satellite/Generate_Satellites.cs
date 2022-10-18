@@ -68,7 +68,7 @@ namespace RimNauts2 {
             );
             satellite.Tile = tile_id;
             satellite.def_name = def_name;
-            satellite.type = type;
+            satellite.set_default_values(type);
             Find.WorldObjects.Add(satellite);
             SatelliteContainer.add(satellite);
         }

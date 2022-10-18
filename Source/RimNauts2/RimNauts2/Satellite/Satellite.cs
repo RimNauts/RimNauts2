@@ -7,17 +7,14 @@ using System.Linq;
 namespace RimNauts2 {
     [StaticConstructorOnStartup]
     public class Satellite : RimWorld.Planet.MapParent {
-        readonly SatelliteDef SatelliteCore = DefDatabase<SatelliteDef>.GetNamed("SatelliteCore");
         public string def_name;
         public Satellite_Type type;
         public Vector3 max_orbits;
         public Vector3 shift_orbits;
         public Vector3 spread;
-        public Map map;
         public float period;
-        public RimWorld.Planet.Tile real_tile;
-        public int time_offset = 0;
-        public float speed = Rand.Range(0.5f, 1.5f);
+        public int time_offset;
+        public float speed;
         public bool has_map = false;
 
         public override Vector3 DrawPos => get_parametric_ellipse();
@@ -32,45 +29,39 @@ namespace RimNauts2 {
             return vec3;
         }
 
-        public override void PostAdd() {
-            if (spread == default) spread = SatelliteCore.getSpread;
-            if (max_orbits == default) {
-                if (type == Satellite_Type.Moon) {
-                    max_orbits.x = 400;
-                    max_orbits.y = 0;
-                    max_orbits.z = 400;
-                } else max_orbits = SatelliteCore.getMaxOrbits;
-                max_orbits = randomize_vector(max_orbits, false);
+        public void set_default_values(Satellite_Type new_type) {
+            type = new_type;
+            switch (type) {
+                case Satellite_Type.Asteroid:
+                    max_orbits = new Vector3(250.0f, 0.0f, 250.0f);
+                    shift_orbits = new Vector3(0.0f, 0.0f, 0.0f);
+                    spread = new Vector3(0.25f, 0.25f, 0.25f);
+                    speed = Rand.Range(1.0f, 2.0f);
+                    break;
+                case Satellite_Type.Moon:
+                    max_orbits = new Vector3(400.0f, 0.0f, 400.0f);
+                    shift_orbits = new Vector3(0.0f, 0.0f, 0.0f);
+                    spread = new Vector3(0.25f, 0.25f, 0.25f);
+                    speed = 1.0f;
+                    break;
+                default:
+                    Log.Error("RimNauts2: Failed to set default values in satellite.");
+                    return;
             }
-            if (shift_orbits == default) shift_orbits = randomize_vector(SatelliteCore.getShiftOrbits, false);
-            if (period == default) period = (int) random_orbit(SatelliteCore.getOrbitPeriod, SatelliteCore.getOrbitPeriodVar);
-            if (time_offset == default) time_offset = Rand.Range(0, (int) period);
-            base.PostAdd();
+            max_orbits = randomize_vector(max_orbits);
+            shift_orbits = randomize_vector(shift_orbits);
+            period = random_orbit(36000.0f, 6000.0f);
+            time_offset = Rand.Range(0, (int) period);
         }
 
-        public float random_orbit(float min, float range) => min + (range * (Rand.Value - 0.5f));
+        public int random_orbit(float min, float range) => (int) (min + (range * (Rand.Value - 0.5f)));
 
-        public Vector3 randomize_vector(Vector3 vec, bool rand_direction) {
+        public Vector3 randomize_vector(Vector3 vec, bool rand_direction = false) {
             return new Vector3 {
                 x = (Rand.Bool && rand_direction ? 1 : -1) * vec.x + (float) ((Rand.Value - 0.5f) * (vec.x * spread.x)),
                 y = (Rand.Bool && rand_direction ? 1 : -1) * vec.y + (float) ((Rand.Value - 0.5f) * (vec.y * spread.y)),
                 z = (Rand.Bool && rand_direction ? 1 : -1) * vec.z + (float) ((Rand.Value - 0.5f) * (vec.z * spread.z)),
             };
-        }
-
-        public override void ExposeData() {
-            base.ExposeData();
-            Scribe_Values.Look(ref period, "orbitPeriod", 0, false);
-            Scribe_Values.Look(ref time_offset, "timeOffset", 0, false);
-            Scribe_Values.Look(ref spread, "spread", default, false);
-            Scribe_Values.Look(ref max_orbits, "maxOrbits", default, false);
-            Scribe_Values.Look(ref shift_orbits, "shiftOrbits", default, false);
-            get_instance_field(typeof(RimWorld.Planet.WorldObject), this, "BaseDrawSize");
-        }
-
-        internal static object get_instance_field(Type type, object instance, string fieldName) {
-            BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-            return type.GetField(fieldName, bindingAttr).GetValue(instance);
         }
 
         public override void Print(LayerSubMesh subMesh) {
@@ -117,7 +108,7 @@ namespace RimNauts2 {
             float buffer_period = period;
             int buffer_time_offset = time_offset;
             float buffer_speed = speed;
-            if (type == Satellite_Type.Moon)  Find.World.grid.tiles.ElementAt(Tile).biome = BiomeDefOf.SatelliteBiome;
+            if (type == Satellite_Type.Moon) Find.World.grid.tiles.ElementAt(Tile).biome = BiomeDefOf.SatelliteBiome;
             SatelliteContainer.remove(this);
             base.PostRemove();
             if (type == Satellite_Type.Moon) _ = Generate_Satellites.copy_satellite(
@@ -135,7 +126,8 @@ namespace RimNauts2 {
     }
 
     public enum Satellite_Type {
-        Asteroid = 0,
-        Moon = 1,
+        None = 0,
+        Asteroid = 1,
+        Moon = 2,
     }
 }

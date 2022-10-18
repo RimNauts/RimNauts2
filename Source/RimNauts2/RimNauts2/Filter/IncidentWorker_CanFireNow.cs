@@ -22,8 +22,7 @@ namespace RimNauts2 {
             }
 
             Map target = (Map) parms.target;
-            IntVec3 cell;
-            if (!TryFindCell(out cell, target)) {
+            if (!TryFindCell(out IntVec3 cell, target)) {
                 return;
             }
             List<Thing> thingList = RimWorld.ThingSetMakerDefOf.Meteorite.root.Generate();
