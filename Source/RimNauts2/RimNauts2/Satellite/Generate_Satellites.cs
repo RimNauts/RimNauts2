@@ -7,6 +7,8 @@ namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
         public readonly static int total_satellite_amount = 1000;
         public readonly static int total_moon_amount = 1;
+        public readonly static int total_crashing_satellites = (int) (total_satellite_amount * 0.05f);
+        public static int crashing_satellites = 0;
         private readonly static List<string> asteroid_defs = new List<string>() {
             "RimNauts2_Asteroid_1",
             "RimNauts2_Asteroid_2",
@@ -41,6 +43,7 @@ namespace RimNauts2 {
 
         private void generate_satellites() {
             SatelliteContainer.clear();
+            crashing_satellites = 0;
             List<int> suitable_tile_ids = new List<int>();
             int moons_added = 0;
             int satellites_added = 0;

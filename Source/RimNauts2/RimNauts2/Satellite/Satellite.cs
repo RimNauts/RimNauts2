@@ -16,17 +16,55 @@ namespace RimNauts2 {
         public int time_offset;
         public float speed;
         public bool has_map = false;
+        public bool can_out_of_bounds = false;
+        public float out_of_bounds_offset = 1.0f;
+        public float current_out_of_bounds;
+        public bool out_of_bounds_direction_towards_surface = true;
 
         public override Vector3 DrawPos => get_parametric_ellipse();
 
+        public override void Tick() {
+            base.Tick();
+            if (can_out_of_bounds) {
+                if (out_of_bounds_direction_towards_surface) {
+                    current_out_of_bounds -= 0.0001f;
+                    if (current_out_of_bounds <= 0.4f) current_out_of_bounds = out_of_bounds_offset;
+                } else {
+                    current_out_of_bounds += 0.0001f;
+                    if (current_out_of_bounds >= 1.4f) current_out_of_bounds = out_of_bounds_offset;
+                }
+            }
+        }
+
         public Vector3 get_parametric_ellipse() {
             int time = Find.TickManager.TicksGame;
-            Vector3 vec3 = new Vector3 {
-                x = max_orbits.x * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)) + shift_orbits.x,
-                z = max_orbits.z * (float) Math.Sin(6.28f / period * ((speed * time) + time_offset)) + shift_orbits.z,
-                y = max_orbits.y * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)) + shift_orbits.y,
-            };
+            float val = get_crash_course();
+            Vector3 vec3;
+            if (out_of_bounds_direction_towards_surface || val <= 1.0f) {
+                vec3 = new Vector3 {
+                    x = max_orbits.x * ((float) Math.Cos(6.28f / period * ((((val * -1 + 1) * 2 + speed) * time) + time_offset)) * val),
+                    y = max_orbits.y * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)),
+                    z = max_orbits.z * ((float) Math.Sin(6.28f / period * ((((val * -1 + 1) * 2 + speed) * time) + time_offset)) * val),
+                };
+            } else {
+                vec3 = new Vector3 {
+                    x = max_orbits.x * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)) * val,
+                    y = max_orbits.y * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)),
+                    z = max_orbits.z * (float) Math.Sin(6.28f / period * ((speed * time) + time_offset)) * val,
+                };
+            }
             return vec3;
+        }
+
+        public float get_crash_course() {
+            if (can_out_of_bounds) {
+                if (out_of_bounds_direction_towards_surface) {
+                    return Math.Min(1.0f, current_out_of_bounds);
+                } else {
+                    return Math.Max(1.0f, current_out_of_bounds);
+                }
+            }
+            return 1.0f;
         }
 
         public void set_default_values(Satellite_Type new_type) {
@@ -37,6 +75,14 @@ namespace RimNauts2 {
                     shift_orbits = new Vector3(0.0f, 0.0f, 0.0f);
                     spread = new Vector3(0.25f, 0.25f, 0.25f);
                     speed = Rand.Range(1.0f, 2.0f);
+                    if (Generate_Satellites.crashing_satellites < Generate_Satellites.total_crashing_satellites) {
+                        can_out_of_bounds = true;
+                        if (Generate_Satellites.crashing_satellites <= Generate_Satellites.total_crashing_satellites * 0.5) {
+                            out_of_bounds_direction_towards_surface = false;
+                            out_of_bounds_offset = Rand.Range(-10.0f, 1.0f);
+                        } else out_of_bounds_offset = Rand.Range(1.0f, 10.0f);
+                        Generate_Satellites.crashing_satellites++;
+                    }
                     break;
                 case Satellite_Type.Moon:
                     max_orbits = new Vector3(400.0f, 0.0f, 400.0f);
@@ -52,6 +98,7 @@ namespace RimNauts2 {
             shift_orbits = randomize_vector(shift_orbits);
             period = random_orbit(36000.0f, 6000.0f);
             time_offset = Rand.Range(0, (int) period);
+            current_out_of_bounds = out_of_bounds_offset;
         }
 
         public int random_orbit(float min, float range) => (int) (min + (range * (Rand.Value - 0.5f)));
