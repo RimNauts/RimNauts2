@@ -3,8 +3,94 @@ using HarmonyLib;
 using System.Reflection;
 using UnityEngine;
 using Verse;
+using System;
+using System.Collections.Generic;
 
 namespace RimNauts2 {
+    public class CompProperties_Launchable : CompProperties {
+        public bool requireFuel = true;
+        public int fixedLaunchDistanceMax = -1;
+        public ThingDef skyfallerLeaving;
+
+        public CompProperties_Launchable() => compClass = typeof(CompLaunchable);
+    }
+
+    [StaticConstructorOnStartup]
+    public class CompLaunchable : ThingComp {
+        private RimWorld.CompTransporter cachedCompTransporter;
+        public CompProperties_Launchable Props => (CompProperties_Launchable) props;
+        public Building FuelingPortSource => RimWorld.FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map);
+        public bool ConnectedToFuelingPort => !Props.requireFuel || FuelingPortSource != null;
+        public float FuelingPortSourceFuel => !ConnectedToFuelingPort ? 0.0f : FuelingPortSource.GetComp<RimWorld.CompRefuelable>().Fuel;
+
+        public RimWorld.CompTransporter Transporter {
+            get {
+                if (cachedCompTransporter == null)
+                    cachedCompTransporter = parent.GetComp<RimWorld.CompTransporter>();
+                return cachedCompTransporter;
+            }
+        }
+
+        public void launch_satellite() {
+            if (FuelingPortSourceFuel < 150.0f) {
+                Messages.Message("Requires 150 fuel, currently at " + FuelingPortSourceFuel + " fuel.", RimWorld.MessageTypeDefOf.RejectInput, false);
+                return;
+            }
+            ThingOwner inventory = Transporter.innerContainer;
+            if (inventory.Count != 1 || inventory.ContentsString != "satellite") {
+                Messages.Message("Can only send up 1 satellite.", RimWorld.MessageTypeDefOf.RejectInput, false);
+                return;
+            }
+
+            TryLaunch();
+
+            Messages.Message("Succesfully launched a satellite into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
+            Find.LetterStack.ReceiveLetter("Satellite launched into orbit", "Succesfully launched a satellite into orbit! You can check it out on the world map.", RimWorld.LetterDefOf.NeutralEvent, null);
+        }
+
+        public void TryLaunch() {
+            if (!parent.Spawned) {
+                Log.Error("Tried to launch " + parent + ", but it's unspawned.");
+            } else {
+                Map map = parent.Map;
+                Transporter.TryRemoveLord(map);
+                int groupId = Transporter.groupID;
+                RimWorld.CompTransporter compTransporter = Transporter;
+                Building fuelingPortSource = compTransporter.Launchable.FuelingPortSource;
+                if (fuelingPortSource != null)
+                    fuelingPortSource.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(150.0f);
+                ThingOwner directlyHeldThings = compTransporter.GetDirectlyHeldThings();
+                directlyHeldThings.ClearAndDestroyContents();
+                RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
+                activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
+                activeDropPod.Contents.innerContainer.TryAddRangeOrTransfer(directlyHeldThings, destroyLeftover: true);
+                RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving ?? RimWorld.ThingDefOf.DropPodLeaving, activeDropPod);
+                flyShipLeaving.groupID = groupId;
+                flyShipLeaving.destinationTile = map.Tile;
+                flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
+                compTransporter.CleanUpLoadingVars(map);
+                compTransporter.parent.Destroy(DestroyMode.Vanish);
+                GenSpawn.Spawn(flyShipLeaving, compTransporter.parent.Position, map);
+                CameraJumper.TryHideWorld();
+            }
+        }
+
+        public override IEnumerable<Gizmo> CompGetGizmosExtra() {
+            CompLaunchable compLaunchable = this;
+            ThingOwner inventory = Transporter.innerContainer;
+            Command_Action cmd = new Command_Action();
+            cmd.defaultLabel = "Launch satellite";
+            cmd.defaultDesc = "Launch satellite into orbit.";
+            cmd.icon = RimWorld.CompLaunchable.LaunchCommandTex;
+            cmd.action = new Action(launch_satellite);
+            if (FuelingPortSourceFuel < 150.0f)
+                cmd.Disable("Requires 150 fuel, currently at " + FuelingPortSourceFuel + " fuel.");
+            else if (inventory.Count != 1 || inventory.ContentsString != "satellite")
+                cmd.Disable("Can only send up 1 satellite.");
+            yield return cmd;
+        }
+    }
+
     [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), nameof(RimWorld.Planet.WorldGrid.TraversalDistanceBetween))]
     public static class TransportpodSatelliteIgnoreMaxRange {
         [HarmonyPostfix]

@@ -11,10 +11,9 @@ namespace RimNauts2 {
 
         public static void Postfix(ref RimWorld.IncidentWorker __instance, RimWorld.IncidentParms parms, ref bool __result) {
             if (!__result) return;
-            incident = __instance.def.defName;
             bool incident_not_on_moon_biome = Find.WorldGrid[parms.target.Tile].biome != BiomeDefOf.RockMoonBiome;
             if (incident_not_on_moon_biome) return;
-            if (allowed_incidents.Contains(incident)) return;
+            if (allowed_incidents.Contains(__instance.def.defName)) return;
             __result = false;
             if (wait > 0) {
                 wait--;
@@ -30,7 +29,7 @@ namespace RimNauts2 {
             LetterDef baseLetterDef = thingList[0].def.building.isResourceRock ? RimWorld.LetterDefOf.PositiveEvent : RimWorld.LetterDefOf.NeutralEvent;
             string str = "A large meteorite has struck ground in the area. It has left behind a lump of " + thingList[0].def.label + ".";
             SendStandardLetter("Meteorite: " + thingList[0].def.LabelCap, str, baseLetterDef, parms, new TargetInfo(cell, target), Array.Empty<NamedArgument>());
-            if (Prefs.DevMode) Log.Message("RimNauts2: Replaced '" + incident + "' incident to Metorite incident.");
+            if (Prefs.DevMode) Log.Message("RimNauts2: Replaced '" + __instance.def.defName + "' incident to Metorite incident.");
             wait = 5;
             return;
         }
@@ -93,7 +92,6 @@ namespace RimNauts2 {
             Find.LetterStack.ReceiveLetter(choiceLetter);
         }
 
-        private static string incident = "";
         private static readonly List<string> allowed_incidents = new List<string>() {
             "Disease_AnimalFlu",
             "Disease_AnimalPlague",

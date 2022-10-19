@@ -31,7 +31,7 @@ namespace RimNauts2 {
                     if (current_out_of_bounds <= 0.4f) current_out_of_bounds = out_of_bounds_offset;
                 } else {
                     current_out_of_bounds += 0.0001f;
-                    if (current_out_of_bounds >= 1.4f) current_out_of_bounds = out_of_bounds_offset;
+                    if (current_out_of_bounds >= 2.4f) current_out_of_bounds = out_of_bounds_offset;
                 }
             }
         }
@@ -73,7 +73,7 @@ namespace RimNauts2 {
                 case Satellite_Type.Asteroid:
                     max_orbits = new Vector3(250.0f, 0.0f, 250.0f);
                     shift_orbits = new Vector3(0.0f, 0.0f, 0.0f);
-                    spread = new Vector3(0.25f, 0.25f, 0.25f);
+                    spread = new Vector3(0.3f, 0.0f, 0.3f);
                     speed = Rand.Range(1.0f, 2.0f);
                     if (Generate_Satellites.crashing_satellites < Generate_Satellites.total_crashing_satellites) {
                         can_out_of_bounds = true;
@@ -160,7 +160,7 @@ namespace RimNauts2 {
             base.PostRemove();
             if (type == Satellite_Type.Moon) _ = Generate_Satellites.copy_satellite(
                 buffer_tile_id,
-                buffer_def_name.Substring(0, buffer_def_name.Length - 5),
+                buffer_def_name.Substring(0, buffer_def_name.Length - "_Base".Length),
                 buffer_type,
                 buffer_max_orbits,
                 buffer_shift_orbits,
