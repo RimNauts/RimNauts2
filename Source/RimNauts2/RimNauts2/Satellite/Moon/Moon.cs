@@ -39,11 +39,11 @@ namespace RimNauts2 {
 
         private static void generate_moon_map(Satellite satellite) {
             applySatelliteSurface(satellite.Tile);
-            Map map = MapGenerator.GenerateMap(satellite.Map.Size, satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+            Map map = MapGenerator.GenerateMap(new IntVec3(250, 1, 250), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
             foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
                 if (weather.defName.Equals("OuterSpaceWeather")) {
-                    if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
                     map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
+                    if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
                     break;
                 }
             }
