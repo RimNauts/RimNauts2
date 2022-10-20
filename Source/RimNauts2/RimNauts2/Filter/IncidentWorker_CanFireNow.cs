@@ -10,26 +10,29 @@ namespace RimNauts2 {
         static int wait = 0;
 
         public static void Postfix(ref RimWorld.IncidentWorker __instance, RimWorld.IncidentParms parms, ref bool __result) {
-            if (!__result) return;
-            bool incident_not_on_moon_biome = Find.WorldGrid[parms.target.Tile].biome != BiomeDefOf.RockMoonBiome;
-            if (incident_not_on_moon_biome) return;
-            if (allowed_incidents.Contains(__instance.def.defName)) return;
-            __result = false;
-            if (wait > 0) {
-                wait--;
-                return;
+            try {
+                if (!__result) return;
+                bool incident_not_on_moon_biome = Find.WorldGrid[parms.target.Tile].biome != BiomeDefOf.RockMoonBiome;
+                if (incident_not_on_moon_biome) return;
+                if (allowed_incidents.Contains(__instance.def.defName)) return;
+                __result = false;
+                if (wait > 0) {
+                    wait--;
+                    return;
+                }
+                Map target = (Map) parms.target;
+                if (!TryFindCell(out IntVec3 cell, target)) {
+                    return;
+                }
+                List<Thing> thingList = RimWorld.ThingSetMakerDefOf.Meteorite.root.Generate();
+                RimWorld.SkyfallerMaker.SpawnSkyfaller(RimWorld.ThingDefOf.MeteoriteIncoming, thingList, cell, target);
+                LetterDef baseLetterDef = thingList[0].def.building.isResourceRock ? RimWorld.LetterDefOf.PositiveEvent : RimWorld.LetterDefOf.NeutralEvent;
+                string str = "A large meteorite has struck ground in the area. It has left behind a lump of " + thingList[0].def.label + ".";
+                SendStandardLetter("Meteorite: " + thingList[0].def.LabelCap, str, baseLetterDef, parms, new TargetInfo(cell, target), Array.Empty<NamedArgument>());
+                if (Prefs.DevMode) Log.Message("RimNauts2: Replaced '" + __instance.def.defName + "' incident to Metorite incident.");
+            } catch {
+                if (Prefs.DevMode) Log.Message("RimNauts2: Failed to replace '" + __instance.def.defName + "' incident with a Metorite incident.");
             }
-
-            Map target = (Map) parms.target;
-            if (!TryFindCell(out IntVec3 cell, target)) {
-                return;
-            }
-            List<Thing> thingList = RimWorld.ThingSetMakerDefOf.Meteorite.root.Generate();
-            RimWorld.SkyfallerMaker.SpawnSkyfaller(RimWorld.ThingDefOf.MeteoriteIncoming, thingList, cell, target);
-            LetterDef baseLetterDef = thingList[0].def.building.isResourceRock ? RimWorld.LetterDefOf.PositiveEvent : RimWorld.LetterDefOf.NeutralEvent;
-            string str = "A large meteorite has struck ground in the area. It has left behind a lump of " + thingList[0].def.label + ".";
-            SendStandardLetter("Meteorite: " + thingList[0].def.LabelCap, str, baseLetterDef, parms, new TargetInfo(cell, target), Array.Empty<NamedArgument>());
-            if (Prefs.DevMode) Log.Message("RimNauts2: Replaced '" + __instance.def.defName + "' incident to Metorite incident.");
             wait = 5;
             return;
         }
@@ -106,6 +109,7 @@ namespace RimNauts2 {
             "PsychicSoothe",
             "ResourcePodCrash",
             "ShipChunkDrop",
+            "GiveQuest_EndGame_ArchonexusVictory",
         };
     }
 }

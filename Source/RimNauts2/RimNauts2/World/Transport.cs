@@ -32,23 +32,6 @@ namespace RimNauts2 {
         }
 
         public void launch_satellite() {
-            if (FuelingPortSourceFuel < 150.0f) {
-                Messages.Message("Requires 150 fuel, currently at " + FuelingPortSourceFuel + " fuel.", RimWorld.MessageTypeDefOf.RejectInput, false);
-                return;
-            }
-            ThingOwner inventory = Transporter.innerContainer;
-            if (inventory.Count != 1 || inventory.ContentsString != "satellite") {
-                Messages.Message("Can only send up 1 satellite.", RimWorld.MessageTypeDefOf.RejectInput, false);
-                return;
-            }
-
-            TryLaunch();
-
-            Messages.Message("Succesfully launched a satellite into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
-            Find.LetterStack.ReceiveLetter("Satellite launched into orbit", "Succesfully launched a satellite into orbit! You can check it out on the world map.", RimWorld.LetterDefOf.NeutralEvent, null);
-        }
-
-        public void TryLaunch() {
             if (!parent.Spawned) {
                 Log.Error("Tried to launch " + parent + ", but it's unspawned.");
             } else {
@@ -72,6 +55,7 @@ namespace RimNauts2 {
                 compTransporter.parent.Destroy(DestroyMode.Vanish);
                 GenSpawn.Spawn(flyShipLeaving, compTransporter.parent.Position, map);
                 CameraJumper.TryHideWorld();
+                Messages.Message("Succesfully launched a satellite into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
             }
         }
 
