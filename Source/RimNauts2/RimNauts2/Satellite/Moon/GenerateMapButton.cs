@@ -9,6 +9,7 @@ namespace RimNauts2 {
     public class GenerateMapButton : RimWorld.Planet.WorldObjectComp {
         public override IEnumerable<Gizmo> GetGizmos() {
             Satellite parent = this.parent as Satellite;
+            
             if (!parent.has_map) {
                 yield return new Command_Action {
                     defaultLabel = "CommandSettle".Translate(),

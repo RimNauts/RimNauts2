@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Verse;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ namespace RimNauts2 {
             // generate new satellite with the values saved from before (this process is done to get the new texture)
             satellite = Generate_Satellites.copy_satellite(
                 buffer_tile_id,
-                buffer_def_name + "_Base",
+                get_moon_base(buffer_def_name),
                 Satellite_Type.Moon,
                 buffer_max_orbits,
                 buffer_spread,
@@ -47,13 +46,15 @@ namespace RimNauts2 {
             }
         }
 
-        private static void applySatelliteSurface(int tileNum) {
-            Find.World.grid.tiles.ElementAt(tileNum).elevation = 100f;
-            Find.World.grid.tiles.ElementAt(tileNum).hilliness = RimWorld.Planet.Hilliness.Flat;
-            Find.World.grid.tiles.ElementAt(tileNum).rainfall = 0f;
-            Find.World.grid.tiles.ElementAt(tileNum).swampiness = 0f;
-            Find.World.grid.tiles.ElementAt(tileNum).temperature = -100f;
-            Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Moon_Biome");
+        private static void applySatelliteSurface(int tile_id) {
+            Find.World.grid.tiles.ElementAt(tile_id).elevation = 100f;
+            Find.World.grid.tiles.ElementAt(tile_id).hilliness = RimWorld.Planet.Hilliness.Flat;
+            Find.World.grid.tiles.ElementAt(tile_id).rainfall = 0f;
+            Find.World.grid.tiles.ElementAt(tile_id).swampiness = 0f;
+            Find.World.grid.tiles.ElementAt(tile_id).temperature = -100f;
         }
+
+        private static string get_moon_base(string moon) => moon + "_Base";
+        public static string get_moon_biome(string moon) => "RimNauts2_MoonBarren_Biome"; // moon + "_Biome"; <<< needs other biomes to work
     }
 }

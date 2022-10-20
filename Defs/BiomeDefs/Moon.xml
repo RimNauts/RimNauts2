@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<BiomeDef>
-		<defName>RimNauts2_Moon_Biome</defName>
+		<defName>RimNauts2_MoonBarren_Biome</defName>
 		<label>barrenMoon</label>
-		<description>Rocky Moon</description>
+		<description>Barren Moon</description>
 		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
     	<canAutoChoose>false</canAutoChoose>
 		<allowRoads>false</allowRoads>

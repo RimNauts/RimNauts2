@@ -56,11 +56,11 @@
     <Compile Include="Biome\BiomeWorker_Satellite.cs" />
     <Compile Include="Biome\SetSatelliteBiome.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Map\MapGen\ElevationFertilityPatch.cs" />
-    <Compile Include="Map\MapGen\GenStep_MoonRocks.cs" />
-    <Compile Include="Map\MapGen\GenStep_MoonTerrain.cs" />
-    <Compile Include="Map\MapGen\RocksFromGridPatch.cs" />
-    <Compile Include="Map\MapGen\TerrainPatch.cs" />
+    <Compile Include="Map\BarrenMoon_MapGen\ElevationFertilityPatch.cs" />
+    <Compile Include="Map\BarrenMoon_MapGen\GenStep_MoonRocks.cs" />
+    <Compile Include="Map\BarrenMoon_MapGen\GenStep_MoonTerrain.cs" />
+    <Compile Include="Map\BarrenMoon_MapGen\RocksFromGridPatch.cs" />
+    <Compile Include="Map\BarrenMoon_MapGen\TerrainPatch.cs" />
     <Compile Include="SatelliteDefOf.cs" />
     <Compile Include="SatelliteDef.cs" />
     <Compile Include="Satellite\Moon\GenerateMapButton.cs" />

@@ -49,6 +49,7 @@ namespace RimNauts2 {
             satellite.Tile = tile_id;
             satellite.def_name = def_name;
             satellite.set_default_values(type);
+            if (type == Satellite_Type.Moon) Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(Moon.get_moon_biome(def_name));
             Find.WorldObjects.Add(satellite);
             SatelliteContainer.add(satellite);
         }

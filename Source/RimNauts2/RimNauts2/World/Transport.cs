@@ -9,7 +9,6 @@ using System.Collections.Generic;
 namespace RimNauts2 {
     public class CompProperties_Launchable : CompProperties {
         public bool requireFuel = true;
-        public int fixedLaunchDistanceMax = -1;
         public ThingDef skyfallerLeaving;
 
         public CompProperties_Launchable() => compClass = typeof(CompLaunchable);
@@ -82,8 +81,6 @@ namespace RimNauts2 {
 
                 if (new_moon_tile_id != -1) {
                     Generate_Satellites.add_satellite(new_moon_tile_id, SatelliteDefOf.Satellite.MoonObjects, Satellite_Type.Moon);
-                    Find.World.grid.tiles.ElementAt(new_moon_tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Moon_Biome");
-                    Messages.Message("New moon found by satellite!", RimWorld.MessageTypeDefOf.PositiveEvent, true);
                 } else {
                     Log.Error("RimNauts2: Couldn't find a free tile to spawn a moon on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
                 }
@@ -93,8 +90,10 @@ namespace RimNauts2 {
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             CompLaunchable compLaunchable = this;
             ThingOwner inventory = Transporter.innerContainer;
+            string label = "Launch satellite";
+            if (Prefs.DevMode) label += " (Dev)";
             Command_Action cmd = new Command_Action {
-                defaultLabel = "Launch satellite",
+                defaultLabel = label,
                 defaultDesc = "Launch satellite into orbit.",
                 icon = RimWorld.CompLaunchable.LaunchCommandTex,
                 action = new Action(launch_satellite)
@@ -111,14 +110,15 @@ namespace RimNauts2 {
 
     [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), nameof(RimWorld.Planet.WorldGrid.TraversalDistanceBetween))]
     public static class TransportpodSatelliteIgnoreMaxRange {
-        [HarmonyPostfix]
         public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            bool to_moon = Find.World.grid.tiles.ElementAt(start).biome.defName == "RimNauts2_Moon_Biome";
+            //bool to_moon = Find.World.grid.tiles.ElementAt(start).biome.defName == "RimNauts2_MoonBarren_Biome";
+            bool to_moon = SatelliteDefOf.Satellite.Biomes.Contains(Find.World.grid.tiles.ElementAt(start).biome.defName);
             if (to_moon) {
                 __result = 1;
                 return;
             }
-            bool from_moon = Find.World.grid.tiles.ElementAt(end).biome.defName == "RimNauts2_Moon_Biome";
+            //bool from_moon = Find.World.grid.tiles.ElementAt(end).biome.defName == "RimNauts2_MoonBarren_Biome";
+            bool from_moon = SatelliteDefOf.Satellite.Biomes.Contains(Find.World.grid.tiles.ElementAt(start).biome.defName);
             if (from_moon) {
                 __result = 1;
                 return;
@@ -126,11 +126,9 @@ namespace RimNauts2 {
         }
     }
 
-    [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods))]
-    [HarmonyPatch("Start", MethodType.Getter)]
+    [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods), "Start", MethodType.Getter)]
     public static class TransportpodFromSatelliteAnimation {
-        [HarmonyPostfix]
-        public static void StartAtShip(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
+        public static void Postfix(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
             int num = (int) typeof(RimWorld.Planet.TravelingTransportPods).GetField("initialTile", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
             foreach (RimWorld.Planet.WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
                                                                 where o is Satellite
@@ -140,11 +138,9 @@ namespace RimNauts2 {
         }
     }
 
-    [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods))]
-    [HarmonyPatch("End", MethodType.Getter)]
+    [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods), "End", MethodType.Getter)]
     public static class TransportpodToSatelliteAnimation {
-        [HarmonyPostfix]
-        public static void EndAtShip(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
+        public static void Postfix(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
 
             int destinationTile = __instance.destinationTile;
             foreach (RimWorld.Planet.WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects

@@ -6,7 +6,7 @@
         <Biomes>
             <li>RimNauts2_Satellite_Biome</li>
             <li>RimNauts2_Artifical_Satellite_Biome</li>
-            <li>RimNauts2_Moon_Biome</li>
+            <li>RimNauts2_MoonBarren_Biome</li>
         </Biomes>
 
         <TotalSatelliteObjects>1000</TotalSatelliteObjects>
@@ -16,11 +16,11 @@
         <AsteroidObjectsOrbitSpread>(0.3, 0.0, 0.3)</AsteroidObjectsOrbitSpread>
         <AsteroidObjectsOrbitSpeedBetween>(2.0, 3.0)</AsteroidObjectsOrbitSpeedBetween>
 
-        <MoonObjectsOrbitPosition>(400.0, 100.0, 400.0)</MoonObjectsOrbitPosition>
+        <MoonObjectsOrbitPosition>(400.0, 200.0, 400.0)</MoonObjectsOrbitPosition>
         <MoonObjectsOrbitSpread>(0.25, 0.0, 0.25)</MoonObjectsOrbitSpread>
         <MoonObjectsOrbitSpeedBetween>(1.0, 1.0)</MoonObjectsOrbitSpeedBetween>
 
-        <ArtificalSatelliteObjectsOrbitPosition>(150.0, 100.0, 150.0)</ArtificalSatelliteObjectsOrbitPosition>
+        <ArtificalSatelliteObjectsOrbitPosition>(140.0, 100.0, 140.0)</ArtificalSatelliteObjectsOrbitPosition>
         <ArtificalSatelliteObjectsOrbitSpread>(0.1, 0.0, 0.1)</ArtificalSatelliteObjectsOrbitSpread>
         <ArtificalSatelliteObjectsOrbitSpeedBetween>(6.0, 7.0)</ArtificalSatelliteObjectsOrbitSpeedBetween>
 
@@ -47,7 +47,9 @@
         </WasteObjects>
 
 		<MoonObjects>
-            <li>RimNauts2_Moon</li>
+            <li>RimNauts2_MoonBarren</li>
+            <li>RimNauts2_MoonStripped</li>
+            <li>RimNauts2_MoonGassy</li>
         </MoonObjects>
 
 		<ArtificalSatelliteObjects>

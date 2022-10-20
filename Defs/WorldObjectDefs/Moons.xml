@@ -1,17 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<WorldObjectDef Name="moon" ParentName="satellite">
-		<defName>RimNauts2_Moon</defName>
-		<label>moon</label>
+	<!-- Barren moon -->
+	<WorldObjectDef Name="RimNauts2_MoonBarren" ParentName="satellite">
+		<defName>RimNauts2_MoonBarren</defName>
+		<label>barren moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_Moon</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_Moon</expandingIconTexture>
-		<IncidentTargetTags>
-			<li>Map_PlayerHome</li>
-			<li>Map_TempIncident</li>
-			<li>Map_Misc</li>
-			<li>Map_RaidBeacon</li>
-		</IncidentTargetTags>
+		<texture>Satellites/Moons/RimNauts2_MoonBarren</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonBarren</expandingIconTexture>
 		<mapGenerator>MoonMap</mapGenerator>
 		<expandingIconPriority>1003</expandingIconPriority>
 		<comps>
@@ -19,12 +14,53 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
 		</comps>
 	</WorldObjectDef>
-
-	<WorldObjectDef ParentName="moon">
-		<defName>RimNauts2_Moon_Base</defName>
-		<label>moon base</label>
+	<WorldObjectDef ParentName="RimNauts2_MoonBarren">
+		<defName>RimNauts2_MoonBarren_Base</defName>
+		<label>barren moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_Moon_Base</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_Moon_Base</expandingIconTexture>
+		<texture>Satellites/Moons/RimNauts2_MoonBarren_Base</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonBarren_Base</expandingIconTexture>
+	</WorldObjectDef>
+	<!-- Stripped moon -->
+	<WorldObjectDef Name="RimNauts2_MoonStripped" ParentName="satellite">
+		<defName>RimNauts2_MoonStripped</defName>
+		<label>stripped barren moon</label>
+		<description>One of what could be many, many moons orbiting this rimworld.</description>
+		<texture>Satellites/Moons/RimNauts2_MoonStripped</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped</expandingIconTexture>
+		<mapGenerator>MoonMap</mapGenerator>
+		<expandingIconPriority>1003</expandingIconPriority>
+		<comps>
+			<li Class="WorldObjectCompProperties_Abandon"/>
+			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
+		</comps>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_MoonStripped">
+		<defName>RimNauts2_MoonStripped_Base</defName>
+		<label>stripped barren moon</label>
+		<description>One of what could be many, many moons orbiting this rimworld.</description>
+		<texture>Satellites/Moons/RimNauts2_MoonStripped_Base</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped_Base</expandingIconTexture>
+	</WorldObjectDef>
+	<!-- Gassy moon -->
+	<WorldObjectDef Name="RimNauts2_MoonGassy" ParentName="satellite">
+		<defName>RimNauts2_MoonGassy</defName>
+		<label>gassy moon</label>
+		<description>One of what could be many, many moons orbiting this rimworld.</description>
+		<texture>Satellites/Moons/RimNauts2_MoonGassy</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonGassy</expandingIconTexture>
+		<mapGenerator>MoonMap</mapGenerator>
+		<expandingIconPriority>1003</expandingIconPriority>
+		<comps>
+			<li Class="WorldObjectCompProperties_Abandon"/>
+			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
+		</comps>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_MoonGassy">
+		<defName>RimNauts2_MoonGassy_Base</defName>
+		<label>gassy moon</label>
+		<description>One of what could be many, many moons orbiting this rimworld.</description>
+		<texture>Satellites/Moons/RimNauts2_MoonGassy_Base</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonGassy_Base</expandingIconTexture>
 	</WorldObjectDef>
 </Defs>

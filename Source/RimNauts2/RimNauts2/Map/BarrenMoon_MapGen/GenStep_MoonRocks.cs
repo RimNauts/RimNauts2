@@ -24,7 +24,7 @@ namespace RimNauts2 {
         }
 
         public override void Generate(Map map, GenStepParams parms) {
-            if (map.Biome.defName != "RimNauts2_Moon_Biome") return;
+            if (map.Biome.defName != "RimNauts2_MoonBarren_Biome") return;
             map.regionAndRoomUpdater.Enabled = false;
             float num = 0.7f;
             List<RoofThreshold> list = new List<RoofThreshold> {

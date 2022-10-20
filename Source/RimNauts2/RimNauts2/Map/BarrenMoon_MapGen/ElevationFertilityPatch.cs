@@ -7,9 +7,8 @@ using Verse.Noise;
 namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.GenStep_ElevationFertility), nameof(RimWorld.GenStep_ElevationFertility.Generate))]
     public static class ElevationFertilityPatch {
-        [HarmonyPostfix]
         public static void Postfix(Map map, GenStepParams parms) {
-            if (map.Biome.defName != "RimNauts2_Moon_Biome") return;
+            if (map.Biome.defName != "RimNauts2_MoonBarren_Biome") return;
             // Map generation is based mostly on these two grids. We're making custom grids.
             MapGenFloatGrid fertility = MapGenerator.Fertility;
             MapGenFloatGrid elevation = MapGenerator.Elevation;
