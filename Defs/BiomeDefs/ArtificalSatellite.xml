@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<BiomeDef Parent="SatelliteBiome">
+		<defName>RimNauts2_Artifical_Satellite_Biome</defName>
+		<label>artifical satellite</label>
+		<description>artifical satellite</description>
+		<workerClass>BiomeWorker_Ocean</workerClass>
+  	</BiomeDef>
+</Defs>
