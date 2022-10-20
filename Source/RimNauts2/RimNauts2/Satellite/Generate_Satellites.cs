@@ -5,32 +5,8 @@ using Verse;
 
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
-        public readonly static int total_satellite_amount = 1000;
         public readonly static int total_moon_amount = 1;
-        public readonly static int total_crashing_satellites = (int) (total_satellite_amount * 0.05f);
-        public static int crashing_satellites = 0;
-        private readonly static List<string> asteroid_defs = new List<string>() {
-            "RimNauts2_Asteroid_1",
-            "RimNauts2_Asteroid_2",
-            "RimNauts2_Asteroid_3",
-            "RimNauts2_Asteroid_4",
-            "RimNauts2_Asteroid_5",
-            "RimNauts2_Asteroid_6",
-            "RimNauts2_Asteroid_7",
-            "RimNauts2_Asteroid_8",
-            "RimNauts2_Asteroid_9",
-        };
-        private readonly List<string> asteroid_ore_defs = new List<string>() {
-            "RimNauts2_Ore_Steel",
-            "RimNauts2_Ore_Gold",
-            "RimNauts2_Ore_Plasteel",
-        };
-        private readonly List<string> junk_defs = new List<string>() {
-            "RimNauts2_Waste_Satellite",
-        };
-        private readonly List<string> moon_defs = new List<string>() {
-            "Moon",
-        };
+        public static int crashing_asteroids_in_world = 0;
 
         public override int SeedPart {
             get {
@@ -43,29 +19,30 @@ namespace RimNauts2 {
 
         private void generate_satellites() {
             SatelliteContainer.clear();
-            crashing_satellites = 0;
-            List<int> suitable_tile_ids = new List<int>();
-            int moons_added = 0;
+            crashing_asteroids_in_world = 0;
             int satellites_added = 0;
 
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
-                if (Find.World.grid.tiles.ElementAt(i).biome == BiomeDefOf.RockMoonBiome) moons_added++;
-                if (Find.World.grid.tiles.ElementAt(i).biome == BiomeDefOf.SatelliteBiome) {
-                    suitable_tile_ids.Add(i);
-
-                    if (moons_added < total_moon_amount) {
-                        add_satellite(i, moon_defs, Satellite_Type.Moon);
-                        moons_added++;
-                    } else if (satellites_added < total_satellite_amount) {
-                        add_satellite(i, asteroid_defs, Satellite_Type.Asteroid);
-                        satellites_added++;
-                    } else break;
-                }
+                string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
+                if (biome_def == "RimNauts2_Satellite_Biome") {
+                    add_satellite(i, SatelliteDefOf.Satellite.AsteroidObjects, Satellite_Type.Asteroid);
+                    satellites_added++;
+                    continue;
+                } else if (biome_def == "Ocean" || satellites_added >= SatelliteDefOf.Satellite.TotalSatelliteObjects) break;
             }
         }
 
-        private void add_satellite(int tile_id, List<string> defs, Satellite_Type type) {
+        public static void add_satellite(int tile_id, List<string> defs, Satellite_Type type) {
             string def_name = defs.RandomElement();
+            if (Find.WorldObjects.AnyWorldObjectAt(tile_id)) {
+                Satellite old_satellite = Find.WorldObjects.WorldObjectAt<Satellite>(tile_id);
+                if (old_satellite.type == type) {
+                    SatelliteContainer.add(old_satellite);
+                    return;
+                }
+                SatelliteContainer.remove(old_satellite);
+                old_satellite.Destroy();
+            }
             Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def_name, true)
             );
@@ -81,7 +58,6 @@ namespace RimNauts2 {
             string def_name,
             Satellite_Type type,
             Vector3 max_orbits,
-            Vector3 shift_orbits,
             Vector3 spread,
             float period,
             int time_offset,
@@ -93,12 +69,11 @@ namespace RimNauts2 {
             satellite.Tile = tile_id;
             satellite.def_name = def_name;
             satellite.type = type;
-            satellite.max_orbits = max_orbits;
-            satellite.shift_orbits = shift_orbits;
-            satellite.spread = spread;
+            satellite.orbit_position = max_orbits;
+            satellite.orbit_spread = spread;
             satellite.period = period;
             satellite.time_offset = time_offset;
-            satellite.speed = speed;
+            satellite.orbit_speed = speed;
             Find.WorldObjects.Add(satellite);
             SatelliteContainer.add(satellite);
             return satellite;

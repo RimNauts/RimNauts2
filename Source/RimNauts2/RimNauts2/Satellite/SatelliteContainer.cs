@@ -12,6 +12,10 @@ namespace RimNauts2 {
             satellites.Remove(satellite.Tile);
         }
 
+        public static void remove(int tile_id) {
+            satellites.Remove(tile_id);
+        }
+
         public static bool exists(int tile) {
             return satellites.ContainsKey(tile);
         }

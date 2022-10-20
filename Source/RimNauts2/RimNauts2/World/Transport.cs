@@ -37,7 +37,6 @@ namespace RimNauts2 {
             } else {
                 Map map = parent.Map;
                 Transporter.TryRemoveLord(map);
-                int groupId = Transporter.groupID;
                 RimWorld.CompTransporter compTransporter = Transporter;
                 Building fuelingPortSource = compTransporter.Launchable.FuelingPortSource;
                 if (fuelingPortSource != null)
@@ -48,29 +47,64 @@ namespace RimNauts2 {
                 activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
                 activeDropPod.Contents.innerContainer.TryAddRangeOrTransfer(directlyHeldThings, destroyLeftover: true);
                 RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving ?? RimWorld.ThingDefOf.DropPodLeaving, activeDropPod);
-                flyShipLeaving.groupID = groupId;
+                flyShipLeaving.groupID = 0;
                 flyShipLeaving.destinationTile = map.Tile;
                 flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
                 compTransporter.CleanUpLoadingVars(map);
                 compTransporter.parent.Destroy(DestroyMode.Vanish);
                 GenSpawn.Spawn(flyShipLeaving, compTransporter.parent.Position, map);
                 CameraJumper.TryHideWorld();
+
+                int tile_id = -1;
+                int new_moon_tile_id = -1;
+
+                for (int i = 0; i < Find.World.grid.TilesCount; i++) {
+                    if (Find.World.grid.tiles.ElementAt(i).biome.defName == "RimNauts2_Satellite_Biome") {
+                        if (tile_id == -1) {
+                            tile_id = i;
+                        } else if (new_moon_tile_id == -1) {
+                            new_moon_tile_id = i;
+                            break;
+                        }
+                    }
+                }
+
+                if (tile_id == -1) {
+                    Messages.Message("Failed to launch satellite into orbit.", RimWorld.MessageTypeDefOf.NegativeEvent, true);
+                    Log.Error("RimNauts2: Couldn't find a free tile to spawn an artifical satellite on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
+                    return;
+                }
+
+                Generate_Satellites.add_satellite(tile_id, SatelliteDefOf.Satellite.ArtificalSatelliteObjects, Satellite_Type.Artifical_Satellite);
+                Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Artifical_Satellite_Biome");
+
                 Messages.Message("Succesfully launched a satellite into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
+
+                if (new_moon_tile_id != -1) {
+                    Generate_Satellites.add_satellite(new_moon_tile_id, SatelliteDefOf.Satellite.MoonObjects, Satellite_Type.Moon);
+                    Find.World.grid.tiles.ElementAt(new_moon_tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Moon_Biome");
+                    Messages.Message("New moon found by satellite!", RimWorld.MessageTypeDefOf.PositiveEvent, true);
+                } else {
+                    Log.Error("RimNauts2: Couldn't find a free tile to spawn a moon on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
+                }
             }
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             CompLaunchable compLaunchable = this;
             ThingOwner inventory = Transporter.innerContainer;
-            Command_Action cmd = new Command_Action();
-            cmd.defaultLabel = "Launch satellite";
-            cmd.defaultDesc = "Launch satellite into orbit.";
-            cmd.icon = RimWorld.CompLaunchable.LaunchCommandTex;
-            cmd.action = new Action(launch_satellite);
-            if (FuelingPortSourceFuel < 150.0f)
-                cmd.Disable("Requires 150 fuel, currently at " + FuelingPortSourceFuel + " fuel.");
-            else if (inventory.Count != 1 || inventory.ContentsString != "satellite")
-                cmd.Disable("Can only send up 1 satellite.");
+            Command_Action cmd = new Command_Action {
+                defaultLabel = "Launch satellite",
+                defaultDesc = "Launch satellite into orbit.",
+                icon = RimWorld.CompLaunchable.LaunchCommandTex,
+                action = new Action(launch_satellite)
+            };
+            if (!Prefs.DevMode) {
+                if (FuelingPortSourceFuel < 150.0f)
+                    cmd.Disable("Requires 150 fuel, currently at " + FuelingPortSourceFuel + " fuel.");
+                else if (inventory.Count != 1 || inventory.ContentsString != "satellite")
+                    cmd.Disable("Can only send up 1 satellite.");
+            }
             yield return cmd;
         }
     }
@@ -79,12 +113,12 @@ namespace RimNauts2 {
     public static class TransportpodSatelliteIgnoreMaxRange {
         [HarmonyPostfix]
         public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            bool to_moon = Find.World.grid.tiles.ElementAt(start).biome == BiomeDefOf.RockMoonBiome;
+            bool to_moon = Find.World.grid.tiles.ElementAt(start).biome.defName == "RimNauts2_Moon_Biome";
             if (to_moon) {
                 __result = 1;
                 return;
             }
-            bool from_moon = Find.World.grid.tiles.ElementAt(end).biome == BiomeDefOf.RockMoonBiome;
+            bool from_moon = Find.World.grid.tiles.ElementAt(end).biome.defName == "RimNauts2_Moon_Biome";
             if (from_moon) {
                 __result = 1;
                 return;

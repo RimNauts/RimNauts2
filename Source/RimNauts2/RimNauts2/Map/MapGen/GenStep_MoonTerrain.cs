@@ -10,7 +10,7 @@ namespace RimNauts2 {
         }
 
         public override void Generate(Map map, GenStepParams parms) {
-            if (map.Biome != BiomeDefOf.RockMoonBiome) return;
+            if (map.Biome.defName != "RimNauts2_Moon_Biome") return;
             List<IntVec3> list = new List<IntVec3>();
             MapGenFloatGrid fertility = MapGenerator.Fertility;
             TerrainGrid terrainGrid = map.terrainGrid;

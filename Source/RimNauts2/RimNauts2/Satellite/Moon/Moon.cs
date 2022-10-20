@@ -9,12 +9,11 @@ namespace RimNauts2 {
             // store satellite values for later
             int buffer_tile_id = satellite.Tile;
             string buffer_def_name = satellite.def_name;
-            Vector3 buffer_max_orbits = satellite.max_orbits;
-            Vector3 buffer_shift_orbits = satellite.shift_orbits;
-            Vector3 buffer_spread = satellite.spread;
+            Vector3 buffer_max_orbits = satellite.orbit_position;
+            Vector3 buffer_spread = satellite.orbit_spread;
             float buffer_period = satellite.period;
             int buffer_time_offset = satellite.time_offset;
-            float buffer_speed = satellite.speed;
+            float buffer_speed = satellite.orbit_speed;
             // destroy satellite as an asteroid to keep the tile open
             satellite.type = Satellite_Type.Asteroid;
             satellite.Destroy();
@@ -24,7 +23,6 @@ namespace RimNauts2 {
                 buffer_def_name + "_Base",
                 Satellite_Type.Moon,
                 buffer_max_orbits,
-                buffer_shift_orbits,
                 buffer_spread,
                 buffer_period,
                 buffer_time_offset,
@@ -50,17 +48,12 @@ namespace RimNauts2 {
         }
 
         private static void applySatelliteSurface(int tileNum) {
-            List<int> neighbors = new List<int>();
-            Find.World.grid.GetTileNeighbors(tileNum, neighbors);
-            foreach (int tile in neighbors) {
-                Find.World.grid.tiles.ElementAt(tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(BiomeDefOf.RockMoonBiome.defName);
-            }
             Find.World.grid.tiles.ElementAt(tileNum).elevation = 100f;
             Find.World.grid.tiles.ElementAt(tileNum).hilliness = RimWorld.Planet.Hilliness.Flat;
             Find.World.grid.tiles.ElementAt(tileNum).rainfall = 0f;
             Find.World.grid.tiles.ElementAt(tileNum).swampiness = 0f;
             Find.World.grid.tiles.ElementAt(tileNum).temperature = -100f;
-            Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(BiomeDefOf.RockMoonBiome.defName);
+            Find.World.grid.tiles.ElementAt(tileNum).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Moon_Biome");
         }
     }
 }

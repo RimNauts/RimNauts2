@@ -3,7 +3,7 @@
     <Operation Class="PatchOperationReplace">
 		<xpath>Defs/WorldObjectDef[defName="TravelingTransportPods"]/expandingIconPriority</xpath>
 		<value>
-            <expandingIconPriority>1003</expandingIconPriority>
+            <expandingIconPriority>1004</expandingIconPriority>
 		</value>
 	</Operation>
 </Patch>

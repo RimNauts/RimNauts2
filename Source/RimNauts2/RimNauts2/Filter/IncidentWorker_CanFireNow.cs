@@ -12,7 +12,7 @@ namespace RimNauts2 {
         public static void Postfix(ref RimWorld.IncidentWorker __instance, RimWorld.IncidentParms parms, ref bool __result) {
             try {
                 if (!__result) return;
-                bool incident_not_on_moon_biome = Find.WorldGrid[parms.target.Tile].biome != BiomeDefOf.RockMoonBiome;
+                bool incident_not_on_moon_biome = !SatelliteDefOf.Satellite.Biomes.Contains(Find.WorldGrid[parms.target.Tile].biome.defName);
                 if (incident_not_on_moon_biome) return;
                 if (allowed_incidents.Contains(__instance.def.defName)) return;
                 __result = false;
@@ -30,9 +30,7 @@ namespace RimNauts2 {
                 string str = "A large meteorite has struck ground in the area. It has left behind a lump of " + thingList[0].def.label + ".";
                 SendStandardLetter("Meteorite: " + thingList[0].def.LabelCap, str, baseLetterDef, parms, new TargetInfo(cell, target), Array.Empty<NamedArgument>());
                 if (Prefs.DevMode) Log.Message("RimNauts2: Replaced '" + __instance.def.defName + "' incident to Metorite incident.");
-            } catch {
-                if (Prefs.DevMode) Log.Message("RimNauts2: Failed to replace '" + __instance.def.defName + "' incident with a Metorite incident.");
-            }
+            } catch { }
             wait = 5;
             return;
         }

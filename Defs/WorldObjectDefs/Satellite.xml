@@ -6,6 +6,6 @@
 		<worldObjectClass>RimNauts2.Satellite</worldObjectClass>
 		<useDynamicDrawer>false</useDynamicDrawer>
 		<expandingIcon>true</expandingIcon>
-		<expandingIconPriority>1001</expandingIconPriority>
+		<expandingIconPriority>1002</expandingIconPriority>
   	</WorldObjectDef>
 </Defs>

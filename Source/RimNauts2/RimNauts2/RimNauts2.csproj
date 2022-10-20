@@ -61,10 +61,11 @@
     <Compile Include="Map\MapGen\GenStep_MoonTerrain.cs" />
     <Compile Include="Map\MapGen\RocksFromGridPatch.cs" />
     <Compile Include="Map\MapGen\TerrainPatch.cs" />
+    <Compile Include="SatelliteDefOf.cs" />
+    <Compile Include="SatelliteDef.cs" />
     <Compile Include="Satellite\Moon\GenerateMapButton.cs" />
     <Compile Include="Satellite\Moon\Moon.cs" />
     <Compile Include="Satellite\SatelliteContainer.cs" />
-    <Compile Include="Biome\BiomeDefOf.cs" />
     <Compile Include="Filter\IncidentWorker_CanFireNow.cs" />
     <Compile Include="RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,5 +80,6 @@
       <Link>.editorconfig</Link>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

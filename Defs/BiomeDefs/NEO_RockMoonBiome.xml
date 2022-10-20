@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<BiomeDef>
-		<defName>RockMoonBiome</defName>
+		<defName>RimNauts2_Moon_Biome</defName>
 		<label>barrenMoon</label>
 		<description>Rocky Moon</description>
 		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>

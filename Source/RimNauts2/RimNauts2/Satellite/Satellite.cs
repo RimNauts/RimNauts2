@@ -9,17 +9,32 @@ namespace RimNauts2 {
     public class Satellite : RimWorld.Planet.MapParent {
         public string def_name;
         public Satellite_Type type;
-        public Vector3 max_orbits;
-        public Vector3 shift_orbits;
-        public Vector3 spread;
+        public Vector3 orbit_position;
+        public Vector3 orbit_spread;
+        public float orbit_speed;
         public float period;
         public int time_offset;
-        public float speed;
         public bool has_map = false;
         public bool can_out_of_bounds = false;
         public float out_of_bounds_offset = 1.0f;
         public float current_out_of_bounds;
         public bool out_of_bounds_direction_towards_surface = true;
+
+        public override void ExposeData() {
+            base.ExposeData();
+            Scribe_Values.Look(ref def_name, "def_name");
+            Scribe_Values.Look(ref type, "type");
+            Scribe_Values.Look(ref orbit_position, "orbit_position");
+            Scribe_Values.Look(ref orbit_spread, "orbit_spread");
+            Scribe_Values.Look(ref orbit_speed, "orbit_speed");
+            Scribe_Values.Look(ref period, "period");
+            Scribe_Values.Look(ref time_offset, "time_offset");
+            Scribe_Values.Look(ref has_map, "has_map");
+            Scribe_Values.Look(ref can_out_of_bounds, "can_out_of_bounds");
+            Scribe_Values.Look(ref out_of_bounds_offset, "out_of_bounds_offset");
+            Scribe_Values.Look(ref current_out_of_bounds, "current_out_of_bounds");
+            Scribe_Values.Look(ref out_of_bounds_direction_towards_surface, "out_of_bounds_direction_towards_surface");
+        }
 
         public override Vector3 DrawPos => get_parametric_ellipse();
 
@@ -39,21 +54,19 @@ namespace RimNauts2 {
         public Vector3 get_parametric_ellipse() {
             int time = Find.TickManager.TicksGame;
             float val = get_crash_course();
-            Vector3 vec3;
+            Vector3 vec = new Vector3 {
+                x = orbit_position.x - (Math.Abs(orbit_position.y) / 2),
+                y = orbit_position.y,
+                z = orbit_position.z - (Math.Abs(orbit_position.y) / 2),
+            };
             if (out_of_bounds_direction_towards_surface || val <= 1.0f) {
-                vec3 = new Vector3 {
-                    x = max_orbits.x * ((float) Math.Cos(6.28f / period * ((((val * -1 + 1) * 2 + speed) * time) + time_offset)) * val),
-                    y = max_orbits.y * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)),
-                    z = max_orbits.z * ((float) Math.Sin(6.28f / period * ((((val * -1 + 1) * 2 + speed) * time) + time_offset)) * val),
-                };
+                vec.x *= (float) Math.Cos(6.28f / period * ((((val * -1 + 1) * 2 + orbit_speed) * time) + time_offset)) * val;
+                vec.z *= (float) Math.Sin(6.28f / period * ((((val * -1 + 1) * 2 + orbit_speed) * time) + time_offset)) * val;
             } else {
-                vec3 = new Vector3 {
-                    x = max_orbits.x * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)) * val,
-                    y = max_orbits.y * (float) Math.Cos(6.28f / period * ((speed * time) + time_offset)),
-                    z = max_orbits.z * (float) Math.Sin(6.28f / period * ((speed * time) + time_offset)) * val,
-                };
+                vec.x *= (float) Math.Cos(6.28f / period * ((orbit_speed * time) + time_offset)) * val;
+                vec.z *= (float) Math.Sin(6.28f / period * ((orbit_speed * time) + time_offset)) * val;
             }
-            return vec3;
+            return vec;
         }
 
         public float get_crash_course() {
@@ -71,31 +84,23 @@ namespace RimNauts2 {
             type = new_type;
             switch (type) {
                 case Satellite_Type.Asteroid:
-                    max_orbits = new Vector3(250.0f, 0.0f, 250.0f);
-                    shift_orbits = new Vector3(0.0f, 0.0f, 0.0f);
-                    spread = new Vector3(0.3f, 0.0f, 0.3f);
-                    speed = Rand.Range(1.0f, 2.0f);
-                    if (Generate_Satellites.crashing_satellites < Generate_Satellites.total_crashing_satellites) {
+                    if (Generate_Satellites.crashing_asteroids_in_world < SatelliteDefOf.Satellite.TotalCrashingAsteroidObjects) {
                         can_out_of_bounds = true;
-                        if (Generate_Satellites.crashing_satellites <= Generate_Satellites.total_crashing_satellites * 0.5) {
+                        if (Generate_Satellites.crashing_asteroids_in_world <= SatelliteDefOf.Satellite.TotalCrashingAsteroidObjects * 0.5) {
                             out_of_bounds_direction_towards_surface = false;
                             out_of_bounds_offset = Rand.Range(-10.0f, 1.0f);
                         } else out_of_bounds_offset = Rand.Range(1.0f, 10.0f);
-                        Generate_Satellites.crashing_satellites++;
+                        Generate_Satellites.crashing_asteroids_in_world++;
                     }
                     break;
-                case Satellite_Type.Moon:
-                    max_orbits = new Vector3(400.0f, 0.0f, 400.0f);
-                    shift_orbits = new Vector3(0.0f, 0.0f, 0.0f);
-                    spread = new Vector3(0.25f, 0.25f, 0.25f);
-                    speed = 1.0f;
-                    break;
                 default:
-                    Log.Error("RimNauts2: Failed to set default values in satellite.");
-                    return;
+                    break;
             }
-            max_orbits = randomize_vector(max_orbits);
-            shift_orbits = randomize_vector(shift_orbits);
+            orbit_spread = SatelliteDefOf.Satellite.OrbitSpread(type);
+            orbit_position = SatelliteDefOf.Satellite.OrbitPosition(type);
+            orbit_position.y = Rand.Range(Math.Abs(orbit_position.y) * -1, Math.Abs(orbit_position.y));
+            orbit_position = randomize_vector(orbit_position);
+            orbit_speed = SatelliteDefOf.Satellite.OrbitSpeed(type);
             period = random_orbit(36000.0f, 6000.0f);
             time_offset = Rand.Range(0, (int) period);
             current_out_of_bounds = out_of_bounds_offset;
@@ -103,11 +108,11 @@ namespace RimNauts2 {
 
         public int random_orbit(float min, float range) => (int) (min + (range * (Rand.Value - 0.5f)));
 
-        public Vector3 randomize_vector(Vector3 vec, bool rand_direction = false) {
+        public Vector3 randomize_vector(Vector3 vec) {
             return new Vector3 {
-                x = (Rand.Bool && rand_direction ? 1 : -1) * vec.x + (float) ((Rand.Value - 0.5f) * (vec.x * spread.x)),
-                y = (Rand.Bool && rand_direction ? 1 : -1) * vec.y + (float) ((Rand.Value - 0.5f) * (vec.y * spread.y)),
-                z = (Rand.Bool && rand_direction ? 1 : -1) * vec.z + (float) ((Rand.Value - 0.5f) * (vec.z * spread.z)),
+                x = vec.x + (float) ((Rand.Value - 0.5f) * (vec.x * orbit_spread.x)),
+                y = vec.y,
+                z = vec.z + (float) ((Rand.Value - 0.5f) * (vec.z * orbit_spread.z)),
             };
         }
 
@@ -149,13 +154,12 @@ namespace RimNauts2 {
             int buffer_tile_id = Tile;
             string buffer_def_name = def_name;
             Satellite_Type buffer_type = type;
-            Vector3 buffer_max_orbits = max_orbits;
-            Vector3 buffer_shift_orbits = shift_orbits;
-            Vector3 buffer_spread = spread;
+            Vector3 buffer_max_orbits = orbit_position;
+            Vector3 buffer_spread = orbit_spread;
             float buffer_period = period;
             int buffer_time_offset = time_offset;
-            float buffer_speed = speed;
-            if (type == Satellite_Type.Moon) Find.World.grid.tiles.ElementAt(Tile).biome = BiomeDefOf.SatelliteBiome;
+            float buffer_speed = orbit_speed;
+            Find.World.grid.tiles.ElementAt(Tile).biome = RimWorld.BiomeDef.Named("RimNauts2_Satellite_Biome");
             SatelliteContainer.remove(this);
             base.PostRemove();
             if (type == Satellite_Type.Moon) _ = Generate_Satellites.copy_satellite(
@@ -163,7 +167,6 @@ namespace RimNauts2 {
                 buffer_def_name.Substring(0, buffer_def_name.Length - "_Base".Length),
                 buffer_type,
                 buffer_max_orbits,
-                buffer_shift_orbits,
                 buffer_spread,
                 buffer_period,
                 buffer_time_offset,
@@ -176,5 +179,6 @@ namespace RimNauts2 {
         None = 0,
         Asteroid = 1,
         Moon = 2,
+        Artifical_Satellite = 3,
     }
 }

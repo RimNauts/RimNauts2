@@ -6,9 +6,9 @@ namespace RimNauts2 {
     public static class RocksFromGridPatch {
         [HarmonyPrefix]
         public static bool Prefix(Map map, GenStepParams parms) {
-            if (map.Biome != BiomeDefOf.RockMoonBiome) return true;
+            if (map.Biome.defName != "RimNauts2_Moon_Biome") return true;
             // use custom rock generator
-            (new GenStep_MoonRocks()).Generate(map, parms);
+            new GenStep_MoonRocks().Generate(map, parms);
             return false;
         }
     }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<WorldObjectDef Name="moon" ParentName="satellite">
-		<defName>Moon</defName>
+		<defName>RimNauts2_Moon</defName>
 		<label>moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_Moon</texture>
@@ -13,7 +13,7 @@
 			<li>Map_RaidBeacon</li>
 		</IncidentTargetTags>
 		<mapGenerator>MoonMap</mapGenerator>
-		<expandingIconPriority>1002</expandingIconPriority>
+		<expandingIconPriority>1003</expandingIconPriority>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
@@ -21,7 +21,7 @@
 	</WorldObjectDef>
 
 	<WorldObjectDef ParentName="moon">
-		<defName>Moon_Base</defName>
+		<defName>RimNauts2_Moon_Base</defName>
 		<label>moon base</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_Moon_Base</texture>

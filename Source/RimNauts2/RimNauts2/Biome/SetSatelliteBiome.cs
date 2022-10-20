@@ -6,8 +6,8 @@ namespace RimNauts2 {
         public static int i = 0;
 
         public static void Postfix(RimWorld.Planet.Tile ws, int tileID, ref RimWorld.BiomeDef __result) {
-            if (i < Generate_Satellites.total_satellite_amount && __result == RimWorld.BiomeDefOf.Ocean) {
-                __result = BiomeDefOf.SatelliteBiome;
+            if (i < SatelliteDefOf.Satellite.TotalSatelliteObjects && __result == RimWorld.BiomeDefOf.Ocean) {
+                __result = RimWorld.BiomeDef.Named("RimNauts2_Satellite_Biome");
                 i++;
             }
         }
