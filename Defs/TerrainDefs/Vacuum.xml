@@ -2,9 +2,9 @@
 <Defs>
 	<!-- Vacuum -->
 	<TerrainDef>
-		<defName>OpenSpace</defName>
+		<defName>RimNauts2_Vacuum</defName>
 		<label>vacuum</label>
-		<texturePath>Terrain/Surfaces/vacuum</texturePath>
+		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum</texturePath>
 		<edgeType>FadeRough</edgeType>
 		<renderPrecedence>20</renderPrecedence>
 		<passability>Impassable</passability>

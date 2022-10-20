@@ -28,7 +28,7 @@ namespace RimNauts2 {
         }
 
         private TerrainDef TerrainFrom(IntVec3 current, IntVec3 center, IntVec3 size, float fertility) {
-            TerrainDef terrainDef = DefDatabase<TerrainDef>.GetNamed("OpenSpace", true);
+            TerrainDef terrainDef = DefDatabase<TerrainDef>.GetNamed("RimNauts2_Vacuum", true);
             // if the tile is within radius of the center, get the rock terrain
             int radius = (size.x / 2) - 9;
             if (!(((current.x - (center.x - 1)) * (current.x - center.x)) + ((current.z - (center.z - 1)) * (current.z - center.z)) >= (radius * radius))) {

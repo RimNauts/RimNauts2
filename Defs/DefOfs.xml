@@ -37,13 +37,13 @@
         </AsteroidObjects>
 
 		<AsteroidOreObjects>
-            <li>RimNauts2_Ore_Steel</li>
-            <li>RimNauts2_Ore_Gold</li>
-            <li>RimNauts2_Ore_Plasteel</li>
+            <li>RimNauts2_OreSteel</li>
+            <li>RimNauts2_OreGold</li>
+            <li>RimNauts2_OrePlasteel</li>
         </AsteroidOreObjects>
 
 		<WasteObjects>
-            <li>RimNauts2_Waste_Satellite</li>
+            <li>RimNauts2_WasteSatellite</li>
         </WasteObjects>
 
 		<MoonObjects>
@@ -53,7 +53,7 @@
         </MoonObjects>
 
 		<ArtificalSatelliteObjects>
-            <li>RimNauts2_Artifical_Satellite</li>
+            <li>RimNauts2_ArtificalSatellite</li>
         </ArtificalSatelliteObjects>
 
   	</RimNauts2.SatelliteDef>

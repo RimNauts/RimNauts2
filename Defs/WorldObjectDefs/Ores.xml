@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<WorldObjectDef ParentName="satellite">
-		<defName>RimNauts2_Ore_Steel</defName>
+		<defName>RimNauts2_OreSteel</defName>
 		<label>steel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_Ore_Steel</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_Ore_Steel</expandingIconTexture>
+		<texture>Satellites/Ores/RimNauts2_OreSteel</texture>
+		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel</expandingIconTexture>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="satellite">
-		<defName>RimNauts2_Ore_Gold</defName>
+		<defName>RimNauts2_OreGold</defName>
 		<label>gold ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_Ore_Gold</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_Ore_Gold</expandingIconTexture>
+		<texture>Satellites/Ores/RimNauts2_OreGold</texture>
+		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold</expandingIconTexture>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="satellite">
-		<defName>RimNauts2_Ore_Plasteel</defName>
+		<defName>RimNauts2_OrePlasteel</defName>
 		<label>plasteel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_Ore_Plasteel</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_Ore_Plasteel</expandingIconTexture>
+		<texture>Satellites/Ores/RimNauts2_OrePlasteel</texture>
+		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel</expandingIconTexture>
 	</WorldObjectDef>
 </Defs>
