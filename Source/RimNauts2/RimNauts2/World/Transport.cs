@@ -74,13 +74,13 @@ namespace RimNauts2 {
                     return;
                 }
 
-                Generate_Satellites.add_satellite(tile_id, SatelliteDefOf.Satellite.ArtificalSatelliteObjects, Satellite_Type.Artifical_Satellite);
+                Generate_Satellites.add_satellite(tile_id, Satellite_Type.Artifical_Satellite);
                 Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Artifical_Satellite_Biome");
 
                 Messages.Message("Succesfully launched a satellite into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
 
                 if (new_moon_tile_id != -1) {
-                    Generate_Satellites.add_satellite(new_moon_tile_id, SatelliteDefOf.Satellite.MoonObjects, Satellite_Type.Moon);
+                    Generate_Satellites.add_satellite(new_moon_tile_id, Satellite_Type.Moon);
                 } else {
                     Log.Error("RimNauts2: Couldn't find a free tile to spawn a moon on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
                 }
@@ -111,14 +111,12 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), nameof(RimWorld.Planet.WorldGrid.TraversalDistanceBetween))]
     public static class TransportpodSatelliteIgnoreMaxRange {
         public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            //bool to_moon = Find.World.grid.tiles.ElementAt(start).biome.defName == "RimNauts2_MoonBarren_Biome";
             bool to_moon = SatelliteDefOf.Satellite.Biomes.Contains(Find.World.grid.tiles.ElementAt(start).biome.defName);
             if (to_moon) {
                 __result = 1;
                 return;
             }
-            //bool from_moon = Find.World.grid.tiles.ElementAt(end).biome.defName == "RimNauts2_MoonBarren_Biome";
-            bool from_moon = SatelliteDefOf.Satellite.Biomes.Contains(Find.World.grid.tiles.ElementAt(start).biome.defName);
+            bool from_moon = SatelliteDefOf.Satellite.Biomes.Contains(Find.World.grid.tiles.ElementAt(end).biome.defName);
             if (from_moon) {
                 __result = 1;
                 return;

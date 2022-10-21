@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using Verse;
 
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
-        public readonly static int total_moon_amount = 1;
         public static int crashing_asteroids_in_world = 0;
 
         public override int SeedPart {
@@ -17,30 +15,25 @@ namespace RimNauts2 {
 
         public override void GenerateFresh(string seed) => generate_satellites();
 
-        private void generate_satellites() {
-            SatelliteContainer.clear();
-            crashing_asteroids_in_world = 0;
-            int satellites_added = 0;
+        public override void GenerateFromScribe(string seed) {
+            base.GenerateFromScribe(seed);
+            generate_satellites();
+        }
 
+        private void generate_satellites() {
+            crashing_asteroids_in_world = 0;
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
-                if (biome_def == "RimNauts2_Satellite_Biome") {
-                    add_satellite(i, SatelliteDefOf.Satellite.AsteroidObjects, Satellite_Type.Asteroid);
-                    satellites_added++;
-                    continue;
-                } else if (biome_def == "Ocean" || satellites_added >= SatelliteDefOf.Satellite.TotalSatelliteObjects) break;
+                if (biome_def == "Ocean" || SatelliteContainer.size() >= SatelliteDefOf.Satellite.TotalSatelliteObjects) break;
+                if (SatelliteDefOf.Satellite.Biomes.Contains(biome_def)) add_satellite(i, Satellite_Type_Methods.get_type_from_biome(biome_def));
             }
         }
 
-        public static void add_satellite(int tile_id, List<string> defs, Satellite_Type type) {
-            string def_name = defs.RandomElement();
+        public static void add_satellite(int tile_id, Satellite_Type type) {
+            string def_name = type.WorldObjects().RandomElement();
             if (Find.WorldObjects.AnyWorldObjectAt(tile_id)) {
                 Satellite old_satellite = Find.WorldObjects.WorldObjectAt<Satellite>(tile_id);
-                if (old_satellite.type == type) {
-                    SatelliteContainer.add(old_satellite);
-                    return;
-                }
-                SatelliteContainer.remove(old_satellite);
+                if (old_satellite.type == type) return;
                 old_satellite.Destroy();
             }
             Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
@@ -51,7 +44,6 @@ namespace RimNauts2 {
             satellite.set_default_values(type);
             if (type == Satellite_Type.Moon) Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(Moon.get_moon_biome(def_name));
             Find.WorldObjects.Add(satellite);
-            SatelliteContainer.add(satellite);
         }
 
         public static Satellite copy_satellite(
@@ -76,7 +68,6 @@ namespace RimNauts2 {
             satellite.time_offset = time_offset;
             satellite.orbit_speed = speed;
             Find.WorldObjects.Add(satellite);
-            SatelliteContainer.add(satellite);
             return satellite;
         }
     }

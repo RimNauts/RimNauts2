@@ -8,3 +8,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>", Scope = "member", Target = "~M:RimNauts2.ElevationFertilityPatch.Postfix(Verse.Map,Verse.GenStepParams)")]
 [assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>", Scope = "member", Target = "~M:RimNauts2.SetSatelliteBiome.Postfix(RimWorld.Planet.Tile,System.Int32,RimWorld.BiomeDef@)")]
 [assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>", Scope = "member", Target = "~M:RimNauts2.TransportpodSatelliteIgnoreMaxRange.Postfix(System.Int32,System.Int32,System.Boolean,System.Int32,System.Int32@)")]
+[assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>", Scope = "member", Target = "~M:RimNauts2.RimNauts_GameComponent.#ctor(Verse.Game)")]

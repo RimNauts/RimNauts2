@@ -159,7 +159,6 @@ namespace RimNauts2 {
             float buffer_period = period;
             int buffer_time_offset = time_offset;
             float buffer_speed = orbit_speed;
-            SatelliteContainer.remove(this);
             base.PostRemove();
             if (type == Satellite_Type.Moon) _ = Generate_Satellites.copy_satellite(
                 buffer_tile_id,
@@ -172,12 +171,5 @@ namespace RimNauts2 {
                 buffer_speed
             );
         }
-    }
-
-    public enum Satellite_Type {
-        None = 0,
-        Asteroid = 1,
-        Moon = 2,
-        Artifical_Satellite = 3,
     }
 }

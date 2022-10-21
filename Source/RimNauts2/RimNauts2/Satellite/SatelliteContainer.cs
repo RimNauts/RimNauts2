@@ -1,27 +1,64 @@
 ﻿using System.Collections.Generic;
+using HarmonyLib;
+using Verse;
 
 namespace RimNauts2 {
-    public static class SatelliteContainer {
-        public static Dictionary<int, Satellite> satellites = new Dictionary<int, Satellite>();
+    public class RimNauts_GameComponent : GameComponent {
+        public static readonly Dictionary<int, Satellite> satellites = new Dictionary<int, Satellite>();
 
+        public RimNauts_GameComponent(Game game) : base() { }
+    }
+
+    public static class SatelliteContainer {
         public static void add(Satellite satellite) {
-            satellites.Add(satellite.Tile, satellite);
+            remove(satellite);
+            RimNauts_GameComponent.satellites.Add(satellite.Tile, satellite);
         }
 
         public static void remove(Satellite satellite) {
-            satellites.Remove(satellite.Tile);
+            RimNauts_GameComponent.satellites.Remove(satellite.Tile);
         }
 
         public static void remove(int tile_id) {
-            satellites.Remove(tile_id);
+            RimNauts_GameComponent.satellites.Remove(tile_id);
         }
 
         public static bool exists(int tile) {
-            return satellites.ContainsKey(tile);
+            return RimNauts_GameComponent.satellites.ContainsKey(tile);
         }
 
         public static void clear() {
-            satellites.Clear();
+            RimNauts_GameComponent.satellites.Clear();
+        }
+
+        public static int size() {
+            return RimNauts_GameComponent.satellites.Count;
+        }
+    }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "AddToCache")]
+    public static class WorldObjectRegister {
+        public static void Prefix(RimWorld.Planet.WorldObject o) {
+            if (o is Satellite satellite && !SatelliteContainer.exists(o.Tile)) {
+                SatelliteContainer.add(satellite);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "RemoveFromCache")]
+    public static class WorldObjectDeregister {
+        public static void Prefix(RimWorld.Planet.WorldObject o) {
+            if (o is Satellite) {
+                SatelliteContainer.remove(o.Tile);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "Recache")]
+    public static class WorldObjectRecache {
+        public static void Prefix() {
+            Log.Message("doesn't print");
+            SatelliteContainer.clear();
         }
     }
 }
