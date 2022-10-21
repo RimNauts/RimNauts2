@@ -65,7 +65,6 @@
     <Compile Include="SatelliteDef.cs" />
     <Compile Include="Satellite\Moon\GenerateMapButton.cs" />
     <Compile Include="Satellite\Moon\Moon.cs" />
-    <Compile Include="Satellite\SatelliteContainer.cs" />
     <Compile Include="Filter\IncidentWorker_CanFireNow.cs" />
     <Compile Include="RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
