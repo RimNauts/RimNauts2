@@ -15,11 +15,6 @@ namespace RimNauts2 {
 
         public override void GenerateFresh(string seed) => generate_satellites();
 
-        public override void GenerateFromScribe(string seed) {
-            base.GenerateFromScribe(seed);
-            generate_satellites();
-        }
-
         private void generate_satellites() {
             crashing_asteroids_in_world = 0;
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {

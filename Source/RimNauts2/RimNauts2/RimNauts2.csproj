@@ -59,8 +59,8 @@
     <Compile Include="Map\BarrenMoon_MapGen\ElevationFertilityPatch.cs" />
     <Compile Include="Map\BarrenMoon_MapGen\GenStep_MoonRocks.cs" />
     <Compile Include="Map\BarrenMoon_MapGen\GenStep_MoonTerrain.cs" />
-    <Compile Include="Map\BarrenMoon_MapGen\RocksFromGridPatch.cs" />
-    <Compile Include="Map\BarrenMoon_MapGen\TerrainPatch.cs" />
+    <Compile Include="Map\RocksFromGridPatch.cs" />
+    <Compile Include="Map\TerrainPatch.cs" />
     <Compile Include="SatelliteDefOf.cs" />
     <Compile Include="SatelliteDef.cs" />
     <Compile Include="Satellite\Moon\GenerateMapButton.cs" />

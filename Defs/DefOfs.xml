@@ -12,8 +12,8 @@
         <TotalSatelliteObjects>1000</TotalSatelliteObjects>
         <CrashingAsteroidObjectPercentage>0.05</CrashingAsteroidObjectPercentage>
 
-        <AsteroidObjectsOrbitPosition>(250.0, 0.0, 250.0)</AsteroidObjectsOrbitPosition>
-        <AsteroidObjectsOrbitSpread>(0.3, 0.0, 0.3)</AsteroidObjectsOrbitSpread>
+        <AsteroidObjectsOrbitPosition>(250.0, 5.0, 250.0)</AsteroidObjectsOrbitPosition>
+        <AsteroidObjectsOrbitSpread>(0.3, 0.1, 0.3)</AsteroidObjectsOrbitSpread>
         <AsteroidObjectsOrbitSpeedBetween>(2.0, 3.0)</AsteroidObjectsOrbitSpeedBetween>
 
         <MoonObjectsOrbitPosition>(400.0, 200.0, 400.0)</MoonObjectsOrbitPosition>

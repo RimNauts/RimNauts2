@@ -23,8 +23,8 @@ namespace RimNauts2 {
             RimNauts_GameComponent.satellites.Remove(tile_id);
         }
 
-        public static bool exists(int tile) {
-            return RimNauts_GameComponent.satellites.ContainsKey(tile);
+        public static bool exists(int tile_id) {
+            return RimNauts_GameComponent.satellites.ContainsKey(tile_id);
         }
 
         public static void clear() {
@@ -57,7 +57,6 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "Recache")]
     public static class WorldObjectRecache {
         public static void Prefix() {
-            Log.Message("doesn't print");
             SatelliteContainer.clear();
         }
     }
