@@ -15,14 +15,17 @@
         <AsteroidObjectsOrbitPosition>(250.0, 5.0, 250.0)</AsteroidObjectsOrbitPosition>
         <AsteroidObjectsOrbitSpread>(0.3, 0.1, 0.3)</AsteroidObjectsOrbitSpread>
         <AsteroidObjectsOrbitSpeedBetween>(2.0, 3.0)</AsteroidObjectsOrbitSpeedBetween>
+        <AsteroidObjectsOrbitRandomDirection>false</AsteroidObjectsOrbitRandomDirection>
 
         <MoonObjectsOrbitPosition>(400.0, 200.0, 400.0)</MoonObjectsOrbitPosition>
         <MoonObjectsOrbitSpread>(0.25, 0.0, 0.25)</MoonObjectsOrbitSpread>
         <MoonObjectsOrbitSpeedBetween>(1.0, 1.0)</MoonObjectsOrbitSpeedBetween>
+        <MoonObjectsOrbitRandomDirection>true</MoonObjectsOrbitRandomDirection>
 
         <ArtificalSatelliteObjectsOrbitPosition>(140.0, 100.0, 140.0)</ArtificalSatelliteObjectsOrbitPosition>
         <ArtificalSatelliteObjectsOrbitSpread>(0.1, 0.0, 0.1)</ArtificalSatelliteObjectsOrbitSpread>
         <ArtificalSatelliteObjectsOrbitSpeedBetween>(6.0, 7.0)</ArtificalSatelliteObjectsOrbitSpeedBetween>
+        <ArtificalSatelliteObjectsOrbitRandomDirection>true</ArtificalSatelliteObjectsOrbitRandomDirection>
 
 		<AsteroidObjects>
             <li>RimNauts2_Asteroid_1</li>

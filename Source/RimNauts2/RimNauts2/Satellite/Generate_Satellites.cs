@@ -70,6 +70,7 @@ namespace RimNauts2 {
             new_satellite.out_of_bounds_offset = satellite.out_of_bounds_offset;
             new_satellite.current_out_of_bounds = satellite.current_out_of_bounds;
             new_satellite.out_of_bounds_direction_towards_surface = satellite.out_of_bounds_direction_towards_surface;
+            new_satellite.orbit_random_direction = satellite.orbit_random_direction;
 
             Find.WorldObjects.Add(new_satellite);
             return new_satellite;

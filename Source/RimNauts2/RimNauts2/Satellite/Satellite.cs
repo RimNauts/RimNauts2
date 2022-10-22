@@ -19,6 +19,7 @@ namespace RimNauts2 {
         public float out_of_bounds_offset = 1.0f;
         public float current_out_of_bounds;
         public bool out_of_bounds_direction_towards_surface = true;
+        public int orbit_random_direction;
 
         public override void ExposeData() {
             base.ExposeData();
@@ -34,6 +35,7 @@ namespace RimNauts2 {
             Scribe_Values.Look(ref out_of_bounds_offset, "out_of_bounds_offset");
             Scribe_Values.Look(ref current_out_of_bounds, "current_out_of_bounds");
             Scribe_Values.Look(ref out_of_bounds_direction_towards_surface, "out_of_bounds_direction_towards_surface");
+            Scribe_Values.Look(ref orbit_random_direction, "orbit_random_direction");
         }
 
         public override Vector3 DrawPos => get_parametric_ellipse();
@@ -52,7 +54,7 @@ namespace RimNauts2 {
         }
 
         public Vector3 get_parametric_ellipse() {
-            int time = Find.TickManager.TicksGame;
+            int time = (orbit_random_direction * Find.TickManager.TicksGame);
             float val = get_crash_course();
             Vector3 vec = new Vector3 {
                 x = orbit_position.x - (Math.Abs(orbit_position.y) / 2),
@@ -104,6 +106,7 @@ namespace RimNauts2 {
             period = random_orbit(36000.0f, 6000.0f);
             time_offset = Rand.Range(0, (int) period);
             current_out_of_bounds = out_of_bounds_offset;
+            orbit_random_direction = Rand.Bool && SatelliteDefOf.Satellite.OrbitRandomDirection(type) ? -1 : 1;
         }
 
         public int random_orbit(float min, float range) => (int) (min + (range * (Rand.Value - 0.5f)));

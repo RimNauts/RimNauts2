@@ -17,14 +17,17 @@ namespace RimNauts2 {
         public Vector3 AsteroidObjectsOrbitPosition;
         public Vector3 AsteroidObjectsOrbitSpread;
         public Vector2 AsteroidObjectsOrbitSpeedBetween;
+        public bool AsteroidObjectsOrbitRandomDirection;
 
         public Vector3 MoonObjectsOrbitPosition;
         public Vector3 MoonObjectsOrbitSpread;
         public Vector2 MoonObjectsOrbitSpeedBetween;
+        public bool MoonObjectsOrbitRandomDirection;
 
         public Vector3 ArtificalSatelliteObjectsOrbitPosition;
         public Vector3 ArtificalSatelliteObjectsOrbitSpread;
         public Vector2 ArtificalSatelliteObjectsOrbitSpeedBetween;
+        public bool ArtificalSatelliteObjectsOrbitRandomDirection;
 
         public int TotalCrashingAsteroidObjects {
             get {
@@ -68,6 +71,19 @@ namespace RimNauts2 {
                     return Rand.Range(ArtificalSatelliteObjectsOrbitSpeedBetween.x, ArtificalSatelliteObjectsOrbitSpeedBetween.y);
                 default:
                     return 1.0f;
+            }
+        }
+
+        public bool OrbitRandomDirection(Satellite_Type type) {
+            switch (type) {
+                case Satellite_Type.Asteroid:
+                    return AsteroidObjectsOrbitRandomDirection;
+                case Satellite_Type.Moon:
+                    return MoonObjectsOrbitRandomDirection;
+                case Satellite_Type.Artifical_Satellite:
+                    return ArtificalSatelliteObjectsOrbitRandomDirection;
+                default:
+                    return false;
             }
         }
     }
