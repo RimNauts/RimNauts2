@@ -21,9 +21,7 @@ namespace RimNauts2 {
                     return;
                 }
                 Map target = (Map) parms.target;
-                if (!TryFindCell(out IntVec3 cell, target)) {
-                    return;
-                }
+                if (!TryFindCell(out IntVec3 cell, target)) return;
                 List<Thing> thingList = RimWorld.ThingSetMakerDefOf.Meteorite.root.Generate();
                 RimWorld.SkyfallerMaker.SpawnSkyfaller(RimWorld.ThingDefOf.MeteoriteIncoming, thingList, cell, target);
                 LetterDef baseLetterDef = thingList[0].def.building.isResourceRock ? RimWorld.LetterDefOf.PositiveEvent : RimWorld.LetterDefOf.NeutralEvent;
@@ -47,8 +45,7 @@ namespace RimNauts2 {
                     CellRect cellRect = CellRect.CenteredOn(x, num1, num1);
                     int num2 = 0;
                     foreach (IntVec3 c in cellRect) {
-                        if (c.InBounds(map) && c.Standable(map))
-                            ++num2;
+                        if (c.InBounds(map) && c.Standable(map)) ++num2;
                     }
                     return num2 >= maxMineables;
                 }

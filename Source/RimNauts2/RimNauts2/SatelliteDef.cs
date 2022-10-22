@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Verse;
-using HarmonyLib;
 using UnityEngine;
 
 namespace RimNauts2 {
