@@ -43,29 +43,36 @@ namespace RimNauts2 {
             Find.WorldObjects.Add(satellite);
         }
 
-        public static Satellite copy_satellite(
-            int tile_id,
-            string def_name,
-            Satellite_Type type,
-            Vector3 max_orbits,
-            Vector3 spread,
-            float period,
-            int time_offset,
-            float speed
-        ) {
-            Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+        public static Satellite copy_satellite(Satellite satellite, string new_def_name = "", Satellite_Type new_type = Satellite_Type.None) {
+            string def_name;
+            if (new_def_name != "") {
+                def_name = new_def_name;
+            } else def_name = satellite.def_name;
+
+            Satellite_Type type;
+            if (new_type != Satellite_Type.None) {
+                type = new_type;
+            } else type = satellite.type;
+
+            Satellite new_satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed(def_name, true)
             );
-            satellite.Tile = tile_id;
-            satellite.def_name = def_name;
-            satellite.type = type;
-            satellite.orbit_position = max_orbits;
-            satellite.orbit_spread = spread;
-            satellite.period = period;
-            satellite.time_offset = time_offset;
-            satellite.orbit_speed = speed;
-            Find.WorldObjects.Add(satellite);
-            return satellite;
+
+            new_satellite.Tile = satellite.Tile;
+            new_satellite.def_name = def_name;
+            new_satellite.type = type;
+            new_satellite.orbit_position = satellite.orbit_position;
+            new_satellite.orbit_spread = satellite.orbit_spread;
+            new_satellite.orbit_speed = satellite.orbit_speed;
+            new_satellite.period = satellite.period;
+            new_satellite.time_offset = satellite.time_offset;
+            new_satellite.can_out_of_bounds = satellite.can_out_of_bounds;
+            new_satellite.out_of_bounds_offset = satellite.out_of_bounds_offset;
+            new_satellite.current_out_of_bounds = satellite.current_out_of_bounds;
+            new_satellite.out_of_bounds_direction_towards_surface = satellite.out_of_bounds_direction_towards_surface;
+
+            Find.WorldObjects.Add(new_satellite);
+            return new_satellite;
         }
     }
 }

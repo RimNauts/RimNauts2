@@ -151,25 +151,10 @@ namespace RimNauts2 {
         }
 
         public override void PostRemove() {
-            int buffer_tile_id = Tile;
-            string buffer_def_name = def_name;
-            Satellite_Type buffer_type = type;
-            Vector3 buffer_max_orbits = orbit_position;
-            Vector3 buffer_spread = orbit_spread;
-            float buffer_period = period;
-            int buffer_time_offset = time_offset;
-            float buffer_speed = orbit_speed;
             base.PostRemove();
-            if (type == Satellite_Type.Moon) _ = Generate_Satellites.copy_satellite(
-                buffer_tile_id,
-                buffer_def_name.Substring(0, buffer_def_name.Length - "_Base".Length),
-                buffer_type,
-                buffer_max_orbits,
-                buffer_spread,
-                buffer_period,
-                buffer_time_offset,
-                buffer_speed
-            );
+            if (type == Satellite_Type.Moon && has_map) {
+                _ = Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
+            }
         }
     }
 }

@@ -1,36 +1,18 @@
 ﻿using System.Linq;
 using Verse;
-using UnityEngine;
 
 namespace RimNauts2 {
     public static class Moon {
         public static void generate_moon(Satellite satellite) {
-            // store satellite values for later
-            int buffer_tile_id = satellite.Tile;
-            string buffer_def_name = satellite.def_name;
-            Vector3 buffer_max_orbits = satellite.orbit_position;
-            Vector3 buffer_spread = satellite.orbit_spread;
-            float buffer_period = satellite.period;
-            int buffer_time_offset = satellite.time_offset;
-            float buffer_speed = satellite.orbit_speed;
+            // generate new satellite with the values saved from before (this process is done to get the new texture)
+            Satellite new_satellite = Generate_Satellites.copy_satellite(satellite, get_moon_base(satellite.def_name), Satellite_Type.Moon);
             // destroy satellite as an asteroid to keep the tile open
             satellite.type = Satellite_Type.Asteroid;
             satellite.Destroy();
-            // generate new satellite with the values saved from before (this process is done to get the new texture)
-            satellite = Generate_Satellites.copy_satellite(
-                buffer_tile_id,
-                get_moon_base(buffer_def_name),
-                Satellite_Type.Moon,
-                buffer_max_orbits,
-                buffer_spread,
-                buffer_period,
-                buffer_time_offset,
-                buffer_speed
-            );
             // generate map
-            generate_moon_map(satellite);
-            satellite.has_map = true;
-            satellite.SetFaction(RimWorld.Faction.OfPlayer);
+            generate_moon_map(new_satellite);
+            new_satellite.has_map = true;
+            new_satellite.SetFaction(RimWorld.Faction.OfPlayer);
             Find.World.WorldUpdate();
         }
 
