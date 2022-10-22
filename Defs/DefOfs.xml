@@ -14,7 +14,7 @@
 
         <AsteroidObjectsOrbitPosition>(250.0, 5.0, 250.0)</AsteroidObjectsOrbitPosition>
         <AsteroidObjectsOrbitSpread>(0.3, 0.1, 0.3)</AsteroidObjectsOrbitSpread>
-        <AsteroidObjectsOrbitSpeedBetween>(2.0, 3.0)</AsteroidObjectsOrbitSpeedBetween>
+        <AsteroidObjectsOrbitSpeedBetween>(4.0, 6.0)</AsteroidObjectsOrbitSpeedBetween>
         <AsteroidObjectsOrbitRandomDirection>false</AsteroidObjectsOrbitRandomDirection>
 
         <MoonObjectsOrbitPosition>(400.0, 200.0, 400.0)</MoonObjectsOrbitPosition>
@@ -24,7 +24,7 @@
 
         <ArtificalSatelliteObjectsOrbitPosition>(140.0, 100.0, 140.0)</ArtificalSatelliteObjectsOrbitPosition>
         <ArtificalSatelliteObjectsOrbitSpread>(0.1, 0.0, 0.1)</ArtificalSatelliteObjectsOrbitSpread>
-        <ArtificalSatelliteObjectsOrbitSpeedBetween>(6.0, 7.0)</ArtificalSatelliteObjectsOrbitSpeedBetween>
+        <ArtificalSatelliteObjectsOrbitSpeedBetween>(12.0, 14.0)</ArtificalSatelliteObjectsOrbitSpeedBetween>
         <ArtificalSatelliteObjectsOrbitRandomDirection>true</ArtificalSatelliteObjectsOrbitRandomDirection>
 
 		<AsteroidObjects>
@@ -58,6 +58,27 @@
 		<ArtificalSatelliteObjects>
             <li>RimNauts2_ArtificalSatellite</li>
         </ArtificalSatelliteObjects>
+
+        <AllowedSatelliteIncidents>
+            <li>RaidEnemy</li>
+            <li>SolarFlare</li>
+            <li>ShipChunkDrop</li>
+            <li>OrbitalTraderArrival</li>
+            <li>Infestation</li>
+            <li>GiveQuest_Random</li>
+            <li>MechCluster</li>
+            <li>MeteoriteImpact</li>
+            <li>PsychicDrone</li>
+            <li>PsychicSoothe</li>
+            <li>ResourcePodCrash</li>
+            <li>Disease_AnimalFlu</li>
+            <li>Disease_AnimalPlague</li>
+            <li>Disease_FibrousMechanites</li>
+            <li>Disease_Flu</li>
+            <li>Disease_Plague</li>
+            <li>Disease_SensoryMechanites</li>
+            <li>Disease_SleepingSickness</li>
+        </AllowedSatelliteIncidents>
 
   	</RimNauts2.SatelliteDef>
 </Defs>

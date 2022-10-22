@@ -29,6 +29,8 @@ namespace RimNauts2 {
         public Vector2 ArtificalSatelliteObjectsOrbitSpeedBetween;
         public bool ArtificalSatelliteObjectsOrbitRandomDirection;
 
+        public List<string> AllowedSatelliteIncidents;
+
         public int TotalCrashingAsteroidObjects {
             get {
                 return (int) (SatelliteDefOf.Satellite.TotalSatelliteObjects * SatelliteDefOf.Satellite.CrashingAsteroidObjectPercentage);

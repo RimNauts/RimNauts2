@@ -14,7 +14,7 @@ namespace RimNauts2 {
                 if (!__result) return;
                 bool incident_not_on_moon_biome = !SatelliteDefOf.Satellite.Biomes.Contains(Find.WorldGrid[parms.target.Tile].biome.defName);
                 if (incident_not_on_moon_biome) return;
-                if (allowed_incidents.Contains(__instance.def.defName)) return;
+                if (SatelliteDefOf.Satellite.AllowedSatelliteIncidents.Contains(__instance.def.defName)) return;
                 __result = false;
                 if (wait > 0) {
                     wait--;
@@ -92,22 +92,5 @@ namespace RimNauts2 {
 
             Find.LetterStack.ReceiveLetter(choiceLetter);
         }
-
-        private static readonly List<string> allowed_incidents = new List<string>() {
-            "Disease_AnimalFlu",
-            "Disease_AnimalPlague",
-            "Disease_FibrousMechanites",
-            "Disease_Flu",
-            "Disease_Plague",
-            "Disease_SensoryMechanites",
-            "Disease_SleepingSickness",
-            "MeteoriteImpact",
-            "OrbitalTraderArrival",
-            "PsychicDrone",
-            "PsychicSoothe",
-            "ResourcePodCrash",
-            "ShipChunkDrop",
-            "GiveQuest_EndGame_ArchonexusVictory",
-        };
     }
 }

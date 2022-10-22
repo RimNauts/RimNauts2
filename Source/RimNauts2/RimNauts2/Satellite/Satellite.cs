@@ -44,23 +44,23 @@ namespace RimNauts2 {
             base.Tick();
             if (can_out_of_bounds) {
                 if (out_of_bounds_direction_towards_surface) {
-                    current_out_of_bounds -= 0.0001f;
-                    if (current_out_of_bounds <= 0.4f) current_out_of_bounds = out_of_bounds_offset;
+                    current_out_of_bounds -= 0.00015f;
+                    if (current_out_of_bounds <= 0.42f) current_out_of_bounds = out_of_bounds_offset;
                 } else {
-                    current_out_of_bounds += 0.0001f;
+                    current_out_of_bounds += 0.0002f;
                     if (current_out_of_bounds >= 2.4f) current_out_of_bounds = out_of_bounds_offset;
                 }
             }
         }
 
         public Vector3 get_parametric_ellipse() {
-            float val = get_crash_course();
+            float crash_course = get_crash_course();
             float time = orbit_speed * orbit_random_direction * Find.TickManager.TicksGame + time_offset;
-            if (out_of_bounds_direction_towards_surface || val <= 1.0f) time *= val * -1 + 2;
+            if (out_of_bounds_direction_towards_surface || crash_course <= 1.0f) time *= crash_course * -1 + 2;
             return new Vector3 {
-                x = (orbit_position.x - (Math.Abs(orbit_position.y) / 2)) * (float) Math.Cos(6.28f / period * time) * val,
+                x = (orbit_position.x - (Math.Abs(orbit_position.y) / 2)) * (float) Math.Cos(6.28f / period * time) * crash_course,
                 y = orbit_position.y,
-                z = (orbit_position.z - (Math.Abs(orbit_position.y) / 2)) * (float) Math.Sin(6.28f / period * time) * val,
+                z = (orbit_position.z - (Math.Abs(orbit_position.y) / 2)) * (float) Math.Sin(6.28f / period * time) * crash_course,
             };
         }
 

@@ -6,8 +6,6 @@ namespace RimNauts2 {
         public static void generate_moon(Satellite satellite) {
             // generate new satellite with the values saved from before (this process is done to get the new texture)
             Satellite new_satellite = Generate_Satellites.copy_satellite(satellite, get_moon_base(satellite.def_name), Satellite_Type.Moon);
-            // destroy satellite as an asteroid to keep the tile open
-            satellite.type = Satellite_Type.Asteroid;
             satellite.Destroy();
             // generate map
             generate_moon_map(new_satellite);
