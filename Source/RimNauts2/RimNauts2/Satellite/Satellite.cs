@@ -54,21 +54,14 @@ namespace RimNauts2 {
         }
 
         public Vector3 get_parametric_ellipse() {
-            int time = (orbit_random_direction * Find.TickManager.TicksGame);
             float val = get_crash_course();
-            Vector3 vec = new Vector3 {
-                x = orbit_position.x - (Math.Abs(orbit_position.y) / 2),
+            float time = orbit_speed * orbit_random_direction * Find.TickManager.TicksGame + time_offset;
+            if (out_of_bounds_direction_towards_surface || val <= 1.0f) time *= val * -1 + 2;
+            return new Vector3 {
+                x = (orbit_position.x - (Math.Abs(orbit_position.y) / 2)) * (float) Math.Cos(6.28f / period * time) * val,
                 y = orbit_position.y,
-                z = orbit_position.z - (Math.Abs(orbit_position.y) / 2),
+                z = (orbit_position.z - (Math.Abs(orbit_position.y) / 2)) * (float) Math.Sin(6.28f / period * time) * val,
             };
-            if (out_of_bounds_direction_towards_surface || val <= 1.0f) {
-                vec.x *= (float) Math.Cos(6.28f / period * ((((val * -1 + 1) * 2 + orbit_speed) * time) + time_offset)) * val;
-                vec.z *= (float) Math.Sin(6.28f / period * ((((val * -1 + 1) * 2 + orbit_speed) * time) + time_offset)) * val;
-            } else {
-                vec.x *= (float) Math.Cos(6.28f / period * ((orbit_speed * time) + time_offset)) * val;
-                vec.z *= (float) Math.Sin(6.28f / period * ((orbit_speed * time) + time_offset)) * val;
-            }
-            return vec;
         }
 
         public float get_crash_course() {
