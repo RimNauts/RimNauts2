@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
-using System.Reflection;
-using HarmonyLib;
 using UnityEngine;
 
 namespace RimNauts2 {
@@ -15,16 +13,20 @@ namespace RimNauts2 {
         public CompProperties_SatelliteDish Props => (CompProperties_SatelliteDish) props;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-            yield return new Command_Action {
+             Command_Action cmd = new Command_Action {
                 defaultLabel = "Look for a " + Props.worldObject.Substring(14).ToLower() + " moon",
                 defaultDesc = "Your pawn will look for a " + Props.worldObject.Substring(14).ToLower() + " moon orbiting the planet.",
-                icon = ContentFinder<UnityEngine.Texture2D>.Get("Satellites/Moons/" + Props.worldObject, true),
+                icon = ContentFinder<Texture2D>.Get("Satellites/Moons/" + Props.worldObject, true),
                 action = new Action(action)
             };
-            yield break;
+            if (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) < (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2) {
+                cmd.Disable("Requires " + ((SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2 - SatelliteContainer.size(Satellite_Type.Artifical_Satellite)).ToString() + " more satellite orbiting the planet.");
+            }
+            yield return cmd;
         }
 
         public void action() {
+            Log.Message("Artifical Satellite: " + SatelliteContainer.size(Satellite_Type.Artifical_Satellite).ToString());
             int new_moon_tile_id = -1;
 
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
@@ -42,18 +44,6 @@ namespace RimNauts2 {
             } else {
                 Log.Error("RimNauts2: Couldn't find a free tile to spawn a moon on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
             }
-        }
-    }
-
-    [HarmonyPatch(typeof(RimWorld.Planet.WorldCameraDriver), nameof(RimWorld.Planet.WorldCameraDriver.JumpTo), new Type[] { typeof(int) })]
-    public static class WorldCameraDriver {
-        public static bool Prefix(int tile) {
-            if (Find.WorldObjects.AnyWorldObjectAt<Satellite>(tile)) {
-                Satellite satellite = Find.WorldObjects.WorldObjectAt<Satellite>(tile);
-                RimWorld.Planet.WorldCameraDriver camera = new RimWorld.Planet.WorldCameraDriver();
-                return false;
-            }
-            return true;
         }
     }
 }

@@ -55,14 +55,11 @@ namespace RimNauts2 {
                 CameraJumper.TryHideWorld();
 
                 int tile_id = -1;
-                int new_moon_tile_id = -1;
 
                 for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                     if (Find.World.grid.tiles.ElementAt(i).biome.defName == "RimNauts2_Satellite_Biome") {
                         if (tile_id == -1) {
                             tile_id = i;
-                        } else if (new_moon_tile_id == -1) {
-                            new_moon_tile_id = i;
                             break;
                         }
                     }
@@ -78,12 +75,6 @@ namespace RimNauts2 {
                 Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Artifical_Satellite_Biome");
 
                 Messages.Message("Succesfully launched a satellite into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
-
-                if (new_moon_tile_id != -1) {
-                    Generate_Satellites.add_satellite(new_moon_tile_id, Satellite_Type.Moon);
-                } else {
-                    Log.Error("RimNauts2: Couldn't find a free tile to spawn a moon on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
-                }
             }
         }
 
