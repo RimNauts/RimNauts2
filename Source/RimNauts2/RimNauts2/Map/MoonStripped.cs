@@ -5,7 +5,7 @@ using Verse;
 using Verse.Noise;
 
 namespace RimNauts2 {
-    class BarrenMoon {
+    class MoonStripped {
         public static void GenStep_ElevationFertility(Map map) {
             // Map generation is based mostly on these two grids. We're making custom grids.
             MapGenFloatGrid fertility = MapGenerator.Fertility;

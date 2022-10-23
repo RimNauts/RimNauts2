@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<BiomeDef>
+		<defName>RimNauts2_MoonWater_Biome</defName>
+		<label>waterMoon</label>
+		<description>Water Moon</description>
+		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
+    	<canAutoChoose>false</canAutoChoose>
+		<allowRoads>false</allowRoads>
+		<allowRivers>false</allowRivers>
+    	<allowFarmingCamps>false</allowFarmingCamps>
+		<animalDensity>0</animalDensity>
+		<plantDensity>0</plantDensity>
+		<hasVirtualPlants>false</hasVirtualPlants>
+		<settlementSelectionWeight>0.01</settlementSelectionWeight>
+		<movementDifficulty>2</movementDifficulty>
+    	<texture>World/Biomes/Ocean</texture>
+		<forageability>0</forageability>
+    	<isExtremeBiome>true</isExtremeBiome>
+		<soundsAmbient>
+			<li>Ambient_Wind_Desolate</li>
+		</soundsAmbient>
+		<diseaseMtbDays>90</diseaseMtbDays>
+		<diseases>
+			<li>
+				<diseaseInc>Disease_Flu</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+		</diseases>
+		<terrainsByFertility>
+			<li>
+				<terrain>WaterShallow</terrain>
+				<min>-999</min>
+				<max>999</max>
+			</li>
+		</terrainsByFertility>
+		<baseWeatherCommonalities>
+			<Clear>0.4</Clear>
+			<Fog>0.2</Fog>
+			<Rain>1</Rain>
+			<DryThunderstorm>0</DryThunderstorm>
+			<RainyThunderstorm>0.8</RainyThunderstorm>
+			<FoggyRain>0.2</FoggyRain>
+			<SnowGentle>0</SnowGentle>
+			<SnowHard>0</SnowHard>
+		</baseWeatherCommonalities>
+		<wildPlants><!-- nothing --></wildPlants>
+		<wildAnimals><!-- nothing --></wildAnimals>
+		<allowedPackAnimals><!-- nothing --></allowedPackAnimals>
+  	</BiomeDef>
+
+	<MapGeneratorDef>
+	<defName>RimNauts2_MoonWater_MapGen</defName>
+		<genSteps>
+			<li>FindPlayerStartSpot</li>
+			<li>Terrain</li>
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+</Defs>

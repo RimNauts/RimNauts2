@@ -7,7 +7,10 @@ namespace RimNauts2 {
         public static bool Prefix(Map map, GenStepParams parms) {
             switch (map.Biome.defName) {
                 case "RimNauts2_MoonBarren_Biome":
-                    BarrenMoon.GenStep_Terrain(map);
+                    MoonBarren.GenStep_Terrain(map);
+                    return false;
+                case "RimNauts2_MoonStripped_Biome":
+                    MoonStripped.GenStep_Terrain(map);
                     return false;
                 default:
                     return true;
@@ -20,7 +23,10 @@ namespace RimNauts2 {
         public static bool Prefix(Map map, GenStepParams parms) {
             switch (map.Biome.defName) {
                 case "RimNauts2_MoonBarren_Biome":
-                    BarrenMoon.GenStep_RocksFromGrid(map, parms);
+                    MoonBarren.GenStep_RocksFromGrid(map, parms);
+                    return false;
+                case "RimNauts2_MoonStripped_Biome":
+                    MoonStripped.GenStep_RocksFromGrid(map, parms);
                     return false;
                 default:
                     return true;
@@ -33,7 +39,10 @@ namespace RimNauts2 {
         public static bool Prefix(Map map, GenStepParams parms) {
             switch (map.Biome.defName) {
                 case "RimNauts2_MoonBarren_Biome":
-                    BarrenMoon.GenStep_ElevationFertility(map);
+                    MoonBarren.GenStep_ElevationFertility(map);
+                    return false;
+                case "RimNauts2_MoonStripped_Biome":
+                    MoonStripped.GenStep_ElevationFertility(map);
                     return false;
                 default:
                     return true;

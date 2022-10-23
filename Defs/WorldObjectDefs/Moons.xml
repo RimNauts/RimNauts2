@@ -7,7 +7,7 @@
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_MoonBarren</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonBarren</expandingIconTexture>
-		<mapGenerator>MoonMap</mapGenerator>
+		<mapGenerator>RimNauts2_MoonBarren_MapGen</mapGenerator>
 		<expandingIconPriority>1003</expandingIconPriority>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
@@ -28,7 +28,7 @@
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_MoonStripped</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped</expandingIconTexture>
-		<mapGenerator>MoonMap</mapGenerator>
+		<mapGenerator>RimNauts2_MoonStripped_MapGen</mapGenerator>
 		<expandingIconPriority>1003</expandingIconPriority>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
@@ -42,25 +42,25 @@
 		<texture>Satellites/Moons/RimNauts2_MoonStripped_Base</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped_Base</expandingIconTexture>
 	</WorldObjectDef>
-	<!-- Gassy moon -->
-	<WorldObjectDef Name="RimNauts2_MoonGassy" ParentName="satellite">
-		<defName>RimNauts2_MoonGassy</defName>
-		<label>gassy moon</label>
+	<!-- Water moon -->
+	<WorldObjectDef Name="RimNauts2_MoonWater" ParentName="satellite">
+		<defName>RimNauts2_MoonWater</defName>
+		<label>water moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_MoonGassy</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonGassy</expandingIconTexture>
-		<mapGenerator>MoonMap</mapGenerator>
+		<texture>Satellites/Moons/RimNauts2_MoonWater</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonWater</expandingIconTexture>
+		<mapGenerator>RimNauts2_MoonWater_MapGen</mapGenerator>
 		<expandingIconPriority>1003</expandingIconPriority>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
 		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_MoonGassy">
-		<defName>RimNauts2_MoonGassy_Base</defName>
-		<label>gassy moon</label>
+	<WorldObjectDef ParentName="RimNauts2_MoonWater">
+		<defName>RimNauts2_MoonWater_Base</defName>
+		<label>water moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_MoonGassy_Base</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonGassy_Base</expandingIconTexture>
+		<texture>Satellites/Moons/RimNauts2_MoonWater_Base</texture>
+		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonWater_Base</expandingIconTexture>
 	</WorldObjectDef>
 </Defs>

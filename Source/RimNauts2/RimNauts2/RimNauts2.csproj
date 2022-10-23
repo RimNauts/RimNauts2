@@ -56,7 +56,8 @@
     <Compile Include="Biome\BiomeWorker_Satellite.cs" />
     <Compile Include="Biome\SetSatelliteBiome.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Map\BarrenMoon.cs" />
+    <Compile Include="Map\MoonStripped.cs" />
+    <Compile Include="Map\MoonBarren.cs" />
     <Compile Include="Map\MapGen_Patches.cs" />
     <Compile Include="SatelliteDefOf.cs" />
     <Compile Include="SatelliteDef.cs" />

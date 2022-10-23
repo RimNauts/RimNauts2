@@ -41,4 +41,16 @@
 		<wildAnimals><!-- nothing --></wildAnimals>
 		<allowedPackAnimals><!-- nothing --></allowedPackAnimals>
   	</BiomeDef>
+
+	<MapGeneratorDef>
+	<defName>RimNauts2_MoonBarren_MapGen</defName>
+		<genSteps>
+			<li>FindPlayerStartSpot</li>
+			<li>ElevationFertility</li>
+			<li>RocksFromGrid</li>
+			<li>Terrain</li>
+			<li>RockChunks</li>
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
 </Defs>
