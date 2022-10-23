@@ -86,7 +86,7 @@ namespace RimNauts2 {
             Command_Action cmd = new Command_Action {
                 defaultLabel = label,
                 defaultDesc = "Launch satellite into orbit.",
-                icon = RimWorld.CompLaunchable.LaunchCommandTex,
+                icon = ContentFinder<Texture2D>.Get("Things/Item/Satellite/RimNauts2_Satellite", true),
                 action = new Action(launch_satellite)
             };
             if (!Prefs.DevMode) {

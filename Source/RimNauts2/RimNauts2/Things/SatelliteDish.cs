@@ -13,15 +13,19 @@ namespace RimNauts2 {
         public CompProperties_SatelliteDish Props => (CompProperties_SatelliteDish) props;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-             Command_Action cmd = new Command_Action {
-                defaultLabel = "Look for a " + Props.worldObject.Substring(14).ToLower() + " moon",
+            string label = "Look for a " + Props.worldObject.Substring(14).ToLower() + " moon";
+            if (Prefs.DevMode) label += " (Dev)";
+            Command_Action cmd = new Command_Action {
+                defaultLabel = label,
                 defaultDesc = "Your pawn will look for a " + Props.worldObject.Substring(14).ToLower() + " moon orbiting the planet.",
                 icon = ContentFinder<Texture2D>.Get("Satellites/Moons/" + Props.worldObject, true),
                 action = new Action(action)
             };
-            if (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) < (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2) {
-                int diff = (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2 - SatelliteContainer.size(Satellite_Type.Artifical_Satellite);
-                cmd.Disable("Requires " + diff.ToString() + " more satellite" + (diff > 1 ? "s" : "") + " orbiting the planet.");
+            if (!Prefs.DevMode) {
+                if (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) < (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2) {
+                    int diff = (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2 - SatelliteContainer.size(Satellite_Type.Artifical_Satellite);
+                    cmd.Disable("Requires " + diff.ToString() + " more satellite" + (diff > 1 ? "s" : "") + " orbiting the planet.");
+                }
             }
             yield return cmd;
         }
