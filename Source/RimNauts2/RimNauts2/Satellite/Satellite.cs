@@ -21,6 +21,8 @@ namespace RimNauts2 {
         public bool out_of_bounds_direction_towards_surface = true;
         public int orbit_random_direction;
 
+        public override bool ExpandMore => def.expandMore;
+
         public override void ExposeData() {
             base.ExposeData();
             Scribe_Values.Look(ref def_name, "def_name");
