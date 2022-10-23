@@ -9,6 +9,7 @@
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonBarren</expandingIconTexture>
 		<mapGenerator>RimNauts2_MoonBarren_MapGen</mapGenerator>
 		<expandingIconPriority>1003</expandingIconPriority>
+		<expandMore>true</expandMore>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
@@ -20,6 +21,7 @@
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_MoonBarren_Base</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonBarren_Base</expandingIconTexture>
+		<expandMore>true</expandMore>
 	</WorldObjectDef>
 	<!-- Stripped moon -->
 	<WorldObjectDef Name="RimNauts2_MoonStripped" ParentName="satellite">
@@ -30,6 +32,7 @@
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped</expandingIconTexture>
 		<mapGenerator>RimNauts2_MoonStripped_MapGen</mapGenerator>
 		<expandingIconPriority>1003</expandingIconPriority>
+		<expandMore>true</expandMore>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
@@ -41,6 +44,7 @@
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_MoonStripped_Base</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped_Base</expandingIconTexture>
+		<expandMore>true</expandMore>
 	</WorldObjectDef>
 	<!-- Water moon -->
 	<WorldObjectDef Name="RimNauts2_MoonWater" ParentName="satellite">
@@ -51,6 +55,7 @@
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonWater</expandingIconTexture>
 		<mapGenerator>RimNauts2_MoonWater_MapGen</mapGenerator>
 		<expandingIconPriority>1003</expandingIconPriority>
+		<expandMore>true</expandMore>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
@@ -62,5 +67,6 @@
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_MoonWater_Base</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonWater_Base</expandingIconTexture>
+		<expandMore>true</expandMore>
 	</WorldObjectDef>
 </Defs>
