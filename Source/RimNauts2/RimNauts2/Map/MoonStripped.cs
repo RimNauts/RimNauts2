@@ -97,7 +97,7 @@ namespace RimNauts2 {
         public static ThingDef rock_at(float fertility) {
             ThingDef thingDef = ThingDef.Named("Marble");
             // Changes the ratio of rock types
-            if (fertility > 0.4f) thingDef = ThingDef.Named("Slate");
+            if (fertility > 0.4f) thingDef = ThingDef.Named("RimNauts2_Vacuum");
             return thingDef;
         }
 

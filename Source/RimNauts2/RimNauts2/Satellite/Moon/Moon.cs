@@ -47,7 +47,7 @@ namespace RimNauts2 {
                     Find.World.grid.tiles.ElementAt(tile_id).hilliness = RimWorld.Planet.Hilliness.Flat;
                     Find.World.grid.tiles.ElementAt(tile_id).rainfall = 100f;
                     Find.World.grid.tiles.ElementAt(tile_id).swampiness = 0f;
-                    Find.World.grid.tiles.ElementAt(tile_id).temperature = 20f;
+                    Find.World.grid.tiles.ElementAt(tile_id).temperature = 10f;
                     return;
                 default:
                     return;
