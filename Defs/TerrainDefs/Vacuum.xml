@@ -53,8 +53,7 @@
 		<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
 		<destroyEffect>Bridge_Collapse</destroyEffect>
 	</TerrainDef>
-
-	  <!-- Bridge can be built here -->
+	  <!-- Affordance for vacuum -->
 	<TerrainAffordanceDef>
 		<defName>RimNauts2_Space</defName>
 		<label>space</label>
