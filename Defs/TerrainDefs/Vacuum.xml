@@ -7,9 +7,8 @@
 		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum</texturePath>
 		<edgeType>FadeRough</edgeType>
 		<renderPrecedence>20</renderPrecedence>
-		<passability>Impassable</passability>
-		<pathCost>300</pathCost>
-		<changeable>false</changeable>
+		<pathCost>42</pathCost>
+		<changeable>true</changeable>
 		<filthAcceptanceMask>
 			<li>None</li>
 		</filthAcceptanceMask>
@@ -17,7 +16,8 @@
 		<avoidWander>true</avoidWander>
 		<holdSnow>false</holdSnow>
 		<affordances>
-			<li>MovingFluid</li>
+      		<li>ShallowWater</li>
+			<li>Bridgeable</li>
 		</affordances>
   	</TerrainDef>
 </Defs>
