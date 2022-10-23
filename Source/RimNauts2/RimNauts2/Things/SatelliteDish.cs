@@ -20,7 +20,8 @@ namespace RimNauts2 {
                 action = new Action(action)
             };
             if (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) < (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2) {
-                cmd.Disable("Requires " + ((SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2 - SatelliteContainer.size(Satellite_Type.Artifical_Satellite)).ToString() + " more satellite orbiting the planet.");
+                int diff = (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2 - SatelliteContainer.size(Satellite_Type.Artifical_Satellite);
+                cmd.Disable("Requires " + diff.ToString() + " more satellite" + (diff > 1 ? "s" : "") + " orbiting the planet.");
             }
             yield return cmd;
         }
