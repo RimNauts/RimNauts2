@@ -7,7 +7,7 @@
         <graphicData>
             <texPath>Things/Item/Satellite/RimNauts2_Satellite</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>2.0</drawSize>
+            <drawSize>1.0</drawSize>
         </graphicData>
         <soundInteract>Metal_Drop</soundInteract>
         <soundDrop>Standard_Drop</soundDrop>
