@@ -25,11 +25,11 @@ namespace RimNauts2 {
             }
         }
 
-        public static void add_satellite(int tile_id, Satellite_Type type) {
-            string def_name = type.WorldObjects().RandomElement();
+        public static Satellite add_satellite(int tile_id, Satellite_Type type, string def_name = "") {
+            if (def_name == "") def_name = type.WorldObjects().RandomElement();
             if (Find.WorldObjects.AnyWorldObjectAt(tile_id)) {
                 Satellite old_satellite = Find.WorldObjects.WorldObjectAt<Satellite>(tile_id);
-                if (old_satellite.type == type) return;
+                if (old_satellite.type == type) return old_satellite;
                 old_satellite.Destroy();
             }
             Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
@@ -40,6 +40,7 @@ namespace RimNauts2 {
             satellite.set_default_values(type);
             if (type == Satellite_Type.Moon) Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(Moon.get_moon_biome(def_name));
             Find.WorldObjects.Add(satellite);
+            return satellite;
         }
 
         public static Satellite copy_satellite(Satellite satellite, string new_def_name = "", Satellite_Type new_type = Satellite_Type.None) {

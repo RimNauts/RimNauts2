@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Satellite Dish -->
+	<ThingDef ParentName="BuildingBase">
+		<defName>RimNauts2_SatelliteDish</defName>
+		<label>satellite dish</label>
+		<description>A way for your colonist to explore the outer space and find suitable places for exploration.</description>
+
+		<graphicData>
+			<texPath>Things/Item/RimNauts2_SatelliteDish</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(7,7)</drawSize>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<size>(7,7)</size>
+		<canBeUsedUnderRoof>false</canBeUsedUnderRoof>
+		<fillPercent>0.15</fillPercent>
+		<altitudeLayer>Building</altitudeLayer>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,-3)</interactionCellOffset>
+		<passability>PassThroughOnly</passability>
+		
+		<pathCost>50</pathCost>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<designationCategory>Misc</designationCategory>
+		<costList>
+			<Steel>200</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<comps>
+			<li Class="RimNauts2.CompProperties_SatelliteDish">
+                <worldObject>RimNauts2_MoonBarren</worldObject>
+            </li>
+			<li Class="RimNauts2.CompProperties_SatelliteDish">
+                <worldObject>RimNauts2_MoonStripped</worldObject>
+            </li>
+			<li Class="RimNauts2.CompProperties_SatelliteDish">
+                <worldObject>RimNauts2_MoonWater</worldObject>
+            </li>
+		</comps>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<MarketValue>350</MarketValue>
+			<Mass>7.5</Mass>
+			<JoyGainFactor>1.2</JoyGainFactor>
+		</statBases>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+	</ThingDef>
+</Defs>

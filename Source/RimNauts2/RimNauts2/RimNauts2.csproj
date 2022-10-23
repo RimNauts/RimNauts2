@@ -70,6 +70,7 @@
     <Compile Include="Satellite\Satellite.cs" />
     <Compile Include="Satellite\Satellite_Type.cs" />
     <Compile Include="Things\BridgeProps.cs" />
+    <Compile Include="Things\SatelliteDish.cs" />
     <Compile Include="World\ChangeBiomeMaterial.cs" />
     <Compile Include="World\HideIcons.cs" />
     <Compile Include="World\Transport.cs" />
