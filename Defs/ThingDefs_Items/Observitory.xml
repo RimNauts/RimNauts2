@@ -32,12 +32,15 @@
 		<comps>
 			<li Class="RimNauts2.CompProperties_SatelliteDish">
                 <worldObject>RimNauts2_MoonBarren</worldObject>
+				<texPath>Satellites/Moons/RimNauts2_MoonBarren</texPath>
             </li>
 			<li Class="RimNauts2.CompProperties_SatelliteDish">
                 <worldObject>RimNauts2_MoonStripped</worldObject>
+				<texPath>Satellites/Moons/RimNauts2_MoonStripped</texPath>
             </li>
 			<li Class="RimNauts2.CompProperties_SatelliteDish">
                 <worldObject>RimNauts2_MoonWater</worldObject>
+				<texPath>Satellites/Moons/RimNauts2_MoonWater</texPath>
             </li>
 		</comps>
 		<statBases>

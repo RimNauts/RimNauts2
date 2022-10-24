@@ -7,6 +7,7 @@ using UnityEngine;
 namespace RimNauts2 {
     public class CompProperties_SatelliteDish : CompProperties {
         public string worldObject;
+        public string texPath;
         public CompProperties_SatelliteDish() => compClass = typeof(SatelliteDish);
     }
     class SatelliteDish : ThingComp {
@@ -18,7 +19,7 @@ namespace RimNauts2 {
             Command_Action cmd = new Command_Action {
                 defaultLabel = label,
                 defaultDesc = "Your pawn will look for a " + Props.worldObject.Substring(14).ToLower() + " moon orbiting the planet.",
-                icon = ContentFinder<Texture2D>.Get("Satellites/Moons/" + Props.worldObject, true),
+                icon = ContentFinder<Texture2D>.Get(Props.texPath, true),
                 action = new Action(action)
             };
             if (!Prefs.DevMode) {

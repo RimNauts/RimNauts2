@@ -87,5 +87,18 @@ namespace RimNauts2 {
                     return false;
             }
         }
+
+        public IntVec3 MapSize(string biome_def) {
+            switch (biome_def) {
+                case "RimNauts2_OreSteel_Biome":
+                    return new IntVec3(75, 1, 75);
+                case "RimNauts2_OreGold_Biome":
+                    return new IntVec3(75, 1, 75);
+                case "RimNauts2_OrePlasteel_Biome":
+                    return new IntVec3(75, 1, 75);
+                default:
+                    return new IntVec3(250, 1, 250);
+            }
+        }
     }
 }

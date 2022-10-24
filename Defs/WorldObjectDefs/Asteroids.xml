@@ -6,6 +6,9 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_1</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_1</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_Asteroid_2</defName>
@@ -13,6 +16,9 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_2</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_2</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_Asteroid_3</defName>
@@ -20,6 +26,9 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_3</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_3</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_Asteroid_4</defName>
@@ -27,6 +36,9 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_4</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_4</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_Asteroid_5</defName>
@@ -34,6 +46,9 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_5</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_5</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_Asteroid_6</defName>
@@ -41,6 +56,9 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_6</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_6</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_Asteroid_7</defName>
@@ -48,6 +66,9 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_7</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_7</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_Asteroid_8</defName>
@@ -55,6 +76,9 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_8</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_8</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_Asteroid_9</defName>
@@ -62,5 +86,8 @@
 		<description>asteroid</description>
 		<texture>Satellites/Asteroids/RimNauts2_Asteroid_9</texture>
 		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_9</expandingIconTexture>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
+		</comps>
   	</WorldObjectDef>
 </Defs>

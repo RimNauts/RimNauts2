@@ -6,6 +6,7 @@ namespace RimNauts2 {
         public static void generate_moon(Satellite satellite) {
             // generate new satellite with the values saved from before (this process is done to get the new texture)
             Satellite new_satellite = Generate_Satellites.copy_satellite(satellite, get_moon_base(satellite.def_name), Satellite_Type.Moon);
+            satellite.type = Satellite_Type.Buffer;
             satellite.Destroy();
             // generate map
             generate_moon_map(new_satellite);
@@ -16,7 +17,7 @@ namespace RimNauts2 {
 
         private static void generate_moon_map(Satellite satellite) {
             applySatelliteSurface(satellite.Tile, satellite.Biome.defName);
-            Map map = MapGenerator.GenerateMap(new IntVec3(250, 1, 250), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+            Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
             foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
                 if (weather.defName.Equals("OuterSpaceWeather")) {
                     map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");

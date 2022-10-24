@@ -72,7 +72,6 @@ namespace RimNauts2 {
                 }
 
                 Generate_Satellites.add_satellite(tile_id, Satellite_Type.Artifical_Satellite);
-                Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Artifical_Satellite_Biome");
 
                 Messages.Message("Succesfully launched a satellite into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
             }

@@ -10,7 +10,16 @@ namespace RimNauts2 {
                     MoonBarren.GenStep_Terrain(map);
                     return false;
                 case "RimNauts2_MoonStripped_Biome":
-                    MoonStripped.GenStep_Terrain(map);
+                    MoonBarren.GenStep_Terrain(map);
+                    return false;
+                case "RimNauts2_OreSteel_Biome":
+                    AsteroidOre.GenStep_Terrain(map, "Limestone", "MineableSteel");
+                    return false;
+                case "RimNauts2_OreGold_Biome":
+                    AsteroidOre.GenStep_Terrain(map, "Limestone", "MineableGold");
+                    return false;
+                case "RimNauts2_OrePlasteel_Biome":
+                    AsteroidOre.GenStep_Terrain(map, "Limestone", "MineablePlasteel");
                     return false;
                 default:
                     return true;
@@ -26,7 +35,16 @@ namespace RimNauts2 {
                     MoonBarren.GenStep_RocksFromGrid(map, parms);
                     return false;
                 case "RimNauts2_MoonStripped_Biome":
-                    MoonStripped.GenStep_RocksFromGrid(map, parms);
+                    MoonBarren.GenStep_RocksFromGrid(map, parms);
+                    return false;
+                case "RimNauts2_OreSteel_Biome":
+                    AsteroidOre.GenStep_RocksFromGrid(map, "Limestone", "MineableSteel");
+                    return false;
+                case "RimNauts2_OreGold_Biome":
+                    AsteroidOre.GenStep_RocksFromGrid(map, "Limestone", "MineableGold");
+                    return false;
+                case "RimNauts2_OrePlasteel_Biome":
+                    AsteroidOre.GenStep_RocksFromGrid(map, "Limestone", "MineablePlasteel");
                     return false;
                 default:
                     return true;
@@ -42,7 +60,16 @@ namespace RimNauts2 {
                     MoonBarren.GenStep_ElevationFertility(map);
                     return false;
                 case "RimNauts2_MoonStripped_Biome":
-                    MoonStripped.GenStep_ElevationFertility(map);
+                    MoonBarren.GenStep_ElevationFertility(map);
+                    return false;
+                case "RimNauts2_OreSteel_Biome":
+                    AsteroidOre.GenStep_ElevationFertility(map);
+                    return false;
+                case "RimNauts2_OreGold_Biome":
+                    AsteroidOre.GenStep_ElevationFertility(map);
+                    return false;
+                case "RimNauts2_OrePlasteel_Biome":
+                    AsteroidOre.GenStep_ElevationFertility(map);
                     return false;
                 default:
                     return true;

@@ -44,7 +44,7 @@ namespace RimNauts2 {
 
         public override void Tick() {
             base.Tick();
-            if (can_out_of_bounds) {
+            if (type == Satellite_Type.Asteroid && can_out_of_bounds) {
                 if (out_of_bounds_direction_towards_surface) {
                     current_out_of_bounds -= 0.00015f;
                     if (current_out_of_bounds <= 0.42f) current_out_of_bounds = out_of_bounds_offset;
@@ -151,8 +151,15 @@ namespace RimNauts2 {
         public override void PostRemove() {
             base.PostRemove();
             if (type == Satellite_Type.Moon && has_map) {
-                _ = Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
-            }
+                Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
+            } else if (type == Satellite_Type.None) {
+                Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
+            } else if (type == Satellite_Type.Buffer) {
+                // nothing
+            } else if (type == Satellite_Type.Asteroid_Ore) {
+                Satellite satellite = Generate_Satellites.copy_satellite(this, Satellite_Type_Methods.WorldObjects(Satellite_Type.Asteroid).RandomElement(), Satellite_Type.Asteroid);
+                Find.World.grid.tiles.ElementAt(satellite.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Satellite_Biome");
+            } else Generate_Satellites.add_satellite(Tile, Satellite_Type.Asteroid);
         }
     }
 }
