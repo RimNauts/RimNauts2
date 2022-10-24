@@ -6,6 +6,9 @@
             <li Class="RimNauts2.CompProperties_Launchable">
                 <skyfallerLeaving>DropPodLeaving</skyfallerLeaving>
             </li>
+            <li Class="RimNauts2.CompProperties_SpaceStation">
+                <skyfallerLeaving>DropPodLeaving</skyfallerLeaving>
+            </li>
 		</value>
 	</Operation>
 </Patch>

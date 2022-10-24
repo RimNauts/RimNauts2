@@ -28,4 +28,33 @@
             <li>ExoticMisc</li>
         </tradeTags>
     </ThingDef>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>RimNauts2_Thing_SpaceStation</defName>
+        <label>space station</label>
+        <description>Space station. Send it out in orbit with a transport pod.</description>
+        <graphicData>
+            <texPath>Things/Item/Satellite/RimNauts2_SpaceStation</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1.0</drawSize>
+        </graphicData>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <stackLimit>1</stackLimit>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <MarketValue>400</MarketValue>
+            <Mass>20.0</Mass>
+            <Flammability>0.6</Flammability>
+            <DeteriorationRate>2.0</DeteriorationRate>
+        </statBases>
+        <intricate>true</intricate>
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        <tradeTags>
+            <li>ExoticMisc</li>
+        </tradeTags>
+    </ThingDef>
 </Defs>

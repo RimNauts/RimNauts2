@@ -12,6 +12,7 @@ namespace RimNauts2 {
         public List<string> WasteObjects;
         public List<string> MoonObjects;
         public List<string> ArtificalSatelliteObjects;
+        public List<string> SpaceStationObjects;
 
         public Vector3 AsteroidObjectsOrbitPosition;
         public Vector3 AsteroidObjectsOrbitSpread;
@@ -27,6 +28,11 @@ namespace RimNauts2 {
         public Vector3 ArtificalSatelliteObjectsOrbitSpread;
         public Vector2 ArtificalSatelliteObjectsOrbitSpeedBetween;
         public bool ArtificalSatelliteObjectsOrbitRandomDirection;
+
+        public Vector3 SpaceStationObjectsOrbitPosition;
+        public Vector3 SpaceStationObjectsOrbitSpread;
+        public Vector2 SpaceStationObjectsOrbitSpeedBetween;
+        public bool SpaceStationObjectsOrbitRandomDirection;
 
         public List<string> AllowedSatelliteIncidents;
 
@@ -44,6 +50,8 @@ namespace RimNauts2 {
                     return MoonObjectsOrbitPosition;
                 case Satellite_Type.Artifical_Satellite:
                     return ArtificalSatelliteObjectsOrbitPosition;
+                case Satellite_Type.Space_Station:
+                    return SpaceStationObjectsOrbitPosition;
                 default:
                     return new Vector3();
             }
@@ -57,6 +65,8 @@ namespace RimNauts2 {
                     return MoonObjectsOrbitSpread;
                 case Satellite_Type.Artifical_Satellite:
                     return ArtificalSatelliteObjectsOrbitSpread;
+                case Satellite_Type.Space_Station:
+                    return SpaceStationObjectsOrbitSpread;
                 default:
                     return new Vector3();
             }
@@ -70,6 +80,8 @@ namespace RimNauts2 {
                     return Rand.Range(MoonObjectsOrbitSpeedBetween.x, MoonObjectsOrbitSpeedBetween.y);
                 case Satellite_Type.Artifical_Satellite:
                     return Rand.Range(ArtificalSatelliteObjectsOrbitSpeedBetween.x, ArtificalSatelliteObjectsOrbitSpeedBetween.y);
+                case Satellite_Type.Space_Station:
+                    return Rand.Range(SpaceStationObjectsOrbitSpeedBetween.x, SpaceStationObjectsOrbitSpeedBetween.y);
                 default:
                     return 1.0f;
             }
@@ -83,6 +95,8 @@ namespace RimNauts2 {
                     return MoonObjectsOrbitRandomDirection;
                 case Satellite_Type.Artifical_Satellite:
                     return ArtificalSatelliteObjectsOrbitRandomDirection;
+                case Satellite_Type.Space_Station:
+                    return SpaceStationObjectsOrbitRandomDirection;
                 default:
                     return false;
             }

@@ -8,6 +8,7 @@ namespace RimNauts2 {
         Artifical_Satellite = 3,
         Asteroid_Ore = 4,
         Buffer = 5,
+        Space_Station = 6,
     }
 
     public static class Satellite_Type_Methods {
@@ -21,6 +22,8 @@ namespace RimNauts2 {
                     return SatelliteDefOf.Satellite.ArtificalSatelliteObjects;
                 case Satellite_Type.Asteroid_Ore:
                     return SatelliteDefOf.Satellite.AsteroidOreObjects;
+                case Satellite_Type.Space_Station:
+                    return SatelliteDefOf.Satellite.SpaceStationObjects;
                 default:
                     return new List<string>();
             }
@@ -40,6 +43,8 @@ namespace RimNauts2 {
                     return Satellite_Type.Asteroid_Ore;
                 case "RimNauts2_OrePlasteel_Biome":
                     return Satellite_Type.Asteroid_Ore;
+                case "RimNauts2_SpaceStation_Biome":
+                    return Satellite_Type.Artifical_Satellite;
                 default:
                     return Satellite_Type.None;
             }

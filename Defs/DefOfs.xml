@@ -27,6 +27,11 @@
         <ArtificalSatelliteObjectsOrbitSpeedBetween>(12.0, 14.0)</ArtificalSatelliteObjectsOrbitSpeedBetween>
         <ArtificalSatelliteObjectsOrbitRandomDirection>true</ArtificalSatelliteObjectsOrbitRandomDirection>
 
+        <SpaceStationObjectsOrbitPosition>(160.0, 100.0, 160.0)</SpaceStationObjectsOrbitPosition>
+        <SpaceStationObjectsOrbitSpread>(0.1, 0.0, 0.1)</SpaceStationObjectsOrbitSpread>
+        <SpaceStationObjectsOrbitSpeedBetween>(12.0, 14.0)</SpaceStationObjectsOrbitSpeedBetween>
+        <SpaceStationObjectsOrbitRandomDirection>false</SpaceStationObjectsOrbitRandomDirection>
+
 		<AsteroidObjects>
             <li>RimNauts2_Asteroid_1</li>
             <li>RimNauts2_Asteroid_2</li>
@@ -58,6 +63,10 @@
 		<ArtificalSatelliteObjects>
             <li>RimNauts2_ArtificalSatellite</li>
         </ArtificalSatelliteObjects>
+
+		<SpaceStationObjects>
+            <li>RimNauts2_SpaceStation</li>
+        </SpaceStationObjects>
 
         <AllowedSatelliteIncidents>
             <li>RaidEnemy</li>

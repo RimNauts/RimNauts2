@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<BiomeDef ParentName="RimNauts2_Moon_Biome">
+		<defName>RimNauts2_SpaceStation_Biome</defName>
+		<label>space station</label>
+		<description>space station</description>
+		<terrainsByFertility>
+			<li>
+				<terrain>RimNauts2_Vacuum</terrain>
+				<min>-999</min>
+				<max>999</max>
+			</li>
+		</terrainsByFertility>
+  	</BiomeDef>
+
+	<MapGeneratorDef>
+	<defName>RimNauts2_SpaceStation_MapGen</defName>
+		<genSteps>
+			<li>FindPlayerStartSpot</li>
+			<li>Terrain</li>
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+</Defs>

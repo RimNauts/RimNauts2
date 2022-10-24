@@ -42,6 +42,8 @@ namespace RimNauts2 {
                 Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(Moon.get_moon_biome(def_name));
             } else if (type == Satellite_Type.Artifical_Satellite) {
                 Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Artifical_Satellite_Biome");
+            } else if (type == Satellite_Type.Space_Station) {
+                Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_SpaceStation_Biome");
             }
             Find.WorldObjects.Add(satellite);
             return satellite;
