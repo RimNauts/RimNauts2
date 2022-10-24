@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<BiomeDef>
+	<BiomeDef ParentName="RimNauts2_Moon_Biome">
 		<defName>RimNauts2_MoonWater_Biome</defName>
 		<label>waterMoon</label>
 		<description>Water Moon</description>
-		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
-    	<canAutoChoose>false</canAutoChoose>
-		<allowRoads>false</allowRoads>
-		<allowRivers>false</allowRivers>
-    	<allowFarmingCamps>false</allowFarmingCamps>
-		<animalDensity>0</animalDensity>
-		<plantDensity>0</plantDensity>
-		<hasVirtualPlants>false</hasVirtualPlants>
-		<settlementSelectionWeight>0.01</settlementSelectionWeight>
-		<movementDifficulty>2</movementDifficulty>
-    	<texture>World/Biomes/Ocean</texture>
-		<forageability>0</forageability>
-    	<isExtremeBiome>true</isExtremeBiome>
-		<soundsAmbient>
-			<li>Ambient_Wind_Desolate</li>
-		</soundsAmbient>
-		<diseaseMtbDays>90</diseaseMtbDays>
-		<diseases>
-			<li>
-				<diseaseInc>Disease_Flu</diseaseInc>
-				<commonality>100</commonality>
-			</li>
-		</diseases>
 		<terrainsByFertility>
 			<li>
 				<terrain>WaterShallow</terrain>
@@ -44,9 +21,6 @@
 			<SnowGentle>0</SnowGentle>
 			<SnowHard>0</SnowHard>
 		</baseWeatherCommonalities>
-		<wildPlants><!-- nothing --></wildPlants>
-		<wildAnimals><!-- nothing --></wildAnimals>
-		<allowedPackAnimals><!-- nothing --></allowedPackAnimals>
   	</BiomeDef>
 
 	<MapGeneratorDef>

@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+    <!-- Root classes -->
 	<BiomeDef Name="SatelliteBiome">
 		<defName>RimNauts2_Satellite_Biome</defName>
 		<label>satellite</label>
 		<description>satellite</description>
-		<workerClass>BiomeWorker_Ocean</workerClass>
+		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
         <canBuildBase>false</canBuildBase>
+    	<canAutoChoose>false</canAutoChoose>
         <allowRoads>false</allowRoads>
         <allowRivers>false</allowRivers>
         <hasVirtualPlants>false</hasVirtualPlants>
         <texture>World/Biomes/Ocean</texture>
         <impassable>true</impassable>
+  	</BiomeDef>
+
+	<BiomeDef Name="RimNauts2_Moon_Biome" ParentName="SatelliteBiome">
+		<defName>RimNauts2_Moon_Biome</defName>
+		<label>moon</label>
+		<description>moon</description>
+		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
+        <canBuildBase>true</canBuildBase>
+    	<allowFarmingCamps>false</allowFarmingCamps>
+		<animalDensity>0</animalDensity>
+		<plantDensity>0</plantDensity>
+		<settlementSelectionWeight>0.01</settlementSelectionWeight>
+		<movementDifficulty>2</movementDifficulty>
+		<forageability>0</forageability>
+    	<isExtremeBiome>true</isExtremeBiome>
+		<soundsAmbient>
+			<li>Ambient_Wind_Desolate</li>
+		</soundsAmbient>
+		<diseaseMtbDays>90</diseaseMtbDays>
+		<diseases>
+			<li>
+				<diseaseInc>Disease_Flu</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+		</diseases>
+		<baseWeatherCommonalities>
+			<Clear>1</Clear>
+			<Fog>0</Fog>
+			<Rain>0</Rain>
+			<DryThunderstorm>0</DryThunderstorm>
+			<RainyThunderstorm>0</RainyThunderstorm>
+			<FoggyRain>0</FoggyRain>
+			<SnowGentle>0</SnowGentle>
+			<SnowHard>0</SnowHard>
+		</baseWeatherCommonalities>
+		<wildPlants><!-- nothing --></wildPlants>
+		<wildAnimals><!-- nothing --></wildAnimals>
+		<allowedPackAnimals><!-- nothing --></allowedPackAnimals>
   	</BiomeDef>
 </Defs>
