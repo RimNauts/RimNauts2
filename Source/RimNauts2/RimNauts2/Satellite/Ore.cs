@@ -55,13 +55,6 @@ namespace RimNauts2 {
 
         public static void generate_map(Satellite satellite) {
             Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-            foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
-                if (weather.defName.Equals("OuterSpaceWeather")) {
-                    map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
-                    if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
-                    break;
-                }
-            }
             satellite.has_map = true;
             satellite.SetFaction(RimWorld.Faction.OfPlayer);
             Find.World.WorldUpdate();

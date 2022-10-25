@@ -19,6 +19,13 @@
 			<li>FindPlayerStartSpot</li>
 			<li>Terrain</li>
 			<li>Fog</li>
+			<li>RimNauts2_GenStep_SpaceStation</li>
 		</genSteps>
 	</MapGeneratorDef>
+
+	<GenStepDef>
+		<defName>RimNauts2_GenStep_SpaceStation</defName>
+		<order>1001</order>
+		<genStep Class="RimNauts2.SpaceStation" />
+	</GenStepDef>
 </Defs>

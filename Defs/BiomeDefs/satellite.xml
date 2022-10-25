@@ -28,9 +28,7 @@
 		<movementDifficulty>2</movementDifficulty>
 		<forageability>0</forageability>
     	<isExtremeBiome>true</isExtremeBiome>
-		<soundsAmbient>
-			<li>Ambient_Wind_Desolate</li>
-		</soundsAmbient>
+		<soundsAmbient></soundsAmbient>
 		<diseaseMtbDays>90</diseaseMtbDays>
 		<diseases>
 			<li>
@@ -39,7 +37,8 @@
 			</li>
 		</diseases>
 		<baseWeatherCommonalities>
-			<Clear>1</Clear>
+			<OuterSpaceWeather>1</OuterSpaceWeather>
+			<Clear>0</Clear>
 			<Fog>0</Fog>
 			<Rain>0</Rain>
 			<DryThunderstorm>0</DryThunderstorm>

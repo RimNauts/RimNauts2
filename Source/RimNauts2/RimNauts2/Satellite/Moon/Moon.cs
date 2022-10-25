@@ -18,13 +18,6 @@ namespace RimNauts2 {
         private static void generate_moon_map(Satellite satellite) {
             applySatelliteSurface(satellite.Tile, satellite.Biome.defName);
             Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-            foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
-                if (weather.defName.Equals("OuterSpaceWeather")) {
-                    map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
-                    if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
-                    break;
-                }
-            }
         }
 
         private static void applySatelliteSurface(int tile_id, string biome_def) {
