@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <WeatherDef>
+    <!-- Will be replaced by SOS2 if found -->
     <defName>RimNauts2_OuterSpaceWeather</defName>
     <label>outer space</label>
     <description>It's... space. Try not to go outside.</description>

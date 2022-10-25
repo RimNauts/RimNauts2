@@ -100,7 +100,7 @@
         <comps>
             <li Class="CompProperties_Transporter">
                 <restEffectiveness>0.8</restEffectiveness>
-                <massCapacity>600.0</massCapacity>
+                <massCapacity>800.0</massCapacity>
             </li>
             <li Class="CompProperties_Launchable">
                 <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
