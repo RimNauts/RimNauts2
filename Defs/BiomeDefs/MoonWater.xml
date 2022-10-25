@@ -2,8 +2,8 @@
 <Defs>
 	<BiomeDef ParentName="RimNauts2_Moon_Biome">
 		<defName>RimNauts2_MoonWater_Biome</defName>
-		<label>waterMoon</label>
-		<description>Water Moon</description>
+		<label>Water moon</label>
+		<description>Water moon</description>
 		<baseWeatherCommonalities>
 			<RimNauts2_OuterSpaceWeather>0</RimNauts2_OuterSpaceWeather>
 			<Clear>0.4</Clear>

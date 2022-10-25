@@ -27,7 +27,7 @@
 	<!-- Stripped moon -->
 	<WorldObjectDef Name="RimNauts2_MoonStripped" ParentName="satellite">
 		<defName>RimNauts2_MoonStripped</defName>
-		<label>stripped barren moon</label>
+		<label>stripped moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_MoonStripped</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped</expandingIconTexture>
@@ -42,7 +42,7 @@
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_MoonStripped">
 		<defName>RimNauts2_MoonStripped_Base</defName>
-		<label>stripped barren moon</label>
+		<label>stripped moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
 		<texture>Satellites/Moons/RimNauts2_MoonStripped_Base</texture>
 		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped_Base</expandingIconTexture>

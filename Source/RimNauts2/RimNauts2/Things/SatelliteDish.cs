@@ -47,9 +47,9 @@ namespace RimNauts2 {
 
             if (new_moon_tile_id != -1) {
                 Generate_Satellites.add_satellite(new_moon_tile_id, Satellite_Type.Moon, def_name: Props.worldObject);
-                Messages.Message("Succesfully found a " + Props.worldObject.Substring(14).ToLower() + " moon orbiting the planet!", RimWorld.MessageTypeDefOf.PositiveEvent, true);
+                Messages.Message("Successfully found a " + Props.worldObject.Substring(14).ToLower() + " moon orbiting the planet!", RimWorld.MessageTypeDefOf.PositiveEvent, true);
             } else {
-                Log.Error("RimNauts2: Couldn't find a free tile to spawn a moon on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
+                Log.Error("RimNauts2: Couldn't find a free tile to spawn a moon on. Either the map size is too small to spawn all the satellites or increase the total satellite objects in settings (requires a new save).");
             }
         }
     }

@@ -2,8 +2,8 @@
 <Defs>
 	<BiomeDef Parent="SatelliteBiome">
 		<defName>RimNauts2_Artifical_Satellite_Biome</defName>
-		<label>artifical satellite</label>
-		<description>artifical satellite</description>
+		<label>artificial-satellite</label>
+		<description>artificial-satellite</description>
 		<workerClass>BiomeWorker_Ocean</workerClass>
   	</BiomeDef>
 </Defs>

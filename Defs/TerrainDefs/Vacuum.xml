@@ -3,7 +3,7 @@
 	<!-- Vacuum -->
 	<TerrainDef>
 		<defName>RimNauts2_Vacuum</defName>
-		<label>vacuum</label>
+		<label>Vacuum</label>
 		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum</texturePath>
 		<edgeType>FadeRough</edgeType>
 		<renderPrecedence>20</renderPrecedence>

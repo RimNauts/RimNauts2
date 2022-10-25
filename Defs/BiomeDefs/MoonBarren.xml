@@ -2,8 +2,8 @@
 <Defs>
 	<BiomeDef ParentName="RimNauts2_Moon_Biome">
 		<defName>RimNauts2_MoonBarren_Biome</defName>
-		<label>barrenMoon</label>
-		<description>Barren Moon</description>
+		<label>Barren moon</label>
+		<description>Barren moon</description>
   	</BiomeDef>
 
 	<MapGeneratorDef>

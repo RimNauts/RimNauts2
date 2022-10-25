@@ -2,8 +2,8 @@
 <Defs>
     <ThingDef ParentName="BuildingBase">
         <defName>RimNauts2_PodLauncher</defName>
-        <label>new pod launcher</label>
-        <description>A fueling port for launching one transport pod. Pod launchers can launch as a group - but the launchers must be placed adjacent to each other.</description>
+        <label>Large pod launcher</label>
+        <description>A fueling port for launching large transport pods. Pod launchers can launch as a group - but the launchers must be placed adjacent to each other.</description>
         <thingClass>Building_PodLauncher</thingClass>
         <graphicData>
             <texPath>Things/Buildings/Misc/RimNauts2_PodLauncher</texPath>

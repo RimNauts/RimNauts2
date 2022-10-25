@@ -76,7 +76,7 @@ namespace RimNauts2 {
 
                 if (tile_id == -1) {
                     Messages.Message("Failed to " + Props.label.ToLower() + " into orbit.", RimWorld.MessageTypeDefOf.NegativeEvent, true);
-                    Log.Error("RimNauts2: Couldn't find a free tile to spawn an " + Props.name + " on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
+                    Log.Error("RimNauts2: Couldn't find a free tile to spawn a " + Props.name + " on. Either the map size is too small to spawn all the satellites or increase the total satellite objects in settings (requires a new save)");
                     return;
                 }
                 Satellite_Type type = Satellite_Type_Methods.get_type_from_string(Props.type);
@@ -93,7 +93,7 @@ namespace RimNauts2 {
                 }
                 
 
-                Messages.Message("Succesfully launched a " + Props.name + " into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
+                Messages.Message("Successfully launched a " + Props.name + " into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
             }
         }
     }

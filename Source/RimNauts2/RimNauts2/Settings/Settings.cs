@@ -38,7 +38,7 @@ namespace RimNauts2 {
             }
             listingStandard1.Gap(10f);
 
-            listingStandard1.Label("Total satellite objects. Changes requires a new save");
+            listingStandard1.Label("Total satellite objects. Changes require a new save");
             listingStandard1.IntEntry(ref Settings.TotalSatelliteObjects, ref bufferTotalSatelliteObjects);
             if (Settings.TotalSatelliteObjects < 0) {
                 Settings.TotalSatelliteObjects = 0;
@@ -49,7 +49,7 @@ namespace RimNauts2 {
             listingStandard1.CheckboxLabeled("Crashing asteroids", ref Settings.CrashingAsteroidsToggle);
             listingStandard1.Gap(10f);
 
-            listingStandard1.CheckboxLabeled("Mineral rich asteroids", ref Settings.MineralAsteroidsToggle);
+            listingStandard1.CheckboxLabeled("Mineral-rich asteroids", ref Settings.MineralAsteroidsToggle);
 
             listingStandard1.End();
         }

@@ -14,7 +14,7 @@ namespace RimNauts2 {
             if (!parent.has_map) {
                 yield return new Command_Action {
                     defaultLabel = "Harvest asteroid",
-                    defaultDesc = "Harvest the mineral rich asteroid.",
+                    defaultDesc = "Harvest the mineral-rich asteroid.",
                     icon = ContentFinder<Texture2D>.Get("UI/Designators/Mine", true),
                     action = () => Ore.generate_map(parent),
                 };

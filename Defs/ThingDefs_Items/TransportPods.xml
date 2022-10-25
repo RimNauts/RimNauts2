@@ -35,7 +35,7 @@
     <ThingDef ParentName="RimNauts2_TransportPod">
         <defName>RimNauts2_TransportPod_Satellite</defName>
         <label>Satellite</label>
-        <description>A launchable sub-orbital cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+        <description>A launchable satellite capable of carrying it out to orbit.</description>
         <graphicData>
             <texPath>Things/Special/RimNauts2_DropPod_Satellite</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -61,7 +61,7 @@
     <ThingDef ParentName="RimNauts2_TransportPod">
         <defName>RimNauts2_TransportPod_SpaceStation</defName>
         <label>Space station</label>
-        <description>A launchable sub-orbital cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+        <description>A launchable space station capable of carrying it out to orbit.</description>
         <graphicData>
             <texPath>Things/Special/RimNauts2_DropPod_SpaceStation</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -86,7 +86,7 @@
 
     <ThingDef ParentName="RimNauts2_TransportPod">
         <defName>RimNauts2_TransportPod_Cargo</defName>
-        <label>cargo transport pod</label>
+        <label>Cargo transport pod</label>
         <description>A launchable sub-orbital cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
         <graphicData>
             <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>

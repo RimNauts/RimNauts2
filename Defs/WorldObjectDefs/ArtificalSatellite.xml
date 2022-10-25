@@ -2,8 +2,8 @@
 <Defs>
    	<WorldObjectDef ParentName="satellite">
 		<defName>RimNauts2_ArtificalSatellite</defName>
-		<label>artifical satellite</label>
-		<description>artifical satellite used for space exploration.</description>
+		<label>artificial-satellite</label>
+		<description>artificial-satellite used for space exploration.</description>
 		<texture>Satellites/ArtificalSatellites/RimNauts2_ArtificalSatellite</texture>
 		<expandingIconTexture>Satellites/ArtificalSatellites/RimNauts2_ArtificalSatellite</expandingIconTexture>
 		<expandingIconPriority>1001</expandingIconPriority>

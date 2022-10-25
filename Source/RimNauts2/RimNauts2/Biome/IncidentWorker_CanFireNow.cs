@@ -25,9 +25,9 @@ namespace RimNauts2 {
                 List<Thing> thingList = RimWorld.ThingSetMakerDefOf.Meteorite.root.Generate();
                 RimWorld.SkyfallerMaker.SpawnSkyfaller(RimWorld.ThingDefOf.MeteoriteIncoming, thingList, cell, target);
                 LetterDef baseLetterDef = thingList[0].def.building.isResourceRock ? RimWorld.LetterDefOf.PositiveEvent : RimWorld.LetterDefOf.NeutralEvent;
-                string str = "A large meteorite has struck ground in the area. It has left behind a lump of " + thingList[0].def.label + ".";
+                string str = "A large meteorite has struck the ground in the area. It has left behind a lump of " + thingList[0].def.label + ".";
                 SendStandardLetter("Meteorite: " + thingList[0].def.LabelCap, str, baseLetterDef, parms, new TargetInfo(cell, target), Array.Empty<NamedArgument>());
-                if (Prefs.DevMode) Log.Message("RimNauts2: Replaced '" + __instance.def.defName + "' incident to Metorite incident.");
+                if (Prefs.DevMode) Log.Message("RimNauts2: Replaced '" + __instance.def.defName + "' incident to Meteorite incident.");
             } catch { }
             wait = 5;
             return;
