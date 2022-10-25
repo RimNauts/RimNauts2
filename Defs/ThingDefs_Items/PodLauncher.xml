@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BuildingBase">
+        <defName>RimNauts2_PodLauncher</defName>
+        <label>new pod launcher</label>
+        <description>A fueling port for launching one transport pod. Pod launchers can launch as a group - but the launchers must be placed adjacent to each other.</description>
+        <thingClass>Building_PodLauncher</thingClass>
+        <graphicData>
+            <texPath>Things/Buildings/Misc/RimNauts2_PodLauncher</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(8,6)</drawSize>
+        </graphicData>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <size>(1,5)</size>
+        <rotatable>false</rotatable>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>Impassable</passability>
+        <fillPercent>1.0</fillPercent>
+        <designationCategory>Misc</designationCategory>
+        <uiOrder>2200</uiOrder>
+        <canOverlapZones>false</canOverlapZones>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <building>
+            <hasFuelingPort>true</hasFuelingPort>
+        </building>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <WorkToBuild>3000</WorkToBuild>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <costList>
+            <Steel>50</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Refuelable">
+                <fuelCapacity>150.0</fuelCapacity>
+                <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+                <initialConfigurableTargetFuelLevel>75</initialConfigurableTargetFuelLevel>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Chemfuel</li>
+                    </thingDefs>
+                </fuelFilter>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <autoRefuelPercent>1</autoRefuelPercent>
+                <showFuelGizmo>false</showFuelGizmo>
+                <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+                <drawFuelGaugeInMap>true</drawFuelGaugeInMap>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+        </comps>
+        <placeWorkers>
+            <li>PlaceWorker_FuelingPort</li>
+            <li>PlaceWorker_NotUnderRoof</li>
+        </placeWorkers>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <uiIconScale>0.9</uiIconScale>
+    </ThingDef>
+</Defs>
