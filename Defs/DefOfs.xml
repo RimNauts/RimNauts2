@@ -9,7 +9,6 @@
             <li>RimNauts2_MoonBarren_Biome</li>
         </Biomes>
 
-        <TotalSatelliteObjects>1000</TotalSatelliteObjects>
         <CrashingAsteroidObjectPercentage>0.05</CrashingAsteroidObjectPercentage>
         <MineralRichAsteroidsPercentage>0.05</MineralRichAsteroidsPercentage>
         <MineralRichAsteroidsRandomWaitTicks>(180000.0, 300000.0)</MineralRichAsteroidsRandomWaitTicks>

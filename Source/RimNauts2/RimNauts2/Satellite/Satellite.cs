@@ -64,13 +64,15 @@ namespace RimNauts2 {
             }
             if (mineral_rich) {
                 if (!currently_mineral_rich) {
-                    if (mineral_rich_transform_wait <= 0) {
-                        currently_mineral_rich = true;
-                        mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
-                        mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
-                        Ore.generate_ore(this);
-                        Find.LetterStack.ReceiveLetter("Mineral rich asteroid spotted", "A mineral rich asteroid has been spotted in the asteroid belt. The asteroid can only be reached from orbit (Moon base or space station). You have to be fast though, we only have a couple of days before it's lost in the asteroid belt again.", RimWorld.LetterDefOf.NeutralEvent, null);
-                    } else mineral_rich_transform_wait--;
+                    if (Settings.MineralAsteroidsToggle) {
+                        if (mineral_rich_transform_wait <= 0) {
+                            currently_mineral_rich = true;
+                            mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
+                            mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
+                            Ore.generate_ore(this);
+                            Find.LetterStack.ReceiveLetter("Mineral rich asteroid spotted", "A mineral rich asteroid has been spotted in the asteroid belt. The asteroid can only be reached from orbit (Moon base or space station). You have to be fast though, we only have a couple of days before it's lost in the asteroid belt again.", RimWorld.LetterDefOf.NeutralEvent, null);
+                        } else mineral_rich_transform_wait--;
+                    }
                 } else {
                     if (mineral_rich_abondon <= 0) {
                         if (!has_map) {
@@ -96,7 +98,7 @@ namespace RimNauts2 {
         }
 
         public float get_crash_course() {
-            if (can_out_of_bounds) {
+            if (Settings.CrashingAsteroidsToggle && can_out_of_bounds) {
                 if (out_of_bounds_direction_towards_surface) {
                     return Math.Min(1.0f, current_out_of_bounds);
                 } else {

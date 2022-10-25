@@ -6,7 +6,6 @@ using System;
 namespace RimNauts2 {
     public class SatelliteDef : Def {
         public List<string> Biomes;
-        public int TotalSatelliteObjects;
         public float CrashingAsteroidObjectPercentage;
         public List<string> AsteroidObjects;
         public List<string> AsteroidOreObjects;
@@ -43,13 +42,15 @@ namespace RimNauts2 {
 
         public int TotalCrashingAsteroidObjects {
             get {
-                return (int) (SatelliteDefOf.Satellite.TotalSatelliteObjects * SatelliteDefOf.Satellite.CrashingAsteroidObjectPercentage);
+                if (SatelliteDefOf.Satellite.CrashingAsteroidObjectPercentage <= 0) return 0;
+                return (int) (Settings.TotalSatelliteObjects * SatelliteDefOf.Satellite.CrashingAsteroidObjectPercentage);
             }
         }
 
         public int TotalMineralAsteroidObjects {
             get {
-                return (int) Math.Max(1.0f, SatelliteDefOf.Satellite.TotalSatelliteObjects * SatelliteDefOf.Satellite.MineralRichAsteroidsPercentage);
+                if (SatelliteDefOf.Satellite.MineralRichAsteroidsPercentage <= 0) return 0;
+                return (int) Math.Max(1.0f, Settings.TotalSatelliteObjects * SatelliteDefOf.Satellite.MineralRichAsteroidsPercentage);
             }
         }
 

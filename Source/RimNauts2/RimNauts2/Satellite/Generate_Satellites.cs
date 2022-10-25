@@ -22,7 +22,7 @@ namespace RimNauts2 {
             SatelliteContainer.reset();
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
-                if (SatelliteContainer.size() >= SatelliteDefOf.Satellite.TotalSatelliteObjects) break;
+                if (SatelliteContainer.size() >= Settings.TotalSatelliteObjects) break;
                 if (SatelliteDefOf.Satellite.Biomes.Contains(biome_def)) add_satellite(i, Satellite_Type_Methods.get_type_from_biome(biome_def));
             }
         }
