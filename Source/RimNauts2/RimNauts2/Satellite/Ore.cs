@@ -46,11 +46,7 @@ namespace RimNauts2 {
             satellite.type = Satellite_Type.Buffer;
             satellite.Destroy();
             Find.World.grid.tiles.ElementAt(new_satellite.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(new_satellite.def_name + "_Biome");
-            Find.World.grid.tiles.ElementAt(new_satellite.Tile).elevation = 100f;
-            Find.World.grid.tiles.ElementAt(new_satellite.Tile).hilliness = RimWorld.Planet.Hilliness.Flat;
-            Find.World.grid.tiles.ElementAt(new_satellite.Tile).rainfall = 0f;
-            Find.World.grid.tiles.ElementAt(new_satellite.Tile).swampiness = 0f;
-            Find.World.grid.tiles.ElementAt(new_satellite.Tile).temperature = -60f;
+            Satellite.applySatelliteSurface(satellite.Tile, new_satellite.def_name + "_Biome");
         }
 
         public static void generate_map(Satellite satellite) {

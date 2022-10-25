@@ -161,5 +161,24 @@ namespace RimNauts2 {
                 Find.World.grid.tiles.ElementAt(satellite.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Satellite_Biome");
             } else Generate_Satellites.add_satellite(Tile, Satellite_Type.Asteroid);
         }
+
+        public static void applySatelliteSurface(int tile_id, string biome_def) {
+            switch (biome_def) {
+                case "RimNauts2_MoonWater_Biome":
+                    Find.World.grid.tiles.ElementAt(tile_id).elevation = 100f;
+                    Find.World.grid.tiles.ElementAt(tile_id).hilliness = RimWorld.Planet.Hilliness.Flat;
+                    Find.World.grid.tiles.ElementAt(tile_id).rainfall = 100f;
+                    Find.World.grid.tiles.ElementAt(tile_id).swampiness = 0f;
+                    Find.World.grid.tiles.ElementAt(tile_id).temperature = 10f;
+                    return;
+                default:
+                    Find.World.grid.tiles.ElementAt(tile_id).elevation = 100f;
+                    Find.World.grid.tiles.ElementAt(tile_id).hilliness = RimWorld.Planet.Hilliness.Flat;
+                    Find.World.grid.tiles.ElementAt(tile_id).rainfall = 0f;
+                    Find.World.grid.tiles.ElementAt(tile_id).swampiness = 0f;
+                    Find.World.grid.tiles.ElementAt(tile_id).temperature = -40f;
+                    return;
+            }
+        }
     }
 }

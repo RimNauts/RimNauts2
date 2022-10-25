@@ -82,13 +82,8 @@ namespace RimNauts2 {
                 Satellite satellite = Generate_Satellites.add_satellite(tile_id, type);
 
                 if (Props.createMap) {
-                    Find.World.grid.tiles.ElementAt(tile_id).elevation = 100f;
-                    Find.World.grid.tiles.ElementAt(tile_id).hilliness = RimWorld.Planet.Hilliness.Flat;
-                    Find.World.grid.tiles.ElementAt(tile_id).rainfall = 0f;
-                    Find.World.grid.tiles.ElementAt(tile_id).swampiness = 0f;
-                    Find.World.grid.tiles.ElementAt(tile_id).temperature = -80f;
-
                     Map new_map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+                    Satellite.applySatelliteSurface(tile_id, satellite.Biome.defName);
 
                     satellite.has_map = true;
                     satellite.SetFaction(RimWorld.Faction.OfPlayer);

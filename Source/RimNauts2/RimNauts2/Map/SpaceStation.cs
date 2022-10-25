@@ -91,11 +91,10 @@ namespace RimNauts2 {
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Battery), map, new IntVec3(3, 0, -4) + map.Center);
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Battery), map, new IntVec3(4, 0, -4) + map.Center);
             // set temp
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Cooler), map, new IntVec3(-4, 0, -5) + map.Center);
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Cooler), map, new IntVec3(-2, 0, -5) + map.Center);
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Cooler), map, new IntVec3(0, 0, -5) + map.Center);
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Cooler), map, new IntVec3(2, 0, -5) + map.Center);
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Cooler), map, new IntVec3(4, 0, -5) + map.Center);
+            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Heater), map, new IntVec3(1, 0, 0) + map.Center);
+            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Heater), map, new IntVec3(-1, 0, 0) + map.Center);
+            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Heater), map, new IntVec3(0, 0, 1) + map.Center);
+            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Heater), map, new IntVec3(0, 0, -1) + map.Center);
 
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Wall, RimWorld.ThingDefOf.Steel), map, map.Center);
 
