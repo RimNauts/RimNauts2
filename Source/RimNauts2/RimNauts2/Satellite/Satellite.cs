@@ -20,6 +20,11 @@ namespace RimNauts2 {
         public float current_out_of_bounds;
         public bool out_of_bounds_direction_towards_surface = true;
         public int orbit_random_direction;
+        public bool mineral_rich = false;
+        public int mineral_rich_transform_wait;
+        public int mineral_rich_abondon;
+        public bool currently_mineral_rich = false;
+
 
         public override bool ExpandMore => def.expandMore;
 
@@ -38,6 +43,10 @@ namespace RimNauts2 {
             Scribe_Values.Look(ref current_out_of_bounds, "current_out_of_bounds");
             Scribe_Values.Look(ref out_of_bounds_direction_towards_surface, "out_of_bounds_direction_towards_surface");
             Scribe_Values.Look(ref orbit_random_direction, "orbit_random_direction");
+            Scribe_Values.Look(ref mineral_rich, "mineral_rich");
+            Scribe_Values.Look(ref mineral_rich_transform_wait, "mineral_rich_transform_wait");
+            Scribe_Values.Look(ref mineral_rich_abondon, "mineral_rich_abondon");
+            Scribe_Values.Look(ref currently_mineral_rich, "currently_mineral_rich");
         }
 
         public override Vector3 DrawPos => get_parametric_ellipse();
@@ -51,6 +60,26 @@ namespace RimNauts2 {
                 } else {
                     current_out_of_bounds += 0.0002f;
                     if (current_out_of_bounds >= 2.4f) current_out_of_bounds = out_of_bounds_offset;
+                }
+            }
+            if (mineral_rich) {
+                if (!currently_mineral_rich) {
+                    if (mineral_rich_transform_wait <= 0) {
+                        currently_mineral_rich = true;
+                        mineral_rich_transform_wait = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
+                        mineral_rich_abondon = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+                        Ore.generate_ore(this);
+                        Find.LetterStack.ReceiveLetter("Mineral rich asteroid spotted", "A mineral rich asteroid has been spotted in the asteroid belt. The asteroid can only be reached from orbit (Moon base or space station). You have to be fast though, we only have a couple of days before it's lost in the asteroid belt again.", RimWorld.LetterDefOf.NeutralEvent, null);
+                    } else mineral_rich_transform_wait--;
+                } else {
+                    if (mineral_rich_abondon <= 0) {
+                        if (!has_map) {
+                            currently_mineral_rich = false;
+                            mineral_rich_transform_wait = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
+                            mineral_rich_abondon = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+                            Destroy();
+                        }
+                    } else mineral_rich_abondon--;
                 }
             }
         }
@@ -88,6 +117,11 @@ namespace RimNauts2 {
                             out_of_bounds_offset = Rand.Range(-10.0f, 1.0f);
                         } else out_of_bounds_offset = Rand.Range(1.0f, 10.0f);
                         Generate_Satellites.crashing_asteroids_in_world++;
+                    } else if (Generate_Satellites.mineral_asteroids_in_world < SatelliteDefOf.Satellite.TotalMineralAsteroidObjects) {
+                        mineral_rich = true;
+                        mineral_rich_transform_wait = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
+                        mineral_rich_abondon = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+                        Generate_Satellites.mineral_asteroids_in_world++;
                     }
                     break;
                 default:
@@ -159,16 +193,18 @@ namespace RimNauts2 {
             } else if (type == Satellite_Type.Asteroid_Ore) {
                 Satellite satellite = Generate_Satellites.copy_satellite(this, Satellite_Type_Methods.WorldObjects(Satellite_Type.Asteroid).RandomElement(), Satellite_Type.Asteroid);
                 Find.World.grid.tiles.ElementAt(satellite.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Satellite_Biome");
+                satellite.currently_mineral_rich = false;
             } else Generate_Satellites.add_satellite(Tile, Satellite_Type.Asteroid);
         }
 
-        public static void applySatelliteSurface(int tile_id, string biome_def) {
-            Map map = Find.Maps.ElementAt(tile_id);
-            foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
-                if (weather.defName.Equals("OuterSpaceWeather")) {
-                    map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
-                    if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
-                    break;
+        public static void applySatelliteSurface(int tile_id, string biome_def, Map map = null) {
+            if (map != null) {
+                foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
+                    if (weather.defName.Equals("OuterSpaceWeather")) {
+                        map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
+                        if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
+                        break;
+                    }
                 }
             }
             switch (biome_def) {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Verse;
 using UnityEngine;
+using System;
 
 namespace RimNauts2 {
     public class SatelliteDef : Def {
@@ -13,6 +14,10 @@ namespace RimNauts2 {
         public List<string> MoonObjects;
         public List<string> ArtificalSatelliteObjects;
         public List<string> SpaceStationObjects;
+
+        public float MineralRichAsteroidsPercentage;
+        public Vector2 MineralRichAsteroidsRandomWaitTicks;
+        public Vector2 MineralRichAsteroidsRandomInWorldTicks;
 
         public Vector3 AsteroidObjectsOrbitPosition;
         public Vector3 AsteroidObjectsOrbitSpread;
@@ -39,6 +44,12 @@ namespace RimNauts2 {
         public int TotalCrashingAsteroidObjects {
             get {
                 return (int) (SatelliteDefOf.Satellite.TotalSatelliteObjects * SatelliteDefOf.Satellite.CrashingAsteroidObjectPercentage);
+            }
+        }
+
+        public int TotalMineralAsteroidObjects {
+            get {
+                return (int) Math.Max(1.0f, SatelliteDefOf.Satellite.TotalSatelliteObjects * SatelliteDefOf.Satellite.MineralRichAsteroidsPercentage);
             }
         }
 

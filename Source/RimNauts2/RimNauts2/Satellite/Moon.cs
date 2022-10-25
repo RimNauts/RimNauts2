@@ -35,8 +35,8 @@ namespace RimNauts2 {
         }
 
         private static void generate_moon_map(Satellite satellite) {
-            Satellite.applySatelliteSurface(satellite.Tile, satellite.Biome.defName);
             Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+            Satellite.applySatelliteSurface(satellite.Tile, satellite.Biome.defName, map);
         }
 
         private static string get_moon_base(string moon) => moon + "_Base";

@@ -65,10 +65,12 @@ namespace RimNauts2 {
 
                 for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                     if (Find.World.grid.tiles.ElementAt(i).biome.defName == "RimNauts2_Satellite_Biome") {
-                        if (tile_id == -1) {
-                            tile_id = i;
-                            break;
+                        if (SatelliteContainer.exists(i)) {
+                            Satellite old_satellite = SatelliteContainer.get(i);
+                            if (old_satellite.can_out_of_bounds || old_satellite.mineral_rich) continue;
                         }
+                        tile_id = i;
+                        break;
                     }
                 }
 
@@ -83,7 +85,7 @@ namespace RimNauts2 {
 
                 if (Props.createMap) {
                     Map new_map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-                    Satellite.applySatelliteSurface(tile_id, satellite.Biome.defName);
+                    Satellite.applySatelliteSurface(tile_id, satellite.Biome.defName, new_map);
 
                     satellite.has_map = true;
                     satellite.SetFaction(RimWorld.Faction.OfPlayer);

@@ -12,6 +12,7 @@
 			</li>
 		</terrainsByFertility>
 		<baseWeatherCommonalities>
+			<RimNauts2_OuterSpaceWeather>0</RimNauts2_OuterSpaceWeather>
 			<Clear>0.4</Clear>
 			<Fog>0.2</Fog>
 			<Rain>1</Rain>

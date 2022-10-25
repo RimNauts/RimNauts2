@@ -4,6 +4,7 @@ using Verse;
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
         public static int crashing_asteroids_in_world;
+        public static int mineral_asteroids_in_world;
 
         public override int SeedPart {
             get {
@@ -16,9 +17,11 @@ namespace RimNauts2 {
 
         private void generate_satellites() {
             crashing_asteroids_in_world = 0;
+            mineral_asteroids_in_world = 0;
+            SatelliteContainer.reset();
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
-                if (biome_def == "Ocean" || SatelliteContainer.size() >= SatelliteDefOf.Satellite.TotalSatelliteObjects) break;
+                if (SatelliteContainer.size() >= SatelliteDefOf.Satellite.TotalSatelliteObjects) break;
                 if (SatelliteDefOf.Satellite.Biomes.Contains(biome_def)) add_satellite(i, Satellite_Type_Methods.get_type_from_biome(biome_def));
             }
         }
@@ -76,6 +79,10 @@ namespace RimNauts2 {
             new_satellite.current_out_of_bounds = satellite.current_out_of_bounds;
             new_satellite.out_of_bounds_direction_towards_surface = satellite.out_of_bounds_direction_towards_surface;
             new_satellite.orbit_random_direction = satellite.orbit_random_direction;
+            new_satellite.mineral_rich = satellite.mineral_rich;
+            new_satellite.mineral_rich_transform_wait = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
+            new_satellite.mineral_rich_abondon = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+            new_satellite.currently_mineral_rich = satellite.currently_mineral_rich;
 
             Find.WorldObjects.Add(new_satellite);
             return new_satellite;

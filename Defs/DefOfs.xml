@@ -11,6 +11,9 @@
 
         <TotalSatelliteObjects>1000</TotalSatelliteObjects>
         <CrashingAsteroidObjectPercentage>0.05</CrashingAsteroidObjectPercentage>
+        <MineralRichAsteroidsPercentage>0.05</MineralRichAsteroidsPercentage>
+        <MineralRichAsteroidsRandomWaitTicks>(180000.0, 300000.0)</MineralRichAsteroidsRandomWaitTicks>
+        <MineralRichAsteroidsRandomInWorldTicks>(60000.0, 300000.0)</MineralRichAsteroidsRandomInWorldTicks>
 
         <AsteroidObjectsOrbitPosition>(250.0, 5.0, 250.0)</AsteroidObjectsOrbitPosition>
         <AsteroidObjectsOrbitSpread>(0.3, 0.1, 0.3)</AsteroidObjectsOrbitSpread>

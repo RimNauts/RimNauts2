@@ -13,6 +13,11 @@ namespace RimNauts2 {
     }
 
     public static class SatelliteContainer {
+        public static Satellite get(int tile_id) {
+            return RimNauts_GameComponent.satellites[tile_id];
+        }
+
+
         public static void add(Satellite satellite) {
             remove(satellite);
             RimNauts_GameComponent.satellites.Add(satellite.Tile, satellite);
@@ -45,6 +50,13 @@ namespace RimNauts2 {
                 default:
                     return -1;
             }
+        }
+
+        public static void reset() {
+            clear();
+            RimNauts_GameComponent.total_asteroids = 0;
+            RimNauts_GameComponent.total_moons = 0;
+            RimNauts_GameComponent.total_artifical_satellites = 0;
         }
     }
 
@@ -92,10 +104,7 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "Recache")]
     public static class WorldObjectRecache {
         public static void Prefix() {
-            SatelliteContainer.clear();
-            RimNauts_GameComponent.total_asteroids = 0;
-            RimNauts_GameComponent.total_moons = 0;
-            RimNauts_GameComponent.total_artifical_satellites = 0;
+            SatelliteContainer.reset();
         }
     }
 }

@@ -37,10 +37,12 @@ namespace RimNauts2 {
 
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 if (Find.World.grid.tiles.ElementAt(i).biome.defName == "RimNauts2_Satellite_Biome") {
-                    if (new_moon_tile_id == -1) {
-                        new_moon_tile_id = i;
-                        break;
+                    if (SatelliteContainer.exists(i)) {
+                        Satellite old_satellite = SatelliteContainer.get(i);
+                        if (old_satellite.can_out_of_bounds || old_satellite.mineral_rich) continue;
                     }
+                    new_moon_tile_id = i;
+                    break;
                 }
             }
 

@@ -40,17 +40,18 @@ namespace RimNauts2 {
     }
 
     public static class Ore {
-        public static void generate_ore(Satellite satellite) {
+        public static Satellite generate_ore(Satellite satellite) {
             // generate new satellite with the values saved from before (this process is done to get the new texture)
             Satellite new_satellite = Generate_Satellites.copy_satellite(satellite, Satellite_Type_Methods.WorldObjects(Satellite_Type.Asteroid_Ore).RandomElement(), Satellite_Type.Asteroid_Ore);
             satellite.type = Satellite_Type.Buffer;
             satellite.Destroy();
             Find.World.grid.tiles.ElementAt(new_satellite.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(new_satellite.def_name + "_Biome");
-            Satellite.applySatelliteSurface(satellite.Tile, new_satellite.def_name + "_Biome");
+            return new_satellite;
         }
 
         public static void generate_map(Satellite satellite) {
             Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+            Satellite.applySatelliteSurface(satellite.Tile, satellite.def_name + "_Biome", map);
             satellite.has_map = true;
             satellite.SetFaction(RimWorld.Faction.OfPlayer);
             Find.World.WorldUpdate();
