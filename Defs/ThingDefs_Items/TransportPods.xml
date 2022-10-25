@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <ThingDef Abstract="True" Name="RimNauts2_TransportPod" ParentName="BuildingBase">
-        <size>(1,1)</size>
+        <size>(3,3)</size>
         <rotatable>false</rotatable>
         <tickerType>Normal</tickerType>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
@@ -12,6 +12,10 @@
         <designationCategory>Misc</designationCategory>
         <uiOrder>2200</uiOrder>
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<building>
+			<!--Stops it from destroying the launchpad-->
+			<isEdifice>false</isEdifice>
+		</building>
         <statBases>
             <MaxHitPoints>250</MaxHitPoints>
             <WorkToBuild>1600</WorkToBuild>
@@ -25,7 +29,7 @@
             <li>TransportPod</li>
         </researchPrerequisites>
         <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
-        <uiIconScale>0.325</uiIconScale>
+        <uiIconScale>1.1</uiIconScale>
     </ThingDef>
 
     <ThingDef ParentName="RimNauts2_TransportPod">
@@ -78,5 +82,32 @@
                 <createMap>true</createMap>
             </li>
         </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_TransportPod">
+        <defName>RimNauts2_TransportPod_Cargo</defName>
+        <label>cargo transport pod</label>
+        <description>A launchable sub-orbital cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4,4)</drawSize>
+        </graphicData>
+        <costList>
+            <Steel>100</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Transporter">
+                <restEffectiveness>0.8</restEffectiveness>
+                <massCapacity>600.0</massCapacity>
+            </li>
+            <li Class="CompProperties_Launchable">
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+            </li>
+        </comps>
+        <inspectorTabs>
+            <li>ITab_ContentsTransporter</li>
+        </inspectorTabs>
     </ThingDef>
 </Defs>
