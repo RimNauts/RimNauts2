@@ -59,6 +59,7 @@
     <Compile Include="Map\AsteroidOre.cs" />
     <Compile Include="Map\MoonBarren.cs" />
     <Compile Include="Map\MapGen_Patches.cs" />
+    <Compile Include="Map\MoonWater.cs" />
     <Compile Include="Map\SpaceStation.cs" />
     <Compile Include="SatelliteDefOf.cs" />
     <Compile Include="SatelliteDef.cs" />

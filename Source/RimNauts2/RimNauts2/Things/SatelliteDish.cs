@@ -32,7 +32,6 @@ namespace RimNauts2 {
         }
 
         public void action() {
-            Log.Message("Artifical Satellite: " + SatelliteContainer.size(Satellite_Type.Artifical_Satellite).ToString());
             int new_moon_tile_id = -1;
 
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {

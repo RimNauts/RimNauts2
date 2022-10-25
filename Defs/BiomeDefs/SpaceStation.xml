@@ -4,13 +4,6 @@
 		<defName>RimNauts2_SpaceStation_Biome</defName>
 		<label>space station</label>
 		<description>space station</description>
-		<terrainsByFertility>
-			<li>
-				<terrain>RimNauts2_Vacuum</terrain>
-				<min>-999</min>
-				<max>999</max>
-			</li>
-		</terrainsByFertility>
   	</BiomeDef>
 
 	<MapGeneratorDef>

@@ -66,8 +66,8 @@ namespace RimNauts2 {
                 if (!currently_mineral_rich) {
                     if (mineral_rich_transform_wait <= 0) {
                         currently_mineral_rich = true;
-                        mineral_rich_transform_wait = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
-                        mineral_rich_abondon = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+                        mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
+                        mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
                         Ore.generate_ore(this);
                         Find.LetterStack.ReceiveLetter("Mineral rich asteroid spotted", "A mineral rich asteroid has been spotted in the asteroid belt. The asteroid can only be reached from orbit (Moon base or space station). You have to be fast though, we only have a couple of days before it's lost in the asteroid belt again.", RimWorld.LetterDefOf.NeutralEvent, null);
                     } else mineral_rich_transform_wait--;
@@ -75,8 +75,8 @@ namespace RimNauts2 {
                     if (mineral_rich_abondon <= 0) {
                         if (!has_map) {
                             currently_mineral_rich = false;
-                            mineral_rich_transform_wait = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
-                            mineral_rich_abondon = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+                            mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
+                            mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
                             Destroy();
                         }
                     } else mineral_rich_abondon--;
@@ -119,8 +119,8 @@ namespace RimNauts2 {
                         Generate_Satellites.crashing_asteroids_in_world++;
                     } else if (Generate_Satellites.mineral_asteroids_in_world < SatelliteDefOf.Satellite.TotalMineralAsteroidObjects) {
                         mineral_rich = true;
-                        mineral_rich_transform_wait = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
-                        mineral_rich_abondon = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+                        mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
+                        mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
                         Generate_Satellites.mineral_asteroids_in_world++;
                     }
                     break;

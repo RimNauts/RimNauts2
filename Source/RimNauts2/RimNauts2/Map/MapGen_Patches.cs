@@ -21,6 +21,12 @@ namespace RimNauts2 {
                 case "RimNauts2_OrePlasteel_Biome":
                     AsteroidOre.GenStep_Terrain(map, "Limestone", "MineablePlasteel");
                     return false;
+                case "RimNauts2_SpaceStation_Biome":
+                    SpaceStation.GenStep_Terrain(map);
+                    return false;
+                case "RimNauts2_MoonWater_Biome":
+                    MoonWater.GenStep_Terrain(map);
+                    return false;
                 default:
                     return true;
             }

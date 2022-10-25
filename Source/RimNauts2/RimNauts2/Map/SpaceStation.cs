@@ -140,5 +140,11 @@ namespace RimNauts2 {
         public void set_roof(Map map, IntVec3 pos) {
             map.roofGrid.SetRoof(pos, RimWorld.RoofDefOf.RoofConstructed);
         }
+
+        public static void GenStep_Terrain(Map map) {
+            foreach (IntVec3 current in map.AllCells) {
+                map.terrainGrid.SetTerrain(current, DefDatabase<TerrainDef>.GetNamed("RimNauts2_Vacuum"));
+            }
+        }
     }
 }

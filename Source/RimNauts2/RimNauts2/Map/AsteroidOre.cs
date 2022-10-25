@@ -37,6 +37,7 @@ namespace RimNauts2 {
                 // use Abs so that there's mountains on both ends of the grid.
                 elevation[tile] = Mathf.Abs(fertility[tile] - offset);
             }
+            MapGenerator.PlayerStartSpot = new IntVec3(1, 0, 1);
         }
 
         public static void GenStep_Terrain(Map map, string rock_def_name, string ore_def_name) {
@@ -56,6 +57,7 @@ namespace RimNauts2 {
             foreach (RimWorld.TerrainPatchMaker current2 in map.Biome.terrainPatchMakers) {
                 current2.Cleanup();
             }
+            MapGenerator.PlayerStartSpot = new IntVec3(1, 0, 1);
         }
 
         public static void GenStep_RocksFromGrid(Map map, string rock_def_name, string ore_def_name) {

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace RimNauts2 {
@@ -40,6 +41,7 @@ namespace RimNauts2 {
             satellite.Tile = tile_id;
             satellite.def_name = def_name;
             satellite.set_default_values(type);
+
             if (type == Satellite_Type.Moon) {
                 Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(Moon.get_moon_biome(def_name));
             } else if (type == Satellite_Type.Artifical_Satellite) {
@@ -48,6 +50,7 @@ namespace RimNauts2 {
                 Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_SpaceStation_Biome");
             }
             Find.WorldObjects.Add(satellite);
+
             return satellite;
         }
 
@@ -80,8 +83,8 @@ namespace RimNauts2 {
             new_satellite.out_of_bounds_direction_towards_surface = satellite.out_of_bounds_direction_towards_surface;
             new_satellite.orbit_random_direction = satellite.orbit_random_direction;
             new_satellite.mineral_rich = satellite.mineral_rich;
-            new_satellite.mineral_rich_transform_wait = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
-            new_satellite.mineral_rich_abondon = (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+            new_satellite.mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
+            new_satellite.mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
             new_satellite.currently_mineral_rich = satellite.currently_mineral_rich;
 
             Find.WorldObjects.Add(new_satellite);

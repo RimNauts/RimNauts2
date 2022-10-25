@@ -4,13 +4,6 @@
 		<defName>RimNauts2_MoonWater_Biome</defName>
 		<label>waterMoon</label>
 		<description>Water Moon</description>
-		<terrainsByFertility>
-			<li>
-				<terrain>WaterShallow</terrain>
-				<min>-999</min>
-				<max>999</max>
-			</li>
-		</terrainsByFertility>
 		<baseWeatherCommonalities>
 			<RimNauts2_OuterSpaceWeather>0</RimNauts2_OuterSpaceWeather>
 			<Clear>0.4</Clear>

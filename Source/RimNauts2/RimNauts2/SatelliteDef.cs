@@ -53,6 +53,28 @@ namespace RimNauts2 {
             }
         }
 
+        public int MineralAppearWait {
+            get {
+                if (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) > 0) {
+                    float diff = 1 - (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) / 100);
+                    return (int) (diff * Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y));
+                } else {
+                    return (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomWaitTicks.y);
+                }
+            }
+        }
+
+        public int MineralAbondonWait {
+            get {
+                if (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) > 0) {
+                    float diff = 1 + (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) / 100);
+                    return (int) (diff * Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y));
+                } else {
+                    return (int) Rand.Range(SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.x, SatelliteDefOf.Satellite.MineralRichAsteroidsRandomInWorldTicks.y);
+                }
+            }
+        }
+
         public Vector3 OrbitPosition(Satellite_Type type) {
             switch (type) {
                 case Satellite_Type.Asteroid:

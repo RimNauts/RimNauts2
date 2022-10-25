@@ -6,38 +6,21 @@
 		<label>steel ore asteroid</label>
 		<description>steel ore asteroid</description>
   	</BiomeDef>
-	<MapGeneratorDef>
-	<defName>RimNauts2_OreSteel_MapGen</defName>
-		<genSteps>
-			<li>ElevationFertility</li>
-			<li>RocksFromGrid</li>
-			<li>Terrain</li>
-			<li>Fog</li>
-		</genSteps>
-	</MapGeneratorDef>
     <!--Gold-->
 	<BiomeDef ParentName="RimNauts2_Moon_Biome">
 		<defName>RimNauts2_OreGold_Biome</defName>
 		<label>gold ore asteroid</label>
 		<description>gold ore asteroid</description>
   	</BiomeDef>
-	<MapGeneratorDef>
-	<defName>RimNauts2_OreGold_MapGen</defName>
-		<genSteps>
-			<li>ElevationFertility</li>
-			<li>RocksFromGrid</li>
-			<li>Terrain</li>
-			<li>Fog</li>
-		</genSteps>
-	</MapGeneratorDef>
     <!--Plasteel-->
 	<BiomeDef ParentName="RimNauts2_Moon_Biome">
 		<defName>RimNauts2_OrePlasteel_Biome</defName>
 		<label>plasteel ore asteroid</label>
 		<description>plasteel ore asteroid</description>
   	</BiomeDef>
+
 	<MapGeneratorDef>
-	<defName>RimNauts2_OrePlasteel_MapGen</defName>
+		<defName>RimNauts2_Ore_MapGen</defName>
 		<genSteps>
 			<li>ElevationFertility</li>
 			<li>RocksFromGrid</li>
