@@ -34,7 +34,7 @@
         </costList>
         <comps>
             <li Class="CompProperties_Refuelable">
-                <fuelCapacity>150.0</fuelCapacity>
+                <fuelCapacity>1000.0</fuelCapacity>
                 <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
                 <initialConfigurableTargetFuelLevel>75</initialConfigurableTargetFuelLevel>
                 <fuelFilter>

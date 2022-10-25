@@ -43,7 +43,7 @@
         </costList>
         <comps>
             <li Class="RimNauts2.CompProperties_Launch">
-                <fuelThreshold>75.0</fuelThreshold>
+                <fuelThreshold>200.0</fuelThreshold>
                 <label>Launch satellite</label>
                 <desc>Launch satellite into orbit.</desc>
                 <name>satellite</name>
@@ -69,7 +69,7 @@
         </costList>
         <comps>
             <li Class="RimNauts2.CompProperties_Launch">
-                <fuelThreshold>150.0</fuelThreshold>
+                <fuelThreshold>1000.0</fuelThreshold>
                 <label>Launch space station</label>
                 <desc>Launch space station into orbit.</desc>
                 <name>space station</name>
