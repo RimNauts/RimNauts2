@@ -62,6 +62,7 @@ namespace RimNauts2 {
                         return;
                     case Satellite_Type.Artifical_Satellite:
                         RimNauts_GameComponent.total_artifical_satellites++;
+                        Log.Message(RimNauts_GameComponent.total_artifical_satellites.ToString());
                         return;
                 }
             }

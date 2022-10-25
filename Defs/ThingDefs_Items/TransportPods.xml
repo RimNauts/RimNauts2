@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef Abstract="True" Name="RimNauts2_TransportPod" ParentName="BuildingBase">
+        <size>(1,1)</size>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <castEdgeShadows>false</castEdgeShadows>
+        <designationHotKey>Misc12</designationHotKey>
+        <fillPercent>0.5</fillPercent>
+        <designationCategory>Misc</designationCategory>
+        <uiOrder>2200</uiOrder>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <WorkToBuild>1600</WorkToBuild>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <placeWorkers>
+            <li>PlaceWorker_NeedsFuelingPort</li>
+            <li>PlaceWorker_NotUnderRoof</li>
+        </placeWorkers>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <uiIconScale>0.65</uiIconScale>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_TransportPod">
+        <defName>RimNauts2_TransportPod_Satellite</defName>
+        <label>Satellite</label>
+        <description>A launchable sub-orbital cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+        <graphicData>
+            <texPath>Things/Special/DropPod</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <costList>
+            <Steel>60</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="RimNauts2.CompProperties_Launch">
+                <fuelThreshold>75.0</fuelThreshold>
+                <label>Launch satellite</label>
+                <desc>Launch satellite into orbit.</desc>
+                <name>satellite</name>
+                <iconPath>Things/Items/Satellites/RimNauts2_Satellite</iconPath>
+                <type>Artifical_Satellite</type>
+                <createMap>false</createMap>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_TransportPod">
+        <defName>RimNauts2_TransportPod_SpaceStation</defName>
+        <label>Space station</label>
+        <description>A launchable sub-orbital cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+        <graphicData>
+            <texPath>Things/Special/DropPod</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <costList>
+            <Steel>60</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="RimNauts2.CompProperties_Launch">
+                <fuelThreshold>150.0</fuelThreshold>
+                <label>Launch space station</label>
+                <desc>Launch space station into orbit.</desc>
+                <name>space station</name>
+                <iconPath>Things/Items/Satellites/RimNauts2_SpaceStation</iconPath>
+                <type>Space_Station</type>
+                <createMap>true</createMap>
+            </li>
+        </comps>
+    </ThingDef>
+</Defs>

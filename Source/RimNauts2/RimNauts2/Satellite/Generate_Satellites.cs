@@ -3,7 +3,7 @@ using Verse;
 
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
-        public static int crashing_asteroids_in_world = 0;
+        public static int crashing_asteroids_in_world;
 
         public override int SeedPart {
             get {
@@ -16,12 +16,10 @@ namespace RimNauts2 {
 
         private void generate_satellites() {
             crashing_asteroids_in_world = 0;
-            int satellite_objects = 0;
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
-                if (biome_def == "Ocean" || satellite_objects >= SatelliteDefOf.Satellite.TotalSatelliteObjects) break;
+                if (biome_def == "Ocean" || SatelliteContainer.size() >= SatelliteDefOf.Satellite.TotalSatelliteObjects) break;
                 if (SatelliteDefOf.Satellite.Biomes.Contains(biome_def)) add_satellite(i, Satellite_Type_Methods.get_type_from_biome(biome_def));
-                satellite_objects++;
             }
         }
 
@@ -30,6 +28,7 @@ namespace RimNauts2 {
             if (Find.WorldObjects.AnyWorldObjectAt(tile_id)) {
                 Satellite old_satellite = Find.WorldObjects.WorldObjectAt<Satellite>(tile_id);
                 if (old_satellite.type == type) return old_satellite;
+                old_satellite.type = Satellite_Type.Buffer;
                 old_satellite.Destroy();
             }
             Satellite satellite = (Satellite) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(

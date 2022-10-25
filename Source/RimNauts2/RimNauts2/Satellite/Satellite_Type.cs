@@ -49,5 +49,24 @@ namespace RimNauts2 {
                     return Satellite_Type.None;
             }
         }
+
+        public static Satellite_Type get_type_from_string(string type_string) {
+            switch (type_string) {
+                case "Asteroid":
+                    return Satellite_Type.Asteroid;
+                case "Moon":
+                    return Satellite_Type.Moon;
+                case "Artifical_Satellite":
+                    return Satellite_Type.Artifical_Satellite;
+                case "Asteroid_Ore":
+                    return Satellite_Type.Asteroid_Ore;
+                case "Buffer":
+                    return Satellite_Type.Buffer;
+                case "Space_Station":
+                    return Satellite_Type.Space_Station;
+                default:
+                    return Satellite_Type.None;
+            }
+        }
     }
 }

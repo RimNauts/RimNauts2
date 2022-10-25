@@ -7,7 +7,7 @@
 		<description>A way for your colonist to explore the outer space and find suitable places for exploration.</description>
 
 		<graphicData>
-			<texPath>Things/Item/RimNauts2_SatelliteDish</texPath>
+			<texPath>Things/Items/RimNauts2_SatelliteDish</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(7,7)</drawSize>
 			<drawRotated>false</drawRotated>

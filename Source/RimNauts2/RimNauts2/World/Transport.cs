@@ -7,45 +7,38 @@ using System;
 using System.Collections.Generic;
 
 namespace RimNauts2 {
-    public class CompProperties_SpaceStation : CompProperties {
-        public bool requireFuel = true;
-        public ThingDef skyfallerLeaving;
+    public class CompProperties_Launch : CompProperties {
+        public float fuelThreshold;
+        public string label;
+        public string desc;
+        public string name;
+        public string iconPath;
+        public string createDefName;
+        public string type;
+        public bool createMap;
 
-        public CompProperties_SpaceStation() => compClass = typeof(SpaceStation);
+        public CompProperties_Launch() => compClass = typeof(Launch);
     }
 
     [StaticConstructorOnStartup]
-    public class SpaceStation : ThingComp {
-        private RimWorld.CompTransporter cachedCompTransporter;
-        public CompProperties_Launchable Props => (CompProperties_Launchable) props;
+    public class Launch : ThingComp {
         public Building FuelingPortSource => RimWorld.FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map);
-        public bool ConnectedToFuelingPort => !Props.requireFuel || FuelingPortSource != null;
+        public bool ConnectedToFuelingPort => FuelingPortSource != null;
         public float FuelingPortSourceFuel => !ConnectedToFuelingPort ? 0.0f : FuelingPortSource.GetComp<RimWorld.CompRefuelable>().Fuel;
-
-        public RimWorld.CompTransporter Transporter {
-            get {
-                if (cachedCompTransporter == null)
-                    cachedCompTransporter = parent.GetComp<RimWorld.CompTransporter>();
-                return cachedCompTransporter;
-            }
-        }
+        public CompProperties_Launch Props => (CompProperties_Launch) props;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-            SpaceStation compLaunchable = this;
-            ThingOwner inventory = Transporter.innerContainer;
-            string label = "Launch space station";
+            string label = Props.label;
             if (Prefs.DevMode) label += " (Dev)";
             Command_Action cmd = new Command_Action {
                 defaultLabel = label,
-                defaultDesc = "Launch space station into orbit.",
-                icon = ContentFinder<Texture2D>.Get("Things/Item/Satellite/RimNauts2_SpaceStation", true),
+                defaultDesc = Props.desc,
+                icon = ContentFinder<Texture2D>.Get(Props.iconPath, true),
                 action = new Action(launch_space_station)
             };
             if (!Prefs.DevMode) {
-                if (FuelingPortSourceFuel < 150.0f)
-                    cmd.Disable("Requires 150 fuel, currently at " + FuelingPortSourceFuel + " fuel.");
-                else if (inventory.Count != 1 || inventory.ContentsString != "space station")
-                    cmd.Disable("Can only send up 1 space station.");
+                if (FuelingPortSourceFuel < Props.fuelThreshold)
+                    cmd.Disable("Requires " + Props.fuelThreshold + " fuel, currently at " + FuelingPortSourceFuel + " fuel.");
             }
             yield return cmd;
         }
@@ -55,23 +48,17 @@ namespace RimNauts2 {
                 Log.Error("Tried to launch " + parent + ", but it's unspawned.");
             } else {
                 Map map = parent.Map;
-                Transporter.TryRemoveLord(map);
-                RimWorld.CompTransporter compTransporter = Transporter;
-                Building fuelingPortSource = compTransporter.Launchable.FuelingPortSource;
+                Building fuelingPortSource = FuelingPortSource;
                 if (fuelingPortSource != null)
-                    fuelingPortSource.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(150.0f);
-                ThingOwner directlyHeldThings = compTransporter.GetDirectlyHeldThings();
-                directlyHeldThings.ClearAndDestroyContents();
+                    fuelingPortSource.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(Props.fuelThreshold);
                 RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
                 activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
-                activeDropPod.Contents.innerContainer.TryAddRangeOrTransfer(directlyHeldThings, destroyLeftover: true);
                 RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(RimWorld.ThingDefOf.DropPodLeaving, activeDropPod);
                 flyShipLeaving.groupID = 0;
                 flyShipLeaving.destinationTile = map.Tile;
                 flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
-                compTransporter.CleanUpLoadingVars(map);
-                compTransporter.parent.Destroy(DestroyMode.Vanish);
-                GenSpawn.Spawn(flyShipLeaving, compTransporter.parent.Position, map);
+                parent.Destroy(DestroyMode.Vanish);
+                GenSpawn.Spawn(flyShipLeaving, parent.Position, map);
                 CameraJumper.TryHideWorld();
 
                 int tile_id = -1;
@@ -86,124 +73,38 @@ namespace RimNauts2 {
                 }
 
                 if (tile_id == -1) {
-                    Messages.Message("Failed to launch space station into orbit.", RimWorld.MessageTypeDefOf.NegativeEvent, true);
-                    Log.Error("RimNauts2: Couldn't find a free tile to spawn an artifical satellite on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
+                    Messages.Message("Failed to " + Props.label.ToLower() + " into orbit.", RimWorld.MessageTypeDefOf.NegativeEvent, true);
+                    Log.Error("RimNauts2: Couldn't find a free tile to spawn an " + Props.name + " on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
                     return;
                 }
+                Satellite_Type type = Satellite_Type_Methods.get_type_from_string(Props.type);
 
-                Satellite satellite = Generate_Satellites.add_satellite(tile_id, Satellite_Type.Space_Station);
-                Find.World.grid.tiles.ElementAt(tile_id).elevation = 100f;
-                Find.World.grid.tiles.ElementAt(tile_id).hilliness = RimWorld.Planet.Hilliness.Flat;
-                Find.World.grid.tiles.ElementAt(tile_id).rainfall = 0f;
-                Find.World.grid.tiles.ElementAt(tile_id).swampiness = 0f;
-                Find.World.grid.tiles.ElementAt(tile_id).temperature = -80f;
+                Satellite satellite = Generate_Satellites.add_satellite(tile_id, type);
 
-                Map new_map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-                foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
-                    if (weather.defName.Equals("OuterSpaceWeather")) {
-                        new_map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
-                        if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
-                        break;
-                    }
-                }
+                if (Props.createMap) {
+                    Find.World.grid.tiles.ElementAt(tile_id).elevation = 100f;
+                    Find.World.grid.tiles.ElementAt(tile_id).hilliness = RimWorld.Planet.Hilliness.Flat;
+                    Find.World.grid.tiles.ElementAt(tile_id).rainfall = 0f;
+                    Find.World.grid.tiles.ElementAt(tile_id).swampiness = 0f;
+                    Find.World.grid.tiles.ElementAt(tile_id).temperature = -80f;
 
-                satellite.has_map = true;
-                satellite.SetFaction(RimWorld.Faction.OfPlayer);
-                Find.World.WorldUpdate();
-
-                Messages.Message("Succesfully launched a space station into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
-            }
-        }
-    }
-
-    public class CompProperties_Launchable : CompProperties {
-        public bool requireFuel = true;
-        public ThingDef skyfallerLeaving;
-
-        public CompProperties_Launchable() => compClass = typeof(CompLaunchable);
-    }
-
-    [StaticConstructorOnStartup]
-    public class CompLaunchable : ThingComp {
-        private RimWorld.CompTransporter cachedCompTransporter;
-        public CompProperties_Launchable Props => (CompProperties_Launchable) props;
-        public Building FuelingPortSource => RimWorld.FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map);
-        public bool ConnectedToFuelingPort => !Props.requireFuel || FuelingPortSource != null;
-        public float FuelingPortSourceFuel => !ConnectedToFuelingPort ? 0.0f : FuelingPortSource.GetComp<RimWorld.CompRefuelable>().Fuel;
-
-        public RimWorld.CompTransporter Transporter {
-            get {
-                if (cachedCompTransporter == null)
-                    cachedCompTransporter = parent.GetComp<RimWorld.CompTransporter>();
-                return cachedCompTransporter;
-            }
-        }
-
-        public void launch_satellite() {
-            if (!parent.Spawned) {
-                Log.Error("Tried to launch " + parent + ", but it's unspawned.");
-            } else {
-                Map map = parent.Map;
-                Transporter.TryRemoveLord(map);
-                RimWorld.CompTransporter compTransporter = Transporter;
-                Building fuelingPortSource = compTransporter.Launchable.FuelingPortSource;
-                if (fuelingPortSource != null)
-                    fuelingPortSource.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(150.0f);
-                ThingOwner directlyHeldThings = compTransporter.GetDirectlyHeldThings();
-                directlyHeldThings.ClearAndDestroyContents();
-                RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
-                activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
-                activeDropPod.Contents.innerContainer.TryAddRangeOrTransfer(directlyHeldThings, destroyLeftover: true);
-                RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving ?? RimWorld.ThingDefOf.DropPodLeaving, activeDropPod);
-                flyShipLeaving.groupID = 0;
-                flyShipLeaving.destinationTile = map.Tile;
-                flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
-                compTransporter.CleanUpLoadingVars(map);
-                compTransporter.parent.Destroy(DestroyMode.Vanish);
-                GenSpawn.Spawn(flyShipLeaving, compTransporter.parent.Position, map);
-                CameraJumper.TryHideWorld();
-
-                int tile_id = -1;
-
-                for (int i = 0; i < Find.World.grid.TilesCount; i++) {
-                    if (Find.World.grid.tiles.ElementAt(i).biome.defName == "RimNauts2_Satellite_Biome") {
-                        if (tile_id == -1) {
-                            tile_id = i;
+                    Map new_map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+                    foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
+                        if (weather.defName.Equals("OuterSpaceWeather")) {
+                            new_map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
+                            if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
                             break;
                         }
                     }
+
+                    satellite.has_map = true;
+                    satellite.SetFaction(RimWorld.Faction.OfPlayer);
+                    Find.World.WorldUpdate();
                 }
+                
 
-                if (tile_id == -1) {
-                    Messages.Message("Failed to launch satellite into orbit.", RimWorld.MessageTypeDefOf.NegativeEvent, true);
-                    Log.Error("RimNauts2: Couldn't find a free tile to spawn an artifical satellite on. Either map size is too small to spawn all the satellites or increase total satellite objects in settings");
-                    return;
-                }
-
-                Generate_Satellites.add_satellite(tile_id, Satellite_Type.Artifical_Satellite);
-
-                Messages.Message("Succesfully launched a satellite into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
+                Messages.Message("Succesfully launched a " + Props.name + " into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
             }
-        }
-
-        public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-            CompLaunchable compLaunchable = this;
-            ThingOwner inventory = Transporter.innerContainer;
-            string label = "Launch satellite";
-            if (Prefs.DevMode) label += " (Dev)";
-            Command_Action cmd = new Command_Action {
-                defaultLabel = label,
-                defaultDesc = "Launch satellite into orbit.",
-                icon = ContentFinder<Texture2D>.Get("Things/Item/Satellite/RimNauts2_Satellite", true),
-                action = new Action(launch_satellite)
-            };
-            if (!Prefs.DevMode) {
-                if (FuelingPortSourceFuel < 150.0f)
-                    cmd.Disable("Requires 150 fuel, currently at " + FuelingPortSourceFuel + " fuel.");
-                else if (inventory.Count != 1 || inventory.ContentsString != "satellite")
-                    cmd.Disable("Can only send up 1 satellite.");
-            }
-            yield return cmd;
         }
     }
 
