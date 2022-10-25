@@ -37,7 +37,7 @@
 			</li>
 		</diseases>
 		<baseWeatherCommonalities>
-			<OuterSpaceWeather>1</OuterSpaceWeather>
+			<RimNauts2_OuterSpaceWeather>1</RimNauts2_OuterSpaceWeather>
 			<Clear>0</Clear>
 			<Fog>0</Fog>
 			<Rain>0</Rain>

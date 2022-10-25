@@ -163,6 +163,14 @@ namespace RimNauts2 {
         }
 
         public static void applySatelliteSurface(int tile_id, string biome_def) {
+            Map map = Find.Maps.ElementAt(tile_id);
+            foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
+                if (weather.defName.Equals("OuterSpaceWeather")) {
+                    map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
+                    if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
+                    break;
+                }
+            }
             switch (biome_def) {
                 case "RimNauts2_MoonWater_Biome":
                     Find.World.grid.tiles.ElementAt(tile_id).elevation = 100f;

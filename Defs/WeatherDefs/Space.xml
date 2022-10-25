@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <WeatherDef>
-    <defName>OuterSpaceWeather</defName>
+    <defName>RimNauts2_OuterSpaceWeather</defName>
     <label>outer space</label>
     <description>It's... space. Try not to go outside.</description>
     <windSpeedFactor>0.0</windSpeedFactor>
