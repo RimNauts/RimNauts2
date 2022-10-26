@@ -34,7 +34,7 @@ namespace RimNauts2 {
                 defaultLabel = label,
                 defaultDesc = Props.desc,
                 icon = ContentFinder<Texture2D>.Get(Props.iconPath, true),
-                action = new Action(launch_space_station)
+                action = new Action(launch)
             };
             if (!Prefs.DevMode) {
                 if (FuelingPortSourceFuel < Props.fuelThreshold)
@@ -43,7 +43,7 @@ namespace RimNauts2 {
             yield return cmd;
         }
 
-        public void launch_space_station() {
+        public void launch() {
             if (!parent.Spawned) {
                 Log.Error("Tried to launch " + parent + ", but it's unspawned.");
             } else {
@@ -101,13 +101,14 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), nameof(RimWorld.Planet.WorldGrid.TraversalDistanceBetween))]
     public static class TransportpodSatelliteIgnoreMaxRange {
         public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            bool to_moon = SatelliteDefOf.Satellite.Biomes.Contains(Find.World.grid.tiles.ElementAt(start).biome.defName);
-            if (to_moon) {
-                __result = 1;
-                return;
-            }
-            bool from_moon = SatelliteDefOf.Satellite.Biomes.Contains(Find.World.grid.tiles.ElementAt(end).biome.defName);
-            if (from_moon) {
+            bool to_moon = Find.World.grid.tiles.ElementAt(end).biome.defName.Contains("RimNauts2");
+            bool from_moon = Find.World.grid.tiles.ElementAt(start).biome.defName.Contains("RimNauts2");
+            if (to_moon || from_moon) {
+                bool to_ore = Find.World.grid.tiles.ElementAt(end).biome.defName.Contains("Ore");
+                if (to_ore && !from_moon) {
+                    __result = 9999;
+                    return;
+                }
                 __result = 1;
                 return;
             }
@@ -129,7 +130,6 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods), "End", MethodType.Getter)]
     public static class TransportpodToSatelliteAnimation {
         public static void Postfix(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
-
             int destinationTile = __instance.destinationTile;
             foreach (RimWorld.Planet.WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
                                                                 where o is Satellite
