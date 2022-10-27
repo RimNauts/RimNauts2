@@ -79,7 +79,7 @@ namespace RimNauts2 {
                             mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
                             mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
                             Ore.generate_ore(this);
-                            Find.LetterStack.ReceiveLetter("Mineral-rich asteroid spotted", "A mineral-rich asteroid has been spotted in the asteroid belt. The asteroid can only be reached from orbit (Moon base or space station). You have to be fast since we only have a couple of days before it's lost in the asteroid belt.", RimWorld.LetterDefOf.NeutralEvent, null);
+                            if (Settings.MineralAsteroidsVerboseToggle) Find.LetterStack.ReceiveLetter("Mineral-rich asteroid spotted", "A mineral-rich asteroid has been spotted in the asteroid belt. The asteroid can only be reached from orbit (Moon base or space station). You have to be fast since we only have a couple of days before it's lost in the asteroid belt.", RimWorld.LetterDefOf.NeutralEvent, null);
                         } else mineral_rich_transform_wait--;
                     }
                 } else {

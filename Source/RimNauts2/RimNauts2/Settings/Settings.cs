@@ -6,12 +6,14 @@ namespace RimNauts2 {
         public static int TotalSatelliteObjects = 1000;
         public static bool CrashingAsteroidsToggle = true;
         public static bool MineralAsteroidsToggle = true;
+        public static bool MineralAsteroidsVerboseToggle = false;
 
         public override void ExposeData() {
             base.ExposeData();
             Scribe_Values.Look(ref TotalSatelliteObjects, "TotalSatelliteObjects", 1000);
             Scribe_Values.Look(ref CrashingAsteroidsToggle, "CrashingAsteroidsToggle", true);
             Scribe_Values.Look(ref MineralAsteroidsToggle, "MineralAsteroidsToggle", true);
+            Scribe_Values.Look(ref MineralAsteroidsVerboseToggle, "MineralAsteroidsVerboseToggle", false);
         }
     }
 
@@ -35,21 +37,17 @@ namespace RimNauts2 {
                 bufferTotalSatelliteObjects = Settings.TotalSatelliteObjects.ToString();
                 Settings.CrashingAsteroidsToggle = true;
                 Settings.MineralAsteroidsToggle = true;
+                Settings.MineralAsteroidsVerboseToggle = false;
             }
-            listingStandard1.Gap(10f);
-
             listingStandard1.Label("Total satellite objects. Changes require a new save");
             listingStandard1.IntEntry(ref Settings.TotalSatelliteObjects, ref bufferTotalSatelliteObjects);
             if (Settings.TotalSatelliteObjects < 0) {
                 Settings.TotalSatelliteObjects = 0;
                 bufferTotalSatelliteObjects = Settings.TotalSatelliteObjects.ToString();
             }
-            listingStandard1.Gap(10f);
-
             listingStandard1.CheckboxLabeled("Crashing asteroids", ref Settings.CrashingAsteroidsToggle);
-            listingStandard1.Gap(10f);
-
             listingStandard1.CheckboxLabeled("Mineral-rich asteroids", ref Settings.MineralAsteroidsToggle);
+            listingStandard1.CheckboxLabeled("Mineral-rich asteroids messages", ref Settings.MineralAsteroidsVerboseToggle);
 
             listingStandard1.End();
         }
