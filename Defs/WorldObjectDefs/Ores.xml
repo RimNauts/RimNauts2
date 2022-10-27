@@ -6,7 +6,7 @@
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreSteel</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel</expandingIconTexture>
-		<mapGenerator>RimNauts2_Ore_MapGen</mapGenerator>
+		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
@@ -19,7 +19,7 @@
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreGold</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold</expandingIconTexture>
-		<mapGenerator>RimNauts2_Ore_MapGen</mapGenerator>
+		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
@@ -32,7 +32,7 @@
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OrePlasteel</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel</expandingIconTexture>
-		<mapGenerator>RimNauts2_Ore_MapGen</mapGenerator>
+		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
