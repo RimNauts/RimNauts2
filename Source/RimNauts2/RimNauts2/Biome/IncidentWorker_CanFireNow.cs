@@ -90,4 +90,16 @@ namespace RimNauts2 {
             Find.LetterStack.ReceiveLetter(choiceLetter);
         }
     }
+
+    [HarmonyPatch(typeof(RimWorld.PawnsArrivalModeWorker), nameof(RimWorld.PawnsArrivalModeWorker.CanUseWith))]
+    public class PawnsArrivalModeWorker_CanUseWith_Patch {
+        public static void Postfix(RimWorld.IncidentParms parms, ref bool __result) {
+            if (__result && Find.WorldGrid[parms.target.Tile].biome.defName.Contains("RimNauts2")) {
+                if (parms.raidArrivalMode.minTechLevel >= RimWorld.TechLevel.Industrial) {
+                    __result = false;
+                    return;
+                }
+            }
+        }
+    }
 }
