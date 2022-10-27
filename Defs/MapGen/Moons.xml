@@ -69,7 +69,7 @@
             <rainfall>0.0</rainfall>
             <swampiness>0.0</swampiness>
             <temperature>10.0</temperature>
-            <apply_SOS2_weather>true</apply_SOS2_weather>
+            <apply_SOS2_weather>false</apply_SOS2_weather>
 		</genStep>
 	</GenStepDef>
 </Defs>
