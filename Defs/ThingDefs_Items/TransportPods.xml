@@ -68,8 +68,8 @@
             <drawSize>(4,4)</drawSize>
         </graphicData>
         <costList>
-            <Steel>60</Steel>
-            <ComponentIndustrial>1</ComponentIndustrial>
+            <Steel>1000</Steel>
+            <ComponentIndustrial>40</ComponentIndustrial>
         </costList>
         <comps>
             <li Class="RimNauts2.CompProperties_Launch">
@@ -100,7 +100,7 @@
         <comps>
             <li Class="CompProperties_Transporter">
                 <restEffectiveness>0.8</restEffectiveness>
-                <massCapacity>800.0</massCapacity>
+                <massCapacity>1000.0</massCapacity>
             </li>
             <li Class="CompProperties_Launchable">
                 <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>

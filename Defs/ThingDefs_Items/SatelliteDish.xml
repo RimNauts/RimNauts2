@@ -23,9 +23,9 @@
 		<socialPropernessMatters>true</socialPropernessMatters>
 		<designationCategory>Misc</designationCategory>
 		<costList>
-			<Steel>200</Steel>
-			<Plasteel>75</Plasteel>
-			<ComponentIndustrial>5</ComponentIndustrial>
+			<Steel>150</Steel>
+			<Plasteel>25</Plasteel>
+			<ComponentIndustrial>2</ComponentIndustrial>
 			<ComponentSpacer>1</ComponentSpacer>
 		</costList>
 		<comps>
