@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- Root classes -->
+	<BiomeDef ParentName="RimNauts2_Satellite_Biome">
+		<defName>RimNauts2_MoonWater_Biome</defName>
+		<label>satellite</label>
+		<description>satellite</description>
+		<baseWeatherCommonalities>
+			<RimNauts2_OuterSpaceWeather>0</RimNauts2_OuterSpaceWeather>
+			<Clear>0.4</Clear>
+			<Fog>0.2</Fog>
+			<Rain>1</Rain>
+			<DryThunderstorm>0</DryThunderstorm>
+			<RainyThunderstorm>0.8</RainyThunderstorm>
+			<FoggyRain>0.2</FoggyRain>
+			<SnowGentle>0</SnowGentle>
+			<SnowHard>0</SnowHard>
+		</baseWeatherCommonalities>
+  	</BiomeDef>
+</Defs>

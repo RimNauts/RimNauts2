@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <!-- Root classes -->
-	<BiomeDef>
+	<BiomeDef Name="RimNauts2_Satellite_Biome">
 		<defName>RimNauts2_Satellite_Biome</defName>
 		<label>satellite</label>
 		<description>satellite</description>

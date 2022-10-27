@@ -25,6 +25,15 @@ namespace RimNauts2 {
         public int mineral_rich_abondon;
         public bool currently_mineral_rich = false;
 
+        public override void PostAdd() {
+            base.PostAdd();
+            foreach (var biome_def in DefDatabase<RimWorld.BiomeDef>.AllDefsListForReading) {
+                if (biome_def.defName == def.defName + "_Biome") {
+                    Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(def.defName + "_Biome");
+                    break;
+                }
+            }
+        }
 
         public override bool ExpandMore => def.expandMore;
 
