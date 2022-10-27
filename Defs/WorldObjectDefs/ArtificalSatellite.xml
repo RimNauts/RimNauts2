@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_ArtificalSatellite</defName>
 		<label>artificial-satellite</label>
 		<description>artificial-satellite used for space exploration.</description>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_1</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>
@@ -10,7 +10,7 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
 		</comps>
   	</WorldObjectDef>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_2</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>
@@ -20,7 +20,7 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
 		</comps>
   	</WorldObjectDef>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_3</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>
@@ -30,7 +30,7 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
 		</comps>
   	</WorldObjectDef>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_4</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>
@@ -40,7 +40,7 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
 		</comps>
   	</WorldObjectDef>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_5</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>
@@ -50,7 +50,7 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
 		</comps>
   	</WorldObjectDef>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_6</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>
@@ -60,7 +60,7 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
 		</comps>
   	</WorldObjectDef>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_7</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>
@@ -70,7 +70,7 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
 		</comps>
   	</WorldObjectDef>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_8</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>
@@ -80,7 +80,7 @@
 			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre"/>
 		</comps>
   	</WorldObjectDef>
-   	<WorldObjectDef ParentName="satellite">
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_9</defName>
 		<label>asteroid</label>
 		<description>asteroid</description>

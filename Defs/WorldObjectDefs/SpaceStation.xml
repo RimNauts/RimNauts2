@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<WorldObjectDef ParentName="satellite">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_SpaceStation</defName>
 		<label>space station</label>
 		<description>Space station orbiting the planet.</description>

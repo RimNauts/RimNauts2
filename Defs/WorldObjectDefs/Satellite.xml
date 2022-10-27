@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<!-- root class -->
-	<WorldObjectDef Name="satellite">
+	<WorldObjectDef Name="RimNauts2_Satellite">
 		<defName>RimNauts2_Satellite</defName>
 		<worldObjectClass>RimNauts2.Satellite</worldObjectClass>
 		<useDynamicDrawer>false</useDynamicDrawer>

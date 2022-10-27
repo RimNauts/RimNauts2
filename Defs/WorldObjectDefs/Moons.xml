@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<!-- Barren moon -->
-	<WorldObjectDef Name="RimNauts2_MoonBarren" ParentName="satellite">
+	<WorldObjectDef Name="RimNauts2_MoonBarren" ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_MoonBarren</defName>
 		<label>barren moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
@@ -25,7 +25,7 @@
 		<expandMore>true</expandMore>
 	</WorldObjectDef>
 	<!-- Stripped moon -->
-	<WorldObjectDef Name="RimNauts2_MoonStripped" ParentName="satellite">
+	<WorldObjectDef Name="RimNauts2_MoonStripped" ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_MoonStripped</defName>
 		<label>stripped moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
@@ -49,7 +49,7 @@
 		<expandMore>true</expandMore>
 	</WorldObjectDef>
 	<!-- Water moon -->
-	<WorldObjectDef Name="RimNauts2_MoonWater" ParentName="satellite">
+	<WorldObjectDef Name="RimNauts2_MoonWater" ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_MoonWater</defName>
 		<label>water moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
