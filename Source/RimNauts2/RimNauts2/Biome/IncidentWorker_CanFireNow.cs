@@ -12,7 +12,7 @@ namespace RimNauts2 {
         public static void Postfix(ref RimWorld.IncidentWorker __instance, RimWorld.IncidentParms parms, ref bool __result) {
             try {
                 if (!__result) return;
-                bool incident_not_on_moon_biome = !SatelliteDefOf.Satellite.Biomes.Contains(Find.WorldGrid[parms.target.Tile].biome.defName);
+                bool incident_not_on_moon_biome = Find.WorldGrid[parms.target.Tile].biome.defName != "RimNauts2_Satellite_Biome";
                 if (incident_not_on_moon_biome) return;
                 if (SatelliteDefOf.Satellite.AllowedSatelliteIncidents.Contains(__instance.def.defName)) return;
                 __result = false;

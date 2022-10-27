@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using Verse;
 
-namespace RimNauts2 {
-    public class SpaceStation : GenStep {
-        public static List<IntVec3> Station_Pos = new List<IntVec3>() {
-            new IntVec3(0, 0, 0),
-        };
-
-        public override int SeedPart => 1148858716;
+namespace RimNauts2.SpaceStation {
+    class Structure : GenStep {
+        public override int SeedPart => 262606459;
 
         public override void Generate(Map map, GenStepParams parms) {
             // main room
@@ -97,7 +92,6 @@ namespace RimNauts2 {
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Heater), map, new IntVec3(0, 0, -1) + map.Center);
 
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Wall, RimWorld.ThingDefOf.Steel), map, map.Center);
-
         }
 
         public void set_floor_rect(Map map, int rect_width, int rect_height, IntVec3 center_offset) {
@@ -139,12 +133,6 @@ namespace RimNauts2 {
 
         public void set_roof(Map map, IntVec3 pos) {
             map.roofGrid.SetRoof(pos, RimWorld.RoofDefOf.RoofConstructed);
-        }
-
-        public static void GenStep_Terrain(Map map) {
-            foreach (IntVec3 current in map.AllCells) {
-                map.terrainGrid.SetTerrain(current, DefDatabase<TerrainDef>.GetNamed("RimNauts2_Vacuum"));
-            }
         }
     }
 }

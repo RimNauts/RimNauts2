@@ -56,11 +56,15 @@
     <Compile Include="Biome\BiomeWorker_Satellite.cs" />
     <Compile Include="Biome\SetSatelliteBiome.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Map\AsteroidOre.cs" />
-    <Compile Include="Map\MoonBarren.cs" />
-    <Compile Include="Map\MapGen_Patches.cs" />
-    <Compile Include="Map\MoonWater.cs" />
-    <Compile Include="Map\SpaceStation.cs" />
+    <Compile Include="Map\AsteroidOre\ElevationFertility.cs" />
+    <Compile Include="Map\AsteroidOre\RocksFromGrid.cs" />
+    <Compile Include="Map\AsteroidOre\Terrain.cs" />
+    <Compile Include="Map\MoonBarren\ElevationFertility.cs" />
+    <Compile Include="Map\MoonBarren\RocksFromGrid.cs" />
+    <Compile Include="Map\MoonBarren\Terrain.cs" />
+    <Compile Include="Map\MoonWater\Terrain.cs" />
+    <Compile Include="Map\SpaceStation\Structure.cs" />
+    <Compile Include="Map\SpaceStation\Terrain.cs" />
     <Compile Include="SatelliteDefOf.cs" />
     <Compile Include="SatelliteDef.cs" />
     <Compile Include="Satellite\DestroySatellite.cs" />
@@ -79,6 +83,7 @@
     <Compile Include="World\ChangeBiomeMaterial.cs" />
     <Compile Include="World\HideIcons.cs" />
     <Compile Include="World\Transport.cs" />
+    <Compile Include="World\WorldGrid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig">

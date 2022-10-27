@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Verse;
 using UnityEngine;
 
@@ -34,15 +33,10 @@ namespace RimNauts2 {
         public void action() {
             int new_moon_tile_id = -1;
 
-            for (int i = 0; i < Find.World.grid.TilesCount; i++) {
-                if (Find.World.grid.tiles.ElementAt(i).biome.defName == "RimNauts2_Satellite_Biome") {
-                    if (SatelliteContainer.exists(i)) {
-                        Satellite old_satellite = SatelliteContainer.get(i);
-                        if (old_satellite.can_out_of_bounds || old_satellite.mineral_rich) continue;
-                    }
-                    new_moon_tile_id = i;
-                    break;
-                }
+            foreach (var satellite in RimNauts_GameComponent.satellites) {
+                if (satellite.Value.type != Satellite_Type.Asteroid || satellite.Value.can_out_of_bounds || satellite.Value.mineral_rich) continue;
+                new_moon_tile_id = satellite.Key;
+                break;
             }
 
             if (new_moon_tile_id != -1) {

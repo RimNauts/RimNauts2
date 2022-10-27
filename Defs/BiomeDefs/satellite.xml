@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <!-- Root classes -->
-	<BiomeDef Name="SatelliteBiome">
+	<BiomeDef>
 		<defName>RimNauts2_Satellite_Biome</defName>
 		<label>satellite</label>
 		<description>satellite</description>
 		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
-        <canBuildBase>false</canBuildBase>
+        <canBuildBase>true</canBuildBase>
     	<canAutoChoose>false</canAutoChoose>
         <allowRoads>false</allowRoads>
         <allowRivers>false</allowRivers>
         <hasVirtualPlants>false</hasVirtualPlants>
         <texture>World/Biomes/Ocean</texture>
         <impassable>true</impassable>
-  	</BiomeDef>
-
-	<BiomeDef Name="RimNauts2_Moon_Biome" ParentName="SatelliteBiome">
-		<defName>RimNauts2_Moon_Biome</defName>
-		<label>moon</label>
-		<description>moon</description>
-		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
-        <canBuildBase>true</canBuildBase>
     	<allowFarmingCamps>false</allowFarmingCamps>
 		<animalDensity>0</animalDensity>
 		<plantDensity>0</plantDensity>

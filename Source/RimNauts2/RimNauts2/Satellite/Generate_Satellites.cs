@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Verse;
 
 namespace RimNauts2 {
@@ -23,7 +22,7 @@ namespace RimNauts2 {
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
                 if (SatelliteContainer.size() >= Settings.TotalSatelliteObjects) break;
-                if (SatelliteDefOf.Satellite.Biomes.Contains(biome_def)) add_satellite(i, Satellite_Type_Methods.get_type_from_biome(biome_def));
+                if (biome_def == "RimNauts2_Satellite_Biome") add_satellite(i, Satellite_Type.Asteroid);
             }
         }
 
@@ -41,14 +40,6 @@ namespace RimNauts2 {
             satellite.Tile = tile_id;
             satellite.def_name = def_name;
             satellite.set_default_values(type);
-
-            if (type == Satellite_Type.Moon) {
-                Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(Moon.get_moon_biome(def_name));
-            } else if (type == Satellite_Type.Artifical_Satellite) {
-                Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Artifical_Satellite_Biome");
-            } else if (type == Satellite_Type.Space_Station) {
-                Find.World.grid.tiles.ElementAt(tile_id).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_SpaceStation_Biome");
-            }
             Find.WorldObjects.Add(satellite);
 
             return satellite;

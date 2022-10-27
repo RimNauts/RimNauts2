@@ -63,15 +63,10 @@ namespace RimNauts2 {
 
                 int tile_id = -1;
 
-                for (int i = 0; i < Find.World.grid.TilesCount; i++) {
-                    if (Find.World.grid.tiles.ElementAt(i).biome.defName == "RimNauts2_Satellite_Biome") {
-                        if (SatelliteContainer.exists(i)) {
-                            Satellite old_satellite = SatelliteContainer.get(i);
-                            if (old_satellite.can_out_of_bounds || old_satellite.mineral_rich) continue;
-                        }
-                        tile_id = i;
-                        break;
-                    }
+                foreach (var old_satellite in RimNauts_GameComponent.satellites) {
+                    if (old_satellite.Value.type != Satellite_Type.Asteroid || old_satellite.Value.can_out_of_bounds || old_satellite.Value.mineral_rich) continue;
+                    tile_id = old_satellite.Key;
+                    break;
                 }
 
                 if (tile_id == -1) {
@@ -84,8 +79,8 @@ namespace RimNauts2 {
                 Satellite satellite = Generate_Satellites.add_satellite(tile_id, type);
 
                 if (Props.createMap) {
-                    Map new_map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-                    Satellite.applySatelliteSurface(tile_id, satellite.Biome.defName, new_map);
+                    MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.type), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+                    satellite.applySatelliteSurface();
 
                     satellite.has_map = true;
                     satellite.SetFaction(RimWorld.Faction.OfPlayer);
@@ -101,13 +96,14 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), nameof(RimWorld.Planet.WorldGrid.TraversalDistanceBetween))]
     public static class TransportpodSatelliteIgnoreMaxRange {
         public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            bool to_moon = Find.World.grid.tiles.ElementAt(end).biome.defName.Contains("RimNauts2");
-            bool from_moon = Find.World.grid.tiles.ElementAt(start).biome.defName.Contains("RimNauts2");
+            bool to_moon = Find.World.grid.tiles.ElementAt(end).biome.defName == "RimNauts2_Satellite_Biome";
+            bool from_moon = Find.World.grid.tiles.ElementAt(start).biome.defName == "RimNauts2_Satellite_Biome";
             if (to_moon || from_moon) {
-                bool to_ore = Find.World.grid.tiles.ElementAt(end).biome.defName.Contains("Ore");
-                if (to_ore && !from_moon) {
-                    __result = 9999;
-                    return;
+                if (!from_moon) {
+                    if (Find.WorldObjects.WorldObjectAt<Satellite>(end).def.defName.Contains("Ore")) {
+                        __result = 9999;
+                        return;
+                    }
                 }
                 __result = 1;
                 return;

@@ -29,27 +29,6 @@ namespace RimNauts2 {
             }
         }
 
-        public static Satellite_Type get_type_from_biome(string biome_def) {
-            switch (biome_def) {
-                case "RimNauts2_Satellite_Biome":
-                    return Satellite_Type.Asteroid;
-                case "RimNauts2_Artifical_Satellite_Biome":
-                    return Satellite_Type.Artifical_Satellite;
-                case "RimNauts2_MoonBarren_Biome":
-                    return Satellite_Type.Moon;
-                case "RimNauts2_OreSteel_Biome":
-                    return Satellite_Type.Asteroid_Ore;
-                case "RimNauts2_OreGold_Biome":
-                    return Satellite_Type.Asteroid_Ore;
-                case "RimNauts2_OrePlasteel_Biome":
-                    return Satellite_Type.Asteroid_Ore;
-                case "RimNauts2_SpaceStation_Biome":
-                    return Satellite_Type.Artifical_Satellite;
-                default:
-                    return Satellite_Type.None;
-            }
-        }
-
         public static Satellite_Type get_type_from_string(string type_string) {
             switch (type_string) {
                 case "Asteroid":

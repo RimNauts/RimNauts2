@@ -23,7 +23,6 @@ namespace RimNauts2 {
 
     public static class Moon {
         public static void generate_moon(Satellite satellite) {
-            // generate new satellite with the values saved from before (this process is done to get the new texture)
             Satellite new_satellite = Generate_Satellites.copy_satellite(satellite, get_moon_base(satellite.def_name), Satellite_Type.Moon);
             satellite.type = Satellite_Type.Buffer;
             satellite.Destroy();
@@ -35,11 +34,10 @@ namespace RimNauts2 {
         }
 
         private static void generate_moon_map(Satellite satellite) {
-            Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.Biome.defName), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-            Satellite.applySatelliteSurface(satellite.Tile, satellite.Biome.defName, map);
+            Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.type), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+            satellite.applySatelliteSurface();
         }
 
         private static string get_moon_base(string moon) => moon + "_Base";
-        public static string get_moon_biome(string moon) => moon + "_Biome";
     }
 }

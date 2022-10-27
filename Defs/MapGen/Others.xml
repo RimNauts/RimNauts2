@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <MapGeneratorDef>
+		<defName>RimNauts2_Ore_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_Ore_GenStep_ElevationFertility</li>
+			<li>RimNauts2_Ore_GenStep_RocksFromGrid</li>
+			<li>RimNauts2_Ore_GenStep_Terrain</li>
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>RimNauts2_Ore_GenStep_ElevationFertility</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.ElevationFertility" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_Ore_GenStep_RocksFromGrid</defName>
+		<order>200</order>
+		<genStep Class="RimNauts2.AsteroidOre.RocksFromGrid">
+            <rock_def_name>Limestone</rock_def_name>
+            <ore_def_name>MineableSteel</ore_def_name>
+        </genStep>
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_Ore_GenStep_Terrain</defName>
+		<order>210</order>
+		<genStep Class="RimNauts2.AsteroidOre.Terrain">
+            <rock_def_name>Limestone</rock_def_name>
+            <ore_def_name>MineableSteel</ore_def_name>
+        </genStep>
+	</GenStepDef>
+
+	<MapGeneratorDef>
+	    <defName>RimNauts2_SpaceStation_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_SpaceStation_GenStep_Terrain</li>
+			<li>Fog</li>
+			<li>RimNauts2_SpaceStation_GenStep_Structure</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>RimNauts2_SpaceStation_GenStep_Terrain</defName>
+		<order>210</order>
+		<genStep Class="RimNauts2.SpaceStation.Terrain" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_SpaceStation_GenStep_Structure</defName>
+		<order>1001</order>
+		<genStep Class="RimNauts2.SpaceStation.Structure" />
+	</GenStepDef>
+</Defs>

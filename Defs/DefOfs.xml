@@ -3,12 +3,6 @@
 	<RimNauts2.SatelliteDef>
 		<defName>Satellite</defName>
 
-        <Biomes>
-            <li>RimNauts2_Satellite_Biome</li>
-            <li>RimNauts2_Artifical_Satellite_Biome</li>
-            <li>RimNauts2_MoonBarren_Biome</li>
-        </Biomes>
-
         <CrashingAsteroidObjectPercentage>0.05</CrashingAsteroidObjectPercentage>
         <MineralRichAsteroidsPercentage>0.05</MineralRichAsteroidsPercentage>
         <MineralRichAsteroidsRandomWaitTicks>(180000.0, 300000.0)</MineralRichAsteroidsRandomWaitTicks>
