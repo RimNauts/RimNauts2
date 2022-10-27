@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+	<GenStepDef>
+		<defName>RimNauts2_Environment_MapGen</defName>
+		<order>1002</order>
+		<genStep Class="RimNauts2.Environment">
+            <elevation>100.0</elevation>
+            <rainfall>0.0</rainfall>
+            <swampiness>0.0</swampiness>
+            <temperature>-40.0</temperature>
+            <apply_SOS2_weather>true</apply_SOS2_weather>
+		</genStep>
+	</GenStepDef>
+
 	<MapGeneratorDef>
 	    <defName>RimNauts2_SpaceStation_MapGen</defName>
 		<genSteps>
 			<li>RimNauts2_SpaceStation_GenStep_Terrain</li>
 			<li>Fog</li>
 			<li>RimNauts2_SpaceStation_GenStep_Structure</li>
+			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -26,6 +39,7 @@
 			<li>RimNauts2_OreSteel_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_OreSteel_GenStep_Terrain</li>
 			<li>Fog</li>
+			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -57,6 +71,7 @@
 			<li>RimNauts2_OreGold_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_OreGold_GenStep_Terrain</li>
 			<li>Fog</li>
+			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -83,6 +98,7 @@
 			<li>RimNauts2_OrePlasteel_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_OrePlasteel_GenStep_Terrain</li>
 			<li>Fog</li>
+			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>

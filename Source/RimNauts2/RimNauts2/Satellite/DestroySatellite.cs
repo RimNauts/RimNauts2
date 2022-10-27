@@ -10,7 +10,7 @@ namespace RimNauts2 {
         public override IEnumerable<Gizmo> GetGizmos() {
             Satellite parent = this.parent as Satellite;
 
-            if (!parent.has_map) {
+            if (!parent.HasMap) {
                 yield return new Command_Action {
                     defaultLabel = "Destroy",
                     defaultDesc = "Blast the object out of orbit, never to be seen again.",

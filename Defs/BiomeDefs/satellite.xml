@@ -17,7 +17,7 @@
 		<animalDensity>0</animalDensity>
 		<plantDensity>0</plantDensity>
 		<settlementSelectionWeight>0.01</settlementSelectionWeight>
-		<movementDifficulty>2</movementDifficulty>
+		<movementDifficulty>1</movementDifficulty>
 		<forageability>0</forageability>
     	<isExtremeBiome>true</isExtremeBiome>
 		<soundsAmbient></soundsAmbient>

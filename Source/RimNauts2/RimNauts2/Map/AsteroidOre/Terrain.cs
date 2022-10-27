@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace RimNauts2.AsteroidOre {
     class Terrain : GenStep {
-        public string rock_def_name;
-        public string ore_def_name;
+        public string rock_def_name = "Limestone";
+        public string ore_def_name = "MineableSteel";
 
         public override int SeedPart => 262606459;
 
@@ -27,6 +27,7 @@ namespace RimNauts2.AsteroidOre {
                 current2.Cleanup();
             }
             MapGenerator.PlayerStartSpot = new IntVec3(1, 0, 1);
+            Find.World.grid.tiles.ElementAt(map.Tile).temperature = -100f;
         }
 
         public static ThingDef rock_at(float fertility, string rock_def_name) {

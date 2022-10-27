@@ -4,8 +4,8 @@ using Verse;
 
 namespace RimNauts2.AsteroidOre {
     class RocksFromGrid : GenStep {
-        public string rock_def_name;
-        public string ore_def_name;
+        public string rock_def_name = "Limestone";
+        public string ore_def_name = "MineableSteel";
 
         public override int SeedPart => 262606459;
 

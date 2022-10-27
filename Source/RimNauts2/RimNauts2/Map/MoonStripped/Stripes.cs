@@ -6,7 +6,6 @@ namespace RimNauts2.MoonStripped {
         public override int SeedPart => 262606459;
 
         public override void Generate(Map map, GenStepParams parms) {
-            int radius = (map.Size.x / 2) - 3;
             for (int ind = 1; ind <= Rand.RangeInclusive(4, 10); ind++) {
                 int dz = (int) ((Rand.Value - 0.5) * map.Size.z);
                 for (int dx = 1; dx <= map.Size.x - 1; dx++) {

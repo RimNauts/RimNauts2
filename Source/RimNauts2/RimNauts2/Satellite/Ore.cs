@@ -11,7 +11,7 @@ namespace RimNauts2 {
         public override IEnumerable<Gizmo> GetGizmos() {
             Satellite parent = this.parent as Satellite;
 
-            if (!parent.has_map) {
+            if (!parent.HasMap) {
                 yield return new Command_Action {
                     defaultLabel = "Harvest asteroid",
                     defaultDesc = "Harvest the mineral-rich asteroid.",
@@ -49,8 +49,6 @@ namespace RimNauts2 {
 
         public static void generate_map(Satellite satellite) {
             MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.type), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-            satellite.applySatelliteSurface();
-            satellite.has_map = true;
             satellite.SetFaction(RimWorld.Faction.OfPlayer);
             Find.World.WorldUpdate();
         }

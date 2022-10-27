@@ -10,7 +10,7 @@ namespace RimNauts2 {
         public override IEnumerable<Gizmo> GetGizmos() {
             Satellite parent = this.parent as Satellite;
 
-            if (!parent.has_map) {
+            if (!parent.HasMap) {
                 yield return new Command_Action {
                     defaultLabel = "CommandSettle".Translate(),
                     defaultDesc = "CommandSettleDesc".Translate(),
@@ -27,15 +27,9 @@ namespace RimNauts2 {
             satellite.type = Satellite_Type.Buffer;
             satellite.Destroy();
             // generate map
-            generate_moon_map(new_satellite);
-            new_satellite.has_map = true;
+            MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(new_satellite.type), new_satellite, new_satellite.MapGeneratorDef, new_satellite.ExtraGenStepDefs, null);
             new_satellite.SetFaction(RimWorld.Faction.OfPlayer);
             Find.World.WorldUpdate();
-        }
-
-        private static void generate_moon_map(Satellite satellite) {
-            Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.type), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-            satellite.applySatelliteSurface();
         }
 
         private static string get_moon_base(string moon) => moon + "_Base";

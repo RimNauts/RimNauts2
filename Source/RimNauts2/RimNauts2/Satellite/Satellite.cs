@@ -14,7 +14,6 @@ namespace RimNauts2 {
         public float orbit_speed;
         public float period;
         public int time_offset;
-        public bool has_map = false;
         public bool can_out_of_bounds = false;
         public float out_of_bounds_offset = 1.0f;
         public float current_out_of_bounds;
@@ -46,7 +45,6 @@ namespace RimNauts2 {
             Scribe_Values.Look(ref orbit_speed, "orbit_speed");
             Scribe_Values.Look(ref period, "period");
             Scribe_Values.Look(ref time_offset, "time_offset");
-            Scribe_Values.Look(ref has_map, "has_map");
             Scribe_Values.Look(ref can_out_of_bounds, "can_out_of_bounds");
             Scribe_Values.Look(ref out_of_bounds_offset, "out_of_bounds_offset");
             Scribe_Values.Look(ref current_out_of_bounds, "current_out_of_bounds");
@@ -84,7 +82,7 @@ namespace RimNauts2 {
                     }
                 } else {
                     if (mineral_rich_abondon <= 0) {
-                        if (!has_map) {
+                        if (!HasMap) {
                             currently_mineral_rich = false;
                             mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
                             mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
@@ -195,7 +193,7 @@ namespace RimNauts2 {
 
         public override void PostRemove() {
             base.PostRemove();
-            if (type == Satellite_Type.Moon && has_map) {
+            if (type == Satellite_Type.Moon && HasMap) {
                 Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
             } else if (type == Satellite_Type.None) {
                 Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
@@ -205,23 +203,6 @@ namespace RimNauts2 {
                 Satellite satellite = Generate_Satellites.copy_satellite(this, Satellite_Type_Methods.WorldObjects(Satellite_Type.Asteroid).RandomElement(), Satellite_Type.Asteroid);
                 satellite.currently_mineral_rich = false;
             } else Generate_Satellites.add_satellite(Tile, Satellite_Type.Asteroid);
-        }
-
-        public void applySatelliteSurface() {
-            if (Map != null) {
-                foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
-                    if (weather.defName.Equals("OuterSpaceWeather")) {
-                        Map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
-                        if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
-                        break;
-                    }
-                }
-            }
-            Find.World.grid.tiles.ElementAt(Tile).elevation = 100f;
-            Find.World.grid.tiles.ElementAt(Tile).hilliness = RimWorld.Planet.Hilliness.Flat;
-            Find.World.grid.tiles.ElementAt(Tile).rainfall = 0f;
-            Find.World.grid.tiles.ElementAt(Tile).swampiness = 0f;
-            Find.World.grid.tiles.ElementAt(Tile).temperature = -40f;
         }
     }
 }

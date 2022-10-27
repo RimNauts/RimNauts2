@@ -80,9 +80,6 @@ namespace RimNauts2 {
 
                 if (Props.createMap) {
                     MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.type), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-                    satellite.applySatelliteSurface();
-
-                    satellite.has_map = true;
                     satellite.SetFaction(RimWorld.Faction.OfPlayer);
                     Find.World.WorldUpdate();
                 }

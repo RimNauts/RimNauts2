@@ -13,7 +13,7 @@
         <AsteroidObjectsOrbitSpeedBetween>(4.0, 6.0)</AsteroidObjectsOrbitSpeedBetween>
         <AsteroidObjectsOrbitRandomDirection>false</AsteroidObjectsOrbitRandomDirection>
 
-        <MoonObjectsOrbitPosition>(400.0, 200.0, 400.0)</MoonObjectsOrbitPosition>
+        <MoonObjectsOrbitPosition>(350.0, 200.0, 350.0)</MoonObjectsOrbitPosition>
         <MoonObjectsOrbitSpread>(0.25, 0.0, 0.25)</MoonObjectsOrbitSpread>
         <MoonObjectsOrbitSpeedBetween>(1.0, 1.0)</MoonObjectsOrbitSpeedBetween>
         <MoonObjectsOrbitRandomDirection>true</MoonObjectsOrbitRandomDirection>
