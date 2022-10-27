@@ -41,9 +41,20 @@
         </AsteroidObjects>
 
 		<AsteroidOreObjects>
-            <li>RimNauts2_OreSteel</li>
-            <li>RimNauts2_OreGold</li>
-            <li>RimNauts2_OrePlasteel</li>
+            <li>RimNauts2_OreSteel_1</li>
+            <li>RimNauts2_OreSteel_2</li>
+            <li>RimNauts2_OreSteel_3</li>
+            <li>RimNauts2_OreSteel_4</li>
+            <li>RimNauts2_OreSteel_5</li>
+            <li>RimNauts2_OreGold_1</li>
+            <li>RimNauts2_OreGold_2</li>
+            <li>RimNauts2_OreGold_3</li>
+            <li>RimNauts2_OreGold_4</li>
+            <li>RimNauts2_OreGold_5</li>
+            <li>RimNauts2_OrePlasteel_1</li>
+            <li>RimNauts2_OrePlasteel_2</li>
+            <li>RimNauts2_OrePlasteel_3</li>
+            <li>RimNauts2_OrePlasteel_4</li>
         </AsteroidOreObjects>
 
 		<WasteObjects>
