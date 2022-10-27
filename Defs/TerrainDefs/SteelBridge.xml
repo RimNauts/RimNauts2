@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- Bridge to build on water -->
+	<TerrainDef>
+		<defName>RimNauts2_SteelBridge</defName>
+		<label>Steel bridge</label>
+		<description>Bridge which can be built over water. Unlike the wooden bridge, anything can be built on this bridge.</description>
+		<texturePath>Terrain/Surfaces/RimNauts2_SteelBridge</texturePath>
+		<uiIconPath>Terrain/Surfaces/RimNauts2_SteelBridge_MenuIcon</uiIconPath>
+		<layerable>true</layerable>
+		<bridge>true</bridge>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<designationCategory>Structure</designationCategory>
+		<fertility>0</fertility>
+		<constructEffect>ConstructMetal</constructEffect>
+		<terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>400</renderPrecedence>
+		<autoRebuildable>true</autoRebuildable>
+		<statBases>
+			<WorkToBuild>1500</WorkToBuild>
+		</statBases>
+		<costList>
+      		<Steel>12</Steel>
+		</costList>
+		<tags>
+			<li>Floor</li>
+		</tags>
+		<destroyOnBombDamageThreshold>35</destroyOnBombDamageThreshold>
+		<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+		<destroyEffect>Bridge_Collapse</destroyEffect>
+        <destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+	</TerrainDef>
+</Defs>
