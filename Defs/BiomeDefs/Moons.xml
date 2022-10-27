@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <!-- Root classes -->
 	<BiomeDef ParentName="RimNauts2_Satellite_Biome">
 		<defName>RimNauts2_MoonWater_Biome</defName>
 		<label>satellite</label>
