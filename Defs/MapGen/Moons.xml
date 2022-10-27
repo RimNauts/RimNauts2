@@ -34,10 +34,16 @@
 			<li>RimNauts2_MoonBarren_GenStep_ElevationFertility</li>
 			<li>RimNauts2_MoonBarren_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_MoonBarren_GenStep_Terrain</li>
+			<li>RimNauts2_MoonStripped_GenStep_Stripes</li>
 			<li>RockChunks</li>
 			<li>Fog</li>
 		</genSteps>
 	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>RimNauts2_MoonStripped_GenStep_Stripes</defName>
+		<order>211</order>
+		<genStep Class="RimNauts2.MoonStripped.Stripes" />
+	</GenStepDef>
 
 	<MapGeneratorDef>
 		<defName>RimNauts2_MoonWater_MapGen</defName>

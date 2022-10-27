@@ -62,6 +62,7 @@
     <Compile Include="Map\MoonBarren\ElevationFertility.cs" />
     <Compile Include="Map\MoonBarren\RocksFromGrid.cs" />
     <Compile Include="Map\MoonBarren\Terrain.cs" />
+    <Compile Include="Map\MoonStripped\Stripes.cs" />
     <Compile Include="Map\MoonWater\Terrain.cs" />
     <Compile Include="Map\SpaceStation\Structure.cs" />
     <Compile Include="Map\SpaceStation\Terrain.cs" />
