@@ -23,15 +23,14 @@ namespace RimNauts2 {
 
     public static class Moon {
         public static void generate_moon(Satellite satellite) {
-            Satellite new_satellite = Generate_Satellites.copy_satellite(satellite, get_moon_base(satellite.def_name), Satellite_Type.Moon);
+            Satellite new_satellite = Generate_Satellites.copy_satellite(satellite, satellite.def_name + "_Base", Satellite_Type.Moon);
             satellite.type = Satellite_Type.Buffer;
             satellite.Destroy();
             // generate map
             MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(new_satellite.type), new_satellite, new_satellite.MapGeneratorDef, new_satellite.ExtraGenStepDefs, null);
             new_satellite.SetFaction(RimWorld.Faction.OfPlayer);
             Find.World.WorldUpdate();
+            new_satellite.has_moon_map = true;
         }
-
-        private static string get_moon_base(string moon) => moon + "_Base";
     }
 }

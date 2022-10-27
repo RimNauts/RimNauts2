@@ -23,6 +23,7 @@ namespace RimNauts2 {
         public int mineral_rich_transform_wait;
         public int mineral_rich_abondon;
         public bool currently_mineral_rich = false;
+        public bool has_moon_map = false;
 
         public override void PostAdd() {
             base.PostAdd();
@@ -54,6 +55,7 @@ namespace RimNauts2 {
             Scribe_Values.Look(ref mineral_rich_transform_wait, "mineral_rich_transform_wait");
             Scribe_Values.Look(ref mineral_rich_abondon, "mineral_rich_abondon");
             Scribe_Values.Look(ref currently_mineral_rich, "currently_mineral_rich");
+            Scribe_Values.Look(ref has_moon_map, "has_moon_map");
         }
 
         public override Vector3 DrawPos => get_parametric_ellipse();
@@ -193,7 +195,7 @@ namespace RimNauts2 {
 
         public override void PostRemove() {
             base.PostRemove();
-            if (type == Satellite_Type.Moon && HasMap) {
+            if (type == Satellite_Type.Moon && has_moon_map) {
                 Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
             } else if (type == Satellite_Type.None) {
                 Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
