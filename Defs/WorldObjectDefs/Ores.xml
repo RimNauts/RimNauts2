@@ -115,7 +115,6 @@
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
 		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_Satellite">
@@ -128,7 +127,6 @@
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
 		</comps>
 	</WorldObjectDef>
 
@@ -142,7 +140,6 @@
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
 		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_Satellite">
@@ -155,7 +152,6 @@
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
 		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_Satellite">
@@ -168,7 +164,6 @@
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
 		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_Satellite">
@@ -181,7 +176,6 @@
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
 		</comps>
 	</WorldObjectDef>
 </Defs>
