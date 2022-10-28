@@ -1,181 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Defs>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+<Defs><WorldObjectDef Name="RimNauts2_Ore" ParentName="RimNauts2_Satellite" Abstract="True">
+		<comps>
+			<li Class="WorldObjectCompProperties_Abandon"/>
+			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid">
+				<label>Harvest asteroid</label>
+				<desc>Harvest the mineral-rich asteroid.</desc>
+			</li>
+		</comps>
+	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreSteel_1</defName>
 		<label>steel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreSteel_1</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_1</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreSteel_2</defName>
 		<label>steel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreSteel_2</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_2</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreSteel_3</defName>
 		<label>steel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreSteel_3</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_3</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreSteel_4</defName>
 		<label>steel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreSteel_4</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_4</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreSteel_5</defName>
 		<label>steel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreSteel_5</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_5</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
-		</comps>
 	</WorldObjectDef>
 
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreGold_1</defName>
 		<label>gold ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreGold_1</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_1</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreGold_2</defName>
 		<label>gold ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreGold_2</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_2</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreGold_3</defName>
 		<label>gold ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreGold_3</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_3</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreGold_4</defName>
 		<label>gold ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreGold_4</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_4</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OreGold_5</defName>
 		<label>gold ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OreGold_5</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_5</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-		</comps>
 	</WorldObjectDef>
 
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OrePlasteel_1</defName>
 		<label>plasteel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OrePlasteel_1</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_1</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OrePlasteel_2</defName>
 		<label>plasteel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OrePlasteel_2</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_2</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OrePlasteel_3</defName>
 		<label>plasteel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OrePlasteel_3</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_3</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-		</comps>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Satellite">
+	<WorldObjectDef ParentName="RimNauts2_Ore">
 		<defName>RimNauts2_OrePlasteel_4</defName>
 		<label>plasteel ore asteroid</label>
 		<description>An asteroid rich with minerals.</description>
 		<texture>Satellites/Ores/RimNauts2_OrePlasteel_4</texture>
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_4</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid"/>
-		</comps>
 	</WorldObjectDef>
 </Defs>
