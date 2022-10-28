@@ -31,14 +31,27 @@
 		<comps>
 			<li Class="RimNauts2.CompProperties_SatelliteDish">
                 <worldObject>RimNauts2_MoonBarren</worldObject>
+				<label>Look for a barren moon</label>
+				<desc>Your pawn will look for a barren moon orbiting the planet.</desc>
+				<!-- a number will be appended to this string, example: 2 more satellite(s) orbiting the planet is required. -->
+				<failMessage>more satellite(s) orbiting the planet is required.</failMessage>
+				<successMessage>Successfully found a barren moon orbiting the planet!</successMessage>
 				<texPath>Satellites/Moons/RimNauts2_MoonBarren</texPath>
             </li>
 			<li Class="RimNauts2.CompProperties_SatelliteDish">
                 <worldObject>RimNauts2_MoonStripped</worldObject>
+				<label>Look for a stripped moon</label>
+				<desc>Your pawn will look for a stripped moon orbiting the planet.</desc>
+				<failMessage>more satellite(s) orbiting the planet is required.</failMessage>
+				<successMessage>Successfully found a stripped moon orbiting the planet!</successMessage>
 				<texPath>Satellites/Moons/RimNauts2_MoonStripped</texPath>
             </li>
 			<li Class="RimNauts2.CompProperties_SatelliteDish">
                 <worldObject>RimNauts2_MoonWater</worldObject>
+				<label>Look for a water moon</label>
+				<desc>Your pawn will look for a water moon orbiting the planet.</desc>
+				<failMessage>more satellite(s) orbiting the planet is required.</failMessage>
+				<successMessage>Successfully found a water moon orbiting the planet!</successMessage>
 				<texPath>Satellites/Moons/RimNauts2_MoonWater</texPath>
             </li>
 		</comps>
