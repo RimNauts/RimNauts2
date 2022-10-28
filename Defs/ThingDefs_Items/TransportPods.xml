@@ -53,6 +53,10 @@
                 <desc>Launch satellite into orbit.</desc>
                 <name>satellite</name>
                 <iconPath>Things/Items/Satellites/RimNauts2_Satellite</iconPath>
+				<!-- a number will be added to this string, example: 200.0 fuel required, currently at 156.0/200.0 -->
+                <failMessageFuel>fuel required, currently at</failMessageFuel>
+                <failMessageLaunch>Failed to launch satellite into orbit.</failMessageLaunch>
+                <successMessage>Successfully launched a satellite into orbit.</successMessage>
                 <type>Artifical_Satellite</type>
                 <createMap>false</createMap>
             </li>
@@ -79,6 +83,9 @@
                 <desc>Launch space station into orbit.</desc>
                 <name>space station</name>
                 <iconPath>Things/Items/Satellites/RimNauts2_SpaceStation</iconPath>
+                <failMessageFuel>fuel required, currently at</failMessageFuel>
+                <failMessageLaunch>Failed to launch space station into orbit.</failMessageLaunch>
+                <successMessage>Successfully launched a space station into orbit.</successMessage>
                 <type>Space_Station</type>
                 <createMap>true</createMap>
             </li>
