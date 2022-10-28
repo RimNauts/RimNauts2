@@ -16,6 +16,7 @@
 			<!--Stops it from destroying the launchpad-->
 			<isEdifice>false</isEdifice>
 		</building>
+        <clearBuildingArea>false</clearBuildingArea>
         <statBases>
             <MaxHitPoints>250</MaxHitPoints>
             <WorkToBuild>1600</WorkToBuild>
