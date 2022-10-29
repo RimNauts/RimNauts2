@@ -1,31 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<GenStepDef>
-		<defName>RimNauts2_Environment_MapGen</defName>
-		<order>1002</order>
-		<genStep Class="RimNauts2.Environment">
-            <elevation>100.0</elevation>
-            <rainfall>0.0</rainfall>
-            <swampiness>0.0</swampiness>
-            <temperature>-40.0</temperature>
-            <apply_SOS2_weather>true</apply_SOS2_weather>
-		</genStep>
-	</GenStepDef>
-
 	<MapGeneratorDef>
 	    <defName>RimNauts2_SpaceStation_MapGen</defName>
 		<genSteps>
-			<li>RimNauts2_SpaceStation_GenStep_Terrain</li>
-			<li>Fog</li>
+			<li>RimNauts2_GenStep_Vacuum</li>
 			<li>RimNauts2_SpaceStation_GenStep_Structure</li>
-			<li>RimNauts2_Environment_MapGen</li>
+			<li>RimNauts2_GenStep_Environment</li>
+			<li>Fog</li>
 		</genSteps>
 	</MapGeneratorDef>
-	<GenStepDef>
-		<defName>RimNauts2_SpaceStation_GenStep_Terrain</defName>
-		<order>210</order>
-		<genStep Class="RimNauts2.SpaceStation.Terrain" />
-	</GenStepDef>
 	<GenStepDef>
 		<defName>RimNauts2_SpaceStation_GenStep_Structure</defName>
 		<order>1001</order>
@@ -38,8 +21,8 @@
 			<li>RimNauts2_Ore_GenStep_ElevationFertility</li>
 			<li>RimNauts2_OreSteel_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_OreSteel_GenStep_Terrain</li>
+			<li>RimNauts2_GenStep_Environment</li>
 			<li>Fog</li>
-			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -70,8 +53,8 @@
 			<li>RimNauts2_Ore_GenStep_ElevationFertility</li>
 			<li>RimNauts2_OreGold_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_OreGold_GenStep_Terrain</li>
+			<li>RimNauts2_GenStep_Environment</li>
 			<li>Fog</li>
-			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -97,8 +80,8 @@
 			<li>RimNauts2_Ore_GenStep_ElevationFertility</li>
 			<li>RimNauts2_OrePlasteel_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_OrePlasteel_GenStep_Terrain</li>
+			<li>RimNauts2_GenStep_Environment</li>
 			<li>Fog</li>
-			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -117,5 +100,4 @@
             <ore_def_name>MineablePlasteel</ore_def_name>
         </genStep>
 	</GenStepDef>
-
 </Defs>

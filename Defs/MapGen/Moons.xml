@@ -8,8 +8,8 @@
 			<li>RimNauts2_MoonBarren_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_MoonBarren_GenStep_Terrain</li>
 			<li>RockChunks</li>
+			<li>RimNauts2_GenStep_Environment</li>
 			<li>Fog</li>
-			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -37,8 +37,8 @@
 			<li>RimNauts2_MoonBarren_GenStep_Terrain</li>
 			<li>RimNauts2_MoonStripped_GenStep_Stripes</li>
 			<li>RockChunks</li>
+			<li>RimNauts2_GenStep_Environment</li>
 			<li>Fog</li>
-			<li>RimNauts2_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -52,8 +52,8 @@
 		<genSteps>
 			<li>FindPlayerStartSpot</li>
 			<li>RimNauts2_MoonWater_GenStep_Terrain</li>
+			<li>RimNauts2_MoonWater_GenStep_Environment</li>
 			<li>Fog</li>
-			<li>RimNauts2_MoonWater_Environment_MapGen</li>
 		</genSteps>
 	</MapGeneratorDef>
 	<GenStepDef>
@@ -62,7 +62,7 @@
 		<genStep Class="RimNauts2.MoonWater.Terrain" />
 	</GenStepDef>
 	<GenStepDef>
-		<defName>RimNauts2_MoonWater_Environment_MapGen</defName>
+		<defName>RimNauts2_MoonWater_GenStep_Environment</defName>
 		<order>1002</order>
 		<genStep Class="RimNauts2.Environment">
             <elevation>100.0</elevation>

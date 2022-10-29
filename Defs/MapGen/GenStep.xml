@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- shared -->
+	<GenStepDef>
+		<defName>RimNauts2_GenStep_Vacuum</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.Vacuum" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_GenStep_Environment</defName>
+		<order>1002</order>
+		<genStep Class="RimNauts2.Environment">
+            <elevation>100.0</elevation>
+            <rainfall>0.0</rainfall>
+            <swampiness>0.0</swampiness>
+            <temperature>-40.0</temperature>
+            <apply_SOS2_weather>true</apply_SOS2_weather>
+		</genStep>
+	</GenStepDef>
+</Defs>

@@ -66,7 +66,7 @@
     <Compile Include="Map\MoonStripped\Stripes.cs" />
     <Compile Include="Map\MoonWater\Terrain.cs" />
     <Compile Include="Map\SpaceStation\Structure.cs" />
-    <Compile Include="Map\SpaceStation\Terrain.cs" />
+    <Compile Include="Map\Vacuum.cs" />
     <Compile Include="SatelliteDefOf.cs" />
     <Compile Include="SatelliteDef.cs" />
     <Compile Include="Satellite\DestroySatellite.cs" />
