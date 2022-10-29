@@ -4,8 +4,8 @@
 		<defName>RimNauts2_ArtificalSatellite</defName>
 		<label>artificial-satellite</label>
 		<description>artificial-satellite used for space exploration.</description>
-		<texture>Satellites/ArtificalSatellites/RimNauts2_ArtificalSatellite</texture>
-		<expandingIconTexture>Satellites/ArtificalSatellites/RimNauts2_ArtificalSatellite</expandingIconTexture>
+		<texture>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</texture>
+		<expandingIconTexture>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</expandingIconTexture>
 		<expandingIconPriority>1001</expandingIconPriority>
   	</WorldObjectDef>
 </Defs>
