@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<!-- shared -->
+	<!-- space -->
 	<GenStepDef>
 		<defName>RimNauts2_GenStep_Vacuum</defName>
 		<order>10</order>
@@ -16,5 +16,50 @@
             <temperature>-40.0</temperature>
             <apply_SOS2_weather>true</apply_SOS2_weather>
 		</genStep>
+	</GenStepDef>
+	<!-- space station -->
+	<GenStepDef>
+		<defName>RimNauts2_SpaceStation_GenStep_Structure</defName>
+		<order>1001</order>
+		<genStep Class="RimNauts2.SpaceStation.Structure" />
+	</GenStepDef>
+	<!-- ore -->
+	<GenStepDef>
+		<defName>RimNauts2_Ore_GenStep_ElevationFertility</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.ElevationFertility" />
+	</GenStepDef>
+	<!-- steel -->
+	<GenStepDef>
+		<defName>RimNauts2_OreSteel_GenStep_RocksFromGrid</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.RocksFromGrid">
+            <rock_def_name>Limestone</rock_def_name>
+            <ore_def_name>MineableSteel</ore_def_name>
+            <ore_chance_outer>(0.30, 0.50)</ore_chance_outer>
+            <ore_chance_inner>(0.50, 0.70)</ore_chance_inner>
+        </genStep>
+	</GenStepDef>
+	<!-- gold -->
+	<GenStepDef>
+		<defName>RimNauts2_OreGold_GenStep_RocksFromGrid</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.RocksFromGrid">
+            <rock_def_name>Limestone</rock_def_name>
+            <ore_def_name>MineableGold</ore_def_name>
+            <ore_chance_outer>(0.20, 0.30)</ore_chance_outer>
+            <ore_chance_inner>(0.30, 0.50)</ore_chance_inner>
+        </genStep>
+	</GenStepDef>
+	<!-- plasteel -->
+	<GenStepDef>
+		<defName>RimNauts2_OrePlasteel_GenStep_RocksFromGrid</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.RocksFromGrid">
+            <rock_def_name>Limestone</rock_def_name>
+            <ore_def_name>MineablePlasteel</ore_def_name>
+            <ore_chance_outer>(0.30, 0.40)</ore_chance_outer>
+            <ore_chance_inner>(0.40, 0.60)</ore_chance_inner>
+        </genStep>
 	</GenStepDef>
 </Defs>

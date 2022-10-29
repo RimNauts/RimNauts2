@@ -58,7 +58,6 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Map\AsteroidOre\ElevationFertility.cs" />
     <Compile Include="Map\AsteroidOre\RocksFromGrid.cs" />
-    <Compile Include="Map\AsteroidOre\Terrain.cs" />
     <Compile Include="Map\Environment.cs" />
     <Compile Include="Map\MoonBarren\ElevationFertility.cs" />
     <Compile Include="Map\MoonBarren\RocksFromGrid.cs" />
