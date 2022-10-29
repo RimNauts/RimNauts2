@@ -39,6 +39,9 @@ namespace RimNauts2 {
 
         public List<string> AllowedSatelliteIncidents;
 
+        public string AsteroidOreAppearLabel;
+        public string AsteroidOreAppearMessage;
+
         public int TotalCrashingAsteroidObjects {
             get {
                 if (SatelliteDefOf.Satellite.CrashingAsteroidObjectPercentage <= 0) return 0;

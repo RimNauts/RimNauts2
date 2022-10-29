@@ -1,38 +1,48 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Verse;
 using UnityEngine;
 
 namespace RimNauts2 {
     public class WorldObjectCompProperties_HarvestAsteroid : RimWorld.WorldObjectCompProperties {
+        public string label;
+        public string desc;
+
         public WorldObjectCompProperties_HarvestAsteroid() => compClass = typeof(HarvestAsteroid);
     }
+
     public class HarvestAsteroid : RimWorld.Planet.WorldObjectComp {
+        public WorldObjectCompProperties_HarvestAsteroid Props => (WorldObjectCompProperties_HarvestAsteroid) props;
+
         public override IEnumerable<Gizmo> GetGizmos() {
             Satellite parent = this.parent as Satellite;
 
             if (!parent.HasMap) {
                 yield return new Command_Action {
-                    defaultLabel = "Harvest asteroid",
-                    defaultDesc = "Harvest the mineral-rich asteroid.",
+                    defaultLabel = Props.label,
+                    defaultDesc = Props.desc,
                     icon = ContentFinder<Texture2D>.Get("UI/Designators/Mine", true),
                     action = () => Ore.generate_map(parent),
                 };
             }
         }
     }
+
     public class WorldObjectCompProperties_SpawnOre : RimWorld.WorldObjectCompProperties {
+        public string label;
+        public string desc;
+
         public WorldObjectCompProperties_SpawnOre() => compClass = typeof(SpawnOre);
     }
 
     public class SpawnOre : RimWorld.Planet.WorldObjectComp {
+        public WorldObjectCompProperties_SpawnOre Props => (WorldObjectCompProperties_SpawnOre) props;
         public override IEnumerable<Gizmo> GetGizmos() {
             Satellite parent = this.parent as Satellite;
 
             if (Prefs.DevMode && parent.type == Satellite_Type.Asteroid) {
                 yield return new Command_Action {
-                    defaultLabel = "Convert to ore (Dev)",
-                    defaultDesc = "Convert asteroid to ore.",
+                    defaultLabel = Props.label + " (Dev)",
+                    defaultDesc = Props.desc,
                     action = () => Ore.generate_ore(parent),
                 };
             }

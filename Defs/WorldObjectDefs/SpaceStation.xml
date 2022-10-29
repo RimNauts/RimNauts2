@@ -11,7 +11,6 @@
 		<expandMore>true</expandMore>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Destroy"/>
 		</comps>
 	</WorldObjectDef>
 </Defs>

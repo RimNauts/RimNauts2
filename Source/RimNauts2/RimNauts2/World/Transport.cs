@@ -13,6 +13,9 @@ namespace RimNauts2 {
         public string desc;
         public string name;
         public string iconPath;
+        public string failMessageFuel;
+        public string failMessageLaunch;
+        public string successMessage;
         public string createDefName;
         public string type;
         public bool createMap;
@@ -38,7 +41,7 @@ namespace RimNauts2 {
             };
             if (!Prefs.DevMode) {
                 if (FuelingPortSourceFuel < Props.fuelThreshold)
-                    cmd.Disable("Requires " + Props.fuelThreshold + " fuel, currently at " + FuelingPortSourceFuel + " fuel.");
+                    cmd.Disable(Props.fuelThreshold + " " + Props.failMessageFuel + " " + FuelingPortSourceFuel + "/" + Props.fuelThreshold);
             }
             yield return cmd;
         }
@@ -70,7 +73,7 @@ namespace RimNauts2 {
                 }
 
                 if (tile_id == -1) {
-                    Messages.Message("Failed to " + Props.label.ToLower() + " into orbit.", RimWorld.MessageTypeDefOf.NegativeEvent, true);
+                    Messages.Message(Props.failMessageLaunch, RimWorld.MessageTypeDefOf.NegativeEvent, true);
                     Log.Error("RimNauts2: Couldn't find a free tile to spawn a " + Props.name + " on. Either the map size is too small to spawn all the satellites or increase the total satellite objects in settings (requires a new save)");
                     return;
                 }
@@ -85,7 +88,7 @@ namespace RimNauts2 {
                 }
                 
 
-                Messages.Message("Successfully launched a " + Props.name + " into orbit.", RimWorld.MessageTypeDefOf.PositiveEvent, true);
+                Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             }
         }
     }

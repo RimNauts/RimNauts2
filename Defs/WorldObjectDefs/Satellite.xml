@@ -7,5 +7,11 @@
 		<useDynamicDrawer>false</useDynamicDrawer>
 		<expandingIcon>true</expandingIcon>
 		<expandingIconPriority>1002</expandingIconPriority>
+		<comps>
+			<li Class="RimNauts2.WorldObjectCompProperties_Destroy">
+				<label>Destroy</label>
+				<desc>Blast the object out of orbit, never to be seen again.</desc>
+			</li>
+		</comps>
   	</WorldObjectDef>
 </Defs>
