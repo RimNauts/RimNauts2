@@ -40,7 +40,8 @@
         <graphicData>
             <texPath>Things/Special/RimNauts2_DropPod_Satellite</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(4,4)</drawSize>
+            <drawSize>(5,5)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
         </graphicData>
         <costList>
             <Steel>60</Steel>
@@ -52,13 +53,14 @@
                 <label>Launch satellite</label>
                 <desc>Launch satellite into orbit.</desc>
                 <name>satellite</name>
-                <iconPath>Things/Items/Satellites/RimNauts2_Satellite</iconPath>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</iconPath>
 				<!-- a number will be added to this string, example: 200.0 fuel required, currently at 156.0/200.0 -->
                 <failMessageFuel>fuel required, currently at</failMessageFuel>
                 <failMessageLaunch>Failed to launch satellite into orbit.</failMessageLaunch>
                 <successMessage>Successfully launched a satellite into orbit.</successMessage>
                 <type>Artifical_Satellite</type>
                 <createMap>false</createMap>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving_ArtificialSatellite</skyfallerLeaving>
             </li>
         </comps>
     </ThingDef>
@@ -70,7 +72,8 @@
         <graphicData>
             <texPath>Things/Special/RimNauts2_DropPod_SpaceStation</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(4,4)</drawSize>
+            <drawSize>(5,5)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
         </graphicData>
         <costList>
             <Steel>1000</Steel>
@@ -82,12 +85,13 @@
                 <label>Launch space station</label>
                 <desc>Launch space station into orbit.</desc>
                 <name>space station</name>
-                <iconPath>Things/Items/Satellites/RimNauts2_SpaceStation</iconPath>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</iconPath>
                 <failMessageFuel>fuel required, currently at</failMessageFuel>
                 <failMessageLaunch>Failed to launch space station into orbit.</failMessageLaunch>
                 <successMessage>Successfully launched a space station into orbit.</successMessage>
                 <type>Space_Station</type>
                 <createMap>true</createMap>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving_SpaceStation</skyfallerLeaving>
             </li>
         </comps>
     </ThingDef>

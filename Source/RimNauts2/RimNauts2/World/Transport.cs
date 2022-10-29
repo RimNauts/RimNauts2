@@ -19,6 +19,7 @@ namespace RimNauts2 {
         public string createDefName;
         public string type;
         public bool createMap;
+        public ThingDef skyfallerLeaving;
 
         public CompProperties_Launch() => compClass = typeof(Launch);
     }
@@ -56,7 +57,7 @@ namespace RimNauts2 {
                     fuelingPortSource.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(Props.fuelThreshold);
                 RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
                 activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
-                RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(DefDatabase<ThingDef>.GetNamed("RimNauts2_DropPodLeaving", true), activeDropPod);
+                RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving, activeDropPod);
                 flyShipLeaving.groupID = 0;
                 flyShipLeaving.destinationTile = map.Tile;
                 flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
