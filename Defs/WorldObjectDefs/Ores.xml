@@ -123,4 +123,13 @@
 		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_4</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
 	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Ore">
+		<defName>RimNauts2_OreUranium_1</defName>
+		<label>uranium ore asteroid</label>
+		<description>An asteroid rich with minerals.</description>
+		<texture>Satellites/Ores/RimNauts2_OreUranium_1</texture>
+		<expandingIconTexture>Satellites/Ores/RimNauts2_OreUranium_1</expandingIconTexture>
+		<mapGenerator>RimNauts2_OreUranium_MapGen</mapGenerator>
+	</WorldObjectDef>
 </Defs>

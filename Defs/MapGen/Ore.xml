@@ -10,13 +10,6 @@
 	</MapGeneratorDef>
 
     <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
-		<defName>RimNauts2_OreSteel_MapGen</defName>
-		<genSteps>
-			<li>RimNauts2_OreSteel_GenStep_RocksFromGrid</li>
-		</genSteps>
-	</MapGeneratorDef>
-
-    <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
 		<defName>RimNauts2_OreGold_MapGen</defName>
 		<genSteps>
 			<li>RimNauts2_OreGold_GenStep_RocksFromGrid</li>
@@ -27,6 +20,20 @@
 		<defName>RimNauts2_OrePlasteel_MapGen</defName>
 		<genSteps>
 			<li>RimNauts2_OrePlasteel_GenStep_RocksFromGrid</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+    <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
+		<defName>RimNauts2_OreSteel_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_OreSteel_GenStep_RocksFromGrid</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+    <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
+		<defName>RimNauts2_OreUranium_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_OreUranium_GenStep_RocksFromGrid</li>
 		</genSteps>
 	</MapGeneratorDef>
 </Defs>
