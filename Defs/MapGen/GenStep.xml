@@ -23,6 +23,45 @@
 		<order>1001</order>
 		<genStep Class="RimNauts2.SpaceStation.Structure" />
 	</GenStepDef>
+	<!-- barren moon -->
+	<GenStepDef>
+		<defName>RimNauts2_MoonBarren_GenStep_ElevationFertility</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.MoonBarren.ElevationFertility" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_MoonBarren_GenStep_RocksFromGrid</defName>
+		<order>200</order>
+		<genStep Class="RimNauts2.MoonBarren.RocksFromGrid" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_MoonBarren_GenStep_Terrain</defName>
+		<order>210</order>
+		<genStep Class="RimNauts2.MoonBarren.Terrain" />
+	</GenStepDef>
+	<!-- stripped moon -->
+	<GenStepDef>
+		<defName>RimNauts2_MoonStripped_GenStep_Stripes</defName>
+		<order>211</order>
+		<genStep Class="RimNauts2.MoonStripped.Stripes" />
+	</GenStepDef>
+	<!-- water moon -->
+	<GenStepDef>
+		<defName>RimNauts2_MoonWater_GenStep_Terrain</defName>
+		<order>210</order>
+		<genStep Class="RimNauts2.MoonWater.Terrain" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_MoonWater_GenStep_Environment</defName>
+		<order>1002</order>
+		<genStep Class="RimNauts2.Environment">
+            <elevation>100.0</elevation>
+            <rainfall>0.0</rainfall>
+            <swampiness>0.0</swampiness>
+            <temperature>10.0</temperature>
+            <apply_SOS2_weather>false</apply_SOS2_weather>
+		</genStep>
+	</GenStepDef>
 	<!-- ore -->
 	<GenStepDef>
 		<defName>RimNauts2_Ore_GenStep_ElevationFertility</defName>
