@@ -26,6 +26,7 @@ namespace RimNauts2 {
 
         public void destroy_object() {
             Satellite parent = this.parent as Satellite;
+            if (parent.type == Satellite_Type.Asteroid) parent.type = Satellite_Type.None;
             parent.Destroy();
         }
     }

@@ -16,17 +16,46 @@ namespace RimNauts2 {
 
         public override void GenerateFresh(string seed) => generate_satellites();
 
-        private void generate_satellites() {
+        public static void regenerate_satellites() {
+            halt_caching = true;
+            Log.Message("RimNauts2: Starting satellite objects cleanup. Total objects: " + SatelliteContainer.size());
+            for (int i = 0; i < Find.World.grid.TilesCount; i++) {
+                string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
+                if (biome_def.Contains("RimNauts2")) {
+                    if (Find.WorldObjects.AnyWorldObjectAt<Satellite>(i)) {
+                        Satellite satellite = Find.WorldObjects.WorldObjectAt<Satellite>(i);
+                        if (!satellite.HasMap && (satellite.type == Satellite_Type.Asteroid || satellite.type == Satellite_Type.Asteroid_Ore || satellite.type == Satellite_Type.Buffer || satellite.type == Satellite_Type.None)) {
+                            satellite.type = Satellite_Type.None;
+                            satellite.Destroy();
+                        }
+                    }
+                }
+            }
+            Log.Message("RimNauts2: Finished satellite objects cleanup, starting to add back biomes. Total objects: " + SatelliteContainer.size());
+            int satellite_biomes_added = 0;
+            for (int i = 0; i < Find.World.grid.TilesCount; i++) {
+                string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
+                if (biome_def == "Ocean") {
+                    Find.World.grid.tiles.ElementAt(i).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Satellite_Biome");
+                    satellite_biomes_added++;
+                    if (satellite_biomes_added >= Settings.TotalSatelliteObjects) break;
+                }
+            }
+            Log.Message("RimNauts2: Finished adding back biomes, starting to add back objects. Total biomes: " + satellite_biomes_added);
+            generate_satellites(overwrite: false);
+            Log.Message("RimNauts2: Finished adding satellite objects back. Total objects: " + SatelliteContainer.size());
+            halt_caching = false;
+        }
+
+        private static void generate_satellites(bool overwrite = true) {
             crashing_asteroids_in_world = 0;
             mineral_asteroids_in_world = 0;
             SatelliteContainer.reset();
             halt_caching = true;
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
+                if (!overwrite && Find.WorldObjects.AnyWorldObjectAt<Satellite>(i)) continue;
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
-                if (SatelliteContainer.size() >= Settings.TotalSatelliteObjects) {
-                    Log.Message("1");
-                    break;
-                }
+                if (SatelliteContainer.size() >= Settings.TotalSatelliteObjects) break;
                 if (biome_def == "RimNauts2_Satellite_Biome") add_satellite(i, Satellite_Type.Asteroid);
             }
             halt_caching = false;
