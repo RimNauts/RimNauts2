@@ -103,7 +103,7 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "Recache")]
     public static class WorldObjectRecache {
         public static void Prefix() {
-            SatelliteContainer.reset();
+            if (!Generate_Satellites.halt_caching) SatelliteContainer.reset();
         }
     }
 }

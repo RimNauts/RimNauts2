@@ -5,6 +5,7 @@ namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
         public static int crashing_asteroids_in_world;
         public static int mineral_asteroids_in_world;
+        public static bool halt_caching = false;
 
         public override int SeedPart {
             get {
@@ -19,11 +20,16 @@ namespace RimNauts2 {
             crashing_asteroids_in_world = 0;
             mineral_asteroids_in_world = 0;
             SatelliteContainer.reset();
+            halt_caching = true;
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
-                if (SatelliteContainer.size() >= Settings.TotalSatelliteObjects) break;
+                if (SatelliteContainer.size() >= Settings.TotalSatelliteObjects) {
+                    Log.Message("1");
+                    break;
+                }
                 if (biome_def == "RimNauts2_Satellite_Biome") add_satellite(i, Satellite_Type.Asteroid);
             }
+            halt_caching = false;
         }
 
         public static Satellite add_satellite(int tile_id, Satellite_Type type, string def_name = "") {
