@@ -56,7 +56,7 @@ namespace RimNauts2 {
                 if (!overwrite && Find.WorldObjects.AnyWorldObjectAt<Satellite>(i)) continue;
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
                 if (SatelliteContainer.size() >= Settings.TotalSatelliteObjects) break;
-                if (biome_def == "RimNauts2_Satellite_Biome") add_satellite(i, Satellite_Type.Asteroid);
+                if (biome_def == "RimNauts2_Satellite_Biome") try { add_satellite(i, Satellite_Type.Asteroid); } catch { }
             }
             halt_caching = false;
         }
