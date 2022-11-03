@@ -123,7 +123,6 @@ namespace RimNauts2.SpaceStation {
         }
 
         public void set_floor(Map map, IntVec3 pos) {
-            map.terrainGrid.SetTerrain(pos, DefDatabase<TerrainDef>.GetNamed("RimNauts2_Vacuum_Platform"));
             map.terrainGrid.SetTerrain(pos, DefDatabase<TerrainDef>.GetNamed("MetalTile"));
         }
 
