@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Bridge to build on vacuum -->
+	<TerrainDef>
+		<defName>RimNauts2_Vacuum_Platform</defName>
+		<label>Platform</label>
+		<description>Supportive beams which can be built over vacuum.</description>
+		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum_Platform</texturePath>
+		<uiIconPath>Terrain/Surfaces/RimNauts2_Vacuum_Platform_Icon</uiIconPath>
+		<layerable>true</layerable>
+		<bridge>true</bridge>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<fertility>0</fertility>
+		<constructEffect>ConstructMetal</constructEffect>
+		<terrainAffordanceNeeded>RimNauts2_Space</terrainAffordanceNeeded>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>400</renderPrecedence>
+		<autoRebuildable>true</autoRebuildable>
+		<statBases>
+			<WorkToBuild>1500</WorkToBuild>
+		</statBases>
+		<costList>
+      		<Steel>20</Steel>
+		</costList>
+		<tags>
+			<li>Floor</li>
+		</tags>
+		<destroyOnBombDamageThreshold>35</destroyOnBombDamageThreshold>
+		<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+		<destroyEffect>Bridge_Collapse</destroyEffect>
+	</TerrainDef>
+	  <!-- Affordance for vacuum -->
+	<TerrainAffordanceDef>
+		<defName>RimNauts2_Space</defName>
+		<label>space</label>
+		<order>2400</order>
+	</TerrainAffordanceDef>
+</Defs>
