@@ -98,7 +98,7 @@ namespace RimNauts2 {
         public Vector3 get_parametric_ellipse() {
             float crash_course = get_crash_course();
             float time = orbit_speed * orbit_random_direction * Find.TickManager.TicksGame + time_offset;
-            if (out_of_bounds_direction_towards_surface || crash_course <= 1.0f) time *= crash_course * -1 + 2;
+            //if (out_of_bounds_direction_towards_surface || crash_course <= 1.0f) time *= crash_course * -1 + 2;
             return new Vector3 {
                 x = (orbit_position.x - (Math.Abs(orbit_position.y) / 2)) * (float) Math.Cos(6.28f / period * time) * crash_course,
                 y = orbit_position.y,
