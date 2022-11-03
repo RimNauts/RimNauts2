@@ -116,7 +116,9 @@ namespace RimNauts2 {
     public static class TransportpodFromSatelliteAnimation {
         public static bool Prefix(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
             int initialTile = (int) typeof(RimWorld.Planet.TravelingTransportPods).GetField("initialTile", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
-            foreach (RimWorld.Planet.WorldObject worldObject in Find.World.worldObjects.AllWorldObjects) {
+            foreach (RimWorld.Planet.WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
+                                                                where o is Satellite
+                                                                select o) {
                 if (worldObject.Tile == initialTile) {
                     __result = worldObject.DrawPos;
                     return false;
@@ -129,7 +131,9 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods), "End", MethodType.Getter)]
     public static class TransportpodToSatelliteAnimation {
         public static bool Prefix(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
-            foreach (RimWorld.Planet.WorldObject worldObject in Find.World.worldObjects.AllWorldObjects) {
+            foreach (RimWorld.Planet.WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
+                                                                where o is Satellite
+                                                                select o) {
                 if (worldObject.Tile == __instance.destinationTile) {
                     __result = worldObject.DrawPos;
                     return false;
