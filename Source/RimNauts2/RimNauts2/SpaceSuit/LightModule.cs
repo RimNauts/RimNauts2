@@ -12,24 +12,41 @@ namespace RimNauts2.SpaceSuit {
             CompGlower compGlower1 = new CompGlower();
             compGlower1.props = new RimWorld.CompProperties_Glower();
             light = compGlower1;
-            ((RimWorld.CompProperties_Glower) light.props).glowColor = new ColorInt(255, 255, 255, 255);
-            ((RimWorld.CompProperties_Glower) light.props).glowRadius = 3f;
+            ((RimWorld.CompProperties_Glower) light.props).glowColor = new ColorInt(255, 255, 255, 0);
+            ((RimWorld.CompProperties_Glower) light.props).glowRadius = 6f;
+            ((RimWorld.CompProperties_Glower) light.props).darklightToggle = true;
             light.parent = this;
         }
 
         public override void Tick() {
             base.Tick();
-            if (Wearer != null && Wearer.Map != null) map = Wearer.Map;
-            if (Wearer == null || !is_dark()) {
+            Log.Clear();
+            if (Wearer != null) map = Wearer.Map;
+            if (Wearer != null) {
+                Log.Message("curr pos: " + Wearer.Position);
+                Log.Message("prev pos: " + prev_pos);
+                Log.Message("same pos: " + (Wearer.Position == prev_pos));
+                Log.Message("lights_turned_off: " + lights_turned_off);
+                Log.Message("is_dark: " + is_dark());
+                Log.Message("InContainerEnclosed: " + Wearer.InContainerEnclosed);
+            }
+            if (Wearer == null || !is_dark() || Wearer.InContainerEnclosed) {
                 if (lights_turned_off) return;
+                Log.Message("turn_lights_off: true");
                 turn_lights_off();
-            } else if (Wearer.InContainerEnclosed) {
-                if (lights_turned_off) return;
-                turn_lights_off();
+                lights_turned_off = true;
             } else if (lights_turned_off) {
+                Log.Message("turn_lights_on: true");
                 turn_lights_on();
+                lights_turned_off = false;
             } else {
-                if (prev_pos.IsInside(Wearer)) return;
+                lights_turned_off = false;
+
+                if (Wearer.Position == prev_pos) {
+                    Log.Message("update_light_position: false");
+                    return;
+                }
+                Log.Message("update_light_position: true");
                 update_light_position();
             }
         }
@@ -40,24 +57,26 @@ namespace RimNauts2.SpaceSuit {
         }
 
         private void turn_lights_off() {
-            // update light values
-            map.mapDrawer.MapMeshDirty(prev_pos, MapMeshFlag.Things);
             map.glowGrid.DeRegisterGlower(light);
-            // update values
-            lights_turned_off = true;
         }
 
         private void turn_lights_on() {
             // update light values
-            map.mapDrawer.MapMeshDirty(Wearer.Position, MapMeshFlag.Things);
-            map.glowGrid.RegisterGlower(light);
             light.parent.Position = Wearer.Position;
+            map.glowGrid.RegisterGlower(light);
             // update values
             prev_pos = Wearer.Position;
-            lights_turned_off = false;
         }
 
-        private bool is_dark() => light_value() < 0.349999994039536;
+        private bool is_dark() {
+            if (!lights_turned_off) map.glowGrid.DeRegisterGlower(light);
+            map.mapDrawer.MapMeshDirty(prev_pos, MapMeshFlag.Things);
+            bool flag = light_value() < 0.349999994039536;
+            Log.Message("light_value: " + light_value());
+            if (!lights_turned_off) map.glowGrid.RegisterGlower(light);
+            map.mapDrawer.MapMeshDirty(prev_pos, MapMeshFlag.Things);
+            return true;
+        }
 
         private float light_value() => map.glowGrid.GameGlowAt(Wearer.Position, ignoreCavePlants: true);
     }
