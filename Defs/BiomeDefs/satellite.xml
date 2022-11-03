@@ -3,8 +3,8 @@
     <!-- Root classes -->
 	<BiomeDef Name="RimNauts2_Satellite_Biome">
 		<defName>RimNauts2_Satellite_Biome</defName>
-		<label>satellite</label>
-		<description>satellite</description>
+		<label>Ocean</label>
+		<description>Open ocean. Great for fish. Not so great for you.</description>
 		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
         <canBuildBase>true</canBuildBase>
     	<canAutoChoose>false</canAutoChoose>
@@ -16,7 +16,7 @@
     	<allowFarmingCamps>false</allowFarmingCamps>
 		<animalDensity>0</animalDensity>
 		<plantDensity>0</plantDensity>
-		<settlementSelectionWeight>0.01</settlementSelectionWeight>
+		<settlementSelectionWeight>0</settlementSelectionWeight>
 		<movementDifficulty>1</movementDifficulty>
 		<forageability>0</forageability>
     	<isExtremeBiome>true</isExtremeBiome>
