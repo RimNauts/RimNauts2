@@ -15,7 +15,7 @@ namespace RimNauts2 {
         public override IEnumerable<Gizmo> GetGizmos() {
             Satellite parent = this.parent as Satellite;
 
-            if (Prefs.DevMode &&!parent.HasMap) {
+            if (Prefs.DevMode && !parent.HasMap) {
                 yield return new Command_Action {
                     defaultLabel = Props.label,
                     defaultDesc = Props.desc,

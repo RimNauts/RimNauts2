@@ -2,8 +2,9 @@
 <Defs>
     <MapGeneratorDef Name="RimNauts2_Moon_MapGen" Abstract="True">
 		<genSteps>
-			<li>FindPlayerStartSpot</li>
 			<li>Fog</li>
+			<li>FindPlayerStartSpot</li>
+      		<li>ScenParts</li>
 		</genSteps>
 	</MapGeneratorDef>
 

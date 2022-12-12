@@ -12,7 +12,7 @@
         <allowRivers>false</allowRivers>
         <hasVirtualPlants>false</hasVirtualPlants>
         <texture>World/Biomes/Ocean</texture>
-        <impassable>true</impassable>
+        <impassable>false</impassable>
     	<allowFarmingCamps>false</allowFarmingCamps>
 		<animalDensity>0</animalDensity>
 		<plantDensity>0</plantDensity>

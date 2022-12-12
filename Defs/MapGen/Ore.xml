@@ -2,10 +2,12 @@
 <Defs>
     <MapGeneratorDef Name="RimNauts2_Ore_MapGen" Abstract="True">
 		<genSteps>
+			<li>Fog</li>
+			<li>FindPlayerStartSpot</li>
+      		<li>ScenParts</li>
 			<li>RimNauts2_Ore_GenStep_ElevationFertility</li>
 			<li>RimNauts2_GenStep_Vacuum</li>
 			<li>RimNauts2_GenStep_Environment</li>
-			<li>Fog</li>
 		</genSteps>
 	</MapGeneratorDef>
 

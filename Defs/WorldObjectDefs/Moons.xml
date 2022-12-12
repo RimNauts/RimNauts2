@@ -12,7 +12,6 @@
 		<expandMore>true</expandMore>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
 		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_MoonBarren">
@@ -35,7 +34,6 @@
 		<expandMore>true</expandMore>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
 		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_MoonStripped">
@@ -58,7 +56,6 @@
 		<expandMore>true</expandMore>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_Settle"/>
 		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_MoonWater">

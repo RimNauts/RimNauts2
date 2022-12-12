@@ -23,7 +23,6 @@ namespace RimNauts2 {
         public int mineral_rich_transform_wait;
         public int mineral_rich_abondon;
         public bool currently_mineral_rich = false;
-        public bool has_moon_map = false;
 
         public override void PostAdd() {
             base.PostAdd();
@@ -55,7 +54,6 @@ namespace RimNauts2 {
             Scribe_Values.Look(ref mineral_rich_transform_wait, "mineral_rich_transform_wait");
             Scribe_Values.Look(ref mineral_rich_abondon, "mineral_rich_abondon");
             Scribe_Values.Look(ref currently_mineral_rich, "currently_mineral_rich");
-            Scribe_Values.Look(ref has_moon_map, "has_moon_map");
         }
 
         public override Vector3 DrawPos => get_parametric_ellipse();
@@ -195,14 +193,16 @@ namespace RimNauts2 {
 
         public override void PostRemove() {
             base.PostRemove();
-            if (type == Satellite_Type.Moon && has_moon_map) {
-                Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
+            if (type == Satellite_Type.Moon && HasMap) {
+                SatelliteSettings satellite_settings = Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
+                Generate_Satellites.paste_satellite(satellite_settings);
             } else if (type == Satellite_Type.None) {
                 Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
             } else if (type == Satellite_Type.Buffer) {
                 // nothing
             } else if (type == Satellite_Type.Asteroid_Ore) {
-                Satellite satellite = Generate_Satellites.copy_satellite(this, Satellite_Type_Methods.WorldObjects(Satellite_Type.Asteroid).RandomElement(), Satellite_Type.Asteroid);
+                SatelliteSettings satellite_settings = Generate_Satellites.copy_satellite(this, Satellite_Type_Methods.WorldObjects(Satellite_Type.Asteroid).RandomElement(), Satellite_Type.Asteroid);
+                Satellite satellite = Generate_Satellites.paste_satellite(satellite_settings);
                 satellite.currently_mineral_rich = false;
             } else Generate_Satellites.add_satellite(Tile, Satellite_Type.Asteroid);
         }
