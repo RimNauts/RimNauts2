@@ -195,15 +195,21 @@ namespace RimNauts2 {
             base.PostRemove();
             if (type == Satellite_Type.Moon && HasMap) {
                 SatelliteSettings satellite_settings = Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
-                Generate_Satellites.paste_satellite(satellite_settings);
+                Satellite new_satellite = Generate_Satellites.paste_satellite(satellite_settings);
+                if (!SatelliteContainer.exists(new_satellite.Tile)) {
+                    SatelliteContainer.add(new_satellite);
+                }
             } else if (type == Satellite_Type.None) {
                 Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
             } else if (type == Satellite_Type.Buffer) {
                 // nothing
             } else if (type == Satellite_Type.Asteroid_Ore) {
                 SatelliteSettings satellite_settings = Generate_Satellites.copy_satellite(this, Satellite_Type_Methods.WorldObjects(Satellite_Type.Asteroid).RandomElement(), Satellite_Type.Asteroid);
-                Satellite satellite = Generate_Satellites.paste_satellite(satellite_settings);
-                satellite.currently_mineral_rich = false;
+                satellite_settings.currently_mineral_rich = false;
+                Satellite new_satellite = Generate_Satellites.paste_satellite(satellite_settings);
+                if (!SatelliteContainer.exists(new_satellite.Tile)) {
+                    SatelliteContainer.add(new_satellite);
+                }
             } else Generate_Satellites.add_satellite(Tile, Satellite_Type.Asteroid);
         }
     }
