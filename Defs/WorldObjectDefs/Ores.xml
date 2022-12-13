@@ -2,10 +2,6 @@
 <Defs><WorldObjectDef Name="RimNauts2_Ore" ParentName="RimNauts2_Satellite" Abstract="True">
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
-			<li Class="RimNauts2.WorldObjectCompProperties_HarvestAsteroid">
-				<label>Harvest asteroid</label>
-				<desc>Harvest the mineral-rich asteroid.</desc>
-			</li>
 		</comps>
 	</WorldObjectDef>
 

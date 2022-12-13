@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace RimNauts2 {
     public class Settings : ModSettings {
-        public static int TotalSatelliteObjects = 1000;
+        public static int TotalSatelliteObjects = 500;
         public static bool CrashingAsteroidsToggle = true;
         public static bool MineralAsteroidsToggle = true;
         public static bool MineralAsteroidsVerboseToggle = false;
 
         public override void ExposeData() {
             base.ExposeData();
-            Scribe_Values.Look(ref TotalSatelliteObjects, "TotalSatelliteObjects", 1000);
+            Scribe_Values.Look(ref TotalSatelliteObjects, "TotalSatelliteObjects", 500);
             Scribe_Values.Look(ref CrashingAsteroidsToggle, "CrashingAsteroidsToggle", true);
             Scribe_Values.Look(ref MineralAsteroidsToggle, "MineralAsteroidsToggle", true);
             Scribe_Values.Look(ref MineralAsteroidsVerboseToggle, "MineralAsteroidsVerboseToggle", false);
@@ -33,7 +33,7 @@ namespace RimNauts2 {
             listingStandard1.Begin(rect1);
 
             if (listingStandard1.ButtonText("Default")) {
-                Settings.TotalSatelliteObjects = 1000;
+                Settings.TotalSatelliteObjects = 500;
                 bufferTotalSatelliteObjects = Settings.TotalSatelliteObjects.ToString();
                 Settings.CrashingAsteroidsToggle = true;
                 Settings.MineralAsteroidsToggle = true;

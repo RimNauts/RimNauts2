@@ -106,6 +106,14 @@ namespace RimNauts2 {
                         return;
                     }
                 }
+                if (Find.WorldObjects.AnyWorldObjectAt<Satellite>(end)) {
+                    Satellite satellite = Find.WorldObjects.WorldObjectAt<Satellite>(end);
+                    if (satellite.def.defName.Contains("Asteroid") || satellite.def.defName.Contains("ArtificalSatellite")) {
+                        __result = 9999;
+                        return;
+                    }
+                }
+                
                 __result = 1;
                 return;
             }

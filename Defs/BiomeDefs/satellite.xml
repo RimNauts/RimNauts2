@@ -12,7 +12,7 @@
         <allowRivers>false</allowRivers>
         <hasVirtualPlants>false</hasVirtualPlants>
         <texture>World/Biomes/Ocean</texture>
-        <impassable>true</impassable>
+        <impassable>false</impassable>
     	<allowFarmingCamps>false</allowFarmingCamps>
 		<animalDensity>0</animalDensity>
 		<plantDensity>0</plantDensity>
@@ -43,4 +43,10 @@
 		<wildAnimals><!-- nothing --></wildAnimals>
 		<allowedPackAnimals><!-- nothing --></allowedPackAnimals>
   	</BiomeDef>
+	<modExtensions>
+		<li Class="GeologicalLandforms.BiomeProperties" MayRequire="m00nl1ght.GeologicalLandforms">
+			<allowLandforms>false</allowLandforms>
+			<allowBiomeTransitions>false</allowBiomeTransitions>
+		</li>
+	</modExtensions>
 </Defs>

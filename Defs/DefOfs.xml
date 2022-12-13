@@ -4,13 +4,13 @@
 		<defName>Satellite</defName>
 
         <CrashingAsteroidObjectPercentage>0.05</CrashingAsteroidObjectPercentage>
-        <MineralRichAsteroidsPercentage>0.05</MineralRichAsteroidsPercentage>
+        <MineralRichAsteroidsPercentage>0.01</MineralRichAsteroidsPercentage>
         <MineralRichAsteroidsRandomWaitTicks>(180000.0, 300000.0)</MineralRichAsteroidsRandomWaitTicks>
         <MineralRichAsteroidsRandomInWorldTicks>(60000.0, 300000.0)</MineralRichAsteroidsRandomInWorldTicks>
 
         <AsteroidObjectsOrbitPosition>(250.0, 5.0, 250.0)</AsteroidObjectsOrbitPosition>
         <AsteroidObjectsOrbitSpread>(0.3, 0.1, 0.3)</AsteroidObjectsOrbitSpread>
-        <AsteroidObjectsOrbitSpeedBetween>(4.0, 6.0)</AsteroidObjectsOrbitSpeedBetween>
+        <AsteroidObjectsOrbitSpeedBetween>(2.0, 4.0)</AsteroidObjectsOrbitSpeedBetween>
         <AsteroidObjectsOrbitRandomDirection>false</AsteroidObjectsOrbitRandomDirection>
 
         <MoonObjectsOrbitPosition>(350.0, 200.0, 350.0)</MoonObjectsOrbitPosition>
@@ -20,12 +20,12 @@
 
         <ArtificalSatelliteObjectsOrbitPosition>(140.0, 100.0, 140.0)</ArtificalSatelliteObjectsOrbitPosition>
         <ArtificalSatelliteObjectsOrbitSpread>(0.1, 0.0, 0.1)</ArtificalSatelliteObjectsOrbitSpread>
-        <ArtificalSatelliteObjectsOrbitSpeedBetween>(12.0, 14.0)</ArtificalSatelliteObjectsOrbitSpeedBetween>
+        <ArtificalSatelliteObjectsOrbitSpeedBetween>(8.0, 10.0)</ArtificalSatelliteObjectsOrbitSpeedBetween>
         <ArtificalSatelliteObjectsOrbitRandomDirection>true</ArtificalSatelliteObjectsOrbitRandomDirection>
 
         <SpaceStationObjectsOrbitPosition>(160.0, 100.0, 160.0)</SpaceStationObjectsOrbitPosition>
         <SpaceStationObjectsOrbitSpread>(0.1, 0.0, 0.1)</SpaceStationObjectsOrbitSpread>
-        <SpaceStationObjectsOrbitSpeedBetween>(12.0, 14.0)</SpaceStationObjectsOrbitSpeedBetween>
+        <SpaceStationObjectsOrbitSpeedBetween>(6.0, 8.0)</SpaceStationObjectsOrbitSpeedBetween>
         <SpaceStationObjectsOrbitRandomDirection>false</SpaceStationObjectsOrbitRandomDirection>
 
 		<AsteroidObjects>

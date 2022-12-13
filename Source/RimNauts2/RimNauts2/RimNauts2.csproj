@@ -69,7 +69,6 @@
     <Compile Include="SatelliteDefOf.cs" />
     <Compile Include="SatelliteDef.cs" />
     <Compile Include="Satellite\DestroySatellite.cs" />
-    <Compile Include="Satellite\Moon.cs" />
     <Compile Include="Biome\IncidentWorker_CanFireNow.cs" />
     <Compile Include="RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +77,7 @@
     <Compile Include="Satellite\Satellite.cs" />
     <Compile Include="Satellite\SatelliteContainer.cs" />
     <Compile Include="Satellite\Satellite_Type.cs" />
+    <Compile Include="Satellite\SettleCommand.cs" />
     <Compile Include="Settings\DebugToolsSatellites.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="SpaceSuit\LightModule.cs" />
