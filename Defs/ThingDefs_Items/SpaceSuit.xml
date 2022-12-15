@@ -147,7 +147,7 @@
             </li>
         </comps>
         <verbs>
-            <li>
+            <li MayRequire="Ludeon.RimWorld.Royalty">
                 <verbClass>Verb_Jump</verbClass>
                 <label>jump</label>
                 <commandIcon>Things/Pawn/Humanlike/Apparel/JumpPack/JumpPack</commandIcon>
@@ -160,9 +160,9 @@
                 <flightEffecterDef>JumpFlightEffect</flightEffecterDef>
                 <requireLineOfSight>true</requireLineOfSight>
                 <targetParams>
-                <canTargetLocations>true</canTargetLocations>
-                <canTargetPawns>false</canTargetPawns>
-                <canTargetBuildings>false</canTargetBuildings>
+                    <canTargetLocations>true</canTargetLocations>
+                    <canTargetPawns>false</canTargetPawns>
+                    <canTargetBuildings>false</canTargetBuildings>
                 </targetParams>
             </li>
         </verbs>
