@@ -2,12 +2,14 @@
 <Defs>
     <ThingDef ParentName="HatMakeableBase">
         <defName>RimNauts2_Apparel_SpaceSuit_Head</defName>
-        <label>space suite mask</label>
-        <description>The space suite is used for space exploration and is able to protect the user against extreme temperatures and radiation.</description>
+        <label>spacesuit helmet</label>
+        <description>The spacesuit is used for space exploration and can protect the user against extreme temperatures and radiation.</description>
         <techLevel>Spacer</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-            <researchPrerequisite>PoweredArmor</researchPrerequisite>
+            <researchPrerequisites>
+                <li>TransportPod</li>
+            </researchPrerequisites>
             <skillRequirements>
                 <Crafting>7</Crafting>
             </skillRequirements>
@@ -22,26 +24,26 @@
         <thingClass>RimNauts2.SpaceSuit.LightModule</thingClass>
         <tickerType>Normal</tickerType>
         <statBases>
-            <WorkToMake>21000</WorkToMake>
-            <MaxHitPoints>150</MaxHitPoints>
-            <Mass>1.5</Mass>
-            <Flammability>0.4</Flammability>
-            <ArmorRating_Sharp>1.06</ArmorRating_Sharp>
-            <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
-            <ArmorRating_Heat>0.54</ArmorRating_Heat>
-            <Insulation_Cold>50</Insulation_Cold>
-            <Insulation_Heat>50</Insulation_Heat>
-            <EquipDelay>4</EquipDelay>
+            <WorkToMake>15750</WorkToMake>
+            <MaxHitPoints>120</MaxHitPoints>
+            <Mass>1</Mass>
+            <Flammability>0.10</Flammability>
+            <ArmorRating_Sharp>0.62</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+            <ArmorRating_Heat>1.00</ArmorRating_Heat>
+            <Insulation_Cold>40</Insulation_Cold>
+            <Insulation_Heat>40</Insulation_Heat>
+            <EquipDelay>2</EquipDelay>
         </statBases>
         <equippedStatOffsets>
             <ToxicResistance>1.0</ToxicResistance>
-            <MoveSpeed>-0.02</MoveSpeed>
+            <MoveSpeed>-0.04</MoveSpeed>
             <ShootingAccuracyPawn>-0.1</ShootingAccuracyPawn>
         </equippedStatOffsets>
         <costList>
             <ComponentSpacer>1</ComponentSpacer>
-            <Plasteel>40</Plasteel>
-            <Cloth>25</Cloth>
+            <Plasteel>25</Plasteel>
+            <Hyperweave>5</Hyperweave>
         </costList>
         <apparel>
             <bodyPartGroups>
@@ -65,12 +67,14 @@
     
     <ThingDef ParentName="ArmorMachineableBase">
         <defName>RimNauts2_Apparel_SpaceSuit_Body</defName>
-        <label>space suite</label>
-        <description>The space suite is used for space exploration and is able to protect the user against extreme temperatures and radiation.</description>
+        <label>spacesuite armor</label>
+        <description>The spacesuit is used for space exploration and can protect the user against extreme temperatures and radiation.</description>
         <techLevel>Spacer</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-            <researchPrerequisite>PoweredArmor</researchPrerequisite>
+            <researchPrerequisites>
+                <li>TransportPod</li>
+            </researchPrerequisites>
             <skillRequirements>
                 <Crafting>7</Crafting>
             </skillRequirements>
@@ -84,17 +88,17 @@
         </graphicData>
         <generateCommonality>2</generateCommonality>
         <statBases>
-            <WorkToMake>60000</WorkToMake>
-            <MaxHitPoints>340</MaxHitPoints>
-            <Mass>12</Mass>
-            <Flammability>0.4</Flammability>
-            <ArmorRating_Sharp>0.87</ArmorRating_Sharp>
-            <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
-            <ArmorRating_Heat>0.41</ArmorRating_Heat>
-            <JumpRange>20.0</JumpRange>
-            <Insulation_Cold>50</Insulation_Cold>
-            <Insulation_Heat>50</Insulation_Heat>
-            <EquipDelay>14</EquipDelay>
+            <WorkToMake>45000</WorkToMake>
+            <MaxHitPoints>280</MaxHitPoints>
+            <Mass>9</Mass>
+            <Flammability>0.10</Flammability>
+            <ArmorRating_Sharp>0.62</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+            <ArmorRating_Heat>1.00</ArmorRating_Heat>
+            <JumpRange MayRequire="Ludeon.RimWorld.Royalty">20.0</JumpRange>
+            <Insulation_Cold>80</Insulation_Cold>
+            <Insulation_Heat>80</Insulation_Heat>
+            <EquipDelay>11</EquipDelay>
         </statBases>
         <equippedStatOffsets>
             <MoveSpeed>-0.4</MoveSpeed>
@@ -111,7 +115,7 @@
         <costList>
             <ComponentSpacer>4</ComponentSpacer>
             <Plasteel>100</Plasteel>
-            <Uranium>20</Uranium>
+            <Hyperweave>20</Hyperweave>
         </costList>
         <apparel>
             <bodyPartGroups>
@@ -135,7 +139,7 @@
             <li>RewardStandardHighFreq</li>
         </thingSetMakerTags>
         <comps>
-            <li Class="CompProperties_Reloadable">
+            <li MayRequire="Ludeon.RimWorld.Royalty" Class="CompProperties_Reloadable">
                 <maxCharges>25</maxCharges>
                 <ammoDef>Chemfuel</ammoDef>
                 <ammoCountPerCharge>20</ammoCountPerCharge>
