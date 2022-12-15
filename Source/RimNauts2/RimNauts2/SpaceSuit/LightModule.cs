@@ -25,9 +25,9 @@ namespace RimNauts2.SpaceSuit {
 
         public override void Tick() {
             base.Tick();
-            if (Wearer == null || !is_dark() || Wearer.InContainerEnclosed) {
+            if (Wearer == null || !is_dark() || Wearer.InContainerEnclosed || Wearer.CurJob.def == RimWorld.JobDefOf.LayDown || Wearer.CurJob.def == RimWorld.JobDefOf.LayDownAwake || Wearer.CurJob.def == RimWorld.JobDefOf.LayDownResting) {
                 if (lights_turned_off) return;
-                if (Wearer == null || Wearer.InContainerEnclosed) {
+                if (Wearer == null || Wearer.InContainerEnclosed || Wearer.CurJob.def == RimWorld.JobDefOf.LayDown || Wearer.CurJob.def == RimWorld.JobDefOf.LayDownAwake || Wearer.CurJob.def == RimWorld.JobDefOf.LayDownResting) {
                     lights_turned_off = true;
                     wait_time = wait_time_min;
                 } else if (wait_time > 0) {
