@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <FleckDef ParentName="FleckBase">
+        <defName>RimNauts2_Fleck_Flashlight</defName>
+        <altitudeLayer>LightingOverlay</altitudeLayer>
+        <solidTime>0.001</solidTime>
+        <fadeOutTime>0.0</fadeOutTime>
+        <graphicData>
+            <texPath>Things/Mote/RimNauts2_Flashlight</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+    </FleckDef>
+</Defs>
