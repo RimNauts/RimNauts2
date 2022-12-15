@@ -7,6 +7,7 @@ namespace RimNauts2 {
         public static bool CrashingAsteroidsToggle = true;
         public static bool MineralAsteroidsToggle = true;
         public static bool MineralAsteroidsVerboseToggle = false;
+        public static bool HelmetFlashlightToggle = true;
 
         public override void ExposeData() {
             base.ExposeData();
@@ -14,6 +15,7 @@ namespace RimNauts2 {
             Scribe_Values.Look(ref CrashingAsteroidsToggle, "CrashingAsteroidsToggle", true);
             Scribe_Values.Look(ref MineralAsteroidsToggle, "MineralAsteroidsToggle", true);
             Scribe_Values.Look(ref MineralAsteroidsVerboseToggle, "MineralAsteroidsVerboseToggle", false);
+            Scribe_Values.Look(ref HelmetFlashlightToggle, "HelmetFlashlightToggle", true);
         }
     }
 
@@ -38,6 +40,7 @@ namespace RimNauts2 {
                 Settings.CrashingAsteroidsToggle = true;
                 Settings.MineralAsteroidsToggle = true;
                 Settings.MineralAsteroidsVerboseToggle = false;
+                Settings.HelmetFlashlightToggle = true;
             }
             listingStandard1.Label("Total satellite objects. Changes require a new save");
             listingStandard1.IntEntry(ref Settings.TotalSatelliteObjects, ref bufferTotalSatelliteObjects);
@@ -48,6 +51,7 @@ namespace RimNauts2 {
             listingStandard1.CheckboxLabeled("Crashing asteroids", ref Settings.CrashingAsteroidsToggle);
             listingStandard1.CheckboxLabeled("Mineral-rich asteroids", ref Settings.MineralAsteroidsToggle);
             listingStandard1.CheckboxLabeled("Mineral-rich asteroids messages", ref Settings.MineralAsteroidsVerboseToggle);
+            listingStandard1.CheckboxLabeled("Spacesuit flashlight", ref Settings.HelmetFlashlightToggle);
 
             listingStandard1.End();
         }
