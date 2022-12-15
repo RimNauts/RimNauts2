@@ -2,7 +2,7 @@
 <Defs>
     <FleckDef ParentName="FleckBase">
         <defName>RimNauts2_Fleck_Flashlight</defName>
-        <altitudeLayer>LightingOverlay</altitudeLayer>
+        <altitudeLayer>LayingPawn</altitudeLayer>
         <solidTime>0.001</solidTime>
         <fadeOutTime>0.0</fadeOutTime>
         <graphicData>
