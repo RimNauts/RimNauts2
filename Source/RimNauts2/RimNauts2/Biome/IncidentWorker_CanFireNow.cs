@@ -7,12 +7,11 @@ namespace RimNauts2 {
         public static void Postfix(ref RimWorld.IncidentWorker __instance, RimWorld.IncidentParms parms, ref bool __result) {
             try {
                 if (!__result) return;
-                bool incident_not_on_moon_biome = Find.WorldGrid[parms.target.Tile].biome.defName != "RimNauts2_Satellite_Biome";
-                if (incident_not_on_moon_biome) return;
+                bool incident_not_on_satellite = !Find.WorldGrid[parms.target.Tile].biome.defName.Contains("RimNauts2");
+                if (incident_not_on_satellite) return;
                 if (SatelliteDefOf.Satellite.AllowedSatelliteIncidents.Contains(__instance.def.defName)) return;
                 __result = false;
             } catch { }
-            return;
         }
     }
 
@@ -22,7 +21,6 @@ namespace RimNauts2 {
             if (__result && Find.WorldGrid[parms.target.Tile].biome.defName.Contains("RimNauts2")) {
                 if (parms.raidArrivalMode.minTechLevel >= RimWorld.TechLevel.Industrial) {
                     __result = false;
-                    return;
                 }
             }
         }
