@@ -21,8 +21,6 @@
             <texPath>Things/Pawn/Humanlike/Apparel/SpaceSuit/RimNauts2_CosmonautHelmet</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <thingClass>RimNauts2.SpaceSuit.LightModule</thingClass>
-        <tickerType>Normal</tickerType>
         <statBases>
             <WorkToMake>15750</WorkToMake>
             <MaxHitPoints>120</MaxHitPoints>

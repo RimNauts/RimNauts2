@@ -80,7 +80,6 @@
     <Compile Include="Satellite\SettleCommand.cs" />
     <Compile Include="Settings\DebugToolsSatellites.cs" />
     <Compile Include="Settings\Settings.cs" />
-    <Compile Include="SpaceSuit\LightModule.cs" />
     <Compile Include="Things\BridgeProps.cs" />
     <Compile Include="Things\SatelliteDish.cs" />
     <Compile Include="World\ChangeBiomeMaterial.cs" />
