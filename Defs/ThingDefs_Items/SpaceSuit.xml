@@ -60,6 +60,9 @@
                 <li>2</li>
                 <li>3</li>
             </forceEyesVisibleForRotations>
+            <tags>
+                <li MayRequire="kentington.saveourship2">EVA</li>
+            </tags>
         </apparel>
     </ThingDef>
     
@@ -132,6 +135,9 @@
                 <li>Soldier</li>
             </defaultOutfitTags>
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
+            <tags>
+                <li MayRequire="kentington.saveourship2">EVA</li>
+            </tags>
         </apparel>
         <thingSetMakerTags>
             <li>RewardStandardHighFreq</li>
