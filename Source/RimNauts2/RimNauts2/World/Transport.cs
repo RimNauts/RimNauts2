@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using HarmonyLib;
 using System.Reflection;
 using UnityEngine;
@@ -97,15 +97,9 @@ namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), nameof(RimWorld.Planet.WorldGrid.TraversalDistanceBetween))]
     public static class TransportpodSatelliteIgnoreMaxRange {
         public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            bool to_moon = Find.World.grid.tiles.ElementAt(end).biome.defName.Contains("RimNauts2");
-            bool from_moon = Find.World.grid.tiles.ElementAt(start).biome.defName.Contains("RimNauts2");
-            if (to_moon || from_moon) {
-                if (!from_moon) {
-                    if (Find.WorldObjects.WorldObjectAt<Satellite>(end).def.defName.Contains("Ore")) {
-                        __result = 9999;
-                        return;
-                    }
-                }
+            bool to_orbit = Find.World.grid.tiles.ElementAt(end).biome.defName.Contains("RimNauts2");
+            bool from_orbit = Find.World.grid.tiles.ElementAt(start).biome.defName.Contains("RimNauts2");
+            if (to_orbit || from_orbit) {
                 if (Find.WorldObjects.AnyWorldObjectAt<Satellite>(end)) {
                     Satellite satellite = Find.WorldObjects.WorldObjectAt<Satellite>(end);
                     if (satellite.def.defName.Contains("Asteroid") || satellite.def.defName.Contains("ArtificalSatellite")) {
@@ -113,8 +107,7 @@ namespace RimNauts2 {
                         return;
                     }
                 }
-                
-                __result = 1;
+                __result = 100;
                 return;
             }
         }
