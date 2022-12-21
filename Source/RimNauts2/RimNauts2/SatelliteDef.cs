@@ -137,14 +137,5 @@ namespace RimNauts2 {
                     return false;
             }
         }
-
-        public IntVec3 MapSize(Satellite_Type type) {
-            switch (type) {
-                case Satellite_Type.Asteroid_Ore:
-                    return new IntVec3(100, 1, 100);
-                default:
-                    return new IntVec3(250, 1, 250);
-            }
-        }
     }
 }
