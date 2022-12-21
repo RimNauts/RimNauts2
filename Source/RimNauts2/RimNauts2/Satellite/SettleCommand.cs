@@ -57,7 +57,7 @@ namespace RimNauts2 {
                     satellite = new_satellite;
                 }
                 // generate map
-                Map map = MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.type), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+                Map map = MapGenerator.GenerateMap(Find.World.info.initialMapSize, satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
                 satellite.SetFaction(RimWorld.Faction.OfPlayer);
                 Find.World.WorldUpdate();
 

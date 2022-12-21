@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using HarmonyLib;
 using System.Reflection;
 using UnityEngine;
@@ -83,7 +83,7 @@ namespace RimNauts2 {
                 Satellite satellite = Generate_Satellites.add_satellite(tile_id, type);
 
                 if (Props.createMap) {
-                    MapGenerator.GenerateMap(SatelliteDefOf.Satellite.MapSize(satellite.type), satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
+                    MapGenerator.GenerateMap(Find.World.info.initialMapSize, satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
                     satellite.SetFaction(RimWorld.Faction.OfPlayer);
                     Find.World.WorldUpdate();
                 }
