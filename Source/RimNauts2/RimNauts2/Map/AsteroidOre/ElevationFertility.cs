@@ -18,7 +18,7 @@ namespace RimNauts2.AsteroidOre {
             // the overal shape of the mountains and map features
             ModuleBase elevationGrid = new Perlin(mountainSize, mountainSmoothness, 0.5, 6, Rand.Range(0, 2147483647), QualityMode.High);
             // Make the mountains bigger
-            double elevationScaling = 1.0f;
+            double elevationScaling = 0.3f;
             elevationGrid = new Multiply(elevationGrid, new Const(elevationScaling));
             // By setting fertility = elevation, we ensure that the shape of the terrain will follow the shape of the mountains
             foreach (IntVec3 tile in map.AllCells) {
