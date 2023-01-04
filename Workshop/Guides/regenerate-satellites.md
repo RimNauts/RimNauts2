@@ -13,5 +13,5 @@ Go to settings and it will be under ```General```
 ### Step 4: Press the ```RimNauts2: Regenerate objects``` option
 ![](https://imgur.com/Bj4pkGJ.png)
 
-### Step 5: Check the debug log that the amount of objects regenerate is correct (default is 500 and can be changed in the mod settings)
+### Step 5: Check the debug log that the amount of objects regenerated is correct (default is 500 and can be changed in the mod settings)
 ![](https://imgur.com/NmdrfGw.png)
