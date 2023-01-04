@@ -1,6 +1,7 @@
 # RimNauts 2 Guide: Regenerate Satellites
 ### Step 1: Enable developer mode
 Go to settings and it will be under ```General```
+
 ![](https://imgur.com/lMFRz0z.png)
 
 ### Step 2: Go to the world map
