@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<Universum.Objects>
+	<Universum.ObjectsDef>
+		<defName>Objects</defName>
         <Utilities>
             <li>Vacuum Decompression</li>
             <li>Vacuum Suffocation</li>
         </Utilities>
-  	</Universum.Objects>
+  	</Universum.ObjectsDef>
 </Defs>
