@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
-namespace Universum
-{
-    public class Universum
-    {
+namespace Universum {
+    [Verse.StaticConstructorOnStartup]
+    internal class Universum : Verse.Mod {
+        public Universum(Verse.ModContentPack content) : base(content) {
+            new HarmonyLib.Harmony("sindre0830.universum").PatchAll(Assembly.GetExecutingAssembly());
+        }
     }
 }
