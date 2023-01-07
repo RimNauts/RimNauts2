@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Defs\DefOf.cs" />
     <Compile Include="Defs\ObjectsDef.cs" />
     <Compile Include="Universum.cs" />
