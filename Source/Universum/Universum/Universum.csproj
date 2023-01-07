@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Defs\DefOf.cs" />
+    <Compile Include="Defs\ObjectsDef.cs" />
     <Compile Include="Universum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
