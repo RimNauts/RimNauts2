@@ -5,8 +5,13 @@ namespace Universum {
     public static class Universum {
         static Universum() {
             new HarmonyLib.Harmony("sindre0830.universum").PatchAll(Assembly.GetExecutingAssembly());
-
-            Verse.Log.Message(Verse.TranslatorFormattedStringExtensions.Translate("Info_ModLoaded", new Verse.NamedArgument[] { Info.name, Info.version }));
+            // print mod info
+            Logger.print(
+                Importance.Info,
+                key: "Info_ModLoaded",
+                prefix: false,
+                args: new Verse.NamedArgument[] { Info.name, Info.version }
+            );
         }
     }
 }

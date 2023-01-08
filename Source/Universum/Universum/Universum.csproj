@@ -56,6 +56,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Defs\DefOf.cs" />
     <Compile Include="Defs\ObjectsDef.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Universum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
