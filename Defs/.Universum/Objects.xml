@@ -3,8 +3,8 @@
 	<Universum.ObjectsDef>
 		<defName>Objects</defName>
         <Utilities>
-            <li>Vacuum Decompression</li>
-            <li>Vacuum Suffocation</li>
+            <li>(Universum) Vacuum Decompression</li>
+            <li>(Universum) Vacuum Suffocation</li>
         </Utilities>
   	</Universum.ObjectsDef>
 </Defs>
