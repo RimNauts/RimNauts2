@@ -42,11 +42,17 @@
 		<wildPlants><!-- nothing --></wildPlants>
 		<wildAnimals><!-- nothing --></wildAnimals>
 		<allowedPackAnimals><!-- nothing --></allowedPackAnimals>
+		<modExtensions>
+			<li Class="GeologicalLandforms.BiomeProperties" MayRequire="m00nl1ght.GeologicalLandforms">
+				<allowLandforms>false</allowLandforms>
+				<allowBiomeTransitions>false</allowBiomeTransitions>
+			</li>
+			<li Class="Universum.Utilities.Biome.Properties">
+				<allowed_utilities>
+					<li>(Universum) Vacuum Decompression</li>
+            		<li>(Universum) Vacuum Suffocation</li>
+				</allowed_utilities>
+			</li>
+		</modExtensions>
   	</BiomeDef>
-	<modExtensions>
-		<li Class="GeologicalLandforms.BiomeProperties" MayRequire="m00nl1ght.GeologicalLandforms">
-			<allowLandforms>false</allowLandforms>
-			<allowBiomeTransitions>false</allowBiomeTransitions>
-		</li>
-	</modExtensions>
 </Defs>
