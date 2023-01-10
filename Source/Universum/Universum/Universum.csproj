@@ -59,6 +59,8 @@
     <Compile Include="Logger.cs" />
     <Compile Include="Universum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Biome\Handler.cs" />
+    <Compile Include="Utilities\Biome\Properties.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

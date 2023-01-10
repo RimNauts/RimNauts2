@@ -12,6 +12,8 @@ namespace Universum {
                 prefix: false,
                 args: new Verse.NamedArgument[] { Info.name, Info.version }
             );
+            // load configuarations
+            Utilities.Biome.Handler.Init();
         }
     }
 }
