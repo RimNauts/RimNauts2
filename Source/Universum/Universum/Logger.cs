@@ -1,6 +1,17 @@
 ﻿namespace Universum {
     public static class Logger {
-        public static void print(Importance importance, string key, bool prefix = true, Verse.NamedArgument[] args = null) {
+        public enum Importance {
+            Info = 0,
+            Warning = 1,
+            Error = 2,
+        }
+
+        public static void print(
+            Importance importance,
+            string key,
+            string prefix = null,
+            Verse.NamedArgument[] args = null
+        ) {
             string message;
             if (args == null) {
                 message = Verse.TranslatorFormattedStringExtensions.Translate(key);
@@ -10,8 +21,8 @@
             print(importance, text: message, prefix);
         }
 
-        public static void print(Importance importance, string text, bool prefix = true) {
-            if (prefix) text = Info.name + ": " + text;
+        public static void print(Importance importance, string text, string prefix = null) {
+            if (prefix != null) text = prefix + text;
             switch (importance) {
                 case Importance.Info:
                     Verse.Log.Message(text);
@@ -24,11 +35,5 @@
                     return;
             }
         }
-    }
-
-    public enum Importance {
-        Info = 0,
-        Warning = 1,
-        Error = 2,
     }
 }
