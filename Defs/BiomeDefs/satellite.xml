@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <!-- Root classes -->
-	<BiomeDef Name="RimNauts2_Satellite_Biome">
-		<defName>RimNauts2_Satellite_Biome</defName>
-		<label>Ocean</label>
-		<description>Open ocean. Great for fish. Not so great for you.</description>
+    <!-- Root class -->
+	<BiomeDef Name="RimNauts2_Biome" Abstract="True">
 		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
         <canBuildBase>true</canBuildBase>
     	<canAutoChoose>false</canAutoChoose>
@@ -47,11 +44,46 @@
 				<allowLandforms>false</allowLandforms>
 				<allowBiomeTransitions>false</allowBiomeTransitions>
 			</li>
+		</modExtensions>
+	</BiomeDef>
+    <!-- Satellite objects -->
+	<BiomeDef ParentName="RimNauts2_Biome">
+		<defName>RimNauts2_Satellite_Biome</defName>
+		<label>Ocean</label>
+		<description>Open ocean. Great for fish. Not so great for you.</description>
+		<modExtensions>
 			<li Class="Universum.Utilities.Biome.Properties">
 				<allowed_utilities>
 					<li>(Universum) Vacuum Decompression</li>
             		<li>(Universum) Vacuum Suffocation</li>
+            		<li>(Universum) Temperature</li>
 				</allowed_utilities>
+				<temperature>-100.0</temperature>
+			</li>
+		</modExtensions>
+  	</BiomeDef>
+    <!-- Moons -->
+	<BiomeDef ParentName="RimNauts2_Biome">
+		<defName>RimNauts2_MoonWater_Biome</defName>
+		<label>Ocean</label>
+		<description>Open ocean. Great for fish. Not so great for you.</description>
+		<baseWeatherCommonalities>
+			<RimNauts2_OuterSpaceWeather>0</RimNauts2_OuterSpaceWeather>
+			<Clear>0.4</Clear>
+			<Fog>0.2</Fog>
+			<Rain>1</Rain>
+			<DryThunderstorm>0</DryThunderstorm>
+			<RainyThunderstorm>0.8</RainyThunderstorm>
+			<FoggyRain>0.2</FoggyRain>
+			<SnowGentle>0</SnowGentle>
+			<SnowHard>0</SnowHard>
+		</baseWeatherCommonalities>
+		<modExtensions>
+			<li Class="Universum.Utilities.Biome.Properties">
+				<allowed_utilities>
+            		<li>(Universum) Temperature</li>
+				</allowed_utilities>
+				<temperature>10.0</temperature>
 			</li>
 		</modExtensions>
   	</BiomeDef>
