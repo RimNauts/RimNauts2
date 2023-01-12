@@ -63,6 +63,7 @@
     <Compile Include="Utilities\Biome\Handler.cs" />
     <Compile Include="Utilities\Biome\Properties.cs" />
     <Compile Include="Utilities\Caching_Handler.cs" />
+    <Compile Include="Utilities\Temperature.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
