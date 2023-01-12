@@ -57,6 +57,7 @@
 					<li>(Universum) Vacuum Decompression</li>
             		<li>(Universum) Vacuum Suffocation</li>
             		<li>(Universum) Temperature</li>
+					<li>(Universum) Ocean Masking</li>
 				</allowed_utilities>
 				<temperature>-100.0</temperature>
 			</li>
@@ -82,6 +83,7 @@
 			<li Class="Universum.Utilities.Biome.Properties">
 				<allowed_utilities>
             		<li>(Universum) Temperature</li>
+					<li>(Universum) Ocean Masking</li>
 				</allowed_utilities>
 				<temperature>10.0</temperature>
 			</li>
