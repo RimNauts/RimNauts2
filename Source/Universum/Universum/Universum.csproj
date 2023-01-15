@@ -65,6 +65,8 @@
     <Compile Include="Utilities\Caching_Handler.cs" />
     <Compile Include="Utilities\Ocean_Masking.cs" />
     <Compile Include="Utilities\Temperature.cs" />
+    <Compile Include="Utilities\Terrain\Handler.cs" />
+    <Compile Include="Utilities\Terrain\Properties.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
