@@ -22,4 +22,12 @@ namespace Universum.Utilities {
             if (Cache.allowed_utility(room.Map, "(Universum) Temperature")) __result *= 0.01f;
         }
     }
+
+    [HarmonyLib.HarmonyPatch(typeof(Verse.RoomTempTracker), "ThinRoofEqualizationTempChangePerInterval")]
+    public static class RoomTempTracker_ThinRoofEqualizationTempChangePerInterval {
+        public static void Postfix(ref float __result, Verse.RoomTempTracker __instance) {
+            Verse.Room room = (Verse.Room) typeof(Verse.RoomTempTracker).GetField("room", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(__instance);
+            if (Cache.allowed_utility(room.Map, "(Universum) Temperature")) __result *= 0.01f;
+        }
+    }
 }
