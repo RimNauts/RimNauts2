@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
+using Verse;
 
 namespace Universum.Utilities {
     [HarmonyLib.HarmonyPatch(typeof(Verse.MapTemperature), "OutdoorTemp", HarmonyLib.MethodType.Getter)]
@@ -68,6 +69,20 @@ namespace Universum.Utilities {
         public static void Postfix(Verse.Room __instance) {
             if (!Cache.allowed_utility(__instance.Map, "(Universum) Vacuum")) return;
             __instance.Notify_RoofChanged();
+        }
+    }
+
+    [HarmonyLib.HarmonyPatch(typeof(RimWorld.GlobalControls), "TemperatureString")]
+    public static class GlobalControls_TemperatureString {
+        public static void Postfix(ref string __result) {
+            if (!Cache.allowed_utility(Verse.Find.CurrentMap, "(Universum) Vacuum")) return;
+            if (__result.Contains("Indoors".Translate())) {
+                __result = __result.Replace("Indoors".Translate(), "Universum_Indoors".Translate());
+            } else if (__result.Contains("IndoorsUnroofed".Translate())) {
+                __result = __result.Replace("IndoorsUnroofed".Translate(), "Universum_IndoorsUnroofed".Translate());
+            } else if (__result.Contains("Outdoors".Translate().CapitalizeFirst())) {
+                __result = __result.Replace("Outdoors".Translate().CapitalizeFirst(), "Universum_Outdoors".Translate());
+            }
         }
     }
 }
