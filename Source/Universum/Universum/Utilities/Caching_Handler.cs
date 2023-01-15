@@ -90,6 +90,8 @@ namespace Universum.Utilities {
 
         public static bool allowed_utility(RimWorld.BiomeDef biome, string utility) => caching_handler.allowed_utility(biome, utility);
 
+        public static bool allowed_utility(Verse.TerrainDef terrain, string utility) => caching_handler.allowed_utility(terrain, utility);
+
         public static float temperature(Verse.Map map) => caching_handler.temperature(map);
 
         public static void remove(Verse.Map map) => caching_handler.remove(map);
