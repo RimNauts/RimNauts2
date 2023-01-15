@@ -58,6 +58,7 @@
             		<li>(Universum) Vacuum Suffocation</li>
             		<li>(Universum) Temperature</li>
 					<li>(Universum) Ocean Masking</li>
+					<li>(Universum) Vacuum</li>
 				</allowed_utilities>
 				<temperature>-100.0</temperature>
 			</li>
