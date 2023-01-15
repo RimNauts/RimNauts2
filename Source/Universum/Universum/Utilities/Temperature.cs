@@ -30,4 +30,13 @@ namespace Universum.Utilities {
             if (Cache.allowed_utility(room.Map, "(Universum) Temperature")) __result *= 0.01f;
         }
     }
+
+    [HarmonyLib.HarmonyPatch(typeof(Verse.RoomTempTracker), "EqualizeTemperature")]
+    public static class RoomTempTracker_EqualizeTemperature {
+        public static void Postfix(Verse.RoomTempTracker __instance) {
+            Verse.Room room = (Verse.Room) typeof(Verse.RoomTempTracker).GetField("room", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(__instance);
+            if (!Cache.allowed_utility(room.Map, "(Universum) Temperature")) return;
+            if (room.OpenRoofCount > 0) __instance.Temperature = Cache.temperature(room.Map);
+        }
+    }
 }
