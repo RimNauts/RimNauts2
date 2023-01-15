@@ -2,4 +2,5 @@
 <LanguageData>
     <Info_ModLoaded>{0} (v{1}) has successfully loaded.</Info_ModLoaded>
     <Biome_Handler_Stats>{0} biomes found, {1} configurations found</Biome_Handler_Stats>
+    <Terrain_Handler_Stats>{0} terrains found, {1} configurations found</Terrain_Handler_Stats>
 </LanguageData>

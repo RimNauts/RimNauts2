@@ -13,6 +13,7 @@ namespace Universum {
             );
             // load configuarations
             Utilities.Biome.Handler.init();
+            Utilities.Terrain.Handler.init();
         }
     }
 }
