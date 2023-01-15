@@ -7,11 +7,13 @@ namespace Universum.Utilities {
     public class Caching_Handler : Verse.GameComponent {
         public Dictionary<int, Dictionary<string, bool>> map_utilities;
         public Dictionary<string, Dictionary<string, bool>> biome_utilities;
+        public Dictionary<string, Dictionary<string, bool>> terrain_utilities;
         public Dictionary<int, float> map_temperature;
         
         public Caching_Handler(Verse.Game game) : base() {
             map_utilities = new Dictionary<int, Dictionary<string, bool>>();
             biome_utilities = new Dictionary<string, Dictionary<string, bool>>();
+            terrain_utilities = new Dictionary<string, Dictionary<string, bool>>();
             map_temperature = new Dictionary<int, float>();
             Cache.caching_handler = this;
         }
@@ -42,6 +44,19 @@ namespace Universum.Utilities {
             return property_value;
         }
 
+        public bool allowed_utility(Verse.TerrainDef terrain, string utility) {
+            if (terrain == null) return false;
+            // branch if map is cached
+            if (terrain_utilities.TryGetValue(terrain.defName, out var utilities)) {
+                // branch if utility is cached
+                if (utilities.TryGetValue(utility, out var cached_property_value)) return cached_property_value;
+            } else terrain_utilities.Add(terrain.defName, new Dictionary<string, bool>());
+            // get value and cache result
+            var property_value = Terrain.Handler.get_properties(terrain).allowed_utilities.Contains(utility);
+            terrain_utilities[terrain.defName].Add(utility, property_value);
+            return property_value;
+        }
+
         public float temperature(Verse.Map map) {
             if (map == null) return 0.0f;
             // branch if map is cached
@@ -60,6 +75,7 @@ namespace Universum.Utilities {
         public void clear() {
             map_utilities = new Dictionary<int, Dictionary<string, bool>>();
             biome_utilities = new Dictionary<string, Dictionary<string, bool>>();
+            terrain_utilities = new Dictionary<string, Dictionary<string, bool>>();
             map_temperature = new Dictionary<int, float>();
         }
     }
