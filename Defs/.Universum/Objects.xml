@@ -3,8 +3,14 @@
 	<Universum.ObjectsDef>
 		<defName>Objects</defName>
         <Utilities>
-            <li>(Universum) Vacuum Decompression</li>
-            <li>(Universum) Vacuum Suffocation</li>
+            <li>
+                <id>Universum.vacuum_decompression</id>
+                <mod_name>Universum</mod_name>
+                <label_key>Universum.Utility.Label.vacuum_decompression</label_key>
+                <description_key>Universum.Utility.Description.vacuum_decompression</description_key>
+                <default_toggle>true</default_toggle>
+                <hide_in_settings>false</hide_in_settings>
+            </li>
         </Utilities>
   	</Universum.ObjectsDef>
 </Defs>

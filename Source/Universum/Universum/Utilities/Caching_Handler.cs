@@ -19,6 +19,8 @@ namespace Universum.Utilities {
 
         public bool allowed_utility(Verse.Map map, string utility) {
             if (map == null) return false;
+            // branch if not enabled in settings
+            if (!Settings.utility_turned_on(utility)) return false;
             // branch if map is cached
             if (map_utilities.TryGetValue(map.uniqueID, out var utilities)) {
                 // branch if utility is cached
@@ -32,6 +34,8 @@ namespace Universum.Utilities {
 
         public bool allowed_utility(RimWorld.BiomeDef biome, string utility) {
             if (biome == null) return false;
+            // branch if not enabled in settings
+            if (!Settings.utility_turned_on(utility)) return false;
             // branch if map is cached
             if (biome_utilities.TryGetValue(biome.defName, out var utilities)) {
                 // branch if utility is cached
@@ -45,6 +49,8 @@ namespace Universum.Utilities {
 
         public bool allowed_utility(Verse.TerrainDef terrain, string utility) {
             if (terrain == null) return false;
+            // branch if not enabled in settings
+            if (!Settings.utility_turned_on(utility)) return false;
             // branch if map is cached
             if (terrain_utilities.TryGetValue(terrain.defName, out var utilities)) {
                 // branch if utility is cached

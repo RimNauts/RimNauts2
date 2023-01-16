@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <!-- vacuum_decompression -->
+    <Universum.Utility.Label.vacuum_decompression>Decompression</Universum.Utility.Label.vacuum_decompression>
+    <Universum.Utility.Description.vacuum_decompression>Handles the decompression system.</Universum.Utility.Description.vacuum_decompression>
+</LanguageData>
