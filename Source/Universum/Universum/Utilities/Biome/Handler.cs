@@ -25,7 +25,7 @@ namespace Universum.Utilities.Biome {
             // print stats
             Logger.print(
                 Logger.Importance.Info,
-                key: "Biome_Handler_Stats",
+                key: "Universum.Info.biome_handler_done",
                 prefix: "\t",
                 args: new Verse.NamedArgument[] { total_biomes_found, total_configurations_found }
             );

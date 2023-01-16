@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-    <Universum_Indoors>Airtight</Universum_Indoors>
-    <Universum_IndoorsUnroofed>Leaking</Universum_IndoorsUnroofed>
-    <Universum_Outdoors>Vacuum</Universum_Outdoors>
+    <Universum.indoors>Airtight</Universum.indoors>
+    <Universum.unroofed>Leaking</Universum.unroofed>
+    <Universum.outdoors>Vacuum</Universum.outdoors>
 </LanguageData>

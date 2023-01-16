@@ -8,7 +8,7 @@ namespace Universum {
             // print mod info
             Logger.print(
                 Logger.Importance.Info,
-                key: "Info_ModLoaded",
+                key: "Universum.Info.mod_loaded",
                 args: new Verse.NamedArgument[] { Info.name, Info.version }
             );
             // load configuarations
