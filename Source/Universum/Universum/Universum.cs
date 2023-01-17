@@ -12,6 +12,7 @@ namespace Universum {
                 args: new Verse.NamedArgument[] { Info.name, Info.version }
             );
             // load configuarations
+            Settings.init();
             Utilities.Biome.Handler.init();
             Utilities.Terrain.Handler.init();
         }
