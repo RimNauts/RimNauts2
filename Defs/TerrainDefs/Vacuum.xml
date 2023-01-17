@@ -23,7 +23,7 @@
 		<modExtensions>
 			<li Class="Universum.Utilities.Terrain.Properties">
 				<allowed_utilities>
-					<li>(Universum) Vacuum</li>
+					<li>Universum.vacuum</li>
 				</allowed_utilities>
 			</li>
 		</modExtensions>
