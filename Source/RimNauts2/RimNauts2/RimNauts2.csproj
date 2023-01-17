@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Biome\BiomeWorker_Satellite.cs" />
     <Compile Include="Biome\SetSatelliteBiome.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Map\AsteroidOre\ElevationFertility.cs" />
