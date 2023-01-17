@@ -26,7 +26,7 @@ namespace Universum.Utilities.Terrain {
             Logger.print(
                 Logger.Importance.Info,
                 key: "Universum.Info.terrain_handler_done",
-                prefix: "\t",
+                prefix: Style.tab,
                 args: new Verse.NamedArgument[] { total_terrains_found, total_configurations_found }
             );
         }

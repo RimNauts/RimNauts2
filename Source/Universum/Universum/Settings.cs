@@ -13,7 +13,7 @@ namespace Universum {
             Logger.print(
                 Logger.Importance.Info,
                 key: "Universum.Info.settings_loader_done",
-                prefix: "\t",
+                prefix: Style.tab,
                 args: new Verse.NamedArgument[] { total_configurations_found }
             );
         }
@@ -32,7 +32,7 @@ namespace Universum {
                 Logger.print(
                     Logger.Importance.Error,
                     key: "Universum.Error.failed_to_find_utility",
-                    prefix: Info.name + ": ",
+                    prefix: Style.name_prefix,
                     args: new Verse.NamedArgument[] { id }
                 );
                 failed_attempts.Add(id, false);
