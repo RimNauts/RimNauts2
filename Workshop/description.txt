@@ -34,6 +34,9 @@ Mineral-rich asteroids will randomly show up in the asteroid belt for a limited 
 [img]https://imgur.com/QIRCrLb.png[/img]
 - [url=https://steamcommunity.com/workshop/filedetails/discussion/2880599514/3473990693221899916/]Adding custom mineral-rich asteroids (XML)[/url]
 
+[img]https://raw.githubusercontent.com/sindre0830/RimNauts2/main/Workshop/PNG/header_universum.png[/img]
+Universum is a work-in-progress [b]outer space framework[/b] built into RimNauts. Universum's features include [b]automatic caching[/b] for performance and [b]customizability[/b], as every module added through this will be toggleable in the mod settings.
+
 
 [img]https://imgur.com/5QHA4wN.png[/img]
 
@@ -41,7 +44,7 @@ Mineral-rich asteroids will randomly show up in the asteroid belt for a limited 
 The only impact this mod has on performance is on the world map. If it lags for you, I recommend using My Little Planet to generate smaller planets. I have also added settings where you can change the amount of satellite objects you want to spawn (asteroid belt). This, however, requires you to [url=https://github.com/sindre0830/RimNauts2/blob/main/Workshop/Guides/regenerate-satellites.md]regenerate satellites.[/url]
 
 [img]https://imgur.com/sC7GWh9.png[/img]
-- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1909914131]Save our Ship 2[/url] to add the space environment on the biomes.
+- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1909914131]Save our Ship 2[/url] to add their space environment on the biomes.
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1117406550]My Little Planet[/url] will help with performance on the world map.
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2878587061]SRTS[/url] for reusable ships.
 
@@ -77,12 +80,6 @@ No, if you just want the asteroid belt animation, you can just not use the other
 Mostly for role-play, but there is also asteroid mining which requires you to travel from orbit (moon base, space station). It is also a lot better on performance since there are no animals in new biomes.
 [/quote]
 [quote]
-[b]There is oxygen on the moon!?[/b]
-
-Yes, you need SOS2 to get oxygen system implemented. I have patched it so you just need SOS2 loaded for it to work.
-I am also working on my own oxygen system, but it takes time to get it right.
-[/quote]
-[quote]
 [b]Can we get reusable ships?[/b]
 
 Use SRTS or Vehicles Framework.
@@ -91,11 +88,6 @@ Use SRTS or Vehicles Framework.
 [b]Should I use RimNauts 1 together with RimNauts 2?[/b]
 
 No.
-[/quote]
-[quote]
-[b]I have tried following the save game compatible step provided above in the FAQ and I'm still getting the wrong maps. What can I do?[/b]
-
-It is sadly something out of my ability to fix. Users have reported the only fix is to start a new game. If you want to remove the mod from the game, follow the 'how to safely remove this mod from save game' provided above under the FAQ.
 [/quote]
 
 [img]https://imgur.com/JDLtbdD.png[/img]
