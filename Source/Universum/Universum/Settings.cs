@@ -48,21 +48,63 @@ namespace Universum {
 
     public class Settings_Page : Verse.Mod {
         public static Settings settings;
+        private UnityEngine.Vector2 scrollpos = UnityEngine.Vector2.zero;
 
         public Settings_Page(Verse.ModContentPack content) : base(content) => settings = GetSettings<Settings>();
 
         public override void DoSettingsWindowContents(UnityEngine.Rect inRect) {
-            UnityEngine.Rect rect1 = new UnityEngine.Rect(inRect.x, inRect.y + 24f, inRect.width, inRect.height - 24f);
-
-            Verse.Listing_Standard listingStandard1 = new Verse.Listing_Standard();
-
-            listingStandard1.Begin(rect1);
-
-            if (listingStandard1.ButtonText("Default")) {
+            // default button
+            UnityEngine.Rect buttons_rectangle = new UnityEngine.Rect(inRect.x, inRect.y + 24f, inRect.width, inRect.height - 24f);
+            Verse.Listing_Standard buttons_view = new Verse.Listing_Standard();
+            buttons_view.Begin(buttons_rectangle);
+            if (buttons_view.ButtonText(Verse.TranslatorFormattedStringExtensions.Translate("Universum.default"))) {
                 foreach (KeyValuePair<string, ObjectsDef.Metadata> utility in Settings.utilities) Settings.utilities[utility.Key].toggle = Settings.utilities[utility.Key].default_toggle;
             }
-
-            listingStandard1.End();
+            buttons_view.End();
+            // table header
+            UnityEngine.Rect table_header_rectangle = new UnityEngine.Rect(buttons_rectangle.x, buttons_rectangle.y + 34f, buttons_rectangle.width, 30f);
+            Verse.Listing_Standard table_header_view = new Verse.Listing_Standard();
+            Verse.Widgets.DrawHighlight(table_header_rectangle);
+            table_header_view.Begin(table_header_rectangle);
+            table_header_view.Gap(5f);
+            table_header_view.ColumnWidth = 460f;
+            table_header_view.Label(Verse.TranslatorFormattedStringExtensions.Translate("Universum.utilities"));
+            table_header_view.NewColumn();
+            table_header_view.Gap(5f);
+            table_header_view.ColumnWidth = 100f;
+            table_header_view.Label(Verse.TranslatorFormattedStringExtensions.Translate("Universum.enabled"));
+            table_header_view.End();
+            // table content
+            UnityEngine.Rect table_content_rectangle = new UnityEngine.Rect(buttons_rectangle.x, buttons_rectangle.y - 64f, buttons_rectangle.width, Settings.utilities.Count * 38f);
+            UnityEngine.Rect viewRect = new UnityEngine.Rect(0.0f, 0.0f, 100f, Settings.utilities.Count * 30f);
+            Verse.Widgets.BeginScrollView(new UnityEngine.Rect(buttons_rectangle.x, buttons_rectangle.y + 64f, buttons_rectangle.width, 484f), ref scrollpos, viewRect);
+            Verse.Listing_Standard table_header_content = new Verse.Listing_Standard();
+            table_header_content.Begin(table_content_rectangle);
+            table_header_content.verticalSpacing = 8f;
+            table_header_content.ColumnWidth = 500f;
+            table_header_content.Gap(4f);
+            foreach (KeyValuePair<string, ObjectsDef.Metadata> utility in Settings.utilities) {
+                bool checkOn = utility.Value.toggle;
+                string mod_name = "Unknown source";
+                if (utility.Value.mod_name.Length > 0) mod_name = utility.Value.mod_name;
+                string utility_name = utility.Key;
+                if (utility.Value.label_key.Length > 0) {
+                    try {
+                        utility_name = Verse.TranslatorFormattedStringExtensions.Translate(utility.Value.label_key);
+                    } catch { /* couldn't find the language key provided */ }
+                }
+                string label = "(" + mod_name + ") " + utility_name;
+                string utility_description = null;
+                if (utility.Value.description_key.Length > 0) {
+                    try {
+                        utility_description = Verse.TranslatorFormattedStringExtensions.Translate(utility.Value.description_key);
+                    } catch { /* couldn't find the language key provided */ }
+                }
+                table_header_content.CheckboxLabeled(label, ref checkOn, tooltip: utility_description);
+                Settings.utilities[utility.Key].toggle = checkOn;
+            }
+            table_header_content.End();
+            Verse.Widgets.EndScrollView();
         }
 
         public override string SettingsCategory() => "Universum";
