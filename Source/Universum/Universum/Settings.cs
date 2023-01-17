@@ -5,9 +5,15 @@ namespace Universum {
         private static int total_configurations_found;
         public static Dictionary<string, ObjectsDef.Metadata> utilities = new Dictionary<string, ObjectsDef.Metadata>();
         public static Dictionary<string, bool> failed_attempts = new Dictionary<string, bool>();
+        public static Dictionary<string, bool> saved_settings = new Dictionary<string, bool>();
 
         public static void init() {
-            if (utilities.Count <= 0) utilities = load_utilities();
+            // check with defs to update list
+            foreach (ObjectsDef.Metadata metadata in DefOf.Objects.Utilities) utilities.Add(metadata.id, metadata);
+
+            foreach (KeyValuePair<string, bool> saved_utility in saved_settings) {
+                if (utilities.ContainsKey(saved_utility.Key)) utilities[saved_utility.Key].toggle = saved_utility.Value;
+            }
             total_configurations_found = utilities.Count;
             // print stats
             Logger.print(
@@ -16,12 +22,6 @@ namespace Universum {
                 prefix: Style.tab,
                 args: new Verse.NamedArgument[] { total_configurations_found }
             );
-        }
-
-        public static Dictionary<string, ObjectsDef.Metadata> load_utilities() {
-            Dictionary<string, ObjectsDef.Metadata> tmp = new Dictionary<string, ObjectsDef.Metadata>();
-            foreach (ObjectsDef.Metadata metadata in DefOf.Objects.Utilities) tmp.Add(metadata.id, metadata);
-            return tmp;
         }
 
         public static bool utility_turned_on(string id) {
@@ -42,15 +42,37 @@ namespace Universum {
 
         public override void ExposeData() {
             base.ExposeData();
-            Verse.Scribe_Values.Look(ref utilities, "utilities", new Dictionary<string, ObjectsDef.Metadata>());
-            // check with defs to update list
-            Dictionary<string, ObjectsDef.Metadata> tmp = load_utilities();
-            foreach (KeyValuePair<string, ObjectsDef.Metadata> utility in utilities) {
-                if (tmp.ContainsKey(utility.Key)) {
-                    if (tmp[utility.Key].default_toggle == utility.Value.default_toggle && !tmp[utility.Key].hide_in_settings) tmp[utility.Key].toggle = utility.Value.toggle;
-                }
+            Verse.Scribe_Collections.Look(ref saved_settings, "saved_settings", Verse.LookMode.Value, Verse.LookMode.Value);
+        }
+    }
+
+    public class Settings_Page : Verse.Mod {
+        public static Settings settings;
+
+        public Settings_Page(Verse.ModContentPack content) : base(content) => settings = GetSettings<Settings>();
+
+        public override void DoSettingsWindowContents(UnityEngine.Rect inRect) {
+            UnityEngine.Rect rect1 = new UnityEngine.Rect(inRect.x, inRect.y + 24f, inRect.width, inRect.height - 24f);
+
+            Verse.Listing_Standard listingStandard1 = new Verse.Listing_Standard();
+
+            listingStandard1.Begin(rect1);
+
+            if (listingStandard1.ButtonText("Default")) {
+                foreach (KeyValuePair<string, ObjectsDef.Metadata> utility in Settings.utilities) Settings.utilities[utility.Key].toggle = Settings.utilities[utility.Key].default_toggle;
             }
-            utilities = tmp;
+
+            listingStandard1.End();
+        }
+
+        public override string SettingsCategory() => "Universum";
+
+        public override void WriteSettings() {
+            Settings.saved_settings = new Dictionary<string, bool>();
+            foreach (KeyValuePair<string, ObjectsDef.Metadata> utility in Settings.utilities) {
+                Settings.saved_settings.Add(utility.Value.id, utility.Value.toggle);
+            }
+            base.WriteSettings();
         }
     }
 }
