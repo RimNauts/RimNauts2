@@ -36,7 +36,7 @@
         <eventMakers>
             <li>
                 <averageInterval>120</averageInterval>
-                <eventClass>Universum.Utilities.WeatherEvent_Decompression</eventClass>
+                <eventClass>Universum.Utilities.WeatherEvent_Vacuum</eventClass>
             </li>
         </eventMakers>
     </WeatherDef>
