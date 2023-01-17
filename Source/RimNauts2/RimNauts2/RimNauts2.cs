@@ -1,12 +1,16 @@
 ﻿using System.Reflection;
-using Verse;
-using HarmonyLib;
 
 namespace RimNauts2 {
-    [StaticConstructorOnStartup]
-    internal class RimNauts2 : Mod {
-        public RimNauts2(ModContentPack content) : base(content) {
-            new Harmony("sindre0830.RimNauts2").PatchAll(Assembly.GetExecutingAssembly());
+    [Verse.StaticConstructorOnStartup]
+    public static class RimNauts2 {
+        static RimNauts2() {
+            new HarmonyLib.Harmony("sindre0830.RimNauts2").PatchAll(Assembly.GetExecutingAssembly());
+            // print mod info
+            Logger.print(
+                Logger.Importance.Info,
+                key: "RimNauts.Info.mod_loaded",
+                args: new Verse.NamedArgument[] { Info.name, Info.version }
+            );
         }
     }
 }

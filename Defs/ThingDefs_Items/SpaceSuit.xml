@@ -61,7 +61,7 @@
                 <li>3</li>
             </forceEyesVisibleForRotations>
             <tags>
-                <li MayRequire="kentington.saveourship2">EVA</li>
+                <li>EVA</li>
             </tags>
         </apparel>
     </ThingDef>
@@ -136,7 +136,7 @@
             </defaultOutfitTags>
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
             <tags>
-                <li MayRequire="kentington.saveourship2">EVA</li>
+                <li>EVA</li>
             </tags>
         </apparel>
         <thingSetMakerTags>

@@ -20,5 +20,12 @@
 			<li>Medium</li>
 			<li>Heavy</li>
 		</affordances>
+		<modExtensions>
+			<li Class="Universum.Utilities.Terrain.Properties">
+				<allowed_utilities>
+					<li>Universum.vacuum</li>
+				</allowed_utilities>
+			</li>
+		</modExtensions>
   	</TerrainDef>
 </Defs>
