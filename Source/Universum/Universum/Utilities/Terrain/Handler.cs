@@ -20,7 +20,9 @@ namespace Universum.Utilities.Terrain {
             total_terrains_found = terrains.Count();
             total_configurations_found = 0;
             foreach (Properties terrain in terrains) {
-                total_configurations_found += terrain.allowed_utilities.Count();
+                try {
+                    total_configurations_found += terrain.allowed_utilities.Count();
+                } catch { }
             }
             // print stats
             Logger.print(
