@@ -14,8 +14,7 @@ namespace Universum.Utilities.Terrain {
                 try {
                     terrainProperties = ((terrain.GetModExtension<Properties>() ?? DefaultsByDefName.TryGetValue(terrain.defName)) ?? DefaultsByPackageId.TryGetValue(terrain.modContentPack.ModMetaData.PackageIdNonUnique)) ?? new Properties();
                 } catch { /* can't find mod options for carpets and stone terrian as they are auto-generated */ }
-                terrainPropertiesArray[terrain.index] = terrainProperties;
-                
+                terrainPropertiesArray[terrain.index] = terrainProperties; 
             }
             return terrainPropertiesArray;
         }

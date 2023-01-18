@@ -10,7 +10,6 @@ namespace Universum {
         public static void init() {
             // check with defs to update list
             foreach (ObjectsDef.Metadata metadata in DefOf.Objects.Utilities) utilities.Add(metadata.id, metadata);
-
             foreach (KeyValuePair<string, bool> saved_utility in saved_settings) {
                 if (utilities.ContainsKey(saved_utility.Key)) utilities[saved_utility.Key].toggle = saved_utility.Value;
             }
@@ -43,6 +42,7 @@ namespace Universum {
         public override void ExposeData() {
             base.ExposeData();
             Verse.Scribe_Collections.Look(ref saved_settings, "saved_settings", Verse.LookMode.Value, Verse.LookMode.Value);
+            if (saved_settings == null) saved_settings = new Dictionary<string, bool>();
         }
     }
 
