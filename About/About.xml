@@ -16,7 +16,7 @@
 		</li>
 
 		<li>
-			<packageId>sindre0830.Universim</packageId>
+			<packageId>sindre0830.Universum</packageId>
 			<displayName>Universim</displayName>
 			<steamWorkshopUrl></steamWorkshopUrl>
 			<downloadUrl>https://github.com/RimNauts/Universum</downloadUrl>
@@ -24,6 +24,6 @@
 	</modDependencies>
 	<loadAfter>
 		<li>brrainz.harmony</li>
-		<li>sindre0830.Universim</li>
+		<li>sindre0830.Universum</li>
 	</loadAfter>
 </ModMetaData>
