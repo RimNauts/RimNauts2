@@ -52,7 +52,7 @@
 		<label>Ocean</label>
 		<description>Open ocean. Great for fish. Not so great for you.</description>
 		<modExtensions>
-			<li Class="Universum.Utilities.Biome.Properties" MayRequire="sindre0830.universum">
+			<li Class="Universum.Utilities.Biome.Properties">
 				<allowed_utilities>
 					<li>Universum.vacuum_decompression</li>
             		<li>Universum.vacuum_suffocation</li>
@@ -81,7 +81,7 @@
 			<SnowHard>0</SnowHard>
 		</baseWeatherCommonalities>
 		<modExtensions>
-			<li Class="Universum.Utilities.Biome.Properties" MayRequire="sindre0830.universum">
+			<li Class="Universum.Utilities.Biome.Properties">
 				<allowed_utilities>
 					<li>Universum.ocean_masking</li>
 				</allowed_utilities>
