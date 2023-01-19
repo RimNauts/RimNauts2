@@ -5,7 +5,7 @@ Keeps all of the changes done in each version. The version numbering is defined 
 - **Bug fixes** are fixes that might have occured from last update.
 
 ## Update 3.1.0
-- Seperate Universum code from this mod
+- Separate Universum code from this mod
 - Move all hardcoded strings to XML for translators
 
 ## Update 3.0.1
