@@ -34,9 +34,6 @@ Mineral-rich asteroids will randomly show up in the asteroid belt for a limited 
 [img]https://imgur.com/QIRCrLb.png[/img]
 - [url=https://steamcommunity.com/workshop/filedetails/discussion/2880599514/3473990693221899916/]Adding custom mineral-rich asteroids (XML)[/url]
 
-[img]https://raw.githubusercontent.com/sindre0830/RimNauts2/main/Workshop/PNG/header_universum.png[/img]
-Universum is a work-in-progress [b]outer space framework[/b] built into RimNauts. Universum's features include [b]automatic caching[/b] for performance and [b]customizability[/b], as every module added through this will be toggleable in the mod settings.
-
 
 [img]https://imgur.com/5QHA4wN.png[/img]
 
