@@ -47,7 +47,11 @@ namespace RimNauts2 {
                 Generate_Satellites.add_satellite(new_moon_tile_id, Satellite_Type.Moon, def_name: Props.worldObject);
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             } else {
-                Log.Error("RimNauts2: Couldn't find a free tile to spawn a moon on. Either the map size is too small to spawn all the satellites or increase the total satellite objects in settings (requires a new save).");
+                Logger.print(
+                    Logger.Importance.Error,
+                    key: "RimNauts.Error.no_free_tile_for_satellite",
+                    prefix: Style.name_prefix
+                );
             }
         }
     }
