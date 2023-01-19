@@ -14,8 +14,16 @@
 			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
 			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
 		</li>
+
+		<li>
+			<packageId>sindre0830.Universum</packageId>
+			<displayName>Universim</displayName>
+			<steamWorkshopUrl></steamWorkshopUrl>
+			<downloadUrl>https://github.com/RimNauts/Universum</downloadUrl>
+		</li>
 	</modDependencies>
 	<loadAfter>
 		<li>brrainz.harmony</li>
+		<li>sindre0830.Universum</li>
 	</loadAfter>
 </ModMetaData>
