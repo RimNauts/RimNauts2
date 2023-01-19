@@ -23,7 +23,7 @@ namespace RimNauts2 {
 
         public SettingsPage(ModContentPack content) : base(content) => settings = GetSettings<Settings>();
 
-        public override string SettingsCategory() => "RimNauts2";
+        public override string SettingsCategory() => Info.name;
 
         public override void DoSettingsWindowContents(Rect inRect) {
             Rect rect1 = new Rect(inRect.x, inRect.y + 24f, inRect.width, inRect.height - 24f);
@@ -32,22 +32,22 @@ namespace RimNauts2 {
 
             listingStandard1.Begin(rect1);
 
-            if (listingStandard1.ButtonText("Default")) {
+            if (listingStandard1.ButtonText(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.default"))) {
                 Settings.TotalSatelliteObjects = 500;
                 bufferTotalSatelliteObjects = Settings.TotalSatelliteObjects.ToString();
                 Settings.CrashingAsteroidsToggle = true;
                 Settings.MineralAsteroidsToggle = true;
                 Settings.MineralAsteroidsVerboseToggle = false;
             }
-            listingStandard1.Label("Total satellite objects. Changes require a new save");
+            listingStandard1.Label(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.total_satellites_to_spawn_option"));
             listingStandard1.IntEntry(ref Settings.TotalSatelliteObjects, ref bufferTotalSatelliteObjects);
             if (Settings.TotalSatelliteObjects < 0) {
                 Settings.TotalSatelliteObjects = 0;
                 bufferTotalSatelliteObjects = Settings.TotalSatelliteObjects.ToString();
             }
-            listingStandard1.CheckboxLabeled("Crashing asteroids", ref Settings.CrashingAsteroidsToggle);
-            listingStandard1.CheckboxLabeled("Mineral-rich asteroids", ref Settings.MineralAsteroidsToggle);
-            listingStandard1.CheckboxLabeled("Mineral-rich asteroids messages", ref Settings.MineralAsteroidsVerboseToggle);
+            listingStandard1.CheckboxLabeled(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.crashing_asteroids"), ref Settings.CrashingAsteroidsToggle);
+            listingStandard1.CheckboxLabeled(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.mineral_rich_asteroids"), ref Settings.MineralAsteroidsToggle);
+            listingStandard1.CheckboxLabeled(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.mineral_rich_asteroids_messages_option"), ref Settings.MineralAsteroidsVerboseToggle);
 
             listingStandard1.End();
         }

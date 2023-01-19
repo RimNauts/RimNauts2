@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <RimNauts.default>Default</RimNauts.default>
+    <RimNauts.total_satellites_to_spawn_option>Total satellite objects to spawn in the world.</RimNauts.total_satellites_to_spawn_option>
+    <RimNauts.crashing_asteroids>Crashing asteroids</RimNauts.crashing_asteroids>
+    <RimNauts.mineral_rich_asteroids>Mineral-rich asteroids</RimNauts.mineral_rich_asteroids>
+    <RimNauts.mineral_rich_asteroids_messages_option>Mineral-rich asteroids messages</RimNauts.mineral_rich_asteroids_messages_option>
+</LanguageData>
