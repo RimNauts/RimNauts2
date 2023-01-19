@@ -13,7 +13,13 @@ namespace RimNauts2 {
                 foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
                     if (weather.defName.Equals("OuterSpaceWeather")) {
                         map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
-                        if (Prefs.DevMode) Log.Message("RimNauts2: Found SOS2 space weather.");
+                        if (Prefs.DevMode) {
+                            Logger.print(
+                                Logger.Importance.Info,
+                                key: "RimNauts.Info.sos_found",
+                                prefix: Style.name_prefix
+                            );
+                        }
                         break;
                     }
                 }

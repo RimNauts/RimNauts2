@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <RimNauts.Error.cannot_settle_nonplayer>Cannot settle with non-player faction.</RimNauts.Error.cannot_settle_nonplayer>
+    <RimNauts.Error.no_free_tile_for_satellite>Couldn't find a free tile to spawn the satellite on. Either the map size is too small to spawn all the satellites or increase the total satellite objects in settings (requires you to regenerate the satellites).</RimNauts.Error.no_free_tile_for_satellite>
+    <RimNauts.Error.tried_to_launch_thing>Tried to launch {0}, but it's unspawned.</RimNauts.Error.tried_to_launch_thing>
+</LanguageData>

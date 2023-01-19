@@ -49,7 +49,11 @@ namespace RimNauts2 {
 
         public void launch() {
             if (!parent.Spawned) {
-                Log.Error("Tried to launch " + parent + ", but it's unspawned.");
+                Logger.print(
+                    Logger.Importance.Error,
+                    key: "RimNauts.Error.tried_to_launch_thing",
+                    prefix: Style.name_prefix
+                );
             } else {
                 Map map = parent.Map;
                 Building fuelingPortSource = FuelingPortSource;
@@ -75,7 +79,11 @@ namespace RimNauts2 {
 
                 if (tile_id == -1) {
                     Messages.Message(Props.failMessageLaunch, RimWorld.MessageTypeDefOf.NegativeEvent, true);
-                    Log.Error("RimNauts2: Couldn't find a free tile to spawn a " + Props.name + " on. Either the map size is too small to spawn all the satellites or increase the total satellite objects in settings (requires a new save)");
+                    Logger.print(
+                        Logger.Importance.Error,
+                        key: "RimNauts.Error.no_free_tile_for_satellite",
+                        prefix: Style.name_prefix
+                    );
                     return;
                 }
                 Satellite_Type type = Satellite_Type_Methods.get_type_from_string(Props.type);

@@ -21,7 +21,12 @@ namespace RimNauts2 {
         public static void regenerate_satellites() {
             halt_caching = true;
             int satellite_biomes_added = 0;
-            Log.Message("RimNauts2: Starting satellite objects cleanup. Total objects: " + SatelliteContainer.size());
+            Logger.print(
+                Logger.Importance.Info,
+                key: "RimNauts.Info.starting_satellite_objects_cleanup",
+                prefix: Style.name_prefix,
+                args: new Verse.NamedArgument[] { SatelliteContainer.size() }
+            );
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
                 if (biome_def.Contains("RimNauts2")) {
@@ -34,7 +39,12 @@ namespace RimNauts2 {
                     }
                 }
             }
-            Log.Message("RimNauts2: Finished satellite objects cleanup, starting to add back biomes. Total objects: " + SatelliteContainer.size());
+            Logger.print(
+                Logger.Importance.Info,
+                key: "RimNauts.Info.finished_satellite_objects_cleanup",
+                prefix: Style.name_prefix,
+                args: new Verse.NamedArgument[] { SatelliteContainer.size() }
+            );
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
                 if (biome_def == "Ocean") {
@@ -56,9 +66,19 @@ namespace RimNauts2 {
                     if (satellite_biomes_added >= Settings.TotalSatelliteObjects) break;
                 }
             }
-            Log.Message("RimNauts2: Finished adding back biomes, starting to add back objects. Total biomes: " + satellite_biomes_added);
+            Logger.print(
+                Logger.Importance.Info,
+                key: "RimNauts.Info.finished_adding_back_biomes",
+                prefix: Style.name_prefix,
+                args: new Verse.NamedArgument[] { satellite_biomes_added }
+            );
             generate_satellites(overwrite: false);
-            Log.Message("RimNauts2: Finished adding satellite objects back. Total objects: " + SatelliteContainer.size());
+            Logger.print(
+                Logger.Importance.Info,
+                key: "RimNauts.Info.finished_adding_back_satellite_objects",
+                prefix: Style.name_prefix,
+                args: new Verse.NamedArgument[] { satellite_biomes_added }
+            );
             halt_caching = false;
         }
 

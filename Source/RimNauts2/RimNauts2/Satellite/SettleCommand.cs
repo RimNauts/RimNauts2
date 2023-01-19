@@ -35,7 +35,11 @@ namespace RimNauts2 {
         public static void settle(RimWorld.Planet.Caravan caravan, bool change_world_object = true) {
             RimWorld.Faction faction = caravan.Faction;
             if (faction != RimWorld.Faction.OfPlayer) {
-                Log.Error("Cannot settle with non-player faction.");
+                Logger.print(
+                    Logger.Importance.Error,
+                    key: "RimNauts.Error.cannot_settle_nonplayer",
+                    prefix: Style.name_prefix
+                );
             } else {
                 if (Find.AnyPlayerHomeMap == null) {
                     foreach (Pawn podsAliveColonist in RimWorld.PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists) {
