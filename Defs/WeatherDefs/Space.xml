@@ -34,7 +34,7 @@
             <saturation>1.25</saturation>
         </skyColorsNightMid>
         <eventMakers>
-            <li>
+            <li MayRequire="sindre0830.universum">
                 <averageInterval>120</averageInterval>
                 <eventClass>Universum.Utilities.WeatherEvent_Vacuum</eventClass>
             </li>

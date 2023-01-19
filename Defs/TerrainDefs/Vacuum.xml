@@ -21,7 +21,7 @@
 			<li>Heavy</li>
 		</affordances>
 		<modExtensions>
-			<li Class="Universum.Utilities.Terrain.Properties">
+			<li Class="Universum.Utilities.Terrain.Properties" MayRequire="sindre0830.universum">
 				<allowed_utilities>
 					<li>Universum.vacuum</li>
 				</allowed_utilities>
