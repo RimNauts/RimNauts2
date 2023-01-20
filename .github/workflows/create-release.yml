@@ -30,7 +30,7 @@ jobs:
       run: |
         sudo apt-get install unzip
         mkdir RimNauts2/
-        unzip RimNauts2.zip -d /RimNauts2
+        unzip RimNauts2.zip -d RimNauts2
     
     - name: Push folder to steam
       uses: AnarkisGaming/workshop@v1
