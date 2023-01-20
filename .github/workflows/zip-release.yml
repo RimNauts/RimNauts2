@@ -1,0 +1,17 @@
+name: Create Archive
+# when to run the workflow
+on:
+    push:
+        tags:
+        - 'v*.*.*'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@master
+        - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.0
+        with:
+            type: 'zip'
+            filename: 'RimNauts2.zip'
+            exclusions: '*.git* /*Workshop/* /*Source/* /*.github/* .gitignore Changelog.md LICENSE README.md'
