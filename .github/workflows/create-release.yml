@@ -1,0 +1,25 @@
+name: create release
+# when to run the workflow
+on:
+  push:
+    tags:
+    - '*'
+jobs:
+  build:
+    # environment to run on
+    runs-on: ubuntu-latest
+    # steps to perform
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Create zipped folder
+      uses: thedoctor0/zip-release@0.7.0
+      with:
+        type: 'zip'
+        filename: 'RimNauts2.zip'
+        exclusions: '*.zip* *.git* /*Workshop/* /*Source/* /*.github/* .gitignore Changelog.md LICENSE README.md'
+
+    - name: Attach the zipped folder to release
+      uses: ncipollo/release-action@v1
+      with:
+        bodyfile: 'RimNauts2.zip'
