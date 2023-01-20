@@ -24,7 +24,7 @@ jobs:
     - name: Create release and attach the zipped folder
       uses: ncipollo/release-action@v1
       with:
-        bodyfile: 'RimNauts2.zip'
+        artifacts: 'RimNauts2.zip'
 
     - name: Unzip folder to a temporary location
       run: |
