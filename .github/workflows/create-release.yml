@@ -8,6 +8,8 @@ jobs:
   build:
     # environment to run on
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     # steps to perform
     steps:
     - uses: actions/checkout@master
@@ -34,6 +36,7 @@ jobs:
       with: 
         appID: 294100
         publishedFileID: 2880599514
-        env:
-          STEAM_ACCOUNT_NAME: ${{ secrets.accountname }}
-          STEAM_PASSWORD: ${{ secrets.password }}
+        path: "RimNauts2/"
+      env:
+        STEAM_ACCOUNT_NAME: ${{ secrets.accountname }}
+        STEAM_PASSWORD: ${{ secrets.password }}
