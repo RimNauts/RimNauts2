@@ -86,6 +86,11 @@ Use SRTS or Vehicles Framework.
 
 No.
 [/quote]
+[quote]
+[b]Is it CE compatible?[/b]
+
+Yes.
+[/quote]
 
 [img]https://imgur.com/JDLtbdD.png[/img]
 Main programmer: [url=https://ko-fi.com/sindre0830]sindre0830[/url]
@@ -100,5 +105,3 @@ Please check out these talented artist from [url=https://steamcommunity.com/shar
 [url=https://discord.gg/6hU5VXbvCV][img]https://imgur.com/OiVUNYZ.png[/img][/url]
 
 [b]Before[/b] reporting an [b]error[/b], please check the [url=https://steamcommunity.com/workshop/filedetails/discussion/2880599514/3473990693225174184/]bug thread[/url] and see if it is a [b]known issue[/b]. If you enjoy the mod, you can show your appreciation by [b]rating[/b] it! This motivates me to continue developing the mod. If you are feeling extra [b]generous[/b], consider [url=https://ko-fi.com/sindre0830]buying me a cup of coffee.[/url]
-
-[img]https://raw.githubusercontent.com/CombatExtended-Continued/CombatExtended/master/Media/Badge_CE_compatible.png[/img]
