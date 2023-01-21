@@ -1,4 +1,4 @@
-[img]https://imgur.com/Wx5ADev.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_near-earth-objects.png[/img]
 
 This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and artificial-satellites. Everything is [b]visible[/b] and [b]animated[/b] as an orbit on the world map. The moons are playable biomes that needs to be discovered and the artifical satellites needs to be launched into orbit.
 
@@ -26,10 +26,10 @@ Mineral-rich asteroids will randomly show up in the asteroid belt for a limited 
 [img]https://imgur.com/DCtZuRG.png[/img]
 
 [img]https://imgur.com/k1JnrTt.png[/img]
-- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881457639]Russian / Русский[/url]
-- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881589373]German / Deutsch[/url]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882402885]Japanese / 日本[/url]
-- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882438269]Simplified Chinese / 简体中文[/url]
+- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881457639]Russian / Русский[/url] ([i]Outdated[/i])
+- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881589373]German / Deutsch[/url] ([i]Outdated[/i])
+- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882438269]Simplified Chinese / 简体中文[/url] ([i]Outdated[/i])
 
 [img]https://imgur.com/QIRCrLb.png[/img]
 - [url=https://steamcommunity.com/workshop/filedetails/discussion/2880599514/3473990693221899916/]Adding custom mineral-rich asteroids (XML)[/url]
