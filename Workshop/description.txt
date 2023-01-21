@@ -2,50 +2,50 @@
 
 This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and artificial-satellites. Everything is [b]visible[/b] and [b]animated[/b] as an orbit on the world map. The moons are playable biomes that needs to be discovered and the artifical satellites needs to be launched into orbit.
 
-[img]https://imgur.com/Nl4yXHj.gif[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/GIF/asteroid_belt.gif[/img]
 
-[img]https://imgur.com/ptfvSKn.png[/img]
-[img]https://imgur.com/6bOUMKI.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_blast-off.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_pods.png[/img]
 The rocket to the left is a [b]satellite[/b] that you can launch into orbit. This will be visible in the world map and is required to find moons. The amount of satellites you have also increases the chance of finding mineral rich asteroids in orbit. The middle rocket is the [b]space station[/b] that you can launch into orbit, and it will generate a map with a simple starter station. The right most rocket is a [b]cargo transport pod[/b] and can carry more weight. Useful for asteroid mining.
 
-[img]https://imgur.com/fBbryKm.gif[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/GIF/satellites_orbit.gif[/img]
 
-[img]https://imgur.com/6vGMGTG.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_exploration.png[/img]
 
-[img]https://imgur.com/99aH7FZ.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_spacesuit.png[/img]
 
-[img]https://imgur.com/bJdXi0h.gif[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/GIF/land_on_moon_orbit.gif[/img]
 
 To [b]discover moons[/b], you are required to have two satellites in orbit. Once you have that you can use the [b]satellite dish[/b] to communicate with the satellites to find a moon orbiting the planet.
 
-[img]https://imgur.com/PmS83vk.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_asteroid-mining.png[/img]
 
 Mineral-rich asteroids will randomly show up in the asteroid belt for a limited time. Send up a colonist to harvest the asteroids. The number of artificial satellites orbiting the planet will increase the chance of spotting these mineral-rich asteroids.
-[img]https://imgur.com/Rtem5pO.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_ores.png[/img]
 
-[img]https://imgur.com/DCtZuRG.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_addons.png[/img]
 
-[img]https://imgur.com/k1JnrTt.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_translations.png[/img]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882402885]Japanese / 日本[/url]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881457639]Russian / Русский[/url] ([i]Outdated[/i])
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881589373]German / Deutsch[/url] ([i]Outdated[/i])
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882438269]Simplified Chinese / 简体中文[/url] ([i]Outdated[/i])
 
-[img]https://imgur.com/QIRCrLb.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_for-modders.png[/img]
 - [url=https://steamcommunity.com/workshop/filedetails/discussion/2880599514/3473990693221899916/]Adding custom mineral-rich asteroids (XML)[/url]
 
 
-[img]https://imgur.com/5QHA4wN.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_other.png[/img]
 
-[img]https://imgur.com/DF5vdp6.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_performance.png[/img]
 The only impact this mod has on performance is on the world map. If it lags for you, I recommend using My Little Planet to generate smaller planets. I have also added settings where you can change the amount of satellite objects you want to spawn (asteroid belt). This, however, requires you to [url=https://github.com/RimNauts/RimNauts2/blob/main/Workshop/Guides/regenerate-satellites.md]regenerate satellites.[/url]
 
-[img]https://imgur.com/sC7GWh9.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_recommendations.png[/img]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1909914131]Save our Ship 2[/url] to add their space environment on the biomes.
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1117406550]My Little Planet[/url] will help with performance on the world map.
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2878587061]SRTS[/url] for reusable ships.
 
-[img]https://imgur.com/8EcCmcE.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_faq.png[/img]
 [quote]
 [b]Is this mod save game compatible?[/b]
 
@@ -92,7 +92,7 @@ No.
 Yes.
 [/quote]
 
-[img]https://imgur.com/JDLtbdD.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_credits.png[/img]
 Main programmer: [url=https://ko-fi.com/sindre0830]sindre0830[/url]
 Main artist: [url=https://ko-fi.com/detvisor]DetVisor[/url]
 
