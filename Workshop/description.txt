@@ -2,19 +2,19 @@
 
 This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and artificial-satellites. Everything is [b]visible[/b] and [b]animated[/b] as an orbit on the world map. The moons are playable biomes that needs to be discovered and the artifical satellites needs to be launched into orbit.
 
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/GIF/asteroid_belt.gif[/img]
+[img]https://imgur.com/Nl4yXHj.gif[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_blast-off.png[/img]
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_pods.png[/img]
 The rocket to the left is a [b]satellite[/b] that you can launch into orbit. This will be visible in the world map and is required to find moons. The amount of satellites you have also increases the chance of finding mineral rich asteroids in orbit. The middle rocket is the [b]space station[/b] that you can launch into orbit, and it will generate a map with a simple starter station. The right most rocket is a [b]cargo transport pod[/b] and can carry more weight. Useful for asteroid mining.
 
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/GIF/satellites_orbit.gif[/img]
+[img]https://imgur.com/fBbryKm.gif[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_exploration.png[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_spacesuit.png[/img]
 
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/GIF/land_on_moon_orbit.gif[/img]
+[img]https://imgur.com/bJdXi0h.gif[/img]
 
 To [b]discover moons[/b], you are required to have two satellites in orbit. Once you have that you can use the [b]satellite dish[/b] to communicate with the satellites to find a moon orbiting the planet.
 
@@ -103,7 +103,10 @@ Please check out these talented artist from [url=https://steamcommunity.com/shar
 
 
 [url=https://discord.gg/6hU5VXbvCV][img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_discord.png[/img][/url]
+
 [url=https://github.com/RimNauts/RimNauts2/releases/latest][img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_github.png[/img][/url]
+
 [url=https://ko-fi.com/sindre0830][img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_donation.png[/img][/url]
+
 
 If you enjoy the mod, you can show your appreciation by [b]rating[/b] it! This motivates me to continue developing the mod.
