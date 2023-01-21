@@ -4,6 +4,7 @@ on:
   push:
     tags:
     - '*'
+# instructions the workflow will perform
 jobs:
   build:
     # environment to run on
@@ -39,7 +40,7 @@ jobs:
         appID: 294100
         publishedFileID: 2880599514
         path: "RimNauts2/"
-        changelog: "Check out the details for this update on the [url=https://github.com/RimNauts/RimNauts2/releases/$GITHUB_REF_NAME]GitHub[/url]"
+        changelog: "Update $GITHUB_REF_NAME. Check out the details for this update on the [url=https://github.com/RimNauts/RimNauts2/releases/$GITHUB_REF_NAME]GitHub[/url]"
       env:
         STEAM_ACCOUNT_NAME: ${{ secrets.accountname }}
         STEAM_PASSWORD: ${{ secrets.password }}
