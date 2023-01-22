@@ -4,6 +4,7 @@ using UnityEngine;
 namespace RimNauts2 {
     public class Settings : ModSettings {
         public static int TotalSatelliteObjects = 500;
+        public static float MineralRichAsteroidsPercentage = 0.01f;
         public static bool CrashingAsteroidsToggle = true;
         public static bool MineralAsteroidsToggle = true;
         public static bool MineralAsteroidsVerboseToggle = false;
@@ -11,6 +12,7 @@ namespace RimNauts2 {
         public override void ExposeData() {
             base.ExposeData();
             Scribe_Values.Look(ref TotalSatelliteObjects, "TotalSatelliteObjects", 500);
+            Scribe_Values.Look(ref MineralRichAsteroidsPercentage, "MineralRichAsteroidsPercentage", 0.01f);
             Scribe_Values.Look(ref CrashingAsteroidsToggle, "CrashingAsteroidsToggle", true);
             Scribe_Values.Look(ref MineralAsteroidsToggle, "MineralAsteroidsToggle", true);
             Scribe_Values.Look(ref MineralAsteroidsVerboseToggle, "MineralAsteroidsVerboseToggle", false);
@@ -34,17 +36,23 @@ namespace RimNauts2 {
 
             if (listingStandard1.ButtonText(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.default"))) {
                 Settings.TotalSatelliteObjects = 500;
+                Settings.MineralRichAsteroidsPercentage = 0.01f;
                 bufferTotalSatelliteObjects = Settings.TotalSatelliteObjects.ToString();
                 Settings.CrashingAsteroidsToggle = true;
                 Settings.MineralAsteroidsToggle = true;
                 Settings.MineralAsteroidsVerboseToggle = false;
             }
+            listingStandard1.GapLine();
             listingStandard1.Label(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.total_satellites_to_spawn_option"));
             listingStandard1.IntEntry(ref Settings.TotalSatelliteObjects, ref bufferTotalSatelliteObjects);
             if (Settings.TotalSatelliteObjects < 0) {
                 Settings.TotalSatelliteObjects = 0;
                 bufferTotalSatelliteObjects = Settings.TotalSatelliteObjects.ToString();
             }
+            listingStandard1.GapLine();
+            listingStandard1.Label(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.percantage_of_mineral_rich_asteroids", new Verse.NamedArgument[] { (Settings.MineralRichAsteroidsPercentage * 100).ToString("0.00") }));
+            Settings.MineralRichAsteroidsPercentage = listingStandard1.Slider(Settings.MineralRichAsteroidsPercentage, 0.0f, 1.0f);
+            listingStandard1.GapLine();
             listingStandard1.CheckboxLabeled(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.crashing_asteroids"), ref Settings.CrashingAsteroidsToggle);
             listingStandard1.CheckboxLabeled(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.mineral_rich_asteroids"), ref Settings.MineralAsteroidsToggle);
             listingStandard1.CheckboxLabeled(Verse.TranslatorFormattedStringExtensions.Translate("RimNauts.mineral_rich_asteroids_messages_option"), ref Settings.MineralAsteroidsVerboseToggle);

@@ -2,6 +2,7 @@
 <LanguageData>
     <RimNauts.default>Default</RimNauts.default>
     <RimNauts.total_satellites_to_spawn_option>Total satellite objects to spawn in the world.</RimNauts.total_satellites_to_spawn_option>
+    <RimNauts.percantage_of_mineral_rich_asteroids>Percantage of mineral-rich asteroids that can spawn from the total amount of satellite objects: {0}%</RimNauts.percantage_of_mineral_rich_asteroids>
     <RimNauts.crashing_asteroids>Crashing asteroids</RimNauts.crashing_asteroids>
     <RimNauts.mineral_rich_asteroids>Mineral-rich asteroids</RimNauts.mineral_rich_asteroids>
     <RimNauts.mineral_rich_asteroids_messages_option>Mineral-rich asteroids messages</RimNauts.mineral_rich_asteroids_messages_option>

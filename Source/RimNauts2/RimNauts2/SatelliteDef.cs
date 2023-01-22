@@ -13,7 +13,7 @@ namespace RimNauts2 {
         public List<string> ArtificalSatelliteObjects;
         public List<string> SpaceStationObjects;
 
-        public float MineralRichAsteroidsPercentage;
+        //public float MineralRichAsteroidsPercentage;
         public Vector2 MineralRichAsteroidsRandomWaitTicks;
         public Vector2 MineralRichAsteroidsRandomInWorldTicks;
 
@@ -51,8 +51,11 @@ namespace RimNauts2 {
 
         public int TotalMineralAsteroidObjects {
             get {
-                if (SatelliteDefOf.Satellite.MineralRichAsteroidsPercentage <= 0) return 0;
-                return (int) Math.Max(1.0f, Settings.TotalSatelliteObjects * SatelliteDefOf.Satellite.MineralRichAsteroidsPercentage);
+                if (Settings.MineralRichAsteroidsPercentage <= 0) return 0;
+                Verse.Log.Message(Settings.MineralRichAsteroidsPercentage.ToString());
+                Verse.Log.Message(Settings.TotalSatelliteObjects.ToString());
+                Verse.Log.Message((Settings.TotalSatelliteObjects * Settings.MineralRichAsteroidsPercentage).ToString());
+                return (int) Math.Max(1.0f, Settings.TotalSatelliteObjects * Settings.MineralRichAsteroidsPercentage);
             }
         }
 
