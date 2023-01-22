@@ -4,7 +4,6 @@
 		<defName>Satellite</defName>
 
         <CrashingAsteroidObjectPercentage>0.05</CrashingAsteroidObjectPercentage>
-        <MineralRichAsteroidsPercentage>0.01</MineralRichAsteroidsPercentage>
         <MineralRichAsteroidsRandomWaitTicks>(180000.0, 300000.0)</MineralRichAsteroidsRandomWaitTicks>
         <MineralRichAsteroidsRandomInWorldTicks>(60000.0, 300000.0)</MineralRichAsteroidsRandomInWorldTicks>
 
