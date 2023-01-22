@@ -13,7 +13,6 @@ namespace RimNauts2 {
         public List<string> ArtificalSatelliteObjects;
         public List<string> SpaceStationObjects;
 
-        //public float MineralRichAsteroidsPercentage;
         public Vector2 MineralRichAsteroidsRandomWaitTicks;
         public Vector2 MineralRichAsteroidsRandomInWorldTicks;
 
