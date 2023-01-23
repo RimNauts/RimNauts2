@@ -51,7 +51,7 @@ jobs:
         appID: 294100
         publishedFileID: 2880599514
         path: "RimNauts2/"
-        changelog: "New major update is out! Check out the changelog [url=https://github.com/RimNauts/RimNauts2/releases/tag/{{ steps.tag.outputs.new_tag }}]here[/url]"
+        changelog: "[b]{{ steps.tag.outputs.new_tag }}[/b] New major update is out! Check out the changelog [url=https://github.com/RimNauts/RimNauts2/releases/tag/{{ steps.tag.outputs.new_tag }}]here[/url]"
       env:
         STEAM_ACCOUNT_NAME: ${{ secrets.accountname }}
         STEAM_PASSWORD: ${{ secrets.password }}
