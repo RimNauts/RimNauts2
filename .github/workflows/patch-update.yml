@@ -61,6 +61,7 @@ jobs:
       with:
         webhook_id: ${{ secrets.WEBHOOK_ID }}
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-        username: "GitHub"
-        avatar_url: "https://gitlab.com/uploads/-/system/group/avatar/10532272/github.png"
-        message: "New bug fix released! Check out the changelog here <https://github.com/RimNauts/RimNauts2/releases>"
+        username: "sindre0830"
+        avatar_url: "https://i.imgur.com/cEgyvGu.jpg"
+        message: "@RimNauts Notifications New bug fix is out! Check out the changelog here <https://github.com/RimNauts/RimNauts2/releases>"
+        file: "./Changelog.md"
