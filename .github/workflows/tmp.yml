@@ -21,7 +21,6 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         DISCORD_USERNAME: "sindre0830"
         DISCORD_AVATAR: "https://i.imgur.com/cEgyvGu.jpg"
-        DISCORD_EMBEDS: ${{ toJson(./Changelog.md) }}
         NEW_TAG: "v3.2.1"
       with:
         args: "<@&1067088830999560212> New update is out! Check out the changelog here <https://github.com/RimNauts/RimNauts2/releases/tag/{{ NEW_TAG }}>"
