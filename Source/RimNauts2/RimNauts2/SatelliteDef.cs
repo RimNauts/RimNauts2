@@ -51,9 +51,6 @@ namespace RimNauts2 {
         public int TotalMineralAsteroidObjects {
             get {
                 if (Settings.MineralRichAsteroidsPercentage <= 0) return 0;
-                Verse.Log.Message(Settings.MineralRichAsteroidsPercentage.ToString());
-                Verse.Log.Message(Settings.TotalSatelliteObjects.ToString());
-                Verse.Log.Message((Settings.TotalSatelliteObjects * Settings.MineralRichAsteroidsPercentage).ToString());
                 return (int) Math.Max(1.0f, Settings.TotalSatelliteObjects * Settings.MineralRichAsteroidsPercentage);
             }
         }
