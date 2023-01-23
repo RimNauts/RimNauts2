@@ -63,5 +63,5 @@ jobs:
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
         username: "sindre0830"
         avatar_url: "https://i.imgur.com/cEgyvGu.jpg"
-        message: "@RimNauts Notifications New major update is out! Check out the changelog here <https://github.com/RimNauts/RimNauts2/releases>"
+        message: "<@&1067088830999560212> New major update is out! Check out the changelog here <https://github.com/RimNauts/RimNauts2/releases>"
         file: "./Changelog.md"
