@@ -18,14 +18,14 @@ namespace RimNauts2 {
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             string label = Props.label;
-            if (Prefs.DevMode) label += " (Dev)";
+            if (DebugSettings.godMode) label += " (Dev)";
             Command_Action cmd = new Command_Action {
                 defaultLabel = label,
                 defaultDesc = Props.desc,
                 icon = ContentFinder<Texture2D>.Get(Props.texPath, true),
                 action = new Action(action)
             };
-            if (!Prefs.DevMode) {
+            if (!DebugSettings.godMode) {
                 if (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) < (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2) {
                     int diff = (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2 - SatelliteContainer.size(Satellite_Type.Artifical_Satellite);
                     cmd.Disable(diff.ToString() + " " + Props.failMessage);

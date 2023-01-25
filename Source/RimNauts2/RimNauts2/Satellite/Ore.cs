@@ -14,7 +14,7 @@ namespace RimNauts2 {
         public override IEnumerable<Gizmo> GetGizmos() {
             Satellite parent = this.parent as Satellite;
 
-            if (Prefs.DevMode && parent.type == Satellite_Type.Asteroid) {
+            if (DebugSettings.godMode && parent.type == Satellite_Type.Asteroid) {
                 yield return new Command_Action {
                     defaultLabel = Props.label + " (Dev)",
                     defaultDesc = Props.desc,
