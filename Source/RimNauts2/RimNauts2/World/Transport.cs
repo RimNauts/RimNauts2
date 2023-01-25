@@ -33,14 +33,14 @@ namespace RimNauts2 {
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             string label = Props.label;
-            if (Prefs.DevMode) label += " (Dev)";
+            if (DebugSettings.godMode) label += " (Dev)";
             Command_Action cmd = new Command_Action {
                 defaultLabel = label,
                 defaultDesc = Props.desc,
                 icon = ContentFinder<Texture2D>.Get(Props.iconPath, true),
                 action = new Action(launch)
             };
-            if (!Prefs.DevMode) {
+            if (!DebugSettings.godMode) {
                 if (FuelingPortSourceFuel < Props.fuelThreshold)
                     cmd.Disable(Props.fuelThreshold + " " + Props.failMessageFuel + " " + FuelingPortSourceFuel + "/" + Props.fuelThreshold);
             }

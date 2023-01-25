@@ -1,2 +1,2 @@
 # Changelog
-- Remove leftover debugging prints
+- Change devmode requirement to godmode
