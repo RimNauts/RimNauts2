@@ -1,10 +1,11 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
 using Verse;
 
 namespace RimNauts2 {
-    [HarmonyPatch(typeof(RimWorld.IncidentWorker), "CanFireNow")]
+    [HarmonyLib.HarmonyPatch(typeof(RimWorld.IncidentWorker), "CanFireNow")]
     public class IncidentWorker_CanFireNow {
         public static void Postfix(ref RimWorld.IncidentWorker __instance, RimWorld.IncidentParms parms, ref bool __result) {
+            if (parms.forced) return;
             try {
                 if (!__result) return;
                 bool incident_not_on_satellite = !Find.WorldGrid[parms.target.Tile].biome.defName.Contains("RimNauts2");
@@ -15,13 +16,29 @@ namespace RimNauts2 {
         }
     }
 
-    [HarmonyPatch(typeof(RimWorld.PawnsArrivalModeWorker), nameof(RimWorld.PawnsArrivalModeWorker.CanUseWith))]
+    [HarmonyLib.HarmonyPatch(typeof(RimWorld.PawnsArrivalModeWorker), nameof(RimWorld.PawnsArrivalModeWorker.CanUseWith))]
     public class PawnsArrivalModeWorker_CanUseWith_Patch {
-        public static void Postfix(RimWorld.IncidentParms parms, ref bool __result) {
+        public static void Postfix(RimWorld.IncidentParms parms, ref RimWorld.PawnsArrivalModeWorker __instance, bool __result) {
             if (__result && Find.WorldGrid[parms.target.Tile].biome.defName.Contains("RimNauts2")) {
-                if (parms.raidArrivalMode.minTechLevel >= RimWorld.TechLevel.Industrial) {
-                    __result = false;
+                __instance.def.minTechLevel = RimWorld.TechLevel.Industrial;
+            }
+        }
+    }
+
+    [HarmonyLib.HarmonyPatch(typeof(RimWorld.PawnGroupMakerUtility), nameof(RimWorld.PawnGroupMakerUtility.GeneratePawns))]
+    public class PawnGroupMakerUtility_GeneratePawns {
+        public static IEnumerable<Pawn> Postfix(IEnumerable<Pawn> __result, RimWorld.PawnGroupMakerParms parms, bool warnOnZeroResults) {
+            bool no_oxygen = Universum.Utilities.Cache.allowed_utility(Find.WorldGrid[parms.tile].biome, "Universum.vacuum_suffocation");
+            bool decompression = Universum.Utilities.Cache.allowed_utility(Find.WorldGrid[parms.tile].biome, "Universum.vacuum_decompression");
+            bool requires_spacesuit = no_oxygen || decompression;
+            foreach (Pawn pawn in __result) {
+                if (requires_spacesuit) {
+                    RimWorld.Apparel space_helmet = (RimWorld.Apparel) ThingMaker.MakeThing(ThingDef.Named("RimNauts2_Apparel_SpaceSuit_Head"));
+                    RimWorld.Apparel space_suit = (RimWorld.Apparel) ThingMaker.MakeThing(ThingDef.Named("RimNauts2_Apparel_SpaceSuit_Body"));
+                    pawn.apparel.Wear(space_helmet, false);
+                    pawn.apparel.Wear(space_suit, false);
                 }
+                yield return pawn;
             }
         }
     }

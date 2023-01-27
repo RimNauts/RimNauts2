@@ -52,6 +52,10 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Universum">
+      <HintPath>..\..\..\..\Universum-Beta\Assemblies\Universum.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biome\BiomeWorker_Satellite.cs" />
