@@ -16,7 +16,7 @@
 		</affordances>
 		<fertility>0</fertility>
 		<constructEffect>ConstructMetal</constructEffect>
-		<terrainAffordanceNeeded>RimNauts2_Space</terrainAffordanceNeeded>
+		<terrainAffordanceNeeded>RimNauts2_Vacuum_Affordance</terrainAffordanceNeeded>
 		<edgeType>FadeRough</edgeType>
 		<renderPrecedence>400</renderPrecedence>
 		<autoRebuildable>true</autoRebuildable>
@@ -33,10 +33,4 @@
 		<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
 		<destroyEffect>Bridge_Collapse</destroyEffect>
 	</TerrainDef>
-	  <!-- Affordance for vacuum -->
-	<TerrainAffordanceDef>
-		<defName>RimNauts2_Space</defName>
-		<label>space</label>
-		<order>2400</order>
-	</TerrainAffordanceDef>
 </Defs>
