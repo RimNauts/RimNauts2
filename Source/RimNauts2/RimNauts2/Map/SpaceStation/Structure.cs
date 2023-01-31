@@ -38,7 +38,7 @@ namespace RimNauts2.SpaceStation {
             // pad
             set_floor_rect(map, 1, 3, new IntVec3(0, 0, 7));
             set_floor_rect(map, 5, 5, new IntVec3(0, 0, 11));
-            GenSpawn.Spawn(ThingDef.Named("RimNauts2_PodLauncher"), new IntVec3(-1, 0, 11) + map.Center, map);
+            GenSpawn.Spawn(ThingDef.Named("RimNauts2_PodLauncher"), new IntVec3(0, 0, 11) + map.Center, map);
             // set power cables
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.PowerConduit), map, new IntVec3(16, 0, 0) + map.Center);
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.PowerConduit), map, new IntVec3(15, 0, 0) + map.Center);
