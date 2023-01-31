@@ -9,7 +9,7 @@ namespace RimNauts2 {
         public override int SeedPart => 262606459;
 
         public override void Generate(Map map, GenStepParams parms) {
-            if (apply_SOS2_weather) {
+            if (apply_SOS2_weather && ModsConfig.IsActive("kentington.saveourship2")) {
                 foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
                     if (weather.defName.Equals("OuterSpaceWeather")) {
                         map.weatherManager.lastWeather = WeatherDef.Named("OuterSpaceWeather");
