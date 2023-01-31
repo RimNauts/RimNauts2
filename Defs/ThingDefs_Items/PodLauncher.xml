@@ -8,19 +8,19 @@
         <graphicData>
             <texPath>Things/Buildings/Misc/RimNauts2_PodLauncher</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(8,6)</drawSize>
+            <drawSize>(6,6)</drawSize>
         </graphicData>
         <drawerType>MapMeshAndRealTime</drawerType>
-        <size>(1,5)</size>
+        <size>(5,5)</size>
         <rotatable>false</rotatable>
         <altitudeLayer>Building</altitudeLayer>
-        <passability>Impassable</passability>
-        <fillPercent>1.0</fillPercent>
+        <passability>PassThroughOnly</passability>
         <designationCategory>Misc</designationCategory>
         <uiOrder>2200</uiOrder>
         <canOverlapZones>false</canOverlapZones>
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
         <building>
+            <isEdifice>false</isEdifice>
             <hasFuelingPort>true</hasFuelingPort>
         </building>
         <statBases>
@@ -46,7 +46,7 @@
                 <autoRefuelPercent>1</autoRefuelPercent>
                 <showFuelGizmo>false</showFuelGizmo>
                 <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
-                <drawFuelGaugeInMap>true</drawFuelGaugeInMap>
+                <drawFuelGaugeInMap>false</drawFuelGaugeInMap>
                 <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
             </li>
         </comps>
@@ -59,6 +59,6 @@
             <li>TransportPod</li>
         </researchPrerequisites>
         <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
-        <uiIconScale>0.9</uiIconScale>
+        <uiIconScale>1.0</uiIconScale>
     </ThingDef>
 </Defs>
