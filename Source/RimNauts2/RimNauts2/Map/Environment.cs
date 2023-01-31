@@ -24,6 +24,9 @@ namespace RimNauts2 {
                         break;
                     }
                 }
+            } else {
+                map.weatherManager.lastWeather = WeatherDef.Named("RimNauts2_OuterSpaceWeather");
+                map.weatherManager.curWeather = WeatherDef.Named("RimNauts2_OuterSpaceWeather");
             }
             Find.World.grid.tiles.ElementAt(map.Tile).hilliness = hilliness;
         }
