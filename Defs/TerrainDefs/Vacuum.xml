@@ -24,8 +24,8 @@
 		<modExtensions>
 			<li Class="Universum.Utilities.Terrain.Properties">
 				<allowed_utilities>
-					<li>Universum.vacuum</li>
-					<li>Universum.vacuum_overlay</li>
+					<li>universum.vacuum</li>
+					<li>universum.vacuum_overlay</li>
 				</allowed_utilities>
 			</li>
 		</modExtensions>
@@ -54,7 +54,7 @@
 		<modExtensions>
 			<li Class="Universum.Utilities.Terrain.Properties">
 				<allowed_utilities>
-					<li>Universum.vacuum_overlay</li>
+					<li>universum.vacuum_overlay</li>
 				</allowed_utilities>
 			</li>
 		</modExtensions>
