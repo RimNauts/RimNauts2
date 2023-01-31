@@ -88,6 +88,7 @@
     <Compile Include="Settings\DebugToolsSatellites.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Things\BridgeProps.cs" />
+    <Compile Include="Things\Pod_Launcher.cs" />
     <Compile Include="Things\SatelliteDish.cs" />
     <Compile Include="World\HideIcons.cs" />
     <Compile Include="World\Transport.cs" />
