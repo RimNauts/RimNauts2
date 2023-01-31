@@ -59,6 +59,7 @@
             		<li>universum.temperature</li>
 					<li>universum.ocean_masking</li>
 					<li>universum.vacuum</li>
+					<li>universum.disable_weather_change</li>
 				</allowed_utilities>
 				<temperature>-100.0</temperature>
 			</li>

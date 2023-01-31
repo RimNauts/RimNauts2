@@ -12,6 +12,7 @@ namespace RimNauts2 {
             if (apply_SOS2_weather) {
                 foreach (WeatherDef weather in DefDatabase<WeatherDef>.AllDefs) {
                     if (weather.defName.Equals("OuterSpaceWeather")) {
+                        map.weatherManager.lastWeather = WeatherDef.Named("OuterSpaceWeather");
                         map.weatherManager.curWeather = WeatherDef.Named("OuterSpaceWeather");
                         if (Prefs.DevMode) {
                             Logger.print(
