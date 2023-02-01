@@ -28,8 +28,8 @@ namespace RimNauts2 {
     [HarmonyLib.HarmonyPatch(typeof(RimWorld.PawnGroupMakerUtility), nameof(RimWorld.PawnGroupMakerUtility.GeneratePawns))]
     public class PawnGroupMakerUtility_GeneratePawns {
         public static IEnumerable<Pawn> Postfix(IEnumerable<Pawn> __result, RimWorld.PawnGroupMakerParms parms, bool warnOnZeroResults) {
-            bool no_oxygen = Universum.Utilities.Cache.allowed_utility(Find.WorldGrid[parms.tile].biome, "Universum.vacuum_suffocation");
-            bool decompression = Universum.Utilities.Cache.allowed_utility(Find.WorldGrid[parms.tile].biome, "Universum.vacuum_decompression");
+            bool no_oxygen = Universum.Utilities.Cache.allowed_utility(Find.WorldGrid[parms.tile].biome, "universum.vacuum_suffocation");
+            bool decompression = Universum.Utilities.Cache.allowed_utility(Find.WorldGrid[parms.tile].biome, "universum.vacuum_decompression");
             bool requires_spacesuit = no_oxygen || decompression;
             foreach (Pawn pawn in __result) {
                 if (requires_spacesuit) {
