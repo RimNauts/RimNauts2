@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <GameConditionDef>
+        <defName>CompletelyIrradiated</defName>
+        <conditionClass>RimNauts2.GameCondition_CompletelyIrradiated</conditionClass>
+        <label>completely irradiated</label>
+        <description>This entire region of space has been completely irradiated. Any living thing not in a pressurized environment that is protected against radioactivity will be slowly poisoned, and items left outside will corrode.</description>
+        <descriptionFuture>Radioactivity will blanket the area around [map_definite] for [gameConditionDuration_duration], killing outdoor plant and animal life</descriptionFuture>
+        <letterText>Radioactive material has caused the entire region to become completely irradiated.\n\nAny person or creature not in a pressurized environment that is protected against radioactivity will be slowly sickened by intense amounts of radiation.\n\nIt would be best if you did not linger.</letterText>
+        <letterDef>NegativeEvent</letterDef>
+        <canBePermanent>true</canBePermanent>
+    </GameConditionDef>
+</Defs>

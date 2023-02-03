@@ -35,6 +35,7 @@
     <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
 		<defName>RimNauts2_OreUranium_MapGen</defName>
 		<genSteps>
+			<li>RimNauts2_GenStep_EnvironmentIrradiated</li>
 			<li>RimNauts2_OreUranium_GenStep_RocksFromGrid</li>
 		</genSteps>
 	</MapGeneratorDef>

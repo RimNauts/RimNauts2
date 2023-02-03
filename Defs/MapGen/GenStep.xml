@@ -13,6 +13,11 @@
             <apply_SOS2_weather>true</apply_SOS2_weather>
 		</genStep>
 	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_GenStep_EnvironmentIrradiated</defName>
+		<order>1003</order>
+		<genStep Class="RimNauts2.EnvironmentIrradiated" />
+	</GenStepDef>
 	<!-- space station -->
 	<GenStepDef>
 		<defName>RimNauts2_SpaceStation_GenStep_Structure</defName>
