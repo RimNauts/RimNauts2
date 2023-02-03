@@ -61,10 +61,12 @@
     <Compile Include="Biome\BiomeWorker_Satellite.cs" />
     <Compile Include="Biome\SetSatelliteBiome.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="GameConditionDefOf.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Map\AsteroidOre\ElevationFertility.cs" />
     <Compile Include="Map\AsteroidOre\RocksFromGrid.cs" />
+    <Compile Include="Map\EnvironmentIrradiated.cs" />
     <Compile Include="Map\Environment.cs" />
     <Compile Include="Map\MoonBarren\ElevationFertility.cs" />
     <Compile Include="Map\MoonBarren\RocksFromGrid.cs" />
