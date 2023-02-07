@@ -34,7 +34,7 @@ namespace RimNauts2 {
             bool decompression = Universum.Utilities.Cache.allowed_utility(Find.WorldGrid[parms.tile].biome, "universum.vacuum_decompression");
             bool requires_spacesuit = no_oxygen || decompression;
             foreach (Pawn pawn in __result) {
-                if (requires_spacesuit) {
+                if (requires_spacesuit && pawn != null) {
                     RimWorld.Apparel space_helmet = (RimWorld.Apparel) ThingMaker.MakeThing(ThingDef.Named("RimNauts2_Apparel_SpaceSuit_Head"));
                     RimWorld.Apparel space_suit = (RimWorld.Apparel) ThingMaker.MakeThing(ThingDef.Named("RimNauts2_Apparel_SpaceSuit_Body"));
                     pawn.apparel.Wear(space_helmet, false);
