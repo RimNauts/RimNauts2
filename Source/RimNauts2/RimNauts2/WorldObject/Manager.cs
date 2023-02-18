@@ -22,7 +22,7 @@ namespace RimNauts2.WorldObject {
         public override void PostAdd() {
             base.PostAdd();
             // increase far clipping plane to see asteroids further back when zoomed out
-            Find.WorldCamera.farClipPlane = 1400.0f;
+            Find.WorldCamera.farClipPlane = 1600.0f;
         }
 
         public void populate(
@@ -135,7 +135,7 @@ namespace RimNauts2.WorldObject {
             if (material != null) return material;
             material = MaterialPool.MatFrom(
                 cached_texture_paths[id][index],
-                ShaderDatabase.WorldOverlayTransparentLit,
+                ShaderDatabase.WorldOverlayCutout,
                 RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
             );
             cached_materials[id][index] = material;
