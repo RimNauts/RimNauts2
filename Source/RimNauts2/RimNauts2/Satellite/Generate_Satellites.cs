@@ -61,7 +61,7 @@ namespace RimNauts2 {
                 orbit_position_default: new Vector3(140.0f, 100.0f, 140.0f),
                 orbit_spread: new Vector3(0.1f, 0.0f, 0.1f),
                 orbit_speed_between: new Vector2(8.0f, 10.0f),
-                size_between: new Vector2(1.0f, 1.0f),
+                size_between: new Vector2(0.5f, 0.5f),
                 random_direction: true
             );
             manager.populate(
@@ -73,7 +73,7 @@ namespace RimNauts2 {
                 orbit_position_default: new Vector3(160.0f, 100.0f, 160.0f),
                 orbit_spread: new Vector3(0.1f, 0.0f, 0.1f),
                 orbit_speed_between: new Vector2(6.0f, 8.0f),
-                size_between: new Vector2(1.0f, 1.0f),
+                size_between: new Vector2(0.8f, 0.8f),
                 random_direction: false
             );
         }
@@ -85,7 +85,7 @@ namespace RimNauts2 {
                 Logger.Importance.Info,
                 key: "RimNauts.Info.starting_satellite_objects_cleanup",
                 prefix: Style.name_prefix,
-                args: new Verse.NamedArgument[] { SatelliteContainer.size() }
+                args: new NamedArgument[] { SatelliteContainer.size() }
             );
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
@@ -103,7 +103,7 @@ namespace RimNauts2 {
                 Logger.Importance.Info,
                 key: "RimNauts.Info.finished_satellite_objects_cleanup",
                 prefix: Style.name_prefix,
-                args: new Verse.NamedArgument[] { SatelliteContainer.size() }
+                args: new NamedArgument[] { SatelliteContainer.size() }
             );
             for (int i = 0; i < Find.World.grid.TilesCount; i++) {
                 string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
@@ -130,14 +130,14 @@ namespace RimNauts2 {
                 Logger.Importance.Info,
                 key: "RimNauts.Info.finished_adding_back_biomes",
                 prefix: Style.name_prefix,
-                args: new Verse.NamedArgument[] { satellite_biomes_added }
+                args: new NamedArgument[] { satellite_biomes_added }
             );
             generate_satellites(overwrite: false);
             Logger.print(
                 Logger.Importance.Info,
                 key: "RimNauts.Info.finished_adding_back_satellite_objects",
                 prefix: Style.name_prefix,
-                args: new Verse.NamedArgument[] { satellite_biomes_added }
+                args: new NamedArgument[] { satellite_biomes_added }
             );
             halt_caching = false;
         }

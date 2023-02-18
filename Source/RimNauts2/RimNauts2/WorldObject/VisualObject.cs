@@ -4,7 +4,8 @@ using Verse;
 
 namespace RimNauts2.WorldObject {
     public class VisualObject {
-        public int material_index;
+        public byte type;
+        public string texture_path;
         public Vector3 orbit_position;
         public float orbit_speed;
         public Vector3 draw_size;
@@ -12,11 +13,11 @@ namespace RimNauts2.WorldObject {
         public int time_offset;
         public int orbit_direction;
         public Vector3 current_position;
-        public Matrix4x4 transformation_matrix;
-        public float distance_from_camera;
+        public Material material;
 
         public VisualObject(
-            int total_materials,
+            byte id,
+            string texture_path,
             Vector3 orbit_position_default,
             Vector3 orbit_spread,
             Vector2 orbit_speed_between,
@@ -24,7 +25,8 @@ namespace RimNauts2.WorldObject {
             float avg_tile_size,
             bool random_direction
         ) {
-            material_index = Rand.Range(0, total_materials);
+            type = id;
+            this.texture_path = texture_path;
             orbit_position = new Vector3 {
                 x = orbit_position_default.x + (float) ((Rand.Value - 0.5f) * (orbit_position_default.x * orbit_spread.x)),
                 y = Rand.Range(Math.Abs(orbit_position_default.y) * -1, Math.Abs(orbit_position_default.y)),
@@ -37,7 +39,6 @@ namespace RimNauts2.WorldObject {
             time_offset = Rand.Range(0, period);
             orbit_direction = random_direction && Rand.Bool ? -1 : 1;
             current_position = orbit_position;
-            distance_from_camera = 0;
             update_position(tick: 0);
         }
 
@@ -47,18 +48,24 @@ namespace RimNauts2.WorldObject {
             current_position.z = (orbit_position.z - (Math.Abs(orbit_position.y) / 2)) * (float) Math.Sin(6.28f / period * time);
         }
 
-        public void update_transformation_matrix(Vector3 center) {
-            transformation_matrix = Matrix4x4.identity;
+        public Matrix4x4 get_transformation_matrix(Vector3 center) {
+            Matrix4x4 transformation_matrix = Matrix4x4.identity;
             transformation_matrix.SetTRS(
                 pos: current_position,
                 q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.right), center),
                 s: draw_size
             );
+            return transformation_matrix;
         }
 
-        public void update_distance_from_camera(Vector3 cam_pos, Vector3 cam_forward) {
-            Vector3 heading = current_position - cam_pos;
-            distance_from_camera = Vector3.Dot(heading, cam_forward);
+        public Material get_material() {
+            if (material != null) return material;
+            material = MaterialPool.MatFrom(
+                texture_path,
+                ShaderDatabase.WorldOverlayCutout,
+                RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
+            );
+            return material;
         }
     }
 }
