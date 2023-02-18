@@ -90,6 +90,8 @@
     <Compile Include="Things\BridgeProps.cs" />
     <Compile Include="Things\Pod_Launcher.cs" />
     <Compile Include="Things\SatelliteDish.cs" />
+    <Compile Include="WorldObject\VisualObject.cs" />
+    <Compile Include="WorldObject\Manager.cs" />
     <Compile Include="World\HideIcons.cs" />
     <Compile Include="World\Transport.cs" />
     <Compile Include="World\WorldGrid.cs" />

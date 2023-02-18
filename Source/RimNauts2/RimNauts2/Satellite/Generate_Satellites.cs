@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -16,7 +17,15 @@ namespace RimNauts2 {
             }
         }
 
-        public override void GenerateFresh(string seed) => generate_satellites();
+        public override void GenerateFresh(string seed) {
+            //generate_satellites();
+            WorldObject.Manager manager = (WorldObject.Manager) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_VisualObjects")
+            );
+            manager.Tile = 1;
+            Find.WorldObjects.Add(manager);
+            RimNauts_GameComponent.manager = manager;
+        }
 
         public static void regenerate_satellites() {
             halt_caching = true;
