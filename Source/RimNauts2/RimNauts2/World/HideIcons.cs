@@ -6,7 +6,6 @@ using UnityEngine;
 namespace RimNauts2 {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldRendererUtility), nameof(RimWorld.Planet.WorldRendererUtility.HiddenBehindTerrainNow))]
     internal static class HideIcons {
-        [HarmonyPostfix]
         internal static void Postfix(Vector3 pos, ref bool __result) {
             Vector3 center = Find.WorldCameraDriver.CurrentlyLookingAtPointOnSphere;
             // ignore icons on surface (settlements)
@@ -36,4 +35,16 @@ namespace RimNauts2 {
             if (pos.magnitude < 115) __result = Vector3.Angle(pos.normalized, center) > 73f;
         }
     }
+
+    /*[HarmonyPatch(typeof(RimWorld.Planet.WorldObjectSelectionUtility), nameof(RimWorld.Planet.WorldObjectSelectionUtility.HiddenBehindTerrainNow))]
+    internal static class HideIcons {
+        internal static bool Prefix(RimWorld.Planet.WorldObject o, ref bool __result) {
+            if (o.Tile == 1) Log.Message("HEYO");
+            if (!(o is Manager)) {
+                return true;
+            }
+            __result = false;
+            return false;
+        }
+    }*/
 }
