@@ -99,10 +99,12 @@ namespace RimNauts2.WorldObject {
             if (unpaused || camera_moved) {
                 matrices_dirty = true;
                 Vector3 center = Find.WorldCameraDriver.CurrentlyLookingAtPointOnSphere;
+                Vector3 cam_forward = Find.WorldCamera.transform.forward;
                 foreach (var (id, visual_objects) in cached_objects) {
                     Parallel.ForEach(visual_objects, visual_object => {
                         if (unpaused) visual_object.update_position(tick);
                         visual_object.update_transformation_matrix(center);
+                        visual_object.update_distance_from_camera(cam_pos, cam_forward);
                     });
                 }
                 prev_tick = tick;

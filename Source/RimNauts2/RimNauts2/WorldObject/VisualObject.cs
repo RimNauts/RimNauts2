@@ -13,6 +13,7 @@ namespace RimNauts2.WorldObject {
         public int orbit_direction;
         public Vector3 current_position;
         public Matrix4x4 transformation_matrix;
+        public float distance_from_camera;
 
         public VisualObject(
             int total_materials,
@@ -36,6 +37,7 @@ namespace RimNauts2.WorldObject {
             time_offset = Rand.Range(0, period);
             orbit_direction = random_direction && Rand.Bool ? -1 : 1;
             current_position = orbit_position;
+            distance_from_camera = 0;
             update_position(tick: 0);
         }
 
@@ -52,6 +54,11 @@ namespace RimNauts2.WorldObject {
                 q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.right), center),
                 s: draw_size
             );
+        }
+
+        public void update_distance_from_camera(Vector3 cam_pos, Vector3 cam_forward) {
+            Vector3 heading = current_position - cam_pos;
+            distance_from_camera = Vector3.Dot(heading, cam_forward);
         }
     }
 }
