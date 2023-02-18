@@ -13,12 +13,11 @@ namespace RimNauts2.WorldObject {
         public int orbit_direction;
         public Vector3 current_position;
         public Matrix4x4 transformation_matrix;
-        public Material material;
 
         public VisualObject(
             int total_materials,
-            Vector3 orbit_spread,
             Vector3 orbit_position_default,
+            Vector3 orbit_spread,
             Vector2 orbit_speed_between,
             Vector2 size_between,
             float avg_tile_size,
@@ -50,7 +49,7 @@ namespace RimNauts2.WorldObject {
             transformation_matrix = Matrix4x4.identity;
             transformation_matrix.SetTRS(
                 pos: current_position,
-                q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.up), center),
+                q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.right), center),
                 s: draw_size
             );
         }
