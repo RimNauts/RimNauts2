@@ -18,6 +18,8 @@ namespace RimNauts2.World {
             switch (type) {
                 case Type.Asteroid:
                     return new Objects.Asteroid();
+                case Type.AsteroidCrashing:
+                    return new Objects.AsteroidCrashing();
                 case Type.Moon:
                     return new Objects.Moon();
                 case Type.Satellite:
@@ -44,6 +46,19 @@ namespace RimNauts2.World {
             switch (type) {
                 case Type.Asteroid:
                     return new Objects.Asteroid(
+                        texture_path,
+                        orbit_position,
+                        orbit_speed,
+                        draw_size,
+                        period,
+                        time_offset,
+                        orbit_direction,
+                        color,
+                        rotation_angle,
+                        current_position
+                    );
+                case Type.AsteroidCrashing:
+                    return new Objects.AsteroidCrashing(
                         texture_path,
                         orbit_position,
                         orbit_speed,

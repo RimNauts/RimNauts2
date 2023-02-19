@@ -126,12 +126,13 @@ namespace RimNauts2.World {
             }
         }
 
-        public void add(Type type) {
+        public Objects.NEO add(Type type) {
             Objects.NEO neo = type.neo();
             visual_objects.Add(neo);
+            return neo;
         }
 
-        public void add(
+        public Objects.NEO add(
             Type type,
             string texture_path,
             Vector3 orbit_position,
@@ -157,6 +158,7 @@ namespace RimNauts2.World {
                 current_position
             );
             visual_objects.Add(neo);
+            return neo;
         }
 
         public void populate(Type type, int amount) {

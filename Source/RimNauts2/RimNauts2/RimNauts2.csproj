@@ -91,6 +91,7 @@
     <Compile Include="Things\Pod_Launcher.cs" />
     <Compile Include="Things\SatelliteDish.cs" />
     <Compile Include="World\Objects\Asteroid.cs" />
+    <Compile Include="World\Objects\AsteroidCrashing.cs" />
     <Compile Include="World\Objects\Config.cs" />
     <Compile Include="World\Objects\Moon.cs" />
     <Compile Include="World\Objects\NEO.cs" />

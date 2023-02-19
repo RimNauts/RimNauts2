@@ -25,6 +25,7 @@ namespace RimNauts2 {
             Find.WorldObjects.Add(render_manager);
             RimNauts_GameComponent.render_manager = render_manager;
             render_manager.populate(World.Type.Asteroid, amount: 1000);
+            render_manager.populate(World.Type.AsteroidCrashing, amount: 50);
             render_manager.populate(World.Type.Moon, amount: 3);
             render_manager.populate(World.Type.Satellite, amount: 5);
             render_manager.populate(World.Type.SpaceStation, amount: 1);
