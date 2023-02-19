@@ -4,7 +4,7 @@ using Verse;
 
 namespace RimNauts2.WorldObject {
     public class VisualObject {
-        public byte type;
+        public int type;
         public string texture_path;
         public Vector3 orbit_position;
         public float orbit_speed;
@@ -12,14 +12,41 @@ namespace RimNauts2.WorldObject {
         public int period;
         public int time_offset;
         public int orbit_direction;
+        public float color;
+        public float angle;
         public Vector3 current_position;
         public Material material;
-        public float color;
         public Quaternion rotation;
-        public float angle;
 
         public VisualObject(
-            byte id,
+            int type,
+            string texture_path,
+            Vector3 orbit_position,
+            float orbit_speed,
+            Vector3 draw_size,
+            int period,
+            int time_offset,
+            int orbit_direction,
+            float color,
+            float angle,
+            Vector3 current_position
+        ) {
+            this.type = type;
+            this.texture_path = texture_path;
+            this.orbit_position = orbit_position;
+            this.orbit_speed = orbit_speed;
+            this.draw_size = draw_size;
+            this.period = period;
+            this.time_offset = time_offset;
+            this.orbit_direction = orbit_direction;
+            this.color = color;
+            this.angle = angle;
+            this.current_position = current_position;
+            rotation = Quaternion.AngleAxis(angle, Vector3.up);
+        }
+
+        public VisualObject(
+            int type,
             string texture_path,
             Vector3 orbit_position_default,
             Vector3 orbit_spread,
@@ -30,7 +57,7 @@ namespace RimNauts2.WorldObject {
             float avg_tile_size,
             bool random_direction
         ) {
-            type = id;
+            this.type = type;
             color = Rand.Range(color_between.x, color_between.y);
             angle = random_angle ? UnityEngine.Random.value * 360.0f : 270.0f;
             rotation = Quaternion.AngleAxis(angle, Vector3.up);
