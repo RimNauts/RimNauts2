@@ -97,7 +97,6 @@
     <Compile Include="World\Objects\Satellite.cs" />
     <Compile Include="World\Objects\SpaceStation.cs" />
     <Compile Include="World\Type.cs" />
-    <Compile Include="World\VisualObject.cs" />
     <Compile Include="World\RenderManager.cs" />
     <Compile Include="Things\HideIcons.cs" />
     <Compile Include="Things\Transport.cs" />
