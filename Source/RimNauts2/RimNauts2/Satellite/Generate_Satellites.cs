@@ -24,66 +24,10 @@ namespace RimNauts2 {
             render_manager.Tile = 1;
             Find.WorldObjects.Add(render_manager);
             RimNauts_GameComponent.render_manager = render_manager;
-            render_manager.populate(
-                id: 0,
-                amount: 1000,
-                texture_paths: new string[] {
-                    "Satellites/Asteroids/RimNauts2_Full_Asteroid_1",
-                    "Satellites/Asteroids/RimNauts2_Full_Asteroid_2",
-                    "Satellites/Asteroids/RimNauts2_Full_Asteroid_3",
-                },
-                orbit_position_default: new Vector3(250.0f, 5.0f, 250.0f),
-                orbit_spread: new Vector3(0.3f, 0.1f, 0.3f),
-                orbit_speed_between: new Vector2(2.0f, 4.0f),
-                size_between: new Vector2(0.2f, 0.3f),
-                color_between: new Vector2(0.6f, 0.8f),
-                random_angle: true,
-                random_direction: false
-            );
-            render_manager.populate(
-                id: 1,
-                amount: 3,
-                texture_paths: new string[] {
-                    "Satellites/Moons/RimNauts2_MoonBarren",
-                    "Satellites/Moons/RimNauts2_MoonStripped",
-                    "Satellites/Moons/RimNauts2_MoonWater",
-                },
-                orbit_position_default: new Vector3(350.0f, 200.0f, 350.0f),
-                orbit_spread: new Vector3(0.25f, 0.0f, 0.25f),
-                orbit_speed_between: new Vector2(1.0f, 1.0f),
-                size_between: new Vector2(1.0f, 1.5f),
-                color_between: new Vector2(1.0f, 1.0f),
-                random_angle: false,
-                random_direction: true
-            );
-            render_manager.populate(
-                id: 2,
-                amount: 5,
-                texture_paths: new string[] {
-                    "Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite",
-                },
-                orbit_position_default: new Vector3(140.0f, 100.0f, 140.0f),
-                orbit_spread: new Vector3(0.1f, 0.0f, 0.1f),
-                orbit_speed_between: new Vector2(8.0f, 10.0f),
-                size_between: new Vector2(0.5f, 0.5f),
-                color_between: new Vector2(1.0f, 1.0f),
-                random_angle: false,
-                random_direction: true
-            );
-            render_manager.populate(
-                id: 3,
-                amount: 1,
-                texture_paths: new string[] {
-                    "Satellites/ArtificalSatellites/RimNauts2_SpaceStation",
-                },
-                orbit_position_default: new Vector3(160.0f, 100.0f, 160.0f),
-                orbit_spread: new Vector3(0.1f, 0.0f, 0.1f),
-                orbit_speed_between: new Vector2(6.0f, 8.0f),
-                size_between: new Vector2(0.8f, 0.8f),
-                color_between: new Vector2(1.0f, 1.0f),
-                random_angle: false,
-                random_direction: false
-            );
+            render_manager.populate(World.Type.Asteroid, amount: 1000);
+            render_manager.populate(World.Type.Moon, amount: 3);
+            render_manager.populate(World.Type.Satellite, amount: 5);
+            render_manager.populate(World.Type.SpaceStation, amount: 1);
         }
 
         public static void regenerate_satellites() {

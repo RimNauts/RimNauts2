@@ -90,8 +90,15 @@
     <Compile Include="Things\BridgeProps.cs" />
     <Compile Include="Things\Pod_Launcher.cs" />
     <Compile Include="Things\SatelliteDish.cs" />
+    <Compile Include="World\Objects\Asteroid.cs" />
+    <Compile Include="World\Objects\Config.cs" />
+    <Compile Include="World\Objects\Moon.cs" />
+    <Compile Include="World\Objects\NEO.cs" />
+    <Compile Include="World\Objects\Satellite.cs" />
+    <Compile Include="World\Objects\SpaceStation.cs" />
+    <Compile Include="World\Type.cs" />
     <Compile Include="World\VisualObject.cs" />
-    <Compile Include="World\Manager.cs" />
+    <Compile Include="World\RenderManager.cs" />
     <Compile Include="Things\HideIcons.cs" />
     <Compile Include="Things\Transport.cs" />
   </ItemGroup>

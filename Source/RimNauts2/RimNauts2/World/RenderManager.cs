@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,12 +9,12 @@ namespace RimNauts2.World {
     public class RenderManager : RimWorld.Planet.WorldObject {
         public int prev_tick = -1;
         public Vector3 prev_cam_pos = new Vector3();
-        public List<VisualObject> visual_objects = new List<VisualObject>();
+        public List<Objects.NEO> visual_objects = new List<Objects.NEO>();
         public int total_objects = 0;
         public Matrix4x4[] cached_matrices = new Matrix4x4[0];
         public Material[] cached_materials = new Material[0];
         public bool materials_dirty = true;
-        private List<int> expose_type = new List<int>();
+        private List<Type> expose_type = new List<Type>();
         private List<string> expose_texture_path = new List<string>();
         private List<Vector3> expose_orbit_position = new List<Vector3>();
         private List<float> expose_orbit_speed = new List<float>();
@@ -24,7 +23,7 @@ namespace RimNauts2.World {
         private List<int> expose_time_offset = new List<int>();
         private List<int> expose_orbit_direction = new List<int>();
         private List<float> expose_color = new List<float>();
-        private List<float> expose_angle = new List<float>();
+        private List<float> expose_rotation_angle = new List<float>();
         private List<Vector3> expose_current_position = new List<Vector3>();
 
         public override void PostAdd() {
@@ -45,7 +44,7 @@ namespace RimNauts2.World {
                 expose_time_offset.Add(visual_objects[i].time_offset);
                 expose_orbit_direction.Add(visual_objects[i].orbit_direction);
                 expose_color.Add(visual_objects[i].color);
-                expose_angle.Add(visual_objects[i].angle);
+                expose_rotation_angle.Add(visual_objects[i].rotation_angle);
                 expose_current_position.Add(visual_objects[i].current_position);
             }
             Scribe_Values.Look(ref total_objects, "total_objects");
@@ -58,10 +57,10 @@ namespace RimNauts2.World {
             Scribe_Collections.Look(ref expose_time_offset, "expose_time_offset", LookMode.Value);
             Scribe_Collections.Look(ref expose_orbit_direction, "expose_orbit_direction", LookMode.Value);
             Scribe_Collections.Look(ref expose_color, "expose_color", LookMode.Value);
-            Scribe_Collections.Look(ref expose_angle, "expose_angle", LookMode.Value);
+            Scribe_Collections.Look(ref expose_rotation_angle, "expose_rotation_angle", LookMode.Value);
             Scribe_Collections.Look(ref expose_current_position, "expose_current_position", LookMode.Value);
             for (int i = 0; i < total_objects; i++) {
-                VisualObject visual_object = new VisualObject(
+                add(
                     expose_type[i],
                     expose_texture_path[i],
                     expose_orbit_position[i],
@@ -71,13 +70,12 @@ namespace RimNauts2.World {
                     expose_time_offset[i],
                     expose_orbit_direction[i],
                     expose_color[i],
-                    expose_angle[i],
+                    expose_rotation_angle[i],
                     expose_current_position[i]
                 );
-                visual_objects.Add(visual_object);
             }
             recache();
-            expose_type = new List<int>();
+            expose_type = new List<Type>();
             expose_texture_path = new List<string>();
             expose_orbit_position = new List<Vector3>();
             expose_orbit_speed = new List<float>();
@@ -86,7 +84,7 @@ namespace RimNauts2.World {
             expose_time_offset = new List<int>();
             expose_orbit_direction = new List<int>();
             expose_color = new List<float>();
-            expose_angle = new List<float>();
+            expose_rotation_angle = new List<float>();
             expose_current_position = new List<Vector3>();
         }
 
@@ -101,7 +99,9 @@ namespace RimNauts2.World {
             if (unpaused || camera_moved) {
                 Vector3 center = Find.WorldCameraDriver.CurrentlyLookingAtPointOnSphere;
                 Parallel.For(0, total_objects, i => {
-                    if (unpaused) visual_objects[i].update_position(tick);
+                    visual_objects[i].update();
+                    if (unpaused) visual_objects[i].update_when_unpaused(tick);
+                    if (camera_moved) visual_objects[i].update_when_camera_moved();
                     cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
                 });
                 prev_tick = tick;
@@ -126,41 +126,47 @@ namespace RimNauts2.World {
             }
         }
 
-        public void populate(
-            byte id,
-            int amount,
-            string[] texture_paths,
-            Vector3 orbit_position_default,
-            Vector3 orbit_spread,
-            Vector2 orbit_speed_between,
-            Vector2 size_between,
-            Vector2 color_between,
-            bool random_angle,
-            bool random_direction
-        ) {
-            total_objects += amount;
-            recache();
-            float avg_tile_size = Find.WorldGrid.averageTileSize;
-            System.Random rnd = new System.Random();
-            for (int i = 0; i < amount; i++) {
-                VisualObject visual_object = new VisualObject(
-                    id,
-                    texture_paths[rnd.Next(texture_paths.Length)],
-                    orbit_position_default,
-                    orbit_spread,
-                    orbit_speed_between,
-                    size_between,
-                    color_between,
-                    random_angle,
-                    avg_tile_size,
-                    random_direction
-                );
-                visual_objects.Add(visual_object);
-            }
+        public void add(Type type) {
+            Objects.NEO neo = type.neo();
+            visual_objects.Add(neo);
         }
 
-        public void depopulate(byte id) {
-            int removed_amount = visual_objects.RemoveAll(visual_object => visual_object.type == id);
+        public void add(
+            Type type,
+            string texture_path,
+            Vector3 orbit_position,
+            float orbit_speed,
+            Vector3 draw_size,
+            int period,
+            int time_offset,
+            int orbit_direction,
+            float color,
+            float rotation_angle,
+            Vector3 current_position
+        ) {
+            Objects.NEO neo = type.neo(
+                texture_path,
+                orbit_position,
+                orbit_speed,
+                draw_size,
+                period,
+                time_offset,
+                orbit_direction,
+                color,
+                rotation_angle,
+                current_position
+            );
+            visual_objects.Add(neo);
+        }
+
+        public void populate(Type type, int amount) {
+            total_objects += amount;
+            for (int i = 0; i < amount; i++) add(type);
+            recache();
+        }
+
+        public void depopulate(Type type) {
+            int removed_amount = visual_objects.RemoveAll(visual_object => visual_object.type == type);
             total_objects -= removed_amount;
             recache();
         }
