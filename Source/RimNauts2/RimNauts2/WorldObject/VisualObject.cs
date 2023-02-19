@@ -14,6 +14,7 @@ namespace RimNauts2.WorldObject {
         public int orbit_direction;
         public Vector3 current_position;
         public Material material;
+        public float color;
 
         public VisualObject(
             byte id,
@@ -22,10 +23,12 @@ namespace RimNauts2.WorldObject {
             Vector3 orbit_spread,
             Vector2 orbit_speed_between,
             Vector2 size_between,
+            Vector2 color_between,
             float avg_tile_size,
             bool random_direction
         ) {
             type = id;
+            color = Rand.Range(color_between.x, color_between.y);
             this.texture_path = texture_path;
             orbit_position = new Vector3 {
                 x = orbit_position_default.x + (float) ((Rand.Value - 0.5f) * (orbit_position_default.x * orbit_spread.x)),
@@ -52,7 +55,7 @@ namespace RimNauts2.WorldObject {
             Matrix4x4 transformation_matrix = Matrix4x4.identity;
             transformation_matrix.SetTRS(
                 pos: current_position,
-                q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.right), center),
+                q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.up), center),
                 s: draw_size
             );
             return transformation_matrix;
@@ -65,6 +68,7 @@ namespace RimNauts2.WorldObject {
                 ShaderDatabase.WorldOverlayCutout,
                 RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
             );
+            material.color = new Color(color, color, color);
             return material;
         }
     }

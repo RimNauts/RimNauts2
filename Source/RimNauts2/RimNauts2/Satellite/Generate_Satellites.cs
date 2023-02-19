@@ -36,6 +36,7 @@ namespace RimNauts2 {
                 orbit_spread: new Vector3(0.3f, 0.1f, 0.3f),
                 orbit_speed_between: new Vector2(2.0f, 4.0f),
                 size_between: new Vector2(0.2f, 0.3f),
+                color_between: new Vector2(0.5f, 1.0f),
                 random_direction: false
             );
             manager.populate(
@@ -50,6 +51,7 @@ namespace RimNauts2 {
                 orbit_spread: new Vector3(0.25f, 0.0f, 0.25f),
                 orbit_speed_between: new Vector2(1.0f, 1.0f),
                 size_between: new Vector2(1.0f, 1.5f),
+                color_between: new Vector2(1.0f, 1.0f),
                 random_direction: true
             );
             manager.populate(
@@ -62,6 +64,7 @@ namespace RimNauts2 {
                 orbit_spread: new Vector3(0.1f, 0.0f, 0.1f),
                 orbit_speed_between: new Vector2(8.0f, 10.0f),
                 size_between: new Vector2(0.5f, 0.5f),
+                color_between: new Vector2(1.0f, 1.0f),
                 random_direction: true
             );
             manager.populate(
@@ -74,6 +77,7 @@ namespace RimNauts2 {
                 orbit_spread: new Vector3(0.1f, 0.0f, 0.1f),
                 orbit_speed_between: new Vector2(6.0f, 8.0f),
                 size_between: new Vector2(0.8f, 0.8f),
+                color_between: new Vector2(1.0f, 1.0f),
                 random_direction: false
             );
         }

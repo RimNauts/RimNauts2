@@ -8,7 +8,7 @@ using Verse;
 namespace RimNauts2.WorldObject {
     [StaticConstructorOnStartup]
     public class Manager : RimWorld.Planet.WorldObject {
-        public int prev_tick = 0;
+        public int prev_tick = -1;
         public Vector3 prev_cam_pos = new Vector3();
         public List<VisualObject> visual_objects = new List<VisualObject>();
         public int total_objects = 0;
@@ -66,6 +66,7 @@ namespace RimNauts2.WorldObject {
             Vector3 orbit_spread,
             Vector2 orbit_speed_between,
             Vector2 size_between,
+            Vector2 color_between,
             bool random_direction
         ) {
             total_objects += amount;
@@ -80,6 +81,7 @@ namespace RimNauts2.WorldObject {
                     orbit_spread,
                     orbit_speed_between,
                     size_between,
+                    color_between,
                     avg_tile_size,
                     random_direction
                 );
