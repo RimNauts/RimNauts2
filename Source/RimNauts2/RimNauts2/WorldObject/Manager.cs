@@ -67,6 +67,7 @@ namespace RimNauts2.WorldObject {
             Vector2 orbit_speed_between,
             Vector2 size_between,
             Vector2 color_between,
+            bool random_angle,
             bool random_direction
         ) {
             total_objects += amount;
@@ -82,6 +83,7 @@ namespace RimNauts2.WorldObject {
                     orbit_speed_between,
                     size_between,
                     color_between,
+                    random_angle,
                     avg_tile_size,
                     random_direction
                 );
@@ -104,9 +106,7 @@ namespace RimNauts2.WorldObject {
             if (!materials_dirty) return;
             materials_dirty = false;
             cached_materials = new Material[total_objects];
-            for (int i = 0; i < total_objects; i++) {
-                cached_materials[i] = visual_objects[i].get_material();
-            }
+            for (int i = 0; i < total_objects; i++) cached_materials[i] = visual_objects[i].get_material();
         }
     }
 }

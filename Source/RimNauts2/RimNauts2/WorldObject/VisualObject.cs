@@ -15,6 +15,8 @@ namespace RimNauts2.WorldObject {
         public Vector3 current_position;
         public Material material;
         public float color;
+        public Quaternion rotation;
+        public float angle;
 
         public VisualObject(
             byte id,
@@ -24,11 +26,14 @@ namespace RimNauts2.WorldObject {
             Vector2 orbit_speed_between,
             Vector2 size_between,
             Vector2 color_between,
+            bool random_angle,
             float avg_tile_size,
             bool random_direction
         ) {
             type = id;
             color = Rand.Range(color_between.x, color_between.y);
+            angle = random_angle ? UnityEngine.Random.value * 360.0f : 270.0f;
+            rotation = Quaternion.AngleAxis(angle, Vector3.up);
             this.texture_path = texture_path;
             orbit_position = new Vector3 {
                 x = orbit_position_default.x + (float) ((Rand.Value - 0.5f) * (orbit_position_default.x * orbit_spread.x)),
@@ -40,7 +45,7 @@ namespace RimNauts2.WorldObject {
             draw_size = new Vector3(size, 1.0f, size);
             period = (int) (36000.0f + (6000.0f * (Rand.Value - 0.5f)));
             time_offset = Rand.Range(0, period);
-            orbit_direction = random_direction && Rand.Bool ? -1 : 1;
+            orbit_direction = random_direction && Rand.Bool ? 1 : -1;
             current_position = orbit_position;
             update_position(tick: 0);
         }
@@ -55,7 +60,7 @@ namespace RimNauts2.WorldObject {
             Matrix4x4 transformation_matrix = Matrix4x4.identity;
             transformation_matrix.SetTRS(
                 pos: current_position,
-                q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.up), center),
+                q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.up), center) * rotation,
                 s: draw_size
             );
             return transformation_matrix;
