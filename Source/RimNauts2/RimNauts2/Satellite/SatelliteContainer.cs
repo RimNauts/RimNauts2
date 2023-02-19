@@ -8,7 +8,7 @@ namespace RimNauts2 {
         public static int total_asteroids;
         public static int total_moons;
         public static int total_artifical_satellites;
-        public static WorldObject.Manager manager;
+        public static World.RenderManager render_manager;
 
         public RimNauts_GameComponent(Game game) : base() { }
     }

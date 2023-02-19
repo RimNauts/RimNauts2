@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace RimNauts2.WorldObject {
+namespace RimNauts2.World {
     public class VisualObject {
         public int type;
         public string texture_path;

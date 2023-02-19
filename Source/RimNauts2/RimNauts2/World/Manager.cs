@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using Verse;
 
-namespace RimNauts2.WorldObject {
+namespace RimNauts2.World {
     [StaticConstructorOnStartup]
-    public class Manager : RimWorld.Planet.WorldObject {
+    public class RenderManager : RimWorld.Planet.WorldObject {
         public int prev_tick = -1;
         public Vector3 prev_cam_pos = new Vector3();
         public List<VisualObject> visual_objects = new List<VisualObject>();

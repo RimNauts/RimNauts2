@@ -18,13 +18,13 @@ namespace RimNauts2 {
 
         public override void GenerateFresh(string seed) {
             //generate_satellites();
-            WorldObject.Manager manager = (WorldObject.Manager) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_VisualObjects")
+            World.RenderManager render_manager = (World.RenderManager) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_RenderManager")
             );
-            manager.Tile = 1;
-            Find.WorldObjects.Add(manager);
-            RimNauts_GameComponent.manager = manager;
-            manager.populate(
+            render_manager.Tile = 1;
+            Find.WorldObjects.Add(render_manager);
+            RimNauts_GameComponent.render_manager = render_manager;
+            render_manager.populate(
                 id: 0,
                 amount: 1000,
                 texture_paths: new string[] {
@@ -40,7 +40,7 @@ namespace RimNauts2 {
                 random_angle: true,
                 random_direction: false
             );
-            manager.populate(
+            render_manager.populate(
                 id: 1,
                 amount: 3,
                 texture_paths: new string[] {
@@ -56,7 +56,7 @@ namespace RimNauts2 {
                 random_angle: false,
                 random_direction: true
             );
-            manager.populate(
+            render_manager.populate(
                 id: 2,
                 amount: 5,
                 texture_paths: new string[] {
@@ -70,7 +70,7 @@ namespace RimNauts2 {
                 random_angle: false,
                 random_direction: true
             );
-            manager.populate(
+            render_manager.populate(
                 id: 3,
                 amount: 1,
                 texture_paths: new string[] {
