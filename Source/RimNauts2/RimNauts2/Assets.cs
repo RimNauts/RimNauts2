@@ -7,8 +7,11 @@ namespace RimNauts2 {
         public static Shader neo_shader;
 
         static Assets() {
-            AssetBundle assets = RimNauts2_ModContent.instance.Content.assetBundles.loadedAssetBundles[0];
-            neo_shader = assets.LoadAsset<Shader>("neo.shader");
+            foreach (var assets in RimNauts2_ModContent.instance.Content.assetBundles.loadedAssetBundles) {
+                neo_shader = assets.LoadAsset<Shader>("neo.shader");
+                if (neo_shader.name != "Custom/neo") break;
+            }
+            if (neo_shader.name != "Custom/neo") neo_shader = ShaderDatabase.WorldOverlayCutout;
         }
     }
 }
