@@ -26,11 +26,7 @@ namespace RimNauts2.World {
         private List<float> expose_rotation_angle = new List<float>();
         private List<Vector3> expose_current_position = new List<Vector3>();
 
-        public override void PostAdd() {
-            base.PostAdd();
-            Find.WorldCamera.farClipPlane = 1600.0f;
-            RimNauts_GameComponent.render_manager = this;
-        }
+        public override void PostAdd() => RimNauts_GameComponent.render_manager = this;
 
         public override void ExposeData() {
             base.ExposeData();
@@ -77,7 +73,6 @@ namespace RimNauts2.World {
                     expose_current_position[i]
                 );
             }
-            Find.WorldCamera.farClipPlane = 1600.0f;
             RimNauts_GameComponent.render_manager = this;
             recache();
             expose_type = new List<Type>();
@@ -96,19 +91,18 @@ namespace RimNauts2.World {
         public override Vector3 DrawPos => new Vector3(0.0f, 10000.0f, 0.0f);
 
         public override void Draw() {
-            int tick = Find.TickManager.TicksGame;
-            Vector3 cam_pos = Find.WorldCamera.transform.position;
+            int tick = Game_UpdatePlay.tick;
+            Vector3 cam_pos = Game_UpdatePlay.camera_position;
             bool unpaused = tick != prev_tick;
             bool camera_moved = cam_pos != prev_cam_pos;
             // update objects
             recache_materials();
             if (unpaused || camera_moved) {
-                Vector3 center = Find.WorldCameraDriver.CurrentlyLookingAtPointOnSphere;
                 Parallel.For(0, total_objects, i => {
                     visual_objects[i].update();
                     if (unpaused) visual_objects[i].update_when_unpaused(tick);
                     if (camera_moved) visual_objects[i].update_when_camera_moved();
-                    cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
+                    cached_matrices[i] = visual_objects[i].get_transformation_matrix(Game_UpdatePlay.center);
                 });
                 prev_tick = tick;
                 prev_cam_pos = cam_pos;
