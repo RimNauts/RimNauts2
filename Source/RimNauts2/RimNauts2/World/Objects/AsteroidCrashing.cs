@@ -9,26 +9,17 @@ namespace RimNauts2.World.Objects {
         public float current_out_of_bounds;
         public float crash_course;
 
-        public AsteroidCrashing() : base(Type.AsteroidCrashing) {
-            out_of_bounds_direction_towards_surface = Rand.Bool;
-            if (out_of_bounds_direction_towards_surface) {
-                out_of_bounds_offset = out_of_bounds_offset = Rand.Range(1.0f, 10.0f);
-            } else out_of_bounds_offset = Rand.Range(-10.0f, 1.0f);
-            current_out_of_bounds = out_of_bounds_offset;
-
-        }
-
         public AsteroidCrashing(
-            string texture_path,
-            Vector3 orbit_position,
-            float orbit_speed,
-            Vector3 draw_size,
-            int period,
-            int time_offset,
-            int orbit_direction,
-            float color,
-            float rotation_angle,
-            Vector3 current_position
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null
         ) : base(
             Type.AsteroidCrashing,
             texture_path,

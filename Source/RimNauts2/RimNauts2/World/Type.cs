@@ -31,35 +31,18 @@ namespace RimNauts2.World {
             "RimNauts2_Object_Metadata_SpaceStation"
         );
 
-        public static Objects.NEO neo(this Type type) {
-            switch (type) {
-                case Type.Asteroid:
-                    return new Objects.Asteroid();
-                case Type.AsteroidCrashing:
-                    return new Objects.AsteroidCrashing();
-                case Type.Moon:
-                    return new Objects.Moon();
-                case Type.Satellite:
-                    return new Objects.Satellite();
-                case Type.SpaceStation:
-                    return new Objects.SpaceStation();
-                default:
-                    return null;
-            }
-        }
-
         public static Objects.NEO neo(
             this Type type,
-            string texture_path,
-            Vector3 orbit_position,
-            float orbit_speed,
-            Vector3 draw_size,
-            int period,
-            int time_offset,
-            int orbit_direction,
-            float color,
-            float rotation_angle,
-            Vector3 current_position
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null
         ) {
             switch (type) {
                 case Type.Asteroid:

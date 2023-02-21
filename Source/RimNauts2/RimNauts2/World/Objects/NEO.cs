@@ -19,48 +19,35 @@ namespace RimNauts2.World.Objects {
         public Quaternion rotation;
         public bool object_holder;
 
-        public NEO(Type type) {
-            this.type = type;
-            texture_path = type.texture_path();
-            orbit_position = type.orbit_position();
-            orbit_speed = type.orbit_speed();
-            float size = type.size();
-            draw_size = new Vector3(size, 1.0f, size);
-            orbit_direction = type.orbit_direction();
-            color = type.color();
-            rotation_angle = type.rotation_angle();
-            period = (int) (36000.0f + (6000.0f * (Rand.Value - 0.5f)));
-            time_offset = Rand.Range(0, period);
-            current_position = orbit_position;
-            rotation = Quaternion.AngleAxis(rotation_angle, Vector3.up);
-            update_position(tick: 0);
-        }
-
         public NEO(
             Type type,
-            string texture_path,
-            Vector3 orbit_position,
-            float orbit_speed,
-            Vector3 draw_size,
-            int period,
-            int time_offset,
-            int orbit_direction,
-            float color,
-            float rotation_angle,
-            Vector3 current_position
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null
         ) {
             this.type = type;
-            this.texture_path = texture_path;
-            this.orbit_position = orbit_position;
-            this.orbit_speed = orbit_speed;
-            this.draw_size = draw_size;
-            this.period = period;
-            this.time_offset = time_offset;
-            this.orbit_direction = orbit_direction;
-            this.color = color;
-            this.rotation_angle = rotation_angle;
-            this.current_position = current_position;
-            rotation = Quaternion.AngleAxis(rotation_angle, Vector3.up);
+            this.texture_path = texture_path ?? type.texture_path();
+            this.orbit_position = orbit_position ?? type.orbit_position();
+            this.orbit_speed = orbit_speed ?? type.orbit_speed();
+            if (draw_size == null) {
+                float size = type.size();
+                this.draw_size = new Vector3(size, 1.0f, size);
+            } else this.draw_size = (Vector3) draw_size;
+            this.period = period ?? (int) (36000.0f + (6000.0f * (Rand.Value - 0.5f)));
+            this.time_offset = time_offset ?? Rand.Range(0, this.period);
+            this.orbit_direction = orbit_direction ?? type.orbit_direction();
+            this.color = color ?? type.color();
+            this.rotation_angle = rotation_angle ?? type.rotation_angle();
+            this.current_position = current_position ?? this.orbit_position;
+            rotation = Quaternion.AngleAxis(this.rotation_angle, Vector3.up);
+            if (current_position == null) update_position(tick: 0);
         }
 
         public virtual void update() { }
