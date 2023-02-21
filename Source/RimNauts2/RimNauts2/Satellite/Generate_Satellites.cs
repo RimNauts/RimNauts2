@@ -23,12 +23,29 @@ namespace RimNauts2 {
             );
             render_manager.Tile = 1;
             Find.WorldObjects.Add(render_manager);
-            RimNauts_GameComponent.render_manager = render_manager;
-            render_manager.populate(World.Type.Asteroid, amount: 1000);
-            render_manager.populate(World.Type.AsteroidCrashing, amount: 50);
-            render_manager.populate(World.Type.Moon, amount: 3);
-            render_manager.populate(World.Type.Satellite, amount: 5);
-            render_manager.populate(World.Type.SpaceStation, amount: 1);
+            RimNauts_GameComponent.render_manager.populate(World.Type.Asteroid, amount: 1000);
+            RimNauts_GameComponent.render_manager.populate(World.Type.AsteroidCrashing, amount: 50);
+
+            World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
+            );
+            object_holder.Tile = 200;
+            object_holder.convert(World.Type.SpaceStation);
+            Find.WorldObjects.Add(object_holder);
+
+            World.ObjectHolder object_holder1 = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
+            );
+            object_holder1.Tile = 300;
+            object_holder1.convert(World.Type.Moon);
+            Find.WorldObjects.Add(object_holder1);
+
+            World.ObjectHolder object_holder2 = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
+            );
+            object_holder2.Tile = 100;
+            object_holder2.convert(World.Type.Moon);
+            Find.WorldObjects.Add(object_holder2);
         }
 
         public static void regenerate_satellites() {

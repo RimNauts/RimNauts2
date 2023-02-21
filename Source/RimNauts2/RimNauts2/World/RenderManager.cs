@@ -29,13 +29,14 @@ namespace RimNauts2.World {
 
         public override void PostAdd() {
             base.PostAdd();
-            // increase far clipping plane to see asteroids further back when zoomed out
             Find.WorldCamera.farClipPlane = 1600.0f;
+            RimNauts_GameComponent.render_manager = this;
         }
 
         public override void ExposeData() {
             base.ExposeData();
             for (int i = 0; i < total_objects; i++) {
+                if (visual_objects[i].object_holder) continue;
                 expose_type.Add(visual_objects[i].type);
                 expose_texture_path.Add(visual_objects[i].texture_path);
                 expose_orbit_position.Add(visual_objects[i].orbit_position);
@@ -48,6 +49,7 @@ namespace RimNauts2.World {
                 expose_rotation_angle.Add(visual_objects[i].rotation_angle);
                 expose_current_position.Add(visual_objects[i].current_position);
             }
+            total_objects = expose_type.Count;
             Scribe_Values.Look(ref total_objects, "total_objects");
             Scribe_Collections.Look(ref expose_type, "expose_type", LookMode.Value);
             Scribe_Collections.Look(ref expose_texture_path, "expose_texture_path", LookMode.Value);
@@ -60,6 +62,7 @@ namespace RimNauts2.World {
             Scribe_Collections.Look(ref expose_color, "expose_color", LookMode.Value);
             Scribe_Collections.Look(ref expose_rotation_angle, "expose_rotation_angle", LookMode.Value);
             Scribe_Collections.Look(ref expose_current_position, "expose_current_position", LookMode.Value);
+            visual_objects = new List<Objects.NEO>();
             for (int i = 0; i < total_objects; i++) {
                 add(
                     expose_type[i],
@@ -75,6 +78,8 @@ namespace RimNauts2.World {
                     expose_current_position[i]
                 );
             }
+            Find.WorldCamera.farClipPlane = 1600.0f;
+            RimNauts_GameComponent.render_manager = this;
             recache();
             expose_type = new List<Type>();
             expose_texture_path = new List<string>();
@@ -141,13 +146,13 @@ namespace RimNauts2.World {
             }
         }
 
-        public Objects.NEO add(Type type) {
+        private Objects.NEO add(Type type) {
             Objects.NEO neo = type.neo();
             visual_objects.Add(neo);
             return neo;
         }
 
-        public Objects.NEO add(
+        private Objects.NEO add(
             Type type,
             string texture_path,
             Vector3 orbit_position,
@@ -177,18 +182,53 @@ namespace RimNauts2.World {
         }
 
         public void populate(Type type, int amount) {
-            total_objects += amount;
             for (int i = 0; i < amount; i++) add(type);
             recache();
         }
 
+        public Objects.NEO populate(Type type) {
+            Objects.NEO neo = add(type);
+            recache();
+            return neo;
+        }
+
+        public Objects.NEO populate(
+            Type type,
+            string texture_path,
+            Vector3 orbit_position,
+            float orbit_speed,
+            Vector3 draw_size,
+            int period,
+            int time_offset,
+            int orbit_direction,
+            float color,
+            float rotation_angle,
+            Vector3 current_position
+        ) {
+            Objects.NEO neo = add(
+                type,
+                texture_path,
+                orbit_position,
+                orbit_speed,
+                draw_size,
+                period,
+                time_offset,
+                orbit_direction,
+                color,
+                rotation_angle,
+                current_position
+            );
+            recache();
+            return neo;
+        }
+
         public void depopulate(Type type) {
             int removed_amount = visual_objects.RemoveAll(visual_object => visual_object.type == type);
-            total_objects -= removed_amount;
             recache();
         }
 
         public void recache() {
+            total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
             materials_dirty = true;
             //Vector4[] colors = new Vector4[total_objects];

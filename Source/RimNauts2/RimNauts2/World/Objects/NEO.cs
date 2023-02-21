@@ -17,6 +17,7 @@ namespace RimNauts2.World.Objects {
         public Vector3 current_position;
         public Material material;
         public Quaternion rotation;
+        public bool object_holder;
 
         public NEO(Type type) {
             this.type = type;

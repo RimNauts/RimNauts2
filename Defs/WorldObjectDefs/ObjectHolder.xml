@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- root class -->
+	<WorldObjectDef>
+		<defName>RimNauts2_ObjectHolder</defName>
+		<worldObjectClass>RimNauts2.World.ObjectHolder</worldObjectClass>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>false</expandingIcon>
+		<texture>Satellites/Asteroids/RimNauts2_Asteroid_1</texture>
+  	</WorldObjectDef>
+</Defs>

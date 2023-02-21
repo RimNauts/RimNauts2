@@ -95,6 +95,7 @@
     <Compile Include="Things\BridgeProps.cs" />
     <Compile Include="Things\Pod_Launcher.cs" />
     <Compile Include="Things\SatelliteDish.cs" />
+    <Compile Include="World\ObjectHolder.cs" />
     <Compile Include="World\Objects\Asteroid.cs" />
     <Compile Include="World\Objects\AsteroidCrashing.cs" />
     <Compile Include="World\Objects\Config.cs" />
