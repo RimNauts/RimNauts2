@@ -94,6 +94,8 @@ namespace RimNauts2.World {
             expose_current_position = new List<Vector3>();
         }
 
+        public override Vector3 DrawPos => new Vector3(0.0f, 10000.0f, 0.0f);
+
         public override void Draw() {
             int tick = Find.TickManager.TicksGame;
             Vector3 cam_pos = Find.WorldCamera.transform.position;
