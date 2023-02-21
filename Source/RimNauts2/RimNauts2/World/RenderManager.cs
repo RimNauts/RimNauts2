@@ -88,7 +88,7 @@ namespace RimNauts2.World {
             expose_current_position = new List<Vector3>();
         }
 
-        public override Vector3 DrawPos => new Vector3(0.0f, 10000.0f, 0.0f);
+        public override Vector3 DrawPos => Vector3.zero;
 
         public override void Draw() {
             int tick = Game_UpdatePlay.tick;

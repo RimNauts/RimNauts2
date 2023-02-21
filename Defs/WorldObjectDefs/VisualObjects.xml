@@ -6,5 +6,6 @@
 		<useDynamicDrawer>true</useDynamicDrawer>
 		<expandingIcon>false</expandingIcon>
         <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
   	</WorldObjectDef>
 </Defs>
