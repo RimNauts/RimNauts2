@@ -69,8 +69,32 @@ namespace RimNauts2.World {
             } else return new Vector3(0.0f, 0.0f, 0.0f);
         }
 
-        public void convert(Type type) {
-            visual_object = RimNauts_GameComponent.render_manager.populate(type);
+        public void add_visual_object(
+            Type type,
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null
+        ) {
+            visual_object = RimNauts_GameComponent.render_manager.populate(
+                type,
+                texture_path,
+                orbit_position,
+                orbit_speed,
+                draw_size,
+                period,
+                time_offset,
+                orbit_direction,
+                color,
+                rotation_angle,
+                current_position
+            );
             visual_object.object_holder = true;
         }
     }

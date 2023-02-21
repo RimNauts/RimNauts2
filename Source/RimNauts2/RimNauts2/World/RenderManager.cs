@@ -59,8 +59,7 @@ namespace RimNauts2.World {
             Scribe_Collections.Look(ref expose_current_position, "expose_current_position", LookMode.Value);
             visual_objects = new List<Objects.NEO>();
             for (int i = 0; i < total_objects; i++) {
-                add(
-                    expose_type[i],
+                Objects.NEO neo = expose_type[i].neo(
                     expose_texture_path[i],
                     expose_orbit_position[i],
                     expose_orbit_speed[i],
@@ -72,6 +71,7 @@ namespace RimNauts2.World {
                     expose_rotation_angle[i],
                     expose_current_position[i]
                 );
+                visual_objects.Add(neo);
             }
             RimNauts_GameComponent.render_manager = this;
             recache();
@@ -126,24 +126,50 @@ namespace RimNauts2.World {
             }
         }
 
-        private Objects.NEO add(Type type) {
-            Objects.NEO neo = type.neo();
-            visual_objects.Add(neo);
-            return neo;
+        public void populate(
+            int amount,
+            Type type,
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null
+        ) {
+            for (int i = 0; i < amount; i++) {
+                Objects.NEO neo = type.neo(
+                    texture_path,
+                    orbit_position,
+                    orbit_speed,
+                    draw_size,
+                    period,
+                    time_offset,
+                    orbit_direction,
+                    color,
+                    rotation_angle,
+                    current_position
+                );
+                visual_objects.Add(neo);
+            }
+            recache();
         }
 
-        private Objects.NEO add(
+        public Objects.NEO populate(
             Type type,
-            string texture_path,
-            Vector3 orbit_position,
-            float orbit_speed,
-            Vector3 draw_size,
-            int period,
-            int time_offset,
-            int orbit_direction,
-            float color,
-            float rotation_angle,
-            Vector3 current_position
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null
         ) {
             Objects.NEO neo = type.neo(
                 texture_path,
@@ -158,46 +184,6 @@ namespace RimNauts2.World {
                 current_position
             );
             visual_objects.Add(neo);
-            return neo;
-        }
-
-        public void populate(Type type, int amount) {
-            for (int i = 0; i < amount; i++) add(type);
-            recache();
-        }
-
-        public Objects.NEO populate(Type type) {
-            Objects.NEO neo = add(type);
-            recache();
-            return neo;
-        }
-
-        public Objects.NEO populate(
-            Type type,
-            string texture_path,
-            Vector3 orbit_position,
-            float orbit_speed,
-            Vector3 draw_size,
-            int period,
-            int time_offset,
-            int orbit_direction,
-            float color,
-            float rotation_angle,
-            Vector3 current_position
-        ) {
-            Objects.NEO neo = add(
-                type,
-                texture_path,
-                orbit_position,
-                orbit_speed,
-                draw_size,
-                period,
-                time_offset,
-                orbit_direction,
-                color,
-                rotation_angle,
-                current_position
-            );
             recache();
             return neo;
         }
