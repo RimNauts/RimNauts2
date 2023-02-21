@@ -16,36 +16,64 @@ namespace RimNauts2 {
             }
         }
 
-        public override void GenerateFresh(string seed) {
-            //generate_satellites();
-            World.RenderManager render_manager = (World.RenderManager) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_RenderManager")
-            );
-            render_manager.Tile = 1;
-            Find.WorldObjects.Add(render_manager);
-            RimNauts_GameComponent.render_manager.populate(World.Type.Asteroid, amount: 1000);
-            RimNauts_GameComponent.render_manager.populate(World.Type.AsteroidCrashing, amount: 50);
+        public static int get_free_tile(int start_index = 0, string new_biome_def = null) {
+            for (int i = start_index; i < Find.World.grid.TilesCount; i++) {
+                string biome_def = Find.World.grid.tiles.ElementAt(i).biome.defName;
+                if (biome_def == "Ocean") {
+                    List<int> neighbors = new List<int>();
+                    Find.World.grid.GetTileNeighbors(i, neighbors);
+                    var flag = false;
+                    foreach (var neighbour in neighbors) {
+                        var neighbour_tile = Find.World.grid.tiles.ElementAtOrDefault(neighbour);
+                        if (neighbour_tile != default(RimWorld.Planet.Tile)) {
+                            if (neighbour_tile.biome != RimWorld.BiomeDefOf.Ocean) {
+                                flag = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (flag) continue;
+                    if (new_biome_def != null) Find.World.grid.tiles.ElementAt(i).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(new_biome_def);
+                    return i;
+                }
+            }
+            return -1;
+        }
 
+        public static World.ObjectHolder add_object_holder(string def_name) {
+            Defs.ObjectHolder defs = (Defs.ObjectHolder) GenDefDatabase.GetDef(typeof(Defs.ObjectHolder), def_name);
+            int tile = get_free_tile(new_biome_def: defs.biome_def);
+            if (tile == -1) return null;
             World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
             );
-            object_holder.Tile = 200;
-            object_holder.convert(World.Type.SpaceStation);
+            object_holder.Tile = tile;
+            object_holder.def.mapGenerator = defs.map_generator;
+            object_holder.add_visual_object(
+                type: (World.Type) defs.type,
+                texture_path: defs.texture_path
+            );
             Find.WorldObjects.Add(object_holder);
+            return object_holder;
+        }
 
-            World.ObjectHolder object_holder1 = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
+        public static void add_render_manager() {
+            int tile = get_free_tile(new_biome_def: "RimNauts2_Satellite_Biome");
+            if (tile == -1) return;
+            World.RenderManager render_manager = (World.RenderManager) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_RenderManager")
             );
-            object_holder1.Tile = 300;
-            object_holder1.convert(World.Type.Moon);
-            Find.WorldObjects.Add(object_holder1);
+            render_manager.Tile = tile;
+            Find.WorldObjects.Add(render_manager);
+        }
 
-            World.ObjectHolder object_holder2 = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
-            );
-            object_holder2.Tile = 100;
-            object_holder2.convert(World.Type.Moon);
-            Find.WorldObjects.Add(object_holder2);
+        public override void GenerateFresh(string seed) {
+            //generate_satellites();
+            add_render_manager();
+            RimNauts_GameComponent.render_manager.populate(amount: 1000, World.Type.Asteroid);
+            RimNauts_GameComponent.render_manager.populate(amount: 50, World.Type.AsteroidCrashing);
+
+            add_object_holder(def_name: "RimNauts2_ObjectHolder_WaterMoon");
         }
 
         public static void regenerate_satellites() {

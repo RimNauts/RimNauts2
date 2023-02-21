@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RimNauts2.Defs.ObjectHolder>
+		<defName>RimNauts2_ObjectHolder_WaterMoon</defName>
+        <type>4</type>
+		<texture_path>Satellites/Moons/RimNauts2_MoonWater</texture_path>
+		<map_generator>RimNauts2_MoonWater_MapGen</map_generator>
+  	</RimNauts2.Defs.ObjectHolder>
+</Defs>
