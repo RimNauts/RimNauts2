@@ -62,17 +62,13 @@ namespace RimNauts2.World.Objects {
             rotation = Quaternion.AngleAxis(rotation_angle, Vector3.up);
         }
 
-        public virtual void update() {
-
-        }
+        public virtual void update() { }
 
         public virtual void update_when_unpaused(int tick) {
             update_position(tick);
         }
 
-        public virtual void update_when_camera_moved() {
-
-        }
+        public virtual void update_when_camera_moved() { }
 
         public virtual void update_position(int tick) {
             float time = orbit_speed * orbit_direction * tick + time_offset;
@@ -96,7 +92,7 @@ namespace RimNauts2.World.Objects {
             if (material != null) return material;
             material = MaterialPool.MatFrom(
                 texture_path,
-                ShaderDatabase.WorldOverlayCutout,
+                Assets.neo_shader,
                 RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
             );
             material.color = new Color(color, color, color);

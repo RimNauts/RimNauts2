@@ -40,7 +40,7 @@ namespace RimNauts2.World.Objects {
         public static Vector2 orbit_speed_between = new Vector2(8.0f, 10.0f);
         public static Vector2 size_between = new Vector2(0.5f, 0.5f);
         public static Vector2 color_between = new Vector2(1.0f, 1.0f);
-        public static bool random_rotation = false;
+        public static bool random_rotation = true;
         public static bool random_direction = true;
     }
 
@@ -53,7 +53,7 @@ namespace RimNauts2.World.Objects {
         public static Vector2 orbit_speed_between = new Vector2(6.0f, 8.0f);
         public static Vector2 size_between = new Vector2(0.8f, 0.8f);
         public static Vector2 color_between = new Vector2(1.0f, 1.0f);
-        public static bool random_rotation = false;
+        public static bool random_rotation = true;
         public static bool random_direction = false;
     }
 }

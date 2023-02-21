@@ -25,6 +25,7 @@ namespace RimNauts2.World {
         private List<float> expose_color = new List<float>();
         private List<float> expose_rotation_angle = new List<float>();
         private List<Vector3> expose_current_position = new List<Vector3>();
+        //public MaterialPropertyBlock properties = new MaterialPropertyBlock();
 
         public override void PostAdd() {
             base.PostAdd();
@@ -108,6 +109,20 @@ namespace RimNauts2.World {
                 prev_cam_pos = cam_pos;
             }
             // draw objects
+            /*Graphics.DrawMeshInstanced(
+                MeshPool.plane10,
+                submeshIndex: 0,
+                cached_materials[0],
+                cached_matrices,
+                count: total_objects,
+                properties: null,
+                ShadowCastingMode.Off,
+                receiveShadows: false,
+                RimWorld.Planet.WorldCameraManager.WorldLayer + 1000,
+                camera: null,
+                LightProbeUsage.BlendProbes,
+                lightProbeProxyVolume: null
+            );*/
             for (int i = 0; i < total_objects; i++) {
                 Graphics.DrawMesh(
                     MeshPool.plane10,
@@ -176,6 +191,9 @@ namespace RimNauts2.World {
         public void recache() {
             cached_matrices = new Matrix4x4[total_objects];
             materials_dirty = true;
+            //Vector4[] colors = new Vector4[total_objects];
+            //for (int i = 0; i < total_objects; i++) colors[i] = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            //properties.SetVectorArray("_Colors", colors);
         }
 
         public void recache_materials() {
