@@ -25,7 +25,6 @@ namespace RimNauts2.World {
         private List<float> expose_color = new List<float>();
         private List<float> expose_rotation_angle = new List<float>();
         private List<Vector3> expose_current_position = new List<Vector3>();
-        //public MaterialPropertyBlock properties = new MaterialPropertyBlock();
 
         public override void PostAdd() {
             base.PostAdd();
@@ -101,9 +100,8 @@ namespace RimNauts2.World {
             Vector3 cam_pos = Find.WorldCamera.transform.position;
             bool unpaused = tick != prev_tick;
             bool camera_moved = cam_pos != prev_cam_pos;
-            // update cache
-            recache_materials();
             // update objects
+            recache_materials();
             if (unpaused || camera_moved) {
                 Vector3 center = Find.WorldCameraDriver.CurrentlyLookingAtPointOnSphere;
                 Parallel.For(0, total_objects, i => {
@@ -116,20 +114,6 @@ namespace RimNauts2.World {
                 prev_cam_pos = cam_pos;
             }
             // draw objects
-            /*Graphics.DrawMeshInstanced(
-                MeshPool.plane10,
-                submeshIndex: 0,
-                cached_materials[0],
-                cached_matrices,
-                count: total_objects,
-                properties: null,
-                ShadowCastingMode.Off,
-                receiveShadows: false,
-                RimWorld.Planet.WorldCameraManager.WorldLayer + 1000,
-                camera: null,
-                LightProbeUsage.BlendProbes,
-                lightProbeProxyVolume: null
-            );*/
             for (int i = 0; i < total_objects; i++) {
                 Graphics.DrawMesh(
                     MeshPool.plane10,
@@ -225,7 +209,7 @@ namespace RimNauts2.World {
         }
 
         public void depopulate(Type type) {
-            int removed_amount = visual_objects.RemoveAll(visual_object => visual_object.type == type);
+            visual_objects.RemoveAll(visual_object => visual_object.type == type);
             recache();
         }
 
@@ -233,9 +217,6 @@ namespace RimNauts2.World {
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
             materials_dirty = true;
-            //Vector4[] colors = new Vector4[total_objects];
-            //for (int i = 0; i < total_objects; i++) colors[i] = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            //properties.SetVectorArray("_Colors", colors);
         }
 
         public void recache_materials() {
