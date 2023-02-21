@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RimNauts2.Defs.ObjectMetadata>
+		<defName>RimNauts2_Object_Metadata_Asteroid</defName>
+		<texture_paths>
+            <li>Satellites/Asteroids/RimNauts2_Full_Asteroid_1</li>
+            <li>Satellites/Asteroids/RimNauts2_Full_Asteroid_2</li>
+            <li>Satellites/Asteroids/RimNauts2_Full_Asteroid_3</li>
+        </texture_paths>
+		<orbit_position>(250.0, 5.0, 250.0)</orbit_position>
+		<orbit_spread>(0.3, 0.1, 0.3)</orbit_spread>
+		<orbit_speed_between>(2.0, 4.0)</orbit_speed_between>
+		<size_between>(0.2, 0.3)</size_between>
+		<color_between>(0.6, 0.8)</color_between>
+		<random_rotation>true</random_rotation>
+		<random_direction>false</random_direction>
+  	</RimNauts2.Defs.ObjectMetadata>
+</Defs>

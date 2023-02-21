@@ -66,6 +66,7 @@
     <Compile Include="Biome\SetSatelliteBiome.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Assets.cs" />
+    <Compile Include="Defs\ObjectMetadata.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Map\AsteroidOre\ElevationFertility.cs" />
@@ -98,7 +99,6 @@
     <Compile Include="World\ObjectHolder.cs" />
     <Compile Include="World\Objects\Asteroid.cs" />
     <Compile Include="World\Objects\AsteroidCrashing.cs" />
-    <Compile Include="World\Objects\Config.cs" />
     <Compile Include="World\Objects\Moon.cs" />
     <Compile Include="World\Objects\NEO.cs" />
     <Compile Include="World\Objects\Satellite.cs" />
