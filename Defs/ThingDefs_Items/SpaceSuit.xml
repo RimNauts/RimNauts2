@@ -41,7 +41,7 @@
         <costList>
             <ComponentSpacer>1</ComponentSpacer>
             <Plasteel>25</Plasteel>
-            <Hyperweave>5</Hyperweave>
+            <Cloth>5</Cloth>
         </costList>
         <apparel>
             <bodyPartGroups>
@@ -116,7 +116,7 @@
         <costList>
             <ComponentSpacer>4</ComponentSpacer>
             <Plasteel>100</Plasteel>
-            <Hyperweave>20</Hyperweave>
+            <Cloth>20</Cloth>
         </costList>
         <apparel>
             <bodyPartGroups>
