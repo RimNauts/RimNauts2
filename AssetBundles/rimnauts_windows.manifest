@@ -1,17 +1,16 @@
 ManifestFileVersion: 0
-CRC: 3078589390
+CRC: 3146409376
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d3e28a775139f4a5310a67b1b03e5fb7
+    Hash: 6133e405ac1a1f2b2d7b6a0c2108202f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 55d48f4ad9c3b13330b9eb5ee5686477
+    Hash: 7e9ee104d6bb707fb2602b751e6f78b1
 HashAppended: 0
 ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
-SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/neo.shader
 Dependencies: []
