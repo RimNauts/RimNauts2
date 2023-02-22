@@ -52,9 +52,11 @@ namespace RimNauts2 {
             object_holder.def.label = defs.label;
             object_holder.def.description = defs.description;
             object_holder.keep_after_abandon = defs.keep_after_abandon;
+            string texture_path = null;
+            if (!defs.texture_paths.NullOrEmpty()) texture_path = defs.texture_paths.RandomElement();
             object_holder.add_visual_object(
                 type: (World.Type) defs.type,
-                texture_path: defs.texture_path
+                texture_path: texture_path
             );
             if (defs.limited_days_between != null) {
                 Vector2 days_between = (Vector2) defs.limited_days_between;

@@ -6,7 +6,9 @@
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
         <type>4</type>
 		<map_generator>RimNauts2_MoonWater_MapGen</map_generator>
-		<texture_path>Satellites/Moons/RimNauts2_MoonWater</texture_path>
+		<texture_paths>
+			<li>Satellites/Moons/RimNauts2_MoonWater</li>
+		</texture_paths>
 		<biome_def>RimNauts2_MoonWater_Biome</biome_def>
 		<keep_after_abandon>true</keep_after_abandon>
 		<limited_days_between>(0.5, 1.5)</limited_days_between>
