@@ -12,6 +12,9 @@ namespace RimNauts2.World {
         private bool limited_time;
         private int created_tick;
         private int death_tick;
+        public string label;
+        public string description;
+        public MapGeneratorDef map_generator;
         public Type type;
         private Vector3 position = Vector3.zero;
         string texture_path;
@@ -44,6 +47,9 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref limited_time, "limited_time");
             Scribe_Values.Look(ref created_tick, "created_tick");
             Scribe_Values.Look(ref death_tick, "death_tick");
+            Scribe_Values.Look(ref label, "label");
+            Scribe_Values.Look(ref description, "description");
+            Scribe_Values.Look(ref map_generator, "map_generator");
             Scribe_Values.Look(ref type, "type");
             Scribe_Values.Look(ref texture_path, "texture_path");
             Scribe_Values.Look(ref orbit_position, "orbit_position");
@@ -109,11 +115,18 @@ namespace RimNauts2.World {
 
         public string add_expiration_date_label() {
             if ((death_tick - created_tick) < 60000.0f) {
-                return base.Label + " (Hours left " + Math.Ceiling((death_tick - created_tick) / 2500.0f).ToString() + ")";
-            } else return base.Label + " (Days left " + ((death_tick - created_tick) / 60000.0f).ToString("0.00") + ")";
+                return label + " (Hours left " + Math.Ceiling((death_tick - created_tick) / 2500.0f).ToString() + ")";
+            } else return label + " (Days left " + ((death_tick - created_tick) / 60000.0f).ToString("0.00") + ")";
         }
 
-        public override string Label => limited_time && !HasMap ? add_expiration_date_label() : base.Label;
+        public override string Label => limited_time && !HasMap ? add_expiration_date_label() : label;
+
+        public override string GetDescription() {
+            def.description = description;
+            return base.GetDescription();
+        }
+
+        public override MapGeneratorDef MapGeneratorDef => map_generator;
 
         public Vector3 get_position() {
             if (visual_object != null) {
