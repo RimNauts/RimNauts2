@@ -2,6 +2,7 @@
 <Defs>
 	<RimNauts2.Defs.ObjectMetadata>
 		<defName>RimNauts2_Object_Metadata_Moon</defName>
+		<type>4</type>
 		<texture_paths>
             <li>Satellites/Moons/RimNauts2_MoonBarren</li>
             <li>Satellites/Moons/RimNauts2_MoonStripped</li>

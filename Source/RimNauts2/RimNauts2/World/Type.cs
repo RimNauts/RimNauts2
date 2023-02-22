@@ -14,23 +14,6 @@ namespace RimNauts2.World {
     }
 
     public static class TypeExtension {
-        public static Defs.ObjectMetadata asteroid_defs = (Defs.ObjectMetadata) GenDefDatabase.GetDef(
-            typeof(Defs.ObjectMetadata),
-            "RimNauts2_Object_Metadata_Asteroid"
-        );
-        public static Defs.ObjectMetadata moon_defs = (Defs.ObjectMetadata) GenDefDatabase.GetDef(
-            typeof(Defs.ObjectMetadata),
-            "RimNauts2_Object_Metadata_Moon"
-        );
-        public static Defs.ObjectMetadata satellite_defs = (Defs.ObjectMetadata) GenDefDatabase.GetDef(
-            typeof(Defs.ObjectMetadata),
-            "RimNauts2_Object_Metadata_Satellite"
-        );
-        public static Defs.ObjectMetadata space_station_defs = (Defs.ObjectMetadata) GenDefDatabase.GetDef(
-            typeof(Defs.ObjectMetadata),
-            "RimNauts2_Object_Metadata_SpaceStation"
-        );
-
         public static Objects.NEO neo(
             this Type type,
             string texture_path = null,
@@ -130,20 +113,12 @@ namespace RimNauts2.World {
 
         public static Defs.ObjectMetadata defs(this Type type) {
             switch (type) {
-                case Type.Asteroid:
-                    return asteroid_defs;
                 case Type.AsteroidOre:
-                    return asteroid_defs;
+                    return Defs.Loader.get_object_metadata(Type.Asteroid);
                 case Type.AsteroidCrashing:
-                    return asteroid_defs;
-                case Type.Moon:
-                    return moon_defs;
-                case Type.Satellite:
-                    return satellite_defs;
-                case Type.SpaceStation:
-                    return space_station_defs;
+                    return Defs.Loader.get_object_metadata(Type.Asteroid);
                 default:
-                    return asteroid_defs;
+                    return Defs.Loader.get_object_metadata(type);
             }
         }
 

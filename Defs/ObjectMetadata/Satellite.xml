@@ -2,6 +2,7 @@
 <Defs>
 	<RimNauts2.Defs.ObjectMetadata>
 		<defName>RimNauts2_Object_Metadata_Satellite</defName>
+		<type>5</type>
 		<texture_paths>
             <li>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</li>
         </texture_paths>

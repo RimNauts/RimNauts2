@@ -4,6 +4,7 @@ using Verse;
 
 namespace RimNauts2.Defs {
     public class ObjectMetadata : Def {
+        public int type;
         public List<string> texture_paths = new List<string>();
         public Vector3 orbit_position = Vector3.one;
         public Vector3 orbit_spread = Vector3.one;

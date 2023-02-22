@@ -2,6 +2,7 @@
 <Defs>
 	<RimNauts2.Defs.ObjectMetadata>
 		<defName>RimNauts2_Object_Metadata_Asteroid</defName>
+		<type>1</type>
 		<texture_paths>
             <li>Satellites/Asteroids/RimNauts2_Full_Asteroid_1</li>
             <li>Satellites/Asteroids/RimNauts2_Full_Asteroid_2</li>

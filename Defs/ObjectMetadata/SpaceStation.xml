@@ -2,6 +2,7 @@
 <Defs>
 	<RimNauts2.Defs.ObjectMetadata>
 		<defName>RimNauts2_Object_Metadata_SpaceStation</defName>
+		<type>6</type>
 		<texture_paths>
             <li>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</li>
         </texture_paths>
