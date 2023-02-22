@@ -12,6 +12,7 @@ namespace RimNauts2.World {
         public static Vector3 camera_position;
         private static Vector3 prev_camera_position = Vector3.zero;
         public static Vector3 center;
+        public static float altitude_percent;
         public static bool unpaused;
         public static bool camera_moved;
 
@@ -39,6 +40,7 @@ namespace RimNauts2.World {
             camera_moved = camera_position != prev_camera_position;
             prev_camera_position = camera_position;
             center = camera_driver.CurrentlyLookingAtPointOnSphere;
+            altitude_percent = camera_driver.AltitudePercent;
         }
     }
 

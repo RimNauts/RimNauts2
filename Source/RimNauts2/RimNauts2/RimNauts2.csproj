@@ -111,7 +111,7 @@
     <Compile Include="World\Patch\Transportpod.cs" />
     <Compile Include="World\Type.cs" />
     <Compile Include="World\RenderManager.cs" />
-    <Compile Include="Things\HideIcons.cs" />
+    <Compile Include="World\Patch\HideIcons.cs" />
     <Compile Include="Things\Transport.cs" />
   </ItemGroup>
   <ItemGroup>
