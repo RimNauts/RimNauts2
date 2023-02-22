@@ -9,6 +9,7 @@ namespace RimNauts2.World {
         public Objects.NEO visual_object;
         public bool keep_after_abandon;
         public Type type;
+        private Vector3 position = Vector3.zero;
         string texture_path;
         Vector3 orbit_position;
         float orbit_speed;
@@ -49,7 +50,12 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref current_position, "current_position");
         }
 
-        public override Vector3 DrawPos => get_position();
+        public override void Tick() {
+            base.Tick();
+            position = get_position();
+        }
+
+        public override Vector3 DrawPos => position;
 
         public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject) {
             alsoRemoveWorldObject = true;
