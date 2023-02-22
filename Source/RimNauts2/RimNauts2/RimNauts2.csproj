@@ -66,9 +66,11 @@
     <Compile Include="Biome\Patch\PawnGroupMaker.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Assets.cs" />
+    <Compile Include="Defs\Loader.cs" />
     <Compile Include="Defs\ObjectHolder.cs" />
     <Compile Include="Defs\ObjectMetadata.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
+    <Compile Include="World\Debug\SpawnObjects.cs" />
     <Compile Include="World\Loop.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logger.cs" />

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
     <RimNauts.Info.mod_loaded>{0} (v{1}) has successfully loaded.</RimNauts.Info.mod_loaded>
+    <RimNauts.Info.def_loader_done>{0} defs found</RimNauts.Info.def_loader_done>
     <RimNauts.Info.assets_loaded>AssetBundle loading has finished, found {0} platform</RimNauts.Info.assets_loaded>
     <RimNauts.Info.sos_found>Found Save Our Ship space environment.</RimNauts.Info.sos_found>
     <RimNauts.Info.starting_satellite_objects_cleanup>Starting satellite objects cleanup. Total objects: {0}</RimNauts.Info.starting_satellite_objects_cleanup>

@@ -14,6 +14,7 @@ namespace RimNauts2 {
                 key: "RimNauts.Info.mod_loaded",
                 args: new NamedArgument[] { Info.name, Info.version }
             );
+            Defs.Loader.init();
             Assets.init();
         }
     }
