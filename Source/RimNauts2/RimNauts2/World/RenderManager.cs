@@ -200,6 +200,7 @@ namespace RimNauts2.World {
             cached_matrices = new Matrix4x4[total_objects];
             for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
             materials_dirty = true;
+            update();
         }
 
         public void recache_materials() {

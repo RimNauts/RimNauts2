@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace RimNauts2.World.Objects {
-    public class Asteroid : NEO {
-        public Asteroid(
+    public class AsteroidOre : NEO {
+        public AsteroidOre(
             string texture_path = null,
             Vector3? orbit_position = null,
             float? orbit_speed = null,
@@ -14,7 +14,7 @@ namespace RimNauts2.World.Objects {
             float? rotation_angle = null,
             Vector3? current_position = null
         ) : base(
-            Type.Asteroid,
+            Type.AsteroidOre,
             texture_path,
             orbit_position,
             orbit_speed,

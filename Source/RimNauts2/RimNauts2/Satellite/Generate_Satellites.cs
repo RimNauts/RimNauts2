@@ -56,6 +56,10 @@ namespace RimNauts2 {
                 type: (World.Type) defs.type,
                 texture_path: defs.texture_path
             );
+            if (defs.limited_days_between != null) {
+                Vector2 days_between = (Vector2) defs.limited_days_between;
+                object_holder.add_expiration_date(days_between.x, days_between.y);
+            }
             Find.WorldObjects.Add(object_holder);
             World.Cache.add(object_holder);
             return object_holder;

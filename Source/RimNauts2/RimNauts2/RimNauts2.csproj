@@ -104,6 +104,7 @@
     <Compile Include="World\ObjectHolder.cs" />
     <Compile Include="World\Objects\Asteroid.cs" />
     <Compile Include="World\Objects\AsteroidCrashing.cs" />
+    <Compile Include="World\Objects\AsteroidOre.cs" />
     <Compile Include="World\Objects\Moon.cs" />
     <Compile Include="World\Objects\NEO.cs" />
     <Compile Include="World\Objects\Satellite.cs" />

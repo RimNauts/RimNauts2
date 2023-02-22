@@ -1,4 +1,4 @@
-﻿using RimNauts2.Defs;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -9,6 +9,9 @@ namespace RimNauts2.World {
     public class ObjectHolder : RimWorld.Planet.MapParent {
         public Objects.NEO visual_object;
         public bool keep_after_abandon;
+        private bool limited_time;
+        private int created_tick;
+        private int death_tick;
         public Type type;
         private Vector3 position = Vector3.zero;
         string texture_path;
@@ -38,6 +41,9 @@ namespace RimNauts2.World {
                 current_position = visual_object.current_position;
             }
             Scribe_Values.Look(ref keep_after_abandon, "keep_after_abandon");
+            Scribe_Values.Look(ref limited_time, "limited_time");
+            Scribe_Values.Look(ref created_tick, "created_tick");
+            Scribe_Values.Look(ref death_tick, "death_tick");
             Scribe_Values.Look(ref type, "type");
             Scribe_Values.Look(ref texture_path, "texture_path");
             Scribe_Values.Look(ref orbit_position, "orbit_position");
@@ -54,6 +60,13 @@ namespace RimNauts2.World {
         public override void Tick() {
             base.Tick();
             position = get_position();
+            if (limited_time) {
+                created_tick++;
+                if (!HasMap && created_tick >= death_tick) {
+                    keep_after_abandon = false;
+                    Destroy();
+                }
+            }
         }
 
         public override Vector3 DrawPos => position;
@@ -88,11 +101,25 @@ namespace RimNauts2.World {
             }
         }
 
+        public void add_expiration_date(float min_days, float max_days) {
+            limited_time = true;
+            created_tick = Loop.tick;
+            death_tick = created_tick + (int) Rand.Range(min_days * 60000, max_days * 60000);
+        }
+
+        public string add_expiration_date_label() {
+            if ((death_tick - created_tick) < 60000.0f) {
+                return base.Label + " (Hours left " + Math.Ceiling((death_tick - created_tick) / 2500.0f).ToString() + ")";
+            } else return base.Label + " (Days left " + ((death_tick - created_tick) / 60000.0f).ToString("0.00") + ")";
+        }
+
+        public override string Label => limited_time && !HasMap ? add_expiration_date_label() : base.Label;
+
         public Vector3 get_position() {
             if (visual_object != null) {
                 return visual_object.current_position;
             } else if (type != Type.None && RimNauts_GameComponent.render_manager != null) {
-                visual_object = RimNauts_GameComponent.render_manager.populate(
+                add_visual_object(
                     type,
                     texture_path,
                     orbit_position,
@@ -105,7 +132,6 @@ namespace RimNauts2.World {
                     rotation_angle,
                     current_position
                 );
-                visual_object.object_holder = true;
                 return visual_object.current_position;
             } else return Vector3.zero;
         }
