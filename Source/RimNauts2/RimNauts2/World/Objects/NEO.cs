@@ -53,8 +53,8 @@ namespace RimNauts2.World.Objects {
 
         public virtual void update() { }
 
-        public virtual void update_when_unpaused(int tick) {
-            update_position(tick);
+        public virtual void update_when_unpaused() {
+            update_position(Loop.tick);
         }
 
         public virtual void update_when_camera_moved() { }

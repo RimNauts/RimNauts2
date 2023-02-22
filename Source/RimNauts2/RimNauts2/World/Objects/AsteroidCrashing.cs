@@ -44,7 +44,7 @@ namespace RimNauts2.World.Objects {
             base.update();
         }
 
-        public override void update_when_unpaused(int tick) {
+        public override void update_when_unpaused() {
             if (out_of_bounds_direction_towards_surface) {
                 current_out_of_bounds -= 0.00015f;
                 if (current_out_of_bounds <= 0.42f) current_out_of_bounds = out_of_bounds_offset;
@@ -52,7 +52,7 @@ namespace RimNauts2.World.Objects {
                 current_out_of_bounds += 0.0002f;
                 if (current_out_of_bounds >= 2.4f) current_out_of_bounds = out_of_bounds_offset;
             }
-            base.update_when_unpaused(tick);
+            base.update_when_unpaused();
         }
 
         public override void update_when_camera_moved() {

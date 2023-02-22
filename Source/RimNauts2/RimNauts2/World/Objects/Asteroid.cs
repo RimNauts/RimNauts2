@@ -32,8 +32,8 @@ namespace RimNauts2.World.Objects {
             base.update();
         }
 
-        public override void update_when_unpaused(int tick) {
-            base.update_when_unpaused(tick);
+        public override void update_when_unpaused() {
+            base.update_when_unpaused();
         }
 
         public override void update_when_camera_moved() {
