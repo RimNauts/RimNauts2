@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<!-- root class -->
 	<WorldObjectDef>
 		<defName>RimNauts2_ObjectHolder</defName>
 		<worldObjectClass>RimNauts2.World.ObjectHolder</worldObjectClass>
@@ -10,6 +9,10 @@
 		<expandingIconTexture>RimNauts2_Transparent</expandingIconTexture>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
+			<li Class="RimNauts2.World.Comps.DestroyObjectHolder_Properties">
+				<label>Destroy</label>
+				<desc>Blast the object out of orbit, never to be seen again.</desc>
+			</li>
 		</comps>
   	</WorldObjectDef>
 </Defs>

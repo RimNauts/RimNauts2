@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using RimNauts2.Defs;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using Verse;
@@ -81,8 +82,10 @@ namespace RimNauts2.World {
                 object_holder.visual_object = visual_object;
                 object_holder.type = type;
                 Find.WorldObjects.Add(object_holder);
+            } else {
+                RimNauts_GameComponent.render_manager.depopulate(visual_object);
+                Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
             }
-            Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
         }
 
         public Vector3 get_position() {
