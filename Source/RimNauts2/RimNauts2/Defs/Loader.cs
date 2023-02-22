@@ -22,5 +22,10 @@ namespace RimNauts2.Defs {
                 args: new NamedArgument[] { total_defs }
             );
         }
+        public static ObjectHolder get_object_holder(World.Type type, string def_name = null) {
+            if (!object_holders.ContainsKey(type)) return null;
+            if (def_name == null) return object_holders[type].RandomElement();
+            return object_holders[type].Find(object_holder => object_holder.defName == def_name);
+        }
     }
 }

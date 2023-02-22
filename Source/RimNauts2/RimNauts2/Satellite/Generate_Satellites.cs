@@ -40,8 +40,8 @@ namespace RimNauts2 {
             return -1;
         }
 
-        public static World.ObjectHolder add_object_holder(string def_name) {
-            Defs.ObjectHolder defs = (Defs.ObjectHolder) GenDefDatabase.GetDef(typeof(Defs.ObjectHolder), def_name);
+        public static World.ObjectHolder add_object_holder(World.Type type, string def_name = null) {
+            Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, def_name);
             int tile = get_free_tile(new_biome_def: defs.biome_def);
             if (tile == -1) return null;
             World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
@@ -67,18 +67,18 @@ namespace RimNauts2 {
             return object_holder;
         }
 
-        public static void add_object_holder(int amount, string def_name) {
+        public static void add_object_holder(int amount, World.Type type, string def_name = null) {
             for (int i = 0; i < amount; i++) {
-                Defs.ObjectHolder defs = (Defs.ObjectHolder) GenDefDatabase.GetDef(typeof(Defs.ObjectHolder), def_name);
+                Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, def_name);
                 int tile = get_free_tile(new_biome_def: defs.biome_def);
                 if (tile == -1) return;
                 World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                     DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
                 );
                 object_holder.Tile = tile;
-                object_holder.def.mapGenerator = defs.map_generator;
-                object_holder.def.label = defs.label;
-                object_holder.def.description = defs.description;
+                object_holder.map_generator = defs.map_generator;
+                object_holder.label = defs.label;
+                object_holder.description = defs.description;
                 object_holder.keep_after_abandon = defs.keep_after_abandon;
                 string texture_path = null;
                 if (!defs.texture_paths.NullOrEmpty()) texture_path = defs.texture_paths.RandomElement();
@@ -111,8 +111,8 @@ namespace RimNauts2 {
             RimNauts_GameComponent.render_manager.populate(amount: 1000, World.Type.Asteroid);
             RimNauts_GameComponent.render_manager.populate(amount: 50, World.Type.AsteroidCrashing);
 
-            add_object_holder(def_name: "RimNauts2_ObjectHolder_Moon_Water");
-            add_object_holder(amount: 50, def_name: "RimNauts2_ObjectHolder_AsteroidOre_Steel");
+            add_object_holder(amount: 30, World.Type.AsteroidOre);
+            add_object_holder(amount: 5, World.Type.Moon);
         }
 
         public static void regenerate_satellites() {
