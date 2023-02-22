@@ -11,7 +11,7 @@ namespace RimNauts2 {
 
         public override int SeedPart {
             get {
-                SetSatelliteBiome.i = 0;
+                //SetSatelliteBiome.i = 0;
                 return 133714088;
             }
         }
@@ -49,11 +49,15 @@ namespace RimNauts2 {
             );
             object_holder.Tile = tile;
             object_holder.def.mapGenerator = defs.map_generator;
+            object_holder.def.label = defs.label;
+            object_holder.def.description = defs.description;
+            object_holder.keep_after_abandon = defs.keep_after_abandon;
             object_holder.add_visual_object(
                 type: (World.Type) defs.type,
                 texture_path: defs.texture_path
             );
             Find.WorldObjects.Add(object_holder);
+            World.Cache.add(object_holder);
             return object_holder;
         }
 

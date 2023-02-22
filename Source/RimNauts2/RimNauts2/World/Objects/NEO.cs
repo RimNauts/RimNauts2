@@ -4,6 +4,7 @@ using Verse;
 
 namespace RimNauts2.World.Objects {
     public abstract class NEO {
+        public int index;
         public Type type;
         public string texture_path;
         public Vector3 orbit_position;

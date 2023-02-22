@@ -4,7 +4,7 @@ using System.Linq;
 using Verse;
 
 namespace RimNauts2 {
-    [HarmonyPatch(typeof(RimWorld.Planet.WorldGenStep_Terrain), "BiomeFrom")]
+    /*[HarmonyPatch(typeof(RimWorld.Planet.WorldGenStep_Terrain), "BiomeFrom")]
     class SetSatelliteBiome {
         public static int i = 0;
 
@@ -38,5 +38,5 @@ namespace RimNauts2 {
                 }
             }
         }
-    }
+    }*/
 }

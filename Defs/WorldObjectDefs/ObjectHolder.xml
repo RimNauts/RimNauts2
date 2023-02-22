@@ -8,5 +8,8 @@
 		<expandingIcon>true</expandingIcon>
 		<texture>RimNauts2_Transparent</texture>
 		<expandingIconTexture>RimNauts2_Transparent</expandingIconTexture>
+		<comps>
+			<li Class="WorldObjectCompProperties_Abandon"/>
+		</comps>
   	</WorldObjectDef>
 </Defs>

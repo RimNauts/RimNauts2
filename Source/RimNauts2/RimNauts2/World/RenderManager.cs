@@ -57,21 +57,23 @@ namespace RimNauts2.World {
             Scribe_Collections.Look(ref expose_color, "expose_color", LookMode.Value);
             Scribe_Collections.Look(ref expose_rotation_angle, "expose_rotation_angle", LookMode.Value);
             Scribe_Collections.Look(ref expose_current_position, "expose_current_position", LookMode.Value);
-            visual_objects = new List<Objects.NEO>();
-            for (int i = 0; i < total_objects; i++) {
-                Objects.NEO neo = expose_type[i].neo(
-                    expose_texture_path[i],
-                    expose_orbit_position[i],
-                    expose_orbit_speed[i],
-                    expose_draw_size[i],
-                    expose_period[i],
-                    expose_time_offset[i],
-                    expose_orbit_direction[i],
-                    expose_color[i],
-                    expose_rotation_angle[i],
-                    expose_current_position[i]
-                );
-                visual_objects.Add(neo);
+            if (visual_objects.NullOrEmpty()) {
+                visual_objects = new List<Objects.NEO>();
+                for (int i = 0; i < total_objects; i++) {
+                    Objects.NEO neo = expose_type[i].neo(
+                        expose_texture_path[i],
+                        expose_orbit_position[i],
+                        expose_orbit_speed[i],
+                        expose_draw_size[i],
+                        expose_period[i],
+                        expose_time_offset[i],
+                        expose_orbit_direction[i],
+                        expose_color[i],
+                        expose_rotation_angle[i],
+                        expose_current_position[i]
+                    );
+                    visual_objects.Add(neo);
+                }
             }
             RimNauts_GameComponent.render_manager = this;
             recache();
@@ -193,9 +195,15 @@ namespace RimNauts2.World {
             recache();
         }
 
+        public void depopulate(Objects.NEO neo) {
+            visual_objects.RemoveAll(visual_object => visual_object.index == neo.index);
+            recache();
+        }
+
         public void recache() {
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
+            for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
             materials_dirty = true;
         }
 

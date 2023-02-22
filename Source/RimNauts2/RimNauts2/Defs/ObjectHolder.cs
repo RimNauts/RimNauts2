@@ -7,5 +7,6 @@ namespace RimNauts2.Defs {
         [NoTranslate]
         public string texture_path;
         public string biome_def;
+        public bool keep_after_abandon;
     }
 }
