@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RimNauts2.Defs.ObjectHolder>
+		<defName>RimNauts2_ObjectHolder_AsteroidOre_Steel</defName>
+		<label>steel ore asteroid</label>
+		<description>An asteroid rich with minerals.</description>
+        <type>2</type>
+		<map_generator>RimNauts2_OreSteel_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/Ores/RimNauts2_OreSteel_1</li>
+			<li>Satellites/Ores/RimNauts2_OreSteel_2</li>
+			<li>Satellites/Ores/RimNauts2_OreSteel_3</li>
+			<li>Satellites/Ores/RimNauts2_OreSteel_4</li>
+			<li>Satellites/Ores/RimNauts2_OreSteel_5</li>
+		</texture_paths>
+		<biome_def>RimNauts2_Satellite_Biome</biome_def>
+		<keep_after_abandon>false</keep_after_abandon>
+		<limited_days_between>(0.5, 1.5)</limited_days_between>
+  	</RimNauts2.Defs.ObjectHolder>
+</Defs>

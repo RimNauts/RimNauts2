@@ -13,7 +13,7 @@ namespace RimNauts2.World {
         public static int total_satellites;
         public static int total_space_stations;
 
-        public Caching_Handler(Verse.Game game) : base() {
+        public Caching_Handler(Game game) : base() {
             // initialize empty caches
             clear();
             Cache.caching_handler = this;

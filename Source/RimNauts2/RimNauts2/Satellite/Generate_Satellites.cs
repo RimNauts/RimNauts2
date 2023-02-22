@@ -67,6 +67,34 @@ namespace RimNauts2 {
             return object_holder;
         }
 
+        public static void add_object_holder(int amount, string def_name) {
+            for (int i = 0; i < amount; i++) {
+                Defs.ObjectHolder defs = (Defs.ObjectHolder) GenDefDatabase.GetDef(typeof(Defs.ObjectHolder), def_name);
+                int tile = get_free_tile(new_biome_def: defs.biome_def);
+                if (tile == -1) return;
+                World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                    DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
+                );
+                object_holder.Tile = tile;
+                object_holder.def.mapGenerator = defs.map_generator;
+                object_holder.def.label = defs.label;
+                object_holder.def.description = defs.description;
+                object_holder.keep_after_abandon = defs.keep_after_abandon;
+                string texture_path = null;
+                if (!defs.texture_paths.NullOrEmpty()) texture_path = defs.texture_paths.RandomElement();
+                object_holder.add_visual_object(
+                    type: (World.Type) defs.type,
+                    texture_path: texture_path
+                );
+                if (defs.limited_days_between != null) {
+                    Vector2 days_between = (Vector2) defs.limited_days_between;
+                    object_holder.add_expiration_date(days_between.x, days_between.y);
+                }
+                Find.WorldObjects.Add(object_holder);
+                World.Cache.add(object_holder);
+            }
+        }
+
         public static void add_render_manager() {
             int tile = get_free_tile(new_biome_def: "RimNauts2_Satellite_Biome");
             if (tile == -1) return;
@@ -83,7 +111,8 @@ namespace RimNauts2 {
             RimNauts_GameComponent.render_manager.populate(amount: 1000, World.Type.Asteroid);
             RimNauts_GameComponent.render_manager.populate(amount: 50, World.Type.AsteroidCrashing);
 
-            add_object_holder(def_name: "RimNauts2_ObjectHolder_WaterMoon");
+            add_object_holder(def_name: "RimNauts2_ObjectHolder_Moon_Water");
+            add_object_holder(amount: 50, def_name: "RimNauts2_ObjectHolder_AsteroidOre_Steel");
         }
 
         public static void regenerate_satellites() {

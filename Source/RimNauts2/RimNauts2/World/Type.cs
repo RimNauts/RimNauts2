@@ -58,6 +58,19 @@ namespace RimNauts2.World {
                         rotation_angle,
                         current_position
                     );
+                case Type.AsteroidOre:
+                    return new Objects.AsteroidOre(
+                        texture_path,
+                        orbit_position,
+                        orbit_speed,
+                        draw_size,
+                        period,
+                        time_offset,
+                        orbit_direction,
+                        color,
+                        rotation_angle,
+                        current_position
+                    );
                 case Type.AsteroidCrashing:
                     return new Objects.AsteroidCrashing(
                         texture_path,
