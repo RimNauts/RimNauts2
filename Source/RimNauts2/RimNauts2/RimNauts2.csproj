@@ -68,7 +68,7 @@
     <Compile Include="Assets.cs" />
     <Compile Include="Defs\ObjectHolder.cs" />
     <Compile Include="Defs\ObjectMetadata.cs" />
-    <Compile Include="Game\Loop.cs" />
+    <Compile Include="World\Loop.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Map\AsteroidOre\ElevationFertility.cs" />

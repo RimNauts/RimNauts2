@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace RimNauts2.Game {
+namespace RimNauts2.World {
     public static class Loop {
         public static RimWorld.Planet.WorldCameraDriver camera_driver;
         public static Camera camera;
@@ -19,19 +19,30 @@ namespace RimNauts2.Game {
         }
 
         public static void update() {
+            if (!camera_driver.enabled) return;
             tick = tick_manager.TicksGame;
             camera_position = camera.transform.position;
             center = camera_driver.CurrentlyLookingAtPointOnSphere;
+            RimNauts_GameComponent.render_manager.update();
+        }
+
+        public static void render() {
+
         }
     }
 
-    [HarmonyPatch(typeof(Verse.Game), "FinalizeInit")]
-    public class Game_FinalizeInit {
+    [HarmonyPatch(typeof(RimWorld.Planet.World), "FinalizeInit")]
+    public class World_FinalizeInit {
         public static void Postfix() => Loop.init();
     }
 
-    [HarmonyPatch(typeof(Verse.Game), "UpdatePlay")]
-    public class Game_UpdatePlay {
+    [HarmonyPatch(typeof(RimWorld.Planet.World), "WorldTick")]
+    public class World_WorldTick {
         public static void Prefix() => Loop.update();
+    }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.World), "WorldUpdate")]
+    public class World_WorldUpdate {
+        public static void Prefix() => Loop.render();
     }
 }
