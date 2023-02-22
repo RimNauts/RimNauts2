@@ -10,7 +10,7 @@ namespace RimNauts2 {
         public static int total_artifical_satellites;
         public static World.RenderManager render_manager;
 
-        public RimNauts_GameComponent(Game game) : base() { }
+        public RimNauts_GameComponent(Verse.Game game) : base() { }
     }
 
     public static class SatelliteContainer {

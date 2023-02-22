@@ -93,8 +93,8 @@ namespace RimNauts2.World {
         public override Vector3 DrawPos => Vector3.zero;
 
         public override void Draw() {
-            int tick = Game_UpdatePlay.tick;
-            Vector3 cam_pos = Game_UpdatePlay.camera_position;
+            int tick = Game.Loop.tick;
+            Vector3 cam_pos = Game.Loop.camera_position;
             bool unpaused = tick != prev_tick;
             bool camera_moved = cam_pos != prev_cam_pos;
             // update objects
@@ -104,7 +104,7 @@ namespace RimNauts2.World {
                     visual_objects[i].update();
                     if (unpaused) visual_objects[i].update_when_unpaused(tick);
                     if (camera_moved) visual_objects[i].update_when_camera_moved();
-                    cached_matrices[i] = visual_objects[i].get_transformation_matrix(Game_UpdatePlay.center);
+                    cached_matrices[i] = visual_objects[i].get_transformation_matrix(Game.Loop.center);
                 });
                 prev_tick = tick;
                 prev_cam_pos = cam_pos;
