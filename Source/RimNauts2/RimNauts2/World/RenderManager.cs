@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -125,6 +126,10 @@ namespace RimNauts2.World {
             }
         }
 
+        public int get_total(Type type) {
+            return visual_objects.Where(visual_object => visual_object.type == type).Count();
+        }
+
         public void populate(
             int amount,
             Type type,
@@ -188,12 +193,22 @@ namespace RimNauts2.World {
         }
 
         public void depopulate(Type type) {
-            visual_objects.RemoveAll(visual_object => visual_object.type == type);
+            visual_objects.RemoveAll(visual_object => visual_object.type == type && !visual_object.object_holder);
             recache();
         }
 
         public void depopulate(Objects.NEO neo) {
             visual_objects.RemoveAll(visual_object => visual_object.index == neo.index);
+            recache();
+        }
+
+        public void depopulate(int amount, Type type) {
+            visual_objects.RemoveAll(visual_object => {
+                if (visual_object.type == type && !visual_object.object_holder && amount > 0) {
+                    amount--;
+                    return true;
+                } else return false;
+            });
             recache();
         }
 

@@ -72,7 +72,9 @@
     <Compile Include="Defs\ObjectMetadata.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
-    <Compile Include="World\Debug\SpawnObjects.cs" />
+    <Compile Include="World\Tools\DespawnObjects.cs" />
+    <Compile Include="World\Tools\PrintStats.cs" />
+    <Compile Include="World\Tools\SpawnObjects.cs" />
     <Compile Include="World\Generator.cs" />
     <Compile Include="World\Loop.cs" />
     <Compile Include="Logger.cs" />
