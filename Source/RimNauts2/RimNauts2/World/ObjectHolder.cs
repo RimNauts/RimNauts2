@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -108,12 +107,13 @@ namespace RimNauts2.World {
                     DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
                 );
                 object_holder.Tile = Tile;
-                object_holder.def.mapGenerator = def.mapGenerator;
-                object_holder.def.label = def.label;
-                object_holder.def.description = def.description;
+                object_holder.map_generator = map_generator;
+                object_holder.label = label;
+                object_holder.description = description;
                 object_holder.keep_after_abandon = keep_after_abandon;
-                object_holder.visual_object = visual_object;
+                object_holder.texture_overlay = texture_overlay;
                 object_holder.type = type;
+                object_holder.visual_object = visual_object;
                 Find.WorldObjects.Add(object_holder);
             } else {
                 Caching_Handler.render_manager.depopulate(visual_object);
