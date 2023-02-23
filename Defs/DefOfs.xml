@@ -2,79 +2,6 @@
 <Defs>
 	<RimNauts2.SatelliteDef>
 		<defName>Satellite</defName>
-
-        <CrashingAsteroidObjectPercentage>0.05</CrashingAsteroidObjectPercentage>
-        <MineralRichAsteroidsRandomWaitTicks>(180000.0, 300000.0)</MineralRichAsteroidsRandomWaitTicks>
-        <MineralRichAsteroidsRandomInWorldTicks>(60000.0, 300000.0)</MineralRichAsteroidsRandomInWorldTicks>
-
-        <AsteroidObjectsOrbitPosition>(250.0, 5.0, 250.0)</AsteroidObjectsOrbitPosition>
-        <AsteroidObjectsOrbitSpread>(0.3, 0.1, 0.3)</AsteroidObjectsOrbitSpread>
-        <AsteroidObjectsOrbitSpeedBetween>(2.0, 4.0)</AsteroidObjectsOrbitSpeedBetween>
-        <AsteroidObjectsOrbitRandomDirection>false</AsteroidObjectsOrbitRandomDirection>
-
-        <MoonObjectsOrbitPosition>(350.0, 200.0, 350.0)</MoonObjectsOrbitPosition>
-        <MoonObjectsOrbitSpread>(0.25, 0.0, 0.25)</MoonObjectsOrbitSpread>
-        <MoonObjectsOrbitSpeedBetween>(1.0, 1.0)</MoonObjectsOrbitSpeedBetween>
-        <MoonObjectsOrbitRandomDirection>true</MoonObjectsOrbitRandomDirection>
-
-        <ArtificalSatelliteObjectsOrbitPosition>(140.0, 100.0, 140.0)</ArtificalSatelliteObjectsOrbitPosition>
-        <ArtificalSatelliteObjectsOrbitSpread>(0.1, 0.0, 0.1)</ArtificalSatelliteObjectsOrbitSpread>
-        <ArtificalSatelliteObjectsOrbitSpeedBetween>(8.0, 10.0)</ArtificalSatelliteObjectsOrbitSpeedBetween>
-        <ArtificalSatelliteObjectsOrbitRandomDirection>true</ArtificalSatelliteObjectsOrbitRandomDirection>
-
-        <SpaceStationObjectsOrbitPosition>(160.0, 100.0, 160.0)</SpaceStationObjectsOrbitPosition>
-        <SpaceStationObjectsOrbitSpread>(0.1, 0.0, 0.1)</SpaceStationObjectsOrbitSpread>
-        <SpaceStationObjectsOrbitSpeedBetween>(6.0, 8.0)</SpaceStationObjectsOrbitSpeedBetween>
-        <SpaceStationObjectsOrbitRandomDirection>false</SpaceStationObjectsOrbitRandomDirection>
-
-		<AsteroidObjects>
-            <li>RimNauts2_Asteroid_1</li>
-            <li>RimNauts2_Asteroid_2</li>
-            <li>RimNauts2_Asteroid_3</li>
-            <li>RimNauts2_Asteroid_4</li>
-            <li>RimNauts2_Asteroid_5</li>
-            <li>RimNauts2_Asteroid_6</li>
-            <li>RimNauts2_Asteroid_7</li>
-            <li>RimNauts2_Asteroid_8</li>
-            <li>RimNauts2_Asteroid_9</li>
-        </AsteroidObjects>
-
-		<AsteroidOreObjects>
-            <li>RimNauts2_OreSteel_1</li>
-            <li>RimNauts2_OreSteel_2</li>
-            <li>RimNauts2_OreSteel_3</li>
-            <li>RimNauts2_OreSteel_4</li>
-            <li>RimNauts2_OreSteel_5</li>
-            <li>RimNauts2_OreGold_1</li>
-            <li>RimNauts2_OreGold_2</li>
-            <li>RimNauts2_OreGold_3</li>
-            <li>RimNauts2_OreGold_4</li>
-            <li>RimNauts2_OreGold_5</li>
-            <li>RimNauts2_OrePlasteel_1</li>
-            <li>RimNauts2_OrePlasteel_2</li>
-            <li>RimNauts2_OrePlasteel_3</li>
-            <li>RimNauts2_OrePlasteel_4</li>
-            <li>RimNauts2_OreUranium_1</li>
-        </AsteroidOreObjects>
-
-		<WasteObjects>
-            <li>RimNauts2_WasteSatellite</li>
-        </WasteObjects>
-
-		<MoonObjects>
-            <li>RimNauts2_MoonBarren</li>
-            <li>RimNauts2_MoonStripped</li>
-            <li>RimNauts2_MoonWater</li>
-        </MoonObjects>
-
-		<ArtificalSatelliteObjects>
-            <li>RimNauts2_ArtificalSatellite</li>
-        </ArtificalSatelliteObjects>
-
-		<SpaceStationObjects>
-            <li>RimNauts2_SpaceStation</li>
-        </SpaceStationObjects>
-
         <AllowedSatelliteIncidents>
             <li>RaidEnemy</li>
             <li>SolarFlare</li>
@@ -95,8 +22,7 @@
             <li>Disease_SensoryMechanites</li>
             <li>Disease_SleepingSickness</li>
         </AllowedSatelliteIncidents>
-
-        <AsteroidOreAppearLabel>Mineral-rich asteroid spotted</AsteroidOreAppearLabel>
-        <AsteroidOreAppearMessage>A mineral-rich asteroid has been spotted in the asteroid belt. The asteroid can only be reached from orbit (Moon base or space station). You have to be fast since we only have a couple of days before it's lost in the asteroid belt.</AsteroidOreAppearMessage>
+        <!--<AsteroidOreAppearLabel>Mineral-rich asteroid spotted</AsteroidOreAppearLabel>
+        <AsteroidOreAppearMessage>A mineral-rich asteroid has been spotted in the asteroid belt. The asteroid can only be reached from orbit (Moon base or space station). You have to be fast since we only have a couple of days before it's lost in the asteroid belt.</AsteroidOreAppearMessage>-->
   	</RimNauts2.SatelliteDef>
 </Defs>

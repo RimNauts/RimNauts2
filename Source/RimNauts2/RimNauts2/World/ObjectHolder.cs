@@ -102,7 +102,7 @@ namespace RimNauts2.World {
                 object_holder.type = type;
                 Find.WorldObjects.Add(object_holder);
             } else {
-                RimNauts_GameComponent.render_manager.depopulate(visual_object);
+                Caching_Handler.render_manager.depopulate(visual_object);
                 Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
             }
         }
@@ -131,7 +131,7 @@ namespace RimNauts2.World {
         public Vector3 get_position() {
             if (visual_object != null) {
                 return visual_object.current_position;
-            } else if (type != Type.None && RimNauts_GameComponent.render_manager != null) {
+            } else if (type != Type.None && Caching_Handler.render_manager != null) {
                 add_visual_object(
                     type,
                     texture_path,
@@ -162,7 +162,7 @@ namespace RimNauts2.World {
             float? rotation_angle = null,
             Vector3? current_position = null
         ) {
-            visual_object = RimNauts_GameComponent.render_manager.populate(
+            visual_object = Caching_Handler.render_manager.populate(
                 type,
                 texture_path,
                 orbit_position,

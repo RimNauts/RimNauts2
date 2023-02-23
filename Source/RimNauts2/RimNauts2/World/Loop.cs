@@ -21,15 +21,16 @@ namespace RimNauts2.World {
             camera = Find.WorldCamera.GetComponent<Camera>();
             camera.farClipPlane = 1600.0f;
             tick_manager = Find.TickManager;
+            if (Caching_Handler.render_manager == null) Generate_Satellites.add_render_manager();
             internal_update();
         }
 
         public static void update() {
-            if (!RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !RimNauts_GameComponent.render_manager.draw_now) return;
+            if (!RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !Caching_Handler.render_manager.draw_now) return;
             internal_update();
-            RimNauts_GameComponent.render_manager.recache_materials();
-            RimNauts_GameComponent.render_manager.update();
-            RimNauts_GameComponent.render_manager.draw();
+            Caching_Handler.render_manager.recache_materials();
+            Caching_Handler.render_manager.update();
+            Caching_Handler.render_manager.draw();
         }
 
         private static void internal_update() {

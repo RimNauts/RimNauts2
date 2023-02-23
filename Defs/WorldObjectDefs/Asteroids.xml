@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<WorldObjectDef Name="RimNauts2_Asteroid" ParentName="RimNauts2_Satellite" Abstract="True">
-		<comps>
-			<li Class="RimNauts2.WorldObjectCompProperties_SpawnOre">
-				<label>Convert to ore</label>
-				<desc>Convert asteroid to ore.</desc>
-			</li>
-		</comps>
 	</WorldObjectDef>
 
    	<WorldObjectDef ParentName="RimNauts2_Asteroid">

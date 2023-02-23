@@ -7,6 +7,7 @@ namespace RimNauts2.World {
      * Keeps all the cache collections and their methods.
      */
     public class Caching_Handler : GameComponent {
+        public static RenderManager render_manager;
         public static Dictionary<int, ObjectHolder> object_holders;
         public static int total_asteroid_ores;
         public static int total_moons;

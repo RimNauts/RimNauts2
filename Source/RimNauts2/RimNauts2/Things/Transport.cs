@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 
 namespace RimNauts2 {
-    public class CompProperties_Launch : CompProperties {
+    /*public class CompProperties_Launch : CompProperties {
         public float fuelThreshold;
         public string label;
         public string desc;
@@ -100,55 +100,5 @@ namespace RimNauts2 {
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             }
         }
-    }
-
-    [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), nameof(RimWorld.Planet.WorldGrid.TraversalDistanceBetween))]
-    public static class TransportpodSatelliteIgnoreMaxRange {
-        public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            bool to_orbit = Find.World.grid.tiles.ElementAt(end).biome.defName.Contains("RimNauts2");
-            bool from_orbit = Find.World.grid.tiles.ElementAt(start).biome.defName.Contains("RimNauts2");
-            if (to_orbit || from_orbit) {
-                if (Find.WorldObjects.AnyWorldObjectAt<Satellite>(end)) {
-                    Satellite satellite = Find.WorldObjects.WorldObjectAt<Satellite>(end);
-                    if (satellite.def.defName.Contains("Asteroid") || satellite.def.defName.Contains("ArtificalSatellite")) {
-                        __result = 9999;
-                        return;
-                    }
-                }
-                __result = 100;
-                return;
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods), "Start", MethodType.Getter)]
-    public static class TransportpodFromSatelliteAnimation {
-        public static bool Prefix(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
-            int initialTile = (int) typeof(RimWorld.Planet.TravelingTransportPods).GetField("initialTile", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
-            foreach (RimWorld.Planet.WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
-                                                                where o is Satellite
-                                                                select o) {
-                if (worldObject.Tile == initialTile) {
-                    __result = worldObject.DrawPos;
-                    return false;
-                }
-            }
-            return true;
-        }
-    }
-
-    [HarmonyPatch(typeof(RimWorld.Planet.TravelingTransportPods), "End", MethodType.Getter)]
-    public static class TransportpodToSatelliteAnimation {
-        public static bool Prefix(RimWorld.Planet.TravelingTransportPods __instance, ref Vector3 __result) {
-            foreach (RimWorld.Planet.WorldObject worldObject in from o in Find.World.worldObjects.AllWorldObjects
-                                                                where o is Satellite
-                                                                select o) {
-                if (worldObject.Tile == __instance.destinationTile) {
-                    __result = worldObject.DrawPos;
-                    return false;
-                }
-            }
-            return true;
-        }
-    }
+    }*/
 }

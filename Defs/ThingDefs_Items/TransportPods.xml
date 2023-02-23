@@ -47,14 +47,13 @@
             <Steel>60</Steel>
             <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
-        <comps>
+        <!--<comps>
             <li Class="RimNauts2.CompProperties_Launch">
                 <fuelThreshold>200.0</fuelThreshold>
                 <label>Launch satellite</label>
                 <desc>Launch satellite into orbit.</desc>
                 <name>satellite</name>
                 <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</iconPath>
-				<!-- a number will be added to this string, example: 200.0 fuel required, currently at 156.0/200.0 -->
                 <failMessageFuel>fuel required, currently at</failMessageFuel>
                 <failMessageLaunch>Failed to launch satellite into orbit.</failMessageLaunch>
                 <successMessage>Successfully launched a satellite into orbit.</successMessage>
@@ -62,7 +61,7 @@
                 <createMap>false</createMap>
                 <skyfallerLeaving>RimNauts2_DropPodLeaving_ArtificialSatellite</skyfallerLeaving>
             </li>
-        </comps>
+        </comps>-->
     </ThingDef>
 
     <ThingDef ParentName="RimNauts2_TransportPod">
@@ -79,7 +78,7 @@
             <Steel>1000</Steel>
             <ComponentIndustrial>40</ComponentIndustrial>
         </costList>
-        <comps>
+        <!--<comps>
             <li Class="RimNauts2.CompProperties_Launch">
                 <fuelThreshold>1000.0</fuelThreshold>
                 <label>Launch space station</label>
@@ -93,7 +92,7 @@
                 <createMap>true</createMap>
                 <skyfallerLeaving>RimNauts2_DropPodLeaving_SpaceStation</skyfallerLeaving>
             </li>
-        </comps>
+        </comps>-->
     </ThingDef>
 
     <ThingDef ParentName="RimNauts2_TransportPod">

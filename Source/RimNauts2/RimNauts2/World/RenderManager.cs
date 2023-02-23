@@ -25,7 +25,7 @@ namespace RimNauts2.World {
         private List<float> expose_rotation_angle = new List<float>();
         private List<Vector3> expose_current_position = new List<Vector3>();
 
-        public override void PostAdd() => RimNauts_GameComponent.render_manager = this;
+        public override void PostAdd() => Caching_Handler.render_manager = this;
 
         public override void ExposeData() {
             base.ExposeData();
@@ -74,7 +74,7 @@ namespace RimNauts2.World {
                     visual_objects.Add(neo);
                 }
             }
-            RimNauts_GameComponent.render_manager = this;
+            Caching_Handler.render_manager = this;
             recache();
             expose_type = new List<Type>();
             expose_texture_path = new List<string>();

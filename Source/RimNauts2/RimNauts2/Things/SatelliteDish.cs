@@ -4,7 +4,7 @@ using Verse;
 using UnityEngine;
 
 namespace RimNauts2 {
-    public class CompProperties_SatelliteDish : CompProperties {
+    /*public class CompProperties_SatelliteDish : CompProperties {
         public string worldObject;
         public string label;
         public string desc;
@@ -54,5 +54,5 @@ namespace RimNauts2 {
                 );
             }
         }
-    }
+    }*/
 }

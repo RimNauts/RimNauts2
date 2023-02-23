@@ -5,6 +5,10 @@ using Verse;
 using System.Linq;
 
 namespace RimNauts2 {
+    public class RimNauts_GameComponent : GameComponent {
+        public RimNauts_GameComponent(Game game) : base() { }
+    }
+
     [StaticConstructorOnStartup]
     public class Satellite : RimWorld.Planet.MapParent {
         public string def_name;
@@ -58,7 +62,7 @@ namespace RimNauts2 {
 
         public override Vector3 DrawPos => get_parametric_ellipse();
 
-        public override void Tick() {
+        /*public override void Tick() {
             base.Tick();
             if (type == Satellite_Type.Asteroid && can_out_of_bounds) {
                 if (out_of_bounds_direction_towards_surface) {
@@ -76,7 +80,7 @@ namespace RimNauts2 {
                             currently_mineral_rich = true;
                             mineral_rich_transform_wait = SatelliteDefOf.Satellite.MineralAppearWait;
                             mineral_rich_abondon = SatelliteDefOf.Satellite.MineralAbondonWait;
-                            Ore.generate_ore(this);
+                            //Ore.generate_ore(this);
                             if (Settings.MineralAsteroidsVerboseToggle) Find.LetterStack.ReceiveLetter(SatelliteDefOf.Satellite.AsteroidOreAppearLabel, SatelliteDefOf.Satellite.AsteroidOreAppearMessage, RimWorld.LetterDefOf.NeutralEvent, null);
                         } else mineral_rich_transform_wait--;
                     }
@@ -91,7 +95,7 @@ namespace RimNauts2 {
                     } else mineral_rich_abondon--;
                 }
             }
-        }
+        }*/
 
         public Vector3 get_parametric_ellipse() {
             float crash_course = get_crash_course();
@@ -115,7 +119,7 @@ namespace RimNauts2 {
             return 1.0f;
         }
 
-        public void set_default_values(Satellite_Type new_type) {
+        /*public void set_default_values(Satellite_Type new_type) {
             type = new_type;
             switch (type) {
                 case Satellite_Type.Asteroid:
@@ -145,7 +149,7 @@ namespace RimNauts2 {
             time_offset = Rand.Range(0, (int) period);
             current_out_of_bounds = out_of_bounds_offset;
             orbit_random_direction = Rand.Bool && SatelliteDefOf.Satellite.OrbitRandomDirection(type) ? -1 : 1;
-        }
+        }*/
 
         public int random_orbit(float min, float range) => (int) (min + (range * (Rand.Value - 0.5f)));
 
@@ -193,24 +197,7 @@ namespace RimNauts2 {
 
         public override void PostRemove() {
             base.PostRemove();
-            if (type == Satellite_Type.Moon && HasMap) {
-                SatelliteSettings satellite_settings = Generate_Satellites.copy_satellite(this, def_name.Substring(0, def_name.Length - "_Base".Length));
-                Satellite new_satellite = Generate_Satellites.paste_satellite(satellite_settings);
-                if (!SatelliteContainer.exists(new_satellite.Tile)) {
-                    SatelliteContainer.add(new_satellite);
-                }
-            } else if (type == Satellite_Type.None) {
-                Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
-            } else if (type == Satellite_Type.Buffer) {
-                // nothing
-            } else if (type == Satellite_Type.Asteroid_Ore) {
-                SatelliteSettings satellite_settings = Generate_Satellites.copy_satellite(this, Satellite_Type_Methods.WorldObjects(Satellite_Type.Asteroid).RandomElement(), Satellite_Type.Asteroid);
-                satellite_settings.currently_mineral_rich = false;
-                Satellite new_satellite = Generate_Satellites.paste_satellite(satellite_settings);
-                if (!SatelliteContainer.exists(new_satellite.Tile)) {
-                    SatelliteContainer.add(new_satellite);
-                }
-            } else Generate_Satellites.add_satellite(Tile, Satellite_Type.Asteroid);
+            Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
         }
     }
 }
