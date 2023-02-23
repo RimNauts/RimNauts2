@@ -71,6 +71,7 @@
     <Compile Include="Defs\ObjectHolder.cs" />
     <Compile Include="Defs\ObjectMetadata.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
+    <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Debug\SpawnObjects.cs" />
     <Compile Include="World\Loop.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -103,7 +104,7 @@
     <Compile Include="Things\Patch\PodLauncher.cs" />
     <Compile Include="Things\SatelliteDish.cs" />
     <Compile Include="World\Caching_Handler.cs" />
-    <Compile Include="World\Comps\Settle.cs" />
+    <Compile Include="World\Patch\Settle.cs" />
     <Compile Include="World\ObjectHolder.cs" />
     <Compile Include="World\Objects\Asteroid.cs" />
     <Compile Include="World\Objects\AsteroidCrashing.cs" />

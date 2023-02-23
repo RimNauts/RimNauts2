@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using Verse;
 
-namespace RimNauts2.World.Comps {
+namespace RimNauts2.World.Patch {
     [HarmonyPatch(typeof(RimWorld.Planet.SettleInEmptyTileUtility), nameof(RimWorld.Planet.SettleInEmptyTileUtility.SettleCommand))]
     public static class SettleInEmptyTileUtility_SettleCommand {
         public static bool Prefix(RimWorld.Planet.Caravan caravan, ref Command __result) {
