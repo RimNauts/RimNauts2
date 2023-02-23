@@ -71,6 +71,7 @@ namespace RimNauts2 {
                 object_holder.label = defs.label;
                 object_holder.description = defs.description;
                 object_holder.keep_after_abandon = defs.keep_after_abandon;
+                object_holder.texture_overlay = defs.texture_overlay;
                 object_holder.add_visual_object(
                     type,
                     random_texture_path,

@@ -10,5 +10,6 @@ namespace RimNauts2.Defs {
         public string biome_def;
         public bool keep_after_abandon;
         public Vector2? limited_days_between;
+        public string texture_overlay;
     }
 }

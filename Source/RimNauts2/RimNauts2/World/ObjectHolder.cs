@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HarmonyLib;
+using System;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace RimNauts2.World {
         public string label;
         public string description;
         public MapGeneratorDef map_generator;
+        public string texture_overlay;
         public Type type;
         private Vector3 position = Vector3.zero;
         string texture_path;
@@ -50,6 +52,7 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref label, "label");
             Scribe_Values.Look(ref description, "description");
             Scribe_Defs.Look(ref map_generator, "map_generator");
+            Scribe_Values.Look(ref texture_overlay, "texture_overlay");
             Scribe_Values.Look(ref type, "type");
             Scribe_Values.Look(ref texture_path, "texture_path");
             Scribe_Values.Look(ref orbit_position, "orbit_position");
@@ -78,6 +81,13 @@ namespace RimNauts2.World {
         public override void Draw() { }
 
         public override void Print(LayerSubMesh subMesh) { }
+
+        public override Texture2D ExpandingIcon {
+            get {
+                if (!HasMap) return base.ExpandingIcon;
+                return Assets.get_texture(texture_overlay) ?? base.ExpandingIcon;
+            }
+        }
 
         public override Vector3 DrawPos => position;
 
