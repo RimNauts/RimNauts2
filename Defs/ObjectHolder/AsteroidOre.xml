@@ -16,5 +16,6 @@
 		<biome_def>RimNauts2_Satellite_Biome</biome_def>
 		<keep_after_abandon>false</keep_after_abandon>
 		<limited_days_between>(0.5, 1.5)</limited_days_between>
+		<texture_overlay>UI/Designators/Mine</texture_overlay>
   	</RimNauts2.Defs.ObjectHolder>
 </Defs>
