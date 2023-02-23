@@ -31,6 +31,7 @@ namespace RimNauts2.World {
             Caching_Handler.render_manager.recache_materials();
             Caching_Handler.render_manager.update();
             Caching_Handler.render_manager.draw();
+            Patch.HideIcons.check_object_holders();
         }
 
         private static void internal_update() {

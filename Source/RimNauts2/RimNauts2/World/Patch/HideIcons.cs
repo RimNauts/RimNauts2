@@ -1,33 +1,25 @@
 ﻿using System;
+using System.Threading.Tasks;
 using HarmonyLib;
 using UnityEngine;
 
 namespace RimNauts2.World.Patch {
-    [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectSelectionUtility), "HiddenBehindTerrainNow")]
-    static class WorldObjectSelectionUtility_HiddenBehindTerrainNow {
-        public static bool Prefix(RimWorld.Planet.WorldObject o, ref bool __result) {
-            if (!(o is ObjectHolder)) return true;
-            Vector3 pos = o.DrawPos;
-            // ignore icons when zoomed in
-            if ((Vector3.Distance(pos, Loop.center) + 2.3f) > Vector3.Distance(Loop.center, Loop.camera_position)) {
-                __result = true;
-                return false;
-            }
-            __result = WorldRendererUtility_HiddenBehindTerrainNow.hide_now(pos);
-            return false;
-        }
-    }
-
-    [HarmonyPatch(typeof(RimWorld.Planet.WorldRendererUtility), "HiddenBehindTerrainNow")]
-    static class WorldRendererUtility_HiddenBehindTerrainNow {
-        public static bool Prefix(Vector3 pos, ref bool __result) {
-            // ignore icons on surface (settlements)
-            if (Vector3.Distance(pos, Loop.center) < 110) return true;
-            __result = hide_now(pos);
-            return false;
+    public static  class HideIcons {
+        public static void check_object_holders() {
+            if (!(Loop.unpaused || Loop.camera_moved)) return;
+            Generate_Satellites.halt_caching = true;
+            Parallel.ForEach(Caching_Handler.object_holders, elem => {
+                elem.Value.hide_now = true;
+                Vector3 pos = elem.Value.DrawPos;
+                // ignore icons when zoomed in
+                if ((Vector3.Distance(pos, Loop.center) + 2.3f) > Vector3.Distance(Loop.center, Loop.camera_position)) {
+                    elem.Value.hide_now = true;
+                } else elem.Value.hide_now = check(pos);
+            });
+            Generate_Satellites.halt_caching = false;
         }
 
-        public static bool hide_now(Vector3 pos) {
+        public static bool check(Vector3 pos) {
             // reduce degree of visability dependent on zoom (aka 'conditional statements of doom')
             float degree = 165 + (15 * Loop.altitude_percent * 1.5f);
             if (degree > 180) {
@@ -59,6 +51,25 @@ namespace RimNauts2.World.Patch {
             bool hide = Vector3.Angle(normalized, Loop.center) > (Math.Acos(115 / alt) + Math.Acos(115 / mag)) * (degree / 3.14d);
             if (mag < 115) hide = Vector3.Angle(normalized, Loop.center) > 73.0f;
             return hide;
+        }
+    }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldRendererUtility), "HiddenBehindTerrainNow")]
+    static class WorldRendererUtility_HiddenBehindTerrainNow {
+        public static bool Prefix(Vector3 pos, ref bool __result) {
+            // ignore icons on surface (settlements)
+            if (Vector3.Distance(pos, Loop.center) < 110) return true;
+            __result = HideIcons.check(pos);
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectSelectionUtility), "HiddenBehindTerrainNow")]
+    static class WorldObjectSelectionUtility_HiddenBehindTerrainNow {
+        public static bool Prefix(RimWorld.Planet.WorldObject o, ref bool __result) {
+            if (!(o is ObjectHolder)) return true;
+            __result = ((ObjectHolder) o).hide_now;
+            return false;
         }
     }
 }
