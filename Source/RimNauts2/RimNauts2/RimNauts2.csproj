@@ -94,7 +94,6 @@
     <Compile Include="RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Deprecated\Satellite.cs" />
-    <Compile Include="Settings\DebugToolsSatellites.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Things\Patch\BridgeProps.cs" />
     <Compile Include="Things\Patch\PodLauncher.cs" />
