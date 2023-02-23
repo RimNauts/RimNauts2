@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using Verse;
 using UnityEngine;
 
-namespace RimNauts2 {
-    /*public class CompProperties_SatelliteDish : CompProperties {
-        public string worldObject;
+namespace RimNauts2.Things {
+    public class SatelliteDish_Properties : CompProperties {
+        public string object_holder;
         public string label;
         public string desc;
         public string failMessage;
         public string successMessage;
         public string texPath;
-        public CompProperties_SatelliteDish() => compClass = typeof(SatelliteDish);
+        public SatelliteDish_Properties() => compClass = typeof(SatelliteDish);
     }
     class SatelliteDish : ThingComp {
-        public CompProperties_SatelliteDish Props => (CompProperties_SatelliteDish) props;
+        public SatelliteDish_Properties Props => (SatelliteDish_Properties) props;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             string label = Props.label;
@@ -23,28 +23,22 @@ namespace RimNauts2 {
                 defaultLabel = label,
                 defaultDesc = Props.desc,
                 icon = ContentFinder<Texture2D>.Get(Props.texPath, true),
-                action = new Action(action)
+                action = new Action(generate_moon)
             };
             if (!DebugSettings.godMode) {
-                if (SatelliteContainer.size(Satellite_Type.Artifical_Satellite) < (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2) {
-                    int diff = (SatelliteContainer.size(Satellite_Type.Moon) + 1) * 2 - SatelliteContainer.size(Satellite_Type.Artifical_Satellite);
+                if (World.Caching_Handler.total_satellites < (World.Caching_Handler.total_moons + 1) * 2) {
+                    int diff = (World.Caching_Handler.total_moons + 1) * 2 - World.Caching_Handler.total_satellites;
                     cmd.Disable(diff.ToString() + " " + Props.failMessage);
                 }
             }
             yield return cmd;
         }
 
-        public void action() {
-            int new_moon_tile_id = -1;
-
-            foreach (var satellite in RimNauts_GameComponent.satellites) {
-                if (satellite.Value.type != Satellite_Type.Asteroid || satellite.Value.can_out_of_bounds || satellite.Value.mineral_rich) continue;
-                new_moon_tile_id = satellite.Key;
-                break;
-            }
+        public void generate_moon() {
+            int new_moon_tile_id = Generate_Satellites.get_free_tile();
 
             if (new_moon_tile_id != -1) {
-                Generate_Satellites.add_satellite(new_moon_tile_id, Satellite_Type.Moon, def_name: Props.worldObject);
+                Generate_Satellites.add_object_holder(World.Type.Moon, object_holder_def: Props.object_holder);
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             } else {
                 Logger.print(
@@ -54,5 +48,5 @@ namespace RimNauts2 {
                 );
             }
         }
-    }*/
+    }
 }
