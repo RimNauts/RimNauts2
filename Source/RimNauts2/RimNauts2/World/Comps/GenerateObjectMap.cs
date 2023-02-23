@@ -14,7 +14,7 @@ namespace RimNauts2.World.Comps {
 
         public override IEnumerable<Gizmo> GetGizmos() {
             ObjectHolder parent = this.parent as ObjectHolder;
-            if (DebugSettings.godMode && !parent.HasMap) {
+            if (DebugSettings.godMode && !parent.HasMap && parent.map_generator != null) {
                 yield return new Command_Action {
                     defaultLabel = Props.label,
                     defaultDesc = Props.desc,
