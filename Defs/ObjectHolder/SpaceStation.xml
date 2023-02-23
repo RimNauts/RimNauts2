@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RimNauts2.Defs.ObjectHolder>
+		<defName>RimNauts2_ObjectHolder_SpaceStation</defName>
+		<label>space station</label>
+		<description>Space station orbiting the planet.</description>
+        <type>6</type>
+		<map_generator>RimNauts2_SpaceStation_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</li>
+		</texture_paths>
+		<biome_def>RimNauts2_Satellite_Biome</biome_def>
+		<keep_after_abandon>false</keep_after_abandon>
+  	</RimNauts2.Defs.ObjectHolder>
+</Defs>
