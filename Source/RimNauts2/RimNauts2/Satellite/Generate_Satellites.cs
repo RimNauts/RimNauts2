@@ -5,16 +5,9 @@ using Verse;
 
 namespace RimNauts2 {
     public class Generate_Satellites : WorldGenStep {
-        public static int crashing_asteroids_in_world;
-        public static int mineral_asteroids_in_world;
         public static bool halt_caching = false;
 
-        public override int SeedPart {
-            get {
-                //SetSatelliteBiome.i = 0;
-                return 133714088;
-            }
-        }
+        public override int SeedPart => 133714088;
 
         public static int get_free_tile(int start_index = 0, string new_biome_def = null) {
             for (int i = start_index; i < Find.World.grid.TilesCount; i++) {
@@ -40,7 +33,8 @@ namespace RimNauts2 {
             return -1;
         }
 
-        public static World.ObjectHolder add_object_holder(
+        public static void add_object_holder(
+            int amount,
             World.Type type,
             string texture_path = null,
             Vector3? orbit_position = null,
@@ -54,9 +48,42 @@ namespace RimNauts2 {
             Vector3? current_position = null,
             string object_holder_def = null
         ) {
+            for (int i = 0; i < amount; i++) {
+                add_object_holder(
+                    type,
+                    texture_path,
+                    orbit_position,
+                    orbit_speed,
+                    draw_size,
+                    period,
+                    time_offset,
+                    orbit_direction,
+                    color,
+                    rotation_angle,
+                    current_position,
+                    object_holder_def
+                );
+            }
+        }
+
+        public static World.ObjectHolder add_object_holder(
+            World.Type type,
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null,
+            string object_holder_def = null,
+            int start_index = 0
+        ) {
             Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
             if (defs == null) return null;
-            int tile = get_free_tile(new_biome_def: defs.biome_def);
+            int tile = get_free_tile(start_index, new_biome_def: defs.biome_def);
             if (tile == -1) return null;
             World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
@@ -92,60 +119,6 @@ namespace RimNauts2 {
             return object_holder;
         }
 
-        public static void add_object_holder(
-            int amount,
-            World.Type type,
-            string texture_path = null,
-            Vector3? orbit_position = null,
-            float? orbit_speed = null,
-            Vector3? draw_size = null,
-            int? period = null,
-            int? time_offset = null,
-            int? orbit_direction = null,
-            float? color = null,
-            float? rotation_angle = null,
-            Vector3? current_position = null,
-            string object_holder_def = null
-        ) {
-            for (int i = 0; i < amount; i++) {
-                Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
-                if (defs == null) return;
-                int tile = get_free_tile(new_biome_def: defs.biome_def);
-                if (tile == -1) return;
-                World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                    DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
-                );
-                string random_texture_path = null;
-                if (texture_path == null && !defs.texture_paths.NullOrEmpty()) random_texture_path = defs.texture_paths.RandomElement();
-                if (random_texture_path == null) random_texture_path = texture_path;
-                object_holder.Tile = tile;
-                object_holder.map_generator = defs.map_generator;
-                object_holder.label = defs.label;
-                object_holder.description = defs.description;
-                object_holder.keep_after_abandon = defs.keep_after_abandon;
-                object_holder.texture_overlay = defs.texture_overlay;
-                object_holder.add_visual_object(
-                    type,
-                    random_texture_path,
-                    orbit_position,
-                    orbit_speed,
-                    draw_size,
-                    period,
-                    time_offset,
-                    orbit_direction,
-                    color,
-                    rotation_angle,
-                    current_position
-                );
-                if (defs.limited_days_between != null) {
-                    Vector2 days_between = (Vector2) defs.limited_days_between;
-                    object_holder.add_expiration_date(days_between.x, days_between.y);
-                }
-                Find.WorldObjects.Add(object_holder);
-                World.Cache.add(object_holder);
-            }
-        }
-
         public static void add_render_manager() {
             int tile = get_free_tile(new_biome_def: "RimNauts2_Satellite_Biome");
             if (tile == -1) return;
@@ -156,7 +129,12 @@ namespace RimNauts2 {
             Find.WorldObjects.Add(render_manager);
         }
 
-        public override void GenerateFresh(string seed) {
+        public override void GenerateFresh(string seed) => generate();
+
+        public override void GenerateFromScribe(string seed) => generate();
+
+        public static void generate() {
+            if (World.Caching_Handler.render_manager != null) return;
             add_render_manager();
             foreach (var object_generation_step in Defs.Loader.object_generation_steps) {
                 if (Defs.Loader.get_object_holder((World.Type) object_generation_step.type) != null) {

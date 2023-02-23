@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reflection;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 using System.Linq;
 
@@ -38,10 +36,6 @@ namespace RimNauts2 {
         public int mineral_rich_abondon;
         public bool currently_mineral_rich = false;
 
-        public override void PostAdd() {
-            base.PostAdd();
-        }
-
         public override void ExposeData() {
             base.ExposeData();
             Scribe_Values.Look(ref def_name, "def_name");
@@ -62,25 +56,86 @@ namespace RimNauts2 {
             Scribe_Values.Look(ref currently_mineral_rich, "currently_mineral_rich");
         }
 
+        public override void Tick() {
+            World.ObjectHolder object_holder;
+            string object_holder_def;
+            Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
+            switch (type) {
+                case Satellite_Type.Moon:
+                    object_holder_def = null;
+                    if (def.mapGenerator.defName == "RimNauts2_MoonBarren_MapGen") object_holder_def = "RimNauts2_ObjectHolder_Moon_Barren";
+                    if (def.mapGenerator.defName == "RimNauts2_MoonStripped_MapGen") object_holder_def = "RimNauts2_ObjectHolder_Moon_Stripped";
+                    if (def.mapGenerator.defName == "RimNauts2_MoonWater_MapGen") object_holder_def = "RimNauts2_ObjectHolder_Moon_Water";
+                    object_holder = Generate_Satellites.add_object_holder(
+                        type: World.Type.Moon,
+                        object_holder_def: object_holder_def,
+                        start_index: Tile
+                    );
+                    if (HasMap) {
+                        Map map = Map;
+                        map.info.parent = object_holder;
+                        SetFaction(RimWorld.Faction.OfPlayerSilentFail);
+                        object_holder.SetFaction(RimWorld.Faction.OfPlayer);
+                        Find.World.WorldUpdate();
+                    }
+                    Destroy();
+                    Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
+                    break;
+                case Satellite_Type.Artifical_Satellite:
+                    Generate_Satellites.add_object_holder(
+                        type: World.Type.Satellite,
+                        start_index: Tile
+                    );
+                    Destroy();
+                    Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
+                    break;
+                case Satellite_Type.Asteroid_Ore:
+                    object_holder_def = null;
+                    if (def.mapGenerator.defName == "RimNauts2_OreSteel_MapGen") object_holder_def = "RimNauts2_ObjectHolder_AsteroidOre_Steel";
+                    if (def.mapGenerator.defName == "RimNauts2_OreGold_MapGen") object_holder_def = "RimNauts2_ObjectHolder_AsteroidOre_Gold";
+                    if (def.mapGenerator.defName == "RimNauts2_OrePlasteel_MapGen") object_holder_def = "RimNauts2_ObjectHolder_AsteroidOre_Plasteel";
+                    if (def.mapGenerator.defName == "RimNauts2_OreUranium_MapGen") object_holder_def = "RimNauts2_ObjectHolder_AsteroidOre_Uranium";
+                    object_holder = Generate_Satellites.add_object_holder(
+                        type: World.Type.AsteroidOre,
+                        object_holder_def: object_holder_def,
+                        start_index: Tile
+                    );
+                    if (HasMap) {
+                        Map map = Map;
+                        map.info.parent = object_holder;
+                        SetFaction(RimWorld.Faction.OfPlayerSilentFail);
+                        object_holder.SetFaction(RimWorld.Faction.OfPlayer);
+                        Find.World.WorldUpdate();
+                    }
+                    Destroy();
+                    Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
+                    break;
+                case Satellite_Type.Space_Station:
+                    object_holder = Generate_Satellites.add_object_holder(
+                        type: World.Type.SpaceStation,
+                        start_index: Tile
+                    );
+                    if (HasMap) {
+                        Map map = Map;
+                        map.info.parent = object_holder;
+                        SetFaction(RimWorld.Faction.OfPlayerSilentFail);
+                        object_holder.SetFaction(RimWorld.Faction.OfPlayer);
+                        Find.World.WorldUpdate();
+                    }
+                    Destroy();
+                    Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
+                    break;
+                default:
+                    Destroy();
+                    break;
+            }
+            base.Tick();
+        }
+
         public override Vector3 DrawPos => Vector3.zero;
 
         public override void Print(LayerSubMesh subMesh) { }
 
         public override void Draw() { }
-
-        public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject) {
-            alsoRemoveWorldObject = true;
-            if ((from ob in Find.World.worldObjects.AllWorldObjects
-                 where ob is RimWorld.Planet.TravelingTransportPods pods && ((int) typeof(RimWorld.Planet.TravelingTransportPods).GetField("initialTile", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(ob) == Tile || pods.destinationTile == Tile)
-                 select ob).Count() > 0) {
-                return false;
-            }
-            return base.ShouldRemoveMapNow(out alsoRemoveWorldObject);
-        }
-
-        public override void PostRemove() {
-            base.PostRemove();
-            Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
-        }
     }
 }
