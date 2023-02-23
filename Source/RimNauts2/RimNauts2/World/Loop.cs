@@ -15,6 +15,7 @@ namespace RimNauts2.World {
         public static float altitude_percent;
         public static bool unpaused;
         public static bool camera_moved;
+        private static bool wait;
 
         public static void init() {
             camera_driver = Find.WorldCameraDriver;
@@ -26,8 +27,8 @@ namespace RimNauts2.World {
         }
 
         public static void update() {
-            if (!RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !Caching_Handler.render_manager.draw_now) return;
             internal_update();
+            if (wait) return;
             Caching_Handler.render_manager.recache_materials();
             Caching_Handler.render_manager.update();
             Caching_Handler.render_manager.draw();
@@ -35,6 +36,8 @@ namespace RimNauts2.World {
         }
 
         private static void internal_update() {
+            wait = Caching_Handler.render_manager == null;
+            wait = wait || (!RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !Caching_Handler.render_manager.draw_now);
             tick = tick_manager.TicksGame;
             unpaused = tick != prev_tick;
             prev_tick = tick;
