@@ -7,6 +7,7 @@ namespace RimNauts2.Defs {
         private static int total_defs;
         public static Dictionary<World.Type, List<ObjectHolder>> object_holders = new Dictionary<World.Type, List<ObjectHolder>>();
         public static Dictionary<World.Type, ObjectMetadata> object_metadata = new Dictionary<World.Type, ObjectMetadata>();
+        public static List<ObjectGenerationStep> object_generation_steps = new List<ObjectGenerationStep>();
 
         public static void init() {
             foreach (ObjectHolder object_holder in DefDatabase<ObjectHolder>.AllDefs) {
@@ -19,6 +20,10 @@ namespace RimNauts2.Defs {
                 World.Type type = (World.Type) metadata.type;
                 if (object_metadata.ContainsKey(type)) continue;
                 object_metadata.Add(type, metadata);
+                total_defs++;
+            }
+            foreach (ObjectGenerationStep object_generation_step in DefDatabase<ObjectGenerationStep>.AllDefs) {
+                object_generation_steps.Add(object_generation_step);
                 total_defs++;
             }
             // print mod info

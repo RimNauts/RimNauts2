@@ -12,6 +12,7 @@ namespace RimNauts2.World {
         public Matrix4x4[] cached_matrices = new Matrix4x4[0];
         public Material[] cached_materials = new Material[0];
         public bool materials_dirty = true;
+        public bool draw_now = true;
         private List<Type> expose_type = new List<Type>();
         private List<string> expose_texture_path = new List<string>();
         private List<Vector3> expose_orbit_position = new List<Vector3>();
@@ -105,6 +106,7 @@ namespace RimNauts2.World {
         }
 
         public void draw() {
+            draw_now = false;
             for (int i = 0; i < total_objects; i++) {
                 Graphics.DrawMesh(
                     MeshPool.plane10,
@@ -200,6 +202,7 @@ namespace RimNauts2.World {
             cached_matrices = new Matrix4x4[total_objects];
             for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
             materials_dirty = true;
+            draw_now = true;
             update();
         }
 

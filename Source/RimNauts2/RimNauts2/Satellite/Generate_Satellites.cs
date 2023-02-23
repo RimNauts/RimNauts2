@@ -40,51 +40,47 @@ namespace RimNauts2 {
             return -1;
         }
 
-        public static World.ObjectHolder add_object_holder(World.Type type, string def_name = null) {
-            Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, def_name);
-            int tile = get_free_tile(new_biome_def: defs.biome_def);
-            if (tile == -1) return null;
-            World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
-            );
-            object_holder.Tile = tile;
-            object_holder.def.mapGenerator = defs.map_generator;
-            object_holder.def.label = defs.label;
-            object_holder.def.description = defs.description;
-            object_holder.keep_after_abandon = defs.keep_after_abandon;
-            string texture_path = null;
-            if (!defs.texture_paths.NullOrEmpty()) texture_path = defs.texture_paths.RandomElement();
-            object_holder.add_visual_object(
-                type: (World.Type) defs.type,
-                texture_path: texture_path
-            );
-            if (defs.limited_days_between != null) {
-                Vector2 days_between = (Vector2) defs.limited_days_between;
-                object_holder.add_expiration_date(days_between.x, days_between.y);
-            }
-            Find.WorldObjects.Add(object_holder);
-            World.Cache.add(object_holder);
-            return object_holder;
-        }
-
-        public static void add_object_holder(int amount, World.Type type, string def_name = null) {
+        public static void add_object_holder(
+            int amount,
+            World.Type type,
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null,
+            string object_holder_def = null
+        ) {
             for (int i = 0; i < amount; i++) {
-                Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, def_name);
+                Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
+                if (defs == null) return;
                 int tile = get_free_tile(new_biome_def: defs.biome_def);
                 if (tile == -1) return;
                 World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                     DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
                 );
+                if (texture_path == null && !defs.texture_paths.NullOrEmpty()) texture_path = defs.texture_paths.RandomElement();
                 object_holder.Tile = tile;
                 object_holder.map_generator = defs.map_generator;
                 object_holder.label = defs.label;
                 object_holder.description = defs.description;
                 object_holder.keep_after_abandon = defs.keep_after_abandon;
-                string texture_path = null;
-                if (!defs.texture_paths.NullOrEmpty()) texture_path = defs.texture_paths.RandomElement();
                 object_holder.add_visual_object(
-                    type: (World.Type) defs.type,
-                    texture_path: texture_path
+                    type,
+                    texture_path,
+                    orbit_position,
+                    orbit_speed,
+                    draw_size,
+                    period,
+                    time_offset,
+                    orbit_direction,
+                    color,
+                    rotation_angle,
+                    current_position
                 );
                 if (defs.limited_days_between != null) {
                     Vector2 days_between = (Vector2) defs.limited_days_between;
@@ -106,13 +102,40 @@ namespace RimNauts2 {
         }
 
         public override void GenerateFresh(string seed) {
-            //generate_satellites();
             add_render_manager();
-            RimNauts_GameComponent.render_manager.populate(amount: 1000, World.Type.Asteroid);
-            RimNauts_GameComponent.render_manager.populate(amount: 50, World.Type.AsteroidCrashing);
-
-            add_object_holder(amount: 30, World.Type.AsteroidOre);
-            add_object_holder(amount: 5, World.Type.Moon);
+            foreach (var object_generation_step in Defs.Loader.object_generation_steps) {
+                if (Defs.Loader.get_object_holder((World.Type) object_generation_step.type) != null) {
+                    add_object_holder(
+                        object_generation_step.amount,
+                        (World.Type) object_generation_step.type,
+                        object_generation_step.texture_path,
+                        object_generation_step.orbit_position,
+                        object_generation_step.orbit_speed,
+                        object_generation_step.draw_size,
+                        object_generation_step.period,
+                        object_generation_step.time_offset,
+                        object_generation_step.orbit_direction,
+                        object_generation_step.color,
+                        object_generation_step.rotation_angle,
+                        object_generation_step.current_position
+                    );
+                } else {
+                    RimNauts_GameComponent.render_manager.populate(
+                        object_generation_step.amount,
+                        (World.Type) object_generation_step.type,
+                        object_generation_step.texture_path,
+                        object_generation_step.orbit_position,
+                        object_generation_step.orbit_speed,
+                        object_generation_step.draw_size,
+                        object_generation_step.period,
+                        object_generation_step.time_offset,
+                        object_generation_step.orbit_direction,
+                        object_generation_step.color,
+                        object_generation_step.rotation_angle,
+                        object_generation_step.current_position
+                    );
+                }
+            }
         }
 
         public static void regenerate_satellites() {

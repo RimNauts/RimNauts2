@@ -25,7 +25,7 @@ namespace RimNauts2.World {
         }
 
         public static void update() {
-            if (!RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) return;
+            if (!RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !RimNauts_GameComponent.render_manager.draw_now) return;
             internal_update();
             RimNauts_GameComponent.render_manager.recache_materials();
             RimNauts_GameComponent.render_manager.update();

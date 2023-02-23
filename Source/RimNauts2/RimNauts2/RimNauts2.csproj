@@ -66,6 +66,7 @@
     <Compile Include="Biome\Patch\PawnGroupMaker.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Assets.cs" />
+    <Compile Include="Defs\ObjectGenerationStep.cs" />
     <Compile Include="Defs\Loader.cs" />
     <Compile Include="Defs\ObjectHolder.cs" />
     <Compile Include="Defs\ObjectMetadata.cs" />

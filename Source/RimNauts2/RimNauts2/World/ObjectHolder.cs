@@ -49,7 +49,7 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref death_tick, "death_tick");
             Scribe_Values.Look(ref label, "label");
             Scribe_Values.Look(ref description, "description");
-            Scribe_Values.Look(ref map_generator, "map_generator");
+            Scribe_Defs.Look(ref map_generator, "map_generator");
             Scribe_Values.Look(ref type, "type");
             Scribe_Values.Look(ref texture_path, "texture_path");
             Scribe_Values.Look(ref orbit_position, "orbit_position");
