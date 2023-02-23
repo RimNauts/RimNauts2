@@ -82,6 +82,13 @@ namespace RimNauts2.World {
         public static void clear() => caching_handler.clear();
     }
 
+    [HarmonyPatch(typeof(Game), "LoadGame")]
+    public static class Game_LoadGame {
+        public static void Prefix() {
+            Caching_Handler.render_manager = null;
+        }
+    }
+
     [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "AddToCache")]
     public static class WorldObjectsHolder_AddToCache {
         public static void Prefix(RimWorld.Planet.WorldObject o) {
