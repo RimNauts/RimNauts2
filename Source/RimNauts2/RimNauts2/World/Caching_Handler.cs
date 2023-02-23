@@ -66,6 +66,7 @@ namespace RimNauts2.World {
      */
     public static class Cache {
         public static Caching_Handler caching_handler;
+        public static bool stop;
 
         public static ObjectHolder get(int tile) => caching_handler.get(tile);
 
@@ -106,7 +107,7 @@ namespace RimNauts2.World {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "Recache")]
     public static class WorldObjectsHolder_Recache {
         public static void Prefix() {
-            if (!Generate_Satellites.halt_caching) Cache.clear();
+            if (!Cache.stop) Cache.clear();
         }
     }
 }

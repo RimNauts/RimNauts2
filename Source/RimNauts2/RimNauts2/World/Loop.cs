@@ -21,7 +21,7 @@ namespace RimNauts2.World {
             camera = Find.WorldCamera.GetComponent<Camera>();
             camera.farClipPlane = 1600.0f;
             tick_manager = Find.TickManager;
-            if (Caching_Handler.render_manager == null) Generate_Satellites.add_render_manager();
+            if (Caching_Handler.render_manager == null) Generator.add_render_manager();
             internal_update();
         }
 

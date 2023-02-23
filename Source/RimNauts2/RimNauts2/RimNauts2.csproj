@@ -73,8 +73,8 @@
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Debug\SpawnObjects.cs" />
+    <Compile Include="World\Generator.cs" />
     <Compile Include="World\Loop.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Map\AsteroidOre\ElevationFertility.cs" />
     <Compile Include="Map\AsteroidOre\RocksFromGrid.cs" />
@@ -91,8 +91,7 @@
     <Compile Include="Biome\Patch\IncidentWorker.cs" />
     <Compile Include="RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Satellite\Generate_Satellites.cs" />
-    <Compile Include="Satellite\Satellite.cs" />
+    <Compile Include="Deprecated\Satellite.cs" />
     <Compile Include="Settings\DebugToolsSatellites.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Things\Patch\BridgeProps.cs" />

@@ -7,7 +7,7 @@ namespace RimNauts2.World.Patch {
     public static  class HideIcons {
         public static void check_object_holders() {
             if (!(Loop.unpaused || Loop.camera_moved)) return;
-            Generate_Satellites.halt_caching = true;
+            Cache.stop = true;
             Parallel.ForEach(Caching_Handler.object_holders, elem => {
                 elem.Value.hide_now = true;
                 Vector3 pos = elem.Value.DrawPos;
@@ -16,7 +16,7 @@ namespace RimNauts2.World.Patch {
                     elem.Value.hide_now = true;
                 } else elem.Value.hide_now = check(pos);
             });
-            Generate_Satellites.halt_caching = false;
+            Cache.stop = false;
         }
 
         public static bool check(Vector3 pos) {

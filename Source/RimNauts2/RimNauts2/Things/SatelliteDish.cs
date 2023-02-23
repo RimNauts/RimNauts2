@@ -35,10 +35,10 @@ namespace RimNauts2.Things {
         }
 
         public void generate_moon() {
-            int new_moon_tile_id = Generate_Satellites.get_free_tile();
+            int new_moon_tile_id = World.Generator.get_free_tile();
 
             if (new_moon_tile_id != -1) {
-                Generate_Satellites.add_object_holder(World.Type.Moon, object_holder_def: Props.object_holder);
+                World.Generator.add_object_holder(World.Type.Moon, object_holder_def: Props.object_holder);
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             } else {
                 Logger.print(

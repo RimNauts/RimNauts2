@@ -64,7 +64,7 @@ namespace RimNauts2.Things {
                 parent.Destroy(DestroyMode.Vanish);
                 GenSpawn.Spawn(flyShipLeaving, parent.Position, map);
                 CameraJumper.TryHideWorld();
-                int tile_id = Generate_Satellites.get_free_tile();
+                int tile_id = World.Generator.get_free_tile();
                 if (tile_id == -1) {
                     Messages.Message(Props.failMessageLaunch, RimWorld.MessageTypeDefOf.NegativeEvent, true);
                     Logger.print(
@@ -74,7 +74,7 @@ namespace RimNauts2.Things {
                     );
                     return;
                 }
-                World.ObjectHolder object_holder = Generate_Satellites.add_object_holder((World.Type) Props.type);
+                World.ObjectHolder object_holder = World.Generator.add_object_holder((World.Type) Props.type);
                 if (object_holder == null) return;
                 if (Props.createMap) {
                     MapGenerator.GenerateMap(

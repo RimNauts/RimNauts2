@@ -66,7 +66,7 @@ namespace RimNauts2 {
                     if (def.mapGenerator.defName == "RimNauts2_MoonBarren_MapGen") object_holder_def = "RimNauts2_ObjectHolder_Moon_Barren";
                     if (def.mapGenerator.defName == "RimNauts2_MoonStripped_MapGen") object_holder_def = "RimNauts2_ObjectHolder_Moon_Stripped";
                     if (def.mapGenerator.defName == "RimNauts2_MoonWater_MapGen") object_holder_def = "RimNauts2_ObjectHolder_Moon_Water";
-                    object_holder = Generate_Satellites.add_object_holder(
+                    object_holder = World.Generator.add_object_holder(
                         type: World.Type.Moon,
                         object_holder_def: object_holder_def,
                         start_index: Tile
@@ -82,7 +82,7 @@ namespace RimNauts2 {
                     Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
                     break;
                 case Satellite_Type.Artifical_Satellite:
-                    Generate_Satellites.add_object_holder(
+                    World.Generator.add_object_holder(
                         type: World.Type.Satellite,
                         start_index: Tile
                     );
@@ -95,7 +95,7 @@ namespace RimNauts2 {
                     if (def.mapGenerator.defName == "RimNauts2_OreGold_MapGen") object_holder_def = "RimNauts2_ObjectHolder_AsteroidOre_Gold";
                     if (def.mapGenerator.defName == "RimNauts2_OrePlasteel_MapGen") object_holder_def = "RimNauts2_ObjectHolder_AsteroidOre_Plasteel";
                     if (def.mapGenerator.defName == "RimNauts2_OreUranium_MapGen") object_holder_def = "RimNauts2_ObjectHolder_AsteroidOre_Uranium";
-                    object_holder = Generate_Satellites.add_object_holder(
+                    object_holder = World.Generator.add_object_holder(
                         type: World.Type.AsteroidOre,
                         object_holder_def: object_holder_def,
                         start_index: Tile
@@ -111,7 +111,7 @@ namespace RimNauts2 {
                     Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
                     break;
                 case Satellite_Type.Space_Station:
-                    object_holder = Generate_Satellites.add_object_holder(
+                    object_holder = World.Generator.add_object_holder(
                         type: World.Type.SpaceStation,
                         start_index: Tile
                     );
