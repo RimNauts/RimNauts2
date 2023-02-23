@@ -9,7 +9,7 @@ namespace RimNauts2.World.Patch {
             // ignore icons on surface (settlements)
             if (Vector3.Distance(pos, Loop.center) < 110) return true;
             // ignore icons when zoomed in
-            if (Loop.altitude_percent < 0.15) {
+            if (Vector3.Distance(pos * Loop.altitude_percent, Loop.camera_position) < 256.0f) {
                 __result = true;
                 return false;
             }
