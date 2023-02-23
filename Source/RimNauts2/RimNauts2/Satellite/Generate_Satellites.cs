@@ -63,7 +63,9 @@ namespace RimNauts2 {
                 World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                     DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
                 );
-                if (texture_path == null && !defs.texture_paths.NullOrEmpty()) texture_path = defs.texture_paths.RandomElement();
+                string random_texture_path = null;
+                if (texture_path == null && !defs.texture_paths.NullOrEmpty()) random_texture_path = defs.texture_paths.RandomElement();
+                if (random_texture_path == null) random_texture_path = texture_path;
                 object_holder.Tile = tile;
                 object_holder.map_generator = defs.map_generator;
                 object_holder.label = defs.label;
@@ -71,7 +73,7 @@ namespace RimNauts2 {
                 object_holder.keep_after_abandon = defs.keep_after_abandon;
                 object_holder.add_visual_object(
                     type,
-                    texture_path,
+                    random_texture_path,
                     orbit_position,
                     orbit_speed,
                     draw_size,

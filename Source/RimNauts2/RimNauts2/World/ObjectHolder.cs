@@ -75,6 +75,10 @@ namespace RimNauts2.World {
             }
         }
 
+        public override void Draw() { }
+
+        public override void Print(LayerSubMesh subMesh) { }
+
         public override Vector3 DrawPos => position;
 
         public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject) {
