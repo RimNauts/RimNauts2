@@ -1,13 +1,10 @@
-﻿using System.Linq;
-using HarmonyLib;
-using System.Reflection;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 using System;
 using System.Collections.Generic;
 
-namespace RimNauts2 {
-    /*public class CompProperties_Launch : CompProperties {
+namespace RimNauts2.Things {
+    public class TransportPod_Properties : CompProperties {
         public float fuelThreshold;
         public string label;
         public string desc;
@@ -17,19 +14,19 @@ namespace RimNauts2 {
         public string failMessageLaunch;
         public string successMessage;
         public string createDefName;
-        public string type;
+        public int type;
         public bool createMap;
         public ThingDef skyfallerLeaving;
 
-        public CompProperties_Launch() => compClass = typeof(Launch);
+        public TransportPod_Properties() => compClass = typeof(TransportPod);
     }
 
     [StaticConstructorOnStartup]
-    public class Launch : ThingComp {
+    public class TransportPod : ThingComp {
         public Building FuelingPortSource => RimWorld.FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map);
         public bool ConnectedToFuelingPort => FuelingPortSource != null;
         public float FuelingPortSourceFuel => !ConnectedToFuelingPort ? 0.0f : FuelingPortSource.GetComp<RimWorld.CompRefuelable>().Fuel;
-        public CompProperties_Launch Props => (CompProperties_Launch) props;
+        public TransportPod_Properties Props => (TransportPod_Properties) props;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             string label = Props.label;
@@ -57,8 +54,7 @@ namespace RimNauts2 {
             } else {
                 Map map = parent.Map;
                 Building fuelingPortSource = FuelingPortSource;
-                if (fuelingPortSource != null)
-                    fuelingPortSource.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(Props.fuelThreshold);
+                fuelingPortSource?.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(Props.fuelThreshold);
                 RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
                 activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
                 RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving, activeDropPod);
@@ -68,15 +64,7 @@ namespace RimNauts2 {
                 parent.Destroy(DestroyMode.Vanish);
                 GenSpawn.Spawn(flyShipLeaving, parent.Position, map);
                 CameraJumper.TryHideWorld();
-
-                int tile_id = -1;
-
-                foreach (var old_satellite in RimNauts_GameComponent.satellites) {
-                    if (old_satellite.Value.type != Satellite_Type.Asteroid || old_satellite.Value.can_out_of_bounds || old_satellite.Value.mineral_rich) continue;
-                    tile_id = old_satellite.Key;
-                    break;
-                }
-
+                int tile_id = Generate_Satellites.get_free_tile();
                 if (tile_id == -1) {
                     Messages.Message(Props.failMessageLaunch, RimWorld.MessageTypeDefOf.NegativeEvent, true);
                     Logger.print(
@@ -86,19 +74,21 @@ namespace RimNauts2 {
                     );
                     return;
                 }
-                Satellite_Type type = Satellite_Type_Methods.get_type_from_string(Props.type);
-
-                Satellite satellite = Generate_Satellites.add_satellite(tile_id, type);
-
+                World.ObjectHolder object_holder = Generate_Satellites.add_object_holder((World.Type) Props.type);
+                if (object_holder == null) return;
                 if (Props.createMap) {
-                    MapGenerator.GenerateMap(Find.World.info.initialMapSize, satellite, satellite.MapGeneratorDef, satellite.ExtraGenStepDefs, null);
-                    satellite.SetFaction(RimWorld.Faction.OfPlayer);
+                    MapGenerator.GenerateMap(
+                        Find.World.info.initialMapSize,
+                        object_holder,
+                        object_holder.MapGeneratorDef,
+                        object_holder.ExtraGenStepDefs,
+                        extraInitBeforeContentGen: null
+                    );
+                    object_holder.SetFaction(RimWorld.Faction.OfPlayer);
                     Find.World.WorldUpdate();
                 }
-                
-
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             }
         }
-    }*/
+    }
 }

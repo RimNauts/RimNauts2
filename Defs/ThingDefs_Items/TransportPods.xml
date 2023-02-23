@@ -47,8 +47,8 @@
             <Steel>60</Steel>
             <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
-        <!--<comps>
-            <li Class="RimNauts2.CompProperties_Launch">
+        <comps>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
                 <fuelThreshold>200.0</fuelThreshold>
                 <label>Launch satellite</label>
                 <desc>Launch satellite into orbit.</desc>
@@ -57,11 +57,11 @@
                 <failMessageFuel>fuel required, currently at</failMessageFuel>
                 <failMessageLaunch>Failed to launch satellite into orbit.</failMessageLaunch>
                 <successMessage>Successfully launched a satellite into orbit.</successMessage>
-                <type>Artifical_Satellite</type>
+                <type>5</type>
                 <createMap>false</createMap>
                 <skyfallerLeaving>RimNauts2_DropPodLeaving_ArtificialSatellite</skyfallerLeaving>
             </li>
-        </comps>-->
+        </comps>
     </ThingDef>
 
     <ThingDef ParentName="RimNauts2_TransportPod">
@@ -78,8 +78,8 @@
             <Steel>1000</Steel>
             <ComponentIndustrial>40</ComponentIndustrial>
         </costList>
-        <!--<comps>
-            <li Class="RimNauts2.CompProperties_Launch">
+        <comps>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
                 <fuelThreshold>1000.0</fuelThreshold>
                 <label>Launch space station</label>
                 <desc>Launch space station into orbit.</desc>
@@ -88,11 +88,11 @@
                 <failMessageFuel>fuel required, currently at</failMessageFuel>
                 <failMessageLaunch>Failed to launch space station into orbit.</failMessageLaunch>
                 <successMessage>Successfully launched a space station into orbit.</successMessage>
-                <type>Space_Station</type>
+                <type>6</type>
                 <createMap>true</createMap>
                 <skyfallerLeaving>RimNauts2_DropPodLeaving_SpaceStation</skyfallerLeaving>
             </li>
-        </comps>-->
+        </comps>
     </ThingDef>
 
     <ThingDef ParentName="RimNauts2_TransportPod">

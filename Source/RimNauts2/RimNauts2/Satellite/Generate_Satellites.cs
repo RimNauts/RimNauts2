@@ -40,6 +40,58 @@ namespace RimNauts2 {
             return -1;
         }
 
+        public static World.ObjectHolder add_object_holder(
+            World.Type type,
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null,
+            string object_holder_def = null
+        ) {
+            Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
+            if (defs == null) return null;
+            int tile = get_free_tile(new_biome_def: defs.biome_def);
+            if (tile == -1) return null;
+            World.ObjectHolder object_holder = (World.ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
+                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
+            );
+            string random_texture_path = null;
+            if (texture_path == null && !defs.texture_paths.NullOrEmpty()) random_texture_path = defs.texture_paths.RandomElement();
+            if (random_texture_path == null) random_texture_path = texture_path;
+            object_holder.Tile = tile;
+            object_holder.map_generator = defs.map_generator;
+            object_holder.label = defs.label;
+            object_holder.description = defs.description;
+            object_holder.keep_after_abandon = defs.keep_after_abandon;
+            object_holder.texture_overlay = defs.texture_overlay;
+            object_holder.add_visual_object(
+                type,
+                random_texture_path,
+                orbit_position,
+                orbit_speed,
+                draw_size,
+                period,
+                time_offset,
+                orbit_direction,
+                color,
+                rotation_angle,
+                current_position
+            );
+            if (defs.limited_days_between != null) {
+                Vector2 days_between = (Vector2) defs.limited_days_between;
+                object_holder.add_expiration_date(days_between.x, days_between.y);
+            }
+            Find.WorldObjects.Add(object_holder);
+            World.Cache.add(object_holder);
+            return object_holder;
+        }
+
         public static void add_object_holder(
             int amount,
             World.Type type,

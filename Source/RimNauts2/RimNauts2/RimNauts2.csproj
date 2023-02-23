@@ -115,7 +115,7 @@
     <Compile Include="World\Type.cs" />
     <Compile Include="World\RenderManager.cs" />
     <Compile Include="World\Patch\HideIcons.cs" />
-    <Compile Include="Things\Transport.cs" />
+    <Compile Include="Things\TransportPod.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig">
