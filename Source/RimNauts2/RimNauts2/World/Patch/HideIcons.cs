@@ -7,8 +7,7 @@ namespace RimNauts2.World.Patch {
     static class WorldObjectSelectionUtility_HiddenBehindTerrainNow {
         public static bool Prefix(RimWorld.Planet.WorldObject o, ref bool __result) {
             if (!(o is ObjectHolder)) return true;
-            ObjectHolder object_holder = (ObjectHolder) o;
-            Vector3 pos = object_holder.DrawPos;
+            Vector3 pos = o.DrawPos;
             // ignore icons when zoomed in
             if ((Vector3.Distance(pos, Loop.center) + 2.3f) > Vector3.Distance(Loop.center, Loop.camera_position)) {
                 __result = true;
