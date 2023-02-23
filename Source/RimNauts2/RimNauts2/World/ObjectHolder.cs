@@ -18,7 +18,7 @@ namespace RimNauts2.World {
         public string texture_overlay;
         public bool hide_now;
         public Type type;
-        private Vector3 position = Vector3.zero;
+        public Vector3 position = Vector3.zero;
         string texture_path;
         Vector3 orbit_position;
         float orbit_speed;
