@@ -4,19 +4,12 @@ using HarmonyLib;
 using UnityEngine;
 
 namespace RimNauts2.World.Patch {
-    public static  class HideIcons {
-        public static void check_object_holders() {
-            if (!(Loop.unpaused || Loop.camera_moved)) return;
-            Cache.stop = true;
-            Parallel.ForEach(Caching_Handler.object_holders, elem => {
-                elem.Value.hide_now = true;
-                Vector3 pos = elem.Value.position;
-                // ignore icons when zoomed in
-                if ((Vector3.Distance(pos, Loop.center) + 2.3f) > Vector3.Distance(Loop.center, Loop.camera_position)) {
-                    elem.Value.hide_now = true;
-                } else elem.Value.hide_now = check(pos);
-            });
-            Cache.stop = false;
+    public static class HideIcons {
+        public static bool check_object_holder(Vector3 pos) {
+            // ignore icons when zoomed in
+            if ((Vector3.Distance(pos, Loop.center) + 2.3f) > Vector3.Distance(Loop.center, Loop.camera_position)) {
+                return true;
+            } else return check(pos);
         }
 
         public static bool check(Vector3 pos) {

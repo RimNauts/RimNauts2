@@ -68,6 +68,11 @@ namespace RimNauts2.World.Objects {
             current_position.z = (orbit_position.z - num2) * (float) Math.Sin(num1);
         }
 
+        public virtual void update_object_holder() {
+            if (object_holder == null) return;
+            object_holder.hide_now = Patch.HideIcons.check_object_holder(current_position);
+        }
+
         public virtual Matrix4x4 get_transformation_matrix(Vector3 center) {
             Matrix4x4 transformation_matrix = Matrix4x4.identity;
             transformation_matrix.SetTRS(

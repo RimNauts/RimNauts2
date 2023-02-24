@@ -102,6 +102,7 @@ namespace RimNauts2.World {
                 visual_objects[i].update();
                 if (Loop.unpaused) visual_objects[i].update_when_unpaused();
                 if (Loop.camera_moved) visual_objects[i].update_when_camera_moved();
+                if (Loop.unpaused || Loop.camera_moved) visual_objects[i].update_object_holder();
                 cached_matrices[i] = visual_objects[i].get_transformation_matrix(Loop.center);
             });
         }
