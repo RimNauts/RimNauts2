@@ -74,11 +74,11 @@
     <Compile Include="Settings\Page.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
+    <Compile Include="World\RenderingManager.cs" />
     <Compile Include="World\Tools\DespawnObjects.cs" />
     <Compile Include="World\Tools\PrintStats.cs" />
     <Compile Include="World\Tools\SpawnObjects.cs" />
     <Compile Include="World\Generator.cs" />
-    <Compile Include="World\Loop.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Map\AsteroidOre\ElevationFertility.cs" />
     <Compile Include="Map\AsteroidOre\RocksFromGrid.cs" />
@@ -113,7 +113,6 @@
     <Compile Include="World\Patch\Caravan.cs" />
     <Compile Include="World\Patch\Transportpod.cs" />
     <Compile Include="World\Type.cs" />
-    <Compile Include="World\RenderManager.cs" />
     <Compile Include="World\Patch\HideIcons.cs" />
     <Compile Include="Things\TransportPod.cs" />
   </ItemGroup>

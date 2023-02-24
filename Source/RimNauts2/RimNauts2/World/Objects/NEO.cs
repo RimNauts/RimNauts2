@@ -51,10 +51,13 @@ namespace RimNauts2.World.Objects {
             if (current_position == null) update_position(tick: 0);
         }
 
-        public virtual void update() { }
+        public virtual void update() {
+            if (object_holder == null) return;
+            object_holder.hide_now = Patch.HideIcons.check_object_holder(current_position);
+        }
 
         public virtual void update_when_unpaused() {
-            update_position(Loop.tick);
+            update_position(RenderingManager.tick);
             if (object_holder != null) object_holder.position = current_position;
         }
 
@@ -66,11 +69,6 @@ namespace RimNauts2.World.Objects {
             float num2 = Math.Abs(orbit_position.y) / 2;
             current_position.x = (orbit_position.x - num2) * (float) Math.Cos(num1);
             current_position.z = (orbit_position.z - num2) * (float) Math.Sin(num1);
-        }
-
-        public virtual void update_object_holder() {
-            if (object_holder == null) return;
-            object_holder.hide_now = Patch.HideIcons.check_object_holder(current_position);
         }
 
         public virtual Matrix4x4 get_transformation_matrix(Vector3 center) {

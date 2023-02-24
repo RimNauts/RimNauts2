@@ -7,7 +7,6 @@ namespace RimNauts2.World {
      * Keeps all the cache collections and their methods.
      */
     public class Caching_Handler : GameComponent {
-        public static RenderManager render_manager;
         public static Dictionary<int, ObjectHolder> object_holders;
         public static int total_asteroid_ores;
         public static int total_moons;
@@ -81,13 +80,6 @@ namespace RimNauts2.World {
         public static void remove(ObjectHolder object_holder) => caching_handler.remove(object_holder.Tile);
 
         public static void clear() => caching_handler.clear();
-    }
-
-    [HarmonyPatch(typeof(Game), "LoadGame")]
-    public static class Game_LoadGame {
-        public static void Prefix() {
-            Caching_Handler.render_manager = null;
-        }
     }
 
     [HarmonyPatch(typeof(RimWorld.Planet.WorldObjectsHolder), "AddToCache")]

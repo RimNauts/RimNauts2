@@ -14,7 +14,7 @@ namespace RimNauts2.World.Tools {
             Log.Message("\n" + Info.name + " Stats:");
             foreach (int type in Enum.GetValues(typeof(Type))) {
                 if (type == 0) continue;
-                Log.Message(Style.tab + ((Type) type) + ": " + Caching_Handler.render_manager.get_total((Type) type));
+                Log.Message(Style.tab + ((Type) type) + ": " + RenderingManager.get_total((Type) type));
             }
             Log.Message("");
         }

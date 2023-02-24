@@ -10,7 +10,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void spawn_asteroid() {
-            Caching_Handler.render_manager.populate(amount: 1, Type.Asteroid);
+            Generator.add_visual_object(amount: 1, Type.Asteroid);
         }
 
         [DebugAction(
@@ -21,7 +21,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void spawn_asteroid_ten() {
-            Caching_Handler.render_manager.populate(amount: 10, Type.Asteroid);
+            Generator.add_visual_object(amount: 10, Type.Asteroid);
         }
 
         [DebugAction(
@@ -32,7 +32,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void spawn_asteroid_houndred() {
-            Caching_Handler.render_manager.populate(amount: 100, Type.Asteroid);
+            Generator.add_visual_object(amount: 100, Type.Asteroid);
         }
 
         [DebugAction(
@@ -43,7 +43,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void spawn_asteroid_crashing() {
-            Caching_Handler.render_manager.populate(amount: 1, Type.AsteroidCrashing);
+            Generator.add_visual_object(amount: 1, Type.AsteroidCrashing);
         }
 
         [DebugAction(
@@ -54,7 +54,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void despawn_asteroid_crashing_ten() {
-            Caching_Handler.render_manager.populate(amount: 10, Type.AsteroidCrashing);
+            Generator.add_visual_object(amount: 10, Type.AsteroidCrashing);
         }
 
         [DebugAction(
@@ -65,7 +65,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void despawn_asteroid_crashing_houndred() {
-            Caching_Handler.render_manager.populate(amount: 100, Type.AsteroidCrashing);
+            Generator.add_visual_object(amount: 100, Type.AsteroidCrashing);
         }
     }
 }

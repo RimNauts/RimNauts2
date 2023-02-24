@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
-	<WorldGenStepDef>
-		<defName>RimNauts2_WorldGenStep</defName>
-		<order>700</order>
-		<worldGenStep Class="RimNauts2.World.Generator"/>
-	</WorldGenStepDef>
-</Defs>

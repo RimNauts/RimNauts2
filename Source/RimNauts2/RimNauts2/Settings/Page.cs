@@ -18,7 +18,7 @@ namespace RimNauts2.Settings {
             Listing_Standard buttons_view = new Listing_Standard();
             buttons_view.Begin(buttons_rectangle);
             if (buttons_view.ButtonText(TranslatorFormattedStringExtensions.Translate("RimNauts.default"))) Container.clear();
-            if (Current.Game != null && buttons_view.ButtonText("Apply changes")) Caching_Handler.render_manager.regenerate();
+            if (Current.Game != null && buttons_view.ButtonText("Apply changes")) Generator.regenerate();
             buttons_view.End();
 
             buttons_view = new Listing_Standard();

@@ -4,33 +4,94 @@ using UnityEngine;
 using Verse;
 
 namespace RimNauts2.World {
-    public class Generator : WorldGenStep {
-        public override int SeedPart => 133714088;
-
-        public override void GenerateFresh(string seed) => initial_generation();
-
-        public override void GenerateFromScribe(string seed) => initial_generation();
-
-        public static void initial_generation() {
-            if (Caching_Handler.render_manager != null) return;
-            add_render_manager();
+    public class Generator {
+        public static void regenerate() {
             foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {
-                if (Defs.Loader.get_object_holder(type) != null) {
-                    add_object_holder(amount, type);
-                } else {
-                    Caching_Handler.render_manager.populate(amount, type);
-                }
+                remove_visual_object(type);
+                int diff = amount - RenderingManager.get_total(type);
+                add_visual_object(diff, type);
             }
         }
 
-        public static void add_render_manager() {
-            int tile = get_free_tile(new_biome_def: "RimNauts2_Satellite_Biome");
-            if (tile == -1) return;
-            RenderManager render_manager = (RenderManager) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
-                DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_RenderManager")
+        public static void remove_visual_object(Type type) {
+            RenderingManager.visual_objects.RemoveAll(visual_object => visual_object.type == type && visual_object.object_holder == null);
+            RenderingManager.recache();
+        }
+
+        public static void remove_visual_object(int amount, Type type) {
+            RenderingManager.visual_objects.RemoveAll(visual_object => {
+                if (visual_object.type == type && visual_object.object_holder == null && amount > 0) {
+                    amount--;
+                    return true;
+                } else return false;
+            });
+            RenderingManager.recache();
+        }
+
+        public static void remove_visual_object(Objects.NEO neo) {
+            RenderingManager.visual_objects.RemoveAll(visual_object => visual_object.index == neo.index);
+            RenderingManager.recache();
+        }
+
+        public static void add_visual_object(
+            int amount,
+            Type type,
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null
+        ) {
+            for (int i = 0; i < amount; i++) {
+                add_visual_object(
+                    type,
+                    texture_path,
+                    orbit_position,
+                    orbit_speed,
+                    draw_size,
+                    period,
+                    time_offset,
+                    orbit_direction,
+                    color,
+                    rotation_angle,
+                    current_position
+                );
+            }
+        }
+
+        public static Objects.NEO add_visual_object(
+            Type type,
+            string texture_path = null,
+            Vector3? orbit_position = null,
+            float? orbit_speed = null,
+            Vector3? draw_size = null,
+            int? period = null,
+            int? time_offset = null,
+            int? orbit_direction = null,
+            float? color = null,
+            float? rotation_angle = null,
+            Vector3? current_position = null
+        ) {
+            Objects.NEO visual_object = type.neo(
+                texture_path,
+                orbit_position,
+                orbit_speed,
+                draw_size,
+                period,
+                time_offset,
+                orbit_direction,
+                color,
+                rotation_angle,
+                current_position
             );
-            render_manager.Tile = tile;
-            Find.WorldObjects.Add(render_manager);
+            RenderingManager.visual_objects.Add(visual_object);
+            RenderingManager.recache();
+            return visual_object;
         }
 
         public static void add_object_holder(

@@ -132,14 +132,14 @@ namespace RimNauts2.World {
                 object_holder.visual_object.object_holder = object_holder;
                 Find.WorldObjects.Add(object_holder);
             } else {
-                Caching_Handler.render_manager.depopulate(visual_object);
+                Generator.remove_visual_object(visual_object);
                 Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
             }
         }
 
         public void add_expiration_date(float min_days, float max_days) {
             limited_time = true;
-            created_tick = Loop.tick;
+            created_tick = RenderingManager.tick;
             death_tick = created_tick + (int) Rand.Range(min_days * 60000, max_days * 60000);
         }
 
@@ -171,7 +171,7 @@ namespace RimNauts2.World {
             float? rotation_angle = null,
             Vector3? current_position = null
         ) {
-            visual_object = Caching_Handler.render_manager.populate(
+            visual_object = Generator.add_visual_object(
                 type,
                 texture_path,
                 orbit_position,
