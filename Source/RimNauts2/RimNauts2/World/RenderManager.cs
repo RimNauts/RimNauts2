@@ -227,5 +227,12 @@ namespace RimNauts2.World {
             cached_materials = new Material[total_objects];
             for (int i = 0; i < total_objects; i++) cached_materials[i] = visual_objects[i].get_material();
         }
+
+        public void regenerate() {
+            foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {
+                depopulate(type);
+                populate(amount, type);
+            }
+        }
     }
 }

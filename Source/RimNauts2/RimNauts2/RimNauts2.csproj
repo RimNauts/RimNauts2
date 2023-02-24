@@ -70,6 +70,8 @@
     <Compile Include="Defs\Loader.cs" />
     <Compile Include="Defs\ObjectHolder.cs" />
     <Compile Include="Defs\ObjectMetadata.cs" />
+    <Compile Include="Settings\Container.cs" />
+    <Compile Include="Settings\Page.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Tools\DespawnObjects.cs" />

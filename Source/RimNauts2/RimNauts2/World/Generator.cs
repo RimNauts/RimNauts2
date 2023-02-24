@@ -14,37 +14,11 @@ namespace RimNauts2.World {
         public static void initial_generation() {
             if (Caching_Handler.render_manager != null) return;
             add_render_manager();
-            foreach (var object_generation_step in Defs.Loader.object_generation_steps) {
-                if (Defs.Loader.get_object_holder((Type) object_generation_step.type) != null) {
-                    add_object_holder(
-                        object_generation_step.amount,
-                        (Type) object_generation_step.type,
-                        object_generation_step.texture_path,
-                        object_generation_step.orbit_position,
-                        object_generation_step.orbit_speed,
-                        object_generation_step.draw_size,
-                        object_generation_step.period,
-                        object_generation_step.time_offset,
-                        object_generation_step.orbit_direction,
-                        object_generation_step.color,
-                        object_generation_step.rotation_angle,
-                        object_generation_step.current_position
-                    );
+            foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {
+                if (Defs.Loader.get_object_holder(type) != null) {
+                    add_object_holder(amount, type);
                 } else {
-                    Caching_Handler.render_manager.populate(
-                        object_generation_step.amount,
-                        (Type) object_generation_step.type,
-                        object_generation_step.texture_path,
-                        object_generation_step.orbit_position,
-                        object_generation_step.orbit_speed,
-                        object_generation_step.draw_size,
-                        object_generation_step.period,
-                        object_generation_step.time_offset,
-                        object_generation_step.orbit_direction,
-                        object_generation_step.color,
-                        object_generation_step.rotation_angle,
-                        object_generation_step.current_position
-                    );
+                    Caching_Handler.render_manager.populate(amount, type);
                 }
             }
         }

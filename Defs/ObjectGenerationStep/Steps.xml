@@ -6,28 +6,8 @@
         <type>1</type>
   	</RimNauts2.Defs.ObjectGenerationStep>
 	<RimNauts2.Defs.ObjectGenerationStep>
-		<defName>RimNauts2_ObjectGenerationStep_AsteroidOre</defName>
-        <amount>100</amount>
-        <type>2</type>
-  	</RimNauts2.Defs.ObjectGenerationStep>
-	<RimNauts2.Defs.ObjectGenerationStep>
 		<defName>RimNauts2_ObjectGenerationStep_AsteroidCrashing</defName>
         <amount>100</amount>
         <type>3</type>
-  	</RimNauts2.Defs.ObjectGenerationStep>
-	<RimNauts2.Defs.ObjectGenerationStep>
-		<defName>RimNauts2_ObjectGenerationStep_Moon</defName>
-        <amount>1</amount>
-        <type>4</type>
-  	</RimNauts2.Defs.ObjectGenerationStep>
-	<RimNauts2.Defs.ObjectGenerationStep>
-		<defName>RimNauts2_ObjectGenerationStep_Satellite</defName>
-        <amount>5</amount>
-        <type>5</type>
-  	</RimNauts2.Defs.ObjectGenerationStep>
-	<RimNauts2.Defs.ObjectGenerationStep>
-		<defName>RimNauts2_ObjectGenerationStep_SpaceStation</defName>
-        <amount>1</amount>
-        <type>6</type>
   	</RimNauts2.Defs.ObjectGenerationStep>
 </Defs>
