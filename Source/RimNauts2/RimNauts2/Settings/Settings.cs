@@ -1,4 +1,4 @@
-﻿using Verse;
+﻿/*using Verse;
 using UnityEngine;
 
 namespace RimNauts2 {
@@ -62,4 +62,4 @@ namespace RimNauts2 {
 
         public override void WriteSettings() => base.WriteSettings();
     }
-}
+}*/

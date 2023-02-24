@@ -18,7 +18,7 @@ namespace RimNauts2.World.Objects {
         public Vector3 current_position;
         public Material material;
         public Quaternion rotation;
-        public bool object_holder;
+        public ObjectHolder object_holder;
 
         public NEO(
             Type type,
@@ -55,6 +55,7 @@ namespace RimNauts2.World.Objects {
 
         public virtual void update_when_unpaused() {
             update_position(Loop.tick);
+            if (object_holder != null) object_holder.position = current_position;
         }
 
         public virtual void update_when_camera_moved() { }

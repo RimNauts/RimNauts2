@@ -64,11 +64,23 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref color, "color");
             Scribe_Values.Look(ref rotation_angle, "rotation_angle");
             Scribe_Values.Look(ref current_position, "current_position");
+            if (visual_object == null) add_visual_object(
+                type,
+                texture_path: null,
+                orbit_position,
+                orbit_speed,
+                draw_size,
+                period,
+                time_offset,
+                orbit_direction,
+                color,
+                rotation_angle,
+                current_position
+            );
         }
 
         public override void Tick() {
             base.Tick();
-            position = get_position();
             if (limited_time) {
                 created_tick++;
                 if (!HasMap && created_tick >= death_tick) {
@@ -117,6 +129,7 @@ namespace RimNauts2.World {
                 object_holder.texture_overlay = texture_overlay;
                 object_holder.type = type;
                 object_holder.visual_object = visual_object;
+                object_holder.visual_object.object_holder = object_holder;
                 Find.WorldObjects.Add(object_holder);
             } else {
                 Caching_Handler.render_manager.depopulate(visual_object);
@@ -145,27 +158,6 @@ namespace RimNauts2.World {
 
         public override MapGeneratorDef MapGeneratorDef => map_generator;
 
-        public Vector3 get_position() {
-            if (visual_object != null) {
-                return visual_object.current_position;
-            } else if (type != Type.None && Caching_Handler.render_manager != null) {
-                add_visual_object(
-                    type,
-                    texture_path,
-                    orbit_position,
-                    orbit_speed,
-                    draw_size,
-                    period,
-                    time_offset,
-                    orbit_direction,
-                    color,
-                    rotation_angle,
-                    current_position
-                );
-                return visual_object.current_position;
-            } else return Vector3.zero;
-        }
-
         public void add_visual_object(
             Type type,
             string texture_path = null,
@@ -192,7 +184,7 @@ namespace RimNauts2.World {
                 rotation_angle,
                 current_position
             );
-            visual_object.object_holder = true;
+            visual_object.object_holder = this;
             this.type = type;
         }
     }

@@ -31,7 +31,7 @@ namespace RimNauts2.World {
         public override void ExposeData() {
             base.ExposeData();
             for (int i = 0; i < total_objects; i++) {
-                if (visual_objects[i].object_holder) continue;
+                if (visual_objects[i].object_holder != null) continue;
                 expose_type.Add(visual_objects[i].type);
                 expose_texture_path.Add(visual_objects[i].texture_path);
                 expose_orbit_position.Add(visual_objects[i].orbit_position);
@@ -193,7 +193,7 @@ namespace RimNauts2.World {
         }
 
         public void depopulate(Type type) {
-            visual_objects.RemoveAll(visual_object => visual_object.type == type && !visual_object.object_holder);
+            visual_objects.RemoveAll(visual_object => visual_object.type == type && visual_object.object_holder != null);
             recache();
         }
 
@@ -204,7 +204,7 @@ namespace RimNauts2.World {
 
         public void depopulate(int amount, Type type) {
             visual_objects.RemoveAll(visual_object => {
-                if (visual_object.type == type && !visual_object.object_holder && amount > 0) {
+                if (visual_object.type == type && visual_object.object_holder != null && amount > 0) {
                     amount--;
                     return true;
                 } else return false;

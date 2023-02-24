@@ -17,9 +17,7 @@ namespace RimNauts2.Settings {
             Rect buttons_rectangle = new Rect(inRect.x, inRect.y + 24f, inRect.width, inRect.height - 24f);
             Listing_Standard buttons_view = new Listing_Standard();
             buttons_view.Begin(buttons_rectangle);
-            if (Current.Game != null) buttons_view.ColumnWidth = 250f;
             if (buttons_view.ButtonText(TranslatorFormattedStringExtensions.Translate("RimNauts.default"))) Container.clear();
-            if (Current.Game != null) buttons_view.NewColumn();
             if (Current.Game != null && buttons_view.ButtonText("Apply changes")) Caching_Handler.render_manager.regenerate();
             buttons_view.End();
 
