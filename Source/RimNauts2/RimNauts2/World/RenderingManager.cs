@@ -174,7 +174,7 @@ namespace RimNauts2.World {
         }
 
         public static void update() {
-            Parallel.For(0, total_objects, i => {
+            Parallel.For(0, total_objects, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i => {
                 visual_objects[i].update();
                 if (unpaused) visual_objects[i].update_when_unpaused();
                 if (camera_moved) visual_objects[i].update_when_camera_moved();

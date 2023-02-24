@@ -7,6 +7,7 @@
 		<expandingIcon>true</expandingIcon>
 		<texture>RimNauts2_Transparent</texture>
 		<expandingIconTexture>RimNauts2_Transparent</expandingIconTexture>
+		<expandingIconPriority>1003</expandingIconPriority>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.World.Comps.DestroyObjectHolder_Properties">

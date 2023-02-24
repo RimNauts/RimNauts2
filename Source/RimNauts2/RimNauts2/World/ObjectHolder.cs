@@ -94,8 +94,6 @@ namespace RimNauts2.World {
 
         public override void Print(LayerSubMesh subMesh) { }
 
-        public override float ExpandingIconPriority => 1002.0f;
-
         public override Texture2D ExpandingIcon {
             get {
                 if (!HasMap) return base.ExpandingIcon;
