@@ -15,5 +15,6 @@
 		<color_between>(1.0, 1.0)</color_between>
 		<random_rotation>false</random_rotation>
 		<random_direction>true</random_direction>
+		<object_holder>true</object_holder>
   	</RimNauts2.Defs.ObjectMetadata>
 </Defs>

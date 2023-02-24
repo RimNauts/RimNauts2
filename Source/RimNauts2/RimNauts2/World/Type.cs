@@ -122,6 +122,10 @@ namespace RimNauts2.World {
             }
         }
 
+        public static bool object_holder(this Type type) {
+            return type.defs().object_holder;
+        }
+
         public static string texture_path(this Type type) {
             return type.defs().texture_paths.RandomElement();
         }

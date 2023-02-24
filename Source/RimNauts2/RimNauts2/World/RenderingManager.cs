@@ -92,7 +92,7 @@ namespace RimNauts2.World {
         public override void StartedNewGame() {
             visual_objects = new List<Objects.NEO>();
             foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {
-                if (Defs.Loader.get_object_holder(type) != null) {
+                if (type.object_holder()) {
                     Generator.add_object_holder(amount, type);
                 } else {
                     Generator.add_visual_object(amount, type);
@@ -167,16 +167,13 @@ namespace RimNauts2.World {
         }
 
         public override void GameComponentUpdate() {
-            // ran every frame
             get_frame_data();
             if (wait) return;
-            update();
-            recache_materials();
+            if (frame_changed) update();
             render();
         }
 
         public static void update() {
-            if (!frame_changed) return;
             Parallel.For(0, total_objects, i => {
                 visual_objects[i].update();
                 if (unpaused) visual_objects[i].update_when_unpaused();
@@ -186,6 +183,7 @@ namespace RimNauts2.World {
         }
 
         public static void render() {
+            recache_materials();
             for (int i = 0; i < total_objects; i++) {
                 Graphics.DrawMesh(
                     MeshPool.plane10,
@@ -211,6 +209,7 @@ namespace RimNauts2.World {
             materials_dirty = true;
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
+            for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
             update();
         }
 
@@ -222,7 +221,7 @@ namespace RimNauts2.World {
         }
 
         public static void get_frame_data() {
-            wait = (!RimWorld.Planet.WorldRendererUtility.WorldRenderedNow || total_objects <= 0) && !force_update;
+            wait = !RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !force_update;
             if (!wait) force_update = false;
             tick = tick_manager.TicksGame;
             unpaused = tick != prev_tick;

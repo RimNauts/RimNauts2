@@ -26,8 +26,9 @@ namespace RimNauts2.Things {
                 action = new Action(generate_moon)
             };
             if (!DebugSettings.godMode) {
-                if (World.Caching_Handler.total_satellites < (World.Caching_Handler.total_moons + 1) * 2) {
-                    int diff = (World.Caching_Handler.total_moons + 1) * 2 - World.Caching_Handler.total_satellites;
+                int total_moons = World.Cache.get_total(World.Type.Moon);
+                if (total_moons < (total_moons + 1) * 2) {
+                    int diff = (total_moons + 1) * 2 - total_moons;
                     cmd.Disable(diff.ToString() + " " + Props.failMessage);
                 }
             }

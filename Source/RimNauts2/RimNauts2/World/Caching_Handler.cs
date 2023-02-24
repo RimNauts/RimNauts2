@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -8,15 +9,16 @@ namespace RimNauts2.World {
      */
     public class Caching_Handler : GameComponent {
         public static Dictionary<int, ObjectHolder> object_holders;
-        public static int total_asteroid_ores;
-        public static int total_moons;
-        public static int total_satellites;
-        public static int total_space_stations;
+        public static Dictionary<Type, int> object_holder_amount;
 
         public Caching_Handler(Game game) : base() {
             // initialize empty caches
             clear();
             Cache.caching_handler = this;
+        }
+
+        public int get_total(Type type) {
+            return object_holder_amount[type];
         }
 
         public ObjectHolder get(int tile) => object_holders[tile];
@@ -35,28 +37,13 @@ namespace RimNauts2.World {
         }
 
         public void update_stats(Type type, int update) {
-            switch (type) {
-                case Type.AsteroidOre:
-                    total_asteroid_ores += update;
-                    break;
-                case Type.Moon:
-                    total_moons += update;
-                    break;
-                case Type.Satellite:
-                    total_satellites += update;
-                    break;
-                case Type.SpaceStation:
-                    total_space_stations += update;
-                    break;
-            }
+            object_holder_amount[type] += update;
         }
 
         public void clear() {
             object_holders = new Dictionary<int, ObjectHolder>();
-            total_asteroid_ores = 0;
-            total_moons = 0;
-            total_satellites = 0;
-            total_space_stations = 0;
+            object_holder_amount = new Dictionary<Type, int>();
+            foreach (var type_index in Enum.GetValues(typeof(Type))) object_holder_amount.Add((Type) type_index, 0);
         }
     }
 
@@ -66,6 +53,8 @@ namespace RimNauts2.World {
     public static class Cache {
         public static Caching_Handler caching_handler;
         public static bool stop;
+
+        public static int get_total(Type type) => caching_handler.get_total(type);
 
         public static ObjectHolder get(int tile) => caching_handler.get(tile);
 

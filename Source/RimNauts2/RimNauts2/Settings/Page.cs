@@ -52,7 +52,7 @@ namespace RimNauts2.Settings {
                 World.Type type = (World.Type) type_index;
                 buffer = -1;
                 buffer = Container.object_generation_steps.TryGetValue(type, buffer);
-                if (buffer <= 0) continue;
+                if (buffer == -1) continue;
                 Listing_Standard row_view = table_content_view.BeginSection(30f);
                 row_view.Gap(5f);
                 row_view.ColumnWidth = 300f;
@@ -63,7 +63,6 @@ namespace RimNauts2.Settings {
                 input_buffer = buffer.ToString();
                 row_view.IntEntry(ref buffer, ref input_buffer);
                 Container.object_generation_steps[type] = buffer;
-                //row_view.GapLine();
                 table_content_view.EndSection(row_view);
             }
             table_content_view.End();

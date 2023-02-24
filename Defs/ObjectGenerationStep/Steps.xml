@@ -10,4 +10,9 @@
         <amount>100</amount>
         <type>3</type>
   	</RimNauts2.Defs.ObjectGenerationStep>
+	<RimNauts2.Defs.ObjectGenerationStep>
+		<defName>RimNauts2_ObjectGenerationStep_Moon</defName>
+        <amount>1</amount>
+        <type>4</type>
+  	</RimNauts2.Defs.ObjectGenerationStep>
 </Defs>

@@ -6,11 +6,32 @@ using Verse;
 namespace RimNauts2.World {
     public class Generator {
         public static void regenerate() {
+            int diff;
             foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {
-                remove_visual_object(type);
-                int diff = amount - RenderingManager.get_total(type);
-                add_visual_object(diff, type);
+                if (type.object_holder()) {
+                    if (amount == Cache.get_total(type)) continue;
+                    List<ObjectHolder> object_holders_buffer = Caching_Handler.object_holders.Values.ToList();
+                    foreach (var object_holder in object_holders_buffer) {
+                        if (object_holder != null && object_holder.type == type && !object_holder.HasMap) {
+                            object_holder.keep_after_abandon = false;
+                            object_holder.Destroy();
+                            Cache.remove(object_holder);
+                        }
+                    }
+                    diff = amount - Cache.get_total(type);
+                    add_object_holder(diff, type);
+                } else {
+                    if (amount == RenderingManager.get_total(type)) continue;
+                    remove_visual_object(type);
+                    diff = amount - RenderingManager.get_total(type);
+                    add_visual_object(diff, type);
+                }
             }
+        }
+
+        public static void remove_object_holder(Type type) {
+            RenderingManager.visual_objects.RemoveAll(visual_object => visual_object.type == type && visual_object.object_holder == null);
+            RenderingManager.recache();
         }
 
         public static void remove_visual_object(Type type) {
