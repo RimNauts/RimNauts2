@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace RimNauts2.World.Comps {
@@ -25,6 +26,10 @@ namespace RimNauts2.World.Comps {
 
         public void generate_map() {
             ObjectHolder object_holder = parent as ObjectHolder;
+            string object_holder_def = null;
+            Defs.ObjectHolder defs = Defs.Loader.get_object_holder(object_holder.type, object_holder_def);
+            if (defs == null) return;
+            Find.World.grid.tiles.ElementAt(object_holder.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(defs.biome_def);
             // generate map
             MapGenerator.GenerateMap(
                 Find.World.info.initialMapSize,

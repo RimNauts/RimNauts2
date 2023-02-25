@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System;
+using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -53,6 +54,10 @@ namespace RimNauts2.World.Patch {
                     }
                 }
                 ObjectHolder object_holder = Cache.get(caravan.Tile);
+                string object_holder_def = null;
+                Defs.ObjectHolder defs = Defs.Loader.get_object_holder(object_holder.type, object_holder_def);
+                if (defs == null) return;
+                Find.World.grid.tiles.ElementAt(object_holder.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(defs.biome_def);
                 // generate map
                 Map map = MapGenerator.GenerateMap(
                     Find.World.info.initialMapSize,

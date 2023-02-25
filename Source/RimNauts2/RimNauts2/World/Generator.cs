@@ -189,7 +189,7 @@ namespace RimNauts2.World {
         ) {
             Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
             if (defs == null) return null;
-            int tile = get_free_tile(start_index, new_biome_def: defs.biome_def);
+            int tile = get_free_tile(start_index);
             if (tile == -1) return null;
             ObjectHolder object_holder = (ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                 DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
@@ -225,9 +225,9 @@ namespace RimNauts2.World {
             return object_holder;
         }
 
-        public static int get_free_tile(int start_index = 0, string new_biome_def = null) {
+        public static int get_free_tile(int start_index = 0) {
             for (int i = start_index; i < Find.World.grid.TilesCount; i++) {
-                if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean") {
+                if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean" && !Find.World.worldObjects.AnyWorldObjectAt(i)) {
                     List<int> neighbors = new List<int>();
                     Find.World.grid.GetTileNeighbors(i, neighbors);
                     var flag = false;
@@ -241,7 +241,6 @@ namespace RimNauts2.World {
                         }
                     }
                     if (flag) continue;
-                    if (new_biome_def != null) Find.World.grid.tiles.ElementAt(i).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(new_biome_def);
                     return i;
                 }
             }

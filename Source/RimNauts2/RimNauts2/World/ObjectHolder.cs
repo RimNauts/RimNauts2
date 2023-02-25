@@ -115,6 +115,7 @@ namespace RimNauts2.World {
 
         public override void PostRemove() {
             base.PostRemove();
+            Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
             if (keep_after_abandon) {
                 ObjectHolder object_holder = (ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                     DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
@@ -128,11 +129,7 @@ namespace RimNauts2.World {
                 object_holder.type = type;
                 object_holder.visual_object = visual_object;
                 object_holder.visual_object.object_holder = object_holder;
-                Find.WorldObjects.Add(object_holder);
-            } else {
-                Generator.remove_visual_object(visual_object);
-                Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
-            }
+            } else Generator.remove_visual_object(visual_object);
         }
 
         public void add_expiration_date(float min_days, float max_days) {
