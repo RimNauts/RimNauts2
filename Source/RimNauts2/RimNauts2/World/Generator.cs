@@ -4,7 +4,22 @@ using UnityEngine;
 using Verse;
 
 namespace RimNauts2.World {
-    public class Generator {
+    public class Generator : WorldGenStep {
+        public override int SeedPart => 111001;
+
+        public override void GenerateFresh(string seed) => generate_fresh();
+
+        public static void generate_fresh() {
+            RenderingManager.visual_objects = new List<Objects.NEO>();
+            foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {
+                if (type.object_holder()) {
+                    add_object_holder(amount, type);
+                } else {
+                    add_visual_object(amount, type);
+                }
+            }
+        }
+
         public static void regenerate() {
             int diff;
             foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {

@@ -82,27 +82,13 @@ namespace RimNauts2.World {
         }
 
         public override void FinalizeInit() {
-            tick_manager = Find.TickManager;
-            camera_driver = Find.WorldCameraDriver;
-            camera = Find.WorldCamera.GetComponent<Camera>();
-            camera.farClipPlane = 1600.0f;
+            init();
             get_frame_data();
-        }
-
-        public override void StartedNewGame() {
-            visual_objects = new List<Objects.NEO>();
-            foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {
-                if (type.object_holder()) {
-                    Generator.add_object_holder(amount, type);
-                } else {
-                    Generator.add_visual_object(amount, type);
-                }
-            }
         }
 
         public override void LoadedGame() {
             if (expose_type.NullOrEmpty()) {
-                StartedNewGame();
+                Generator.generate_fresh();
                 return;
             }
             visual_objects = new List<Objects.NEO>();
@@ -177,6 +163,13 @@ namespace RimNauts2.World {
             render();
         }
 
+        public static void init() {
+            tick_manager = Find.TickManager;
+            camera_driver = Find.WorldCameraDriver;
+            camera = Find.WorldCamera.GetComponent<Camera>();
+            camera.farClipPlane = 1600.0f;
+        }
+
         public static void update() {
             Parallel.For(0, total_objects, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i => {
                 visual_objects[i].update();
@@ -210,6 +203,7 @@ namespace RimNauts2.World {
         public static int get_total(Type type) => visual_objects.Where(visual_object => visual_object.type == type).Count();
 
         public static void recache() {
+            init();
             force_update = true;
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
@@ -224,6 +218,10 @@ namespace RimNauts2.World {
         }
 
         public static void get_frame_data() {
+            if (visual_objects.NullOrEmpty()) {
+                wait = true;
+                return;
+            }
             wait = !RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !force_update;
             if (!wait) force_update = false;
             tick = tick_manager.TicksGame;
