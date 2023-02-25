@@ -17,8 +17,6 @@
 			<li>Satellites/Ores/RimNauts2_OreSteel_1</li>
 			<li>Satellites/Ores/RimNauts2_OreSteel_2</li>
 			<li>Satellites/Ores/RimNauts2_OreSteel_3</li>
-			<li>Satellites/Ores/RimNauts2_OreSteel_4</li>
-			<li>Satellites/Ores/RimNauts2_OreSteel_5</li>
 		</texture_paths>
   	</RimNauts2.Defs.ObjectHolder>
 
@@ -43,7 +41,6 @@
 			<li>Satellites/Ores/RimNauts2_OrePlasteel_1</li>
 			<li>Satellites/Ores/RimNauts2_OrePlasteel_2</li>
 			<li>Satellites/Ores/RimNauts2_OrePlasteel_3</li>
-			<li>Satellites/Ores/RimNauts2_OrePlasteel_4</li>
 		</texture_paths>
   	</RimNauts2.Defs.ObjectHolder>
 
