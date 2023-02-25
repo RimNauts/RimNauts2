@@ -27,7 +27,6 @@ namespace RimNauts2.World {
         public static bool frame_changed;
         private static bool wait;
         public static bool force_update;
-        public static bool materials_dirty;
 
         public static Matrix4x4[] cached_matrices;
         public static Material[] cached_materials;
@@ -64,7 +63,6 @@ namespace RimNauts2.World {
             frame_changed = false;
             wait = false;
             force_update = true;
-            materials_dirty = true;
             cached_matrices = new Matrix4x4[0];
             cached_materials = new Material[0];
             total_objects = 0;
@@ -182,14 +180,13 @@ namespace RimNauts2.World {
         public static void update() {
             Parallel.For(0, total_objects, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i => {
                 visual_objects[i].update();
-                if (unpaused) visual_objects[i].update_when_unpaused();
-                if (camera_moved) visual_objects[i].update_when_camera_moved();
+                if (unpaused || force_update) visual_objects[i].update_when_unpaused();
+                if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
                 cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
             });
         }
 
         public static void render() {
-            recache_materials();
             for (int i = 0; i < total_objects; i++) {
                 Graphics.DrawMesh(
                     MeshPool.plane10,
@@ -214,16 +211,14 @@ namespace RimNauts2.World {
 
         public static void recache() {
             force_update = true;
-            materials_dirty = true;
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
             for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
+            recache_materials();
             update();
         }
 
         public static void recache_materials() {
-            if (!materials_dirty) return;
-            materials_dirty = false;
             cached_materials = new Material[total_objects];
             for (int i = 0; i < total_objects; i++) cached_materials[i] = visual_objects[i].get_material();
         }

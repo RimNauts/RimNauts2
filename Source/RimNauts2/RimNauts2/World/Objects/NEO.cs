@@ -83,11 +83,7 @@ namespace RimNauts2.World.Objects {
 
         public virtual Material get_material() {
             if (material != null) return material;
-            material = MaterialPool.MatFrom(
-                texture_path,
-                Assets.neo_shader,
-                RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
-            );
+            material = Assets.materials[texture_path];
             material.color = new Color(color, color, color);
             return material;
         }

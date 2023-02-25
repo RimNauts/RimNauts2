@@ -8,6 +8,7 @@ namespace RimNauts2 {
         private static AssetBundle assets;
         public static Shader neo_shader;
         public static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        public static Dictionary<string, Material> materials = new Dictionary<string, Material>();
 
         public static void init() {
             get_assets();
@@ -16,6 +17,38 @@ namespace RimNauts2 {
                 foreach (var object_holder in object_holders) {
                     if (object_holder.texture_overlay != null && !textures.ContainsKey(object_holder.texture_overlay)) {
                         textures.Add(object_holder.texture_overlay, get_content<Texture2D>(object_holder.texture_overlay));
+                    }
+                }
+            }
+            foreach (var (type, object_holders) in Defs.Loader.object_holders) {
+                foreach (var object_holder in object_holders) {
+                    if (object_holder.texture_paths.NullOrEmpty()) continue;
+                    foreach (var texture_path in object_holder.texture_paths) {
+                        if (!materials.ContainsKey(texture_path)) {
+                            materials.Add(
+                                texture_path,
+                                MaterialPool.MatFrom(
+                                    texture_path,
+                                    neo_shader,
+                                    RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+            foreach (var (type, object_metadata) in Defs.Loader.object_metadata) {
+                if (object_metadata.texture_paths.NullOrEmpty()) continue;
+                foreach (var texture_path in object_metadata.texture_paths) {
+                    if (!materials.ContainsKey(texture_path)) {
+                        materials.Add(
+                            texture_path,
+                            MaterialPool.MatFrom(
+                                texture_path,
+                                neo_shader,
+                                RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
+                            )
+                        );
                     }
                 }
             }
