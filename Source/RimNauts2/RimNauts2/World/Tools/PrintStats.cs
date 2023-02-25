@@ -11,12 +11,12 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void print_stats() {
-            Log.Message("\n" + Info.name + " Stats:");
+            string msg = Info.name + " Stats:";
             foreach (int type in Enum.GetValues(typeof(Type))) {
                 if (type == 0) continue;
-                Log.Message(Style.tab + ((Type) type) + ": " + RenderingManager.get_total((Type) type));
+                msg += Style.tab + ((Type) type) + ": " + RenderingManager.get_total((Type) type) + "\n";
             }
-            Log.Message("");
+            Log.Message(msg);
         }
     }
 }

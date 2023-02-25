@@ -79,7 +79,12 @@ namespace RimNauts2 {
                         Find.World.WorldUpdate();
                     }
                     Destroy();
-                    Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
+                    Logger.print(
+                        Logger.Importance.Info,
+                        key: "RimNauts.Info.successfully_converted_old_object",
+                        prefix: Info.name,
+                        args: new NamedArgument[] { type.ToString(), Tile.ToString() }
+                    );
                     break;
                 case Satellite_Type.Artifical_Satellite:
                     World.Generator.add_object_holder(
@@ -87,7 +92,12 @@ namespace RimNauts2 {
                         start_index: Tile
                     );
                     Destroy();
-                    Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
+                    Logger.print(
+                        Logger.Importance.Info,
+                        key: "RimNauts.Info.successfully_converted_old_object",
+                        prefix: Info.name,
+                        args: new NamedArgument[] { type.ToString(), Tile.ToString() }
+                    );
                     break;
                 case Satellite_Type.Asteroid_Ore:
                     object_holder_def = null;
@@ -108,7 +118,12 @@ namespace RimNauts2 {
                         Find.World.WorldUpdate();
                     }
                     Destroy();
-                    Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
+                    Logger.print(
+                        Logger.Importance.Info,
+                        key: "RimNauts.Info.successfully_converted_old_object",
+                        prefix: Info.name,
+                        args: new NamedArgument[] { type.ToString(), Tile.ToString() }
+                    );
                     break;
                 case Satellite_Type.Space_Station:
                     object_holder = World.Generator.add_object_holder(
@@ -123,7 +138,12 @@ namespace RimNauts2 {
                         Find.World.WorldUpdate();
                     }
                     Destroy();
-                    Log.Message("RimNauts2: Safely converted old " + type + " at tile " + Tile);
+                    Logger.print(
+                        Logger.Importance.Info,
+                        key: "RimNauts.Info.successfully_converted_old_object",
+                        prefix: Info.name,
+                        args: new NamedArgument[] { type.ToString(), Tile.ToString() }
+                    );
                     break;
                 default:
                     Destroy();

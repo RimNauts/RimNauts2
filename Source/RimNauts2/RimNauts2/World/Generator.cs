@@ -50,7 +50,12 @@ namespace RimNauts2.World {
             ObjectHolder object_holder = add_object_holder(Type.AsteroidOre);
             if (!Settings.Container.get_asteroid_ore_verbose) return;
             RenderingManager.update();
-            Find.LetterStack.ReceiveLetter("You spotted a " + object_holder.Label, object_holder.description, RimWorld.LetterDefOf.NeutralEvent, (LookTargets) object_holder);
+            Find.LetterStack.ReceiveLetter(
+                "RimNauts.Label.asteroid_spawned".Translate(),
+                "RimNauts.Description.asteroid_spawned".Translate(),
+                RimWorld.LetterDefOf.NeutralEvent,
+                (LookTargets) object_holder
+            );
         }
 
         public static void remove_object_holder(Type type) {

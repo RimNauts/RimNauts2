@@ -4,8 +4,5 @@
     <RimNauts.Info.def_loader_done>{0} defs found</RimNauts.Info.def_loader_done>
     <RimNauts.Info.assets_loaded>AssetBundle loading has finished, found {0} platform</RimNauts.Info.assets_loaded>
     <RimNauts.Info.sos_found>Found Save Our Ship space environment.</RimNauts.Info.sos_found>
-    <RimNauts.Info.starting_satellite_objects_cleanup>Starting satellite objects cleanup. Total objects: {0}</RimNauts.Info.starting_satellite_objects_cleanup>
-    <RimNauts.Info.finished_satellite_objects_cleanup>Finished satellite objects cleanup, starting to add back biomes. Total objects: {0}</RimNauts.Info.finished_satellite_objects_cleanup>
-    <RimNauts.Info.finished_adding_back_biomes>Finished adding back biomes, starting to add back objects. Total biomes: {0}</RimNauts.Info.finished_adding_back_biomes>
-    <RimNauts.Info.finished_adding_back_satellite_objects>Finished adding satellite objects back. Total objects: {0}</RimNauts.Info.finished_adding_back_satellite_objects>
+    <RimNauts.Info.successfully_converted_old_object>Safely converted old {0} at tile {1}</RimNauts.Info.successfully_converted_old_object>
 </LanguageData>

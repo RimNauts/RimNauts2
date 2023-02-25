@@ -140,8 +140,8 @@ namespace RimNauts2.World {
 
         public string add_expiration_date_label() {
             if ((death_tick - created_tick) < 60000.0f) {
-                return label + " (Hours left " + Math.Ceiling((death_tick - created_tick) / 2500.0f).ToString() + ")";
-            } else return label + " (Days left " + ((death_tick - created_tick) / 60000.0f).ToString("0.00") + ")";
+                return label + "RimNauts.hours_left".Translate(Math.Ceiling((death_tick - created_tick) / 2500.0f).ToString());
+            } else return label + "RimNauts.days_left".Translate(((death_tick - created_tick) / 60000.0f).ToString("0.00"));
         }
 
         public override string Label => limited_time && !HasMap ? add_expiration_date_label() : label;

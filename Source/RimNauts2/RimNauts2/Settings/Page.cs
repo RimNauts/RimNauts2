@@ -18,7 +18,7 @@ namespace RimNauts2.Settings {
             Listing_Standard buttons_view = new Listing_Standard();
             buttons_view.Begin(buttons_rectangle);
             if (buttons_view.ButtonText(TranslatorFormattedStringExtensions.Translate("RimNauts.default"))) Container.clear();
-            if (Current.Game != null && buttons_view.ButtonText("Apply changes")) Generator.regenerate();
+            if (Current.Game != null && buttons_view.ButtonText("RimNauts.apply_changes".Translate())) Generator.regenerate();
             buttons_view.End();
 
             buttons_view = new Listing_Standard();
@@ -38,7 +38,7 @@ namespace RimNauts2.Settings {
             table_header_view.Begin(table_header_rectangle);
             table_header_view.Gap(5f);
             table_header_view.ColumnWidth = 300f;
-            table_header_view.Label("Objects");
+            table_header_view.Label("Object type");
             table_header_view.NewColumn();
             table_header_view.Gap(5f);
             table_header_view.ColumnWidth = 500f;

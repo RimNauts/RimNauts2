@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
     <RimNauts.default>Default</RimNauts.default>
-    <RimNauts.total_satellites_to_spawn_option>Total satellite objects to spawn in the world.</RimNauts.total_satellites_to_spawn_option>
-    <RimNauts.percantage_of_mineral_rich_asteroids>Percantage of mineral-rich asteroids that can spawn from the total amount of satellite objects: {0}%</RimNauts.percantage_of_mineral_rich_asteroids>
-    <RimNauts.crashing_asteroids>Crashing asteroids</RimNauts.crashing_asteroids>
     <RimNauts.mineral_rich_asteroids>Mineral-rich asteroids</RimNauts.mineral_rich_asteroids>
     <RimNauts.mineral_rich_asteroids_messages_option>Mineral-rich asteroids messages</RimNauts.mineral_rich_asteroids_messages_option>
     <RimNauts.multi_thread_update_option>Multithread update loop</RimNauts.multi_thread_update_option>
+    <RimNauts.Label.asteroid_spawned>Mineral-rich asteroid spotted</RimNauts.Label.asteroid_spawned>
+    <RimNauts.Description.asteroid_spawned>A mineral-rich asteroid has been spotted in the asteroid belt. You have to be fast since it's only visible for a limited time.</RimNauts.Description.asteroid_spawned>
+    <RimNauts.days_left> (Days left {0})</RimNauts.days_left>
+    <RimNauts.hours_left> (Hours left {0})</RimNauts.hours_left>
+    <RimNauts.apply_changes>Apply changes</RimNauts.apply_changes>
+    <RimNauts.object_type>Object type</RimNauts.object_type>
+    <RimNauts.amount>Amount</RimNauts.amount>
 </LanguageData>
