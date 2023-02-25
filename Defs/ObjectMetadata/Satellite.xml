@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RimNauts2.Defs.ObjectMetadata>
+		<defName>RimNauts2_Object_Metadata_Satellite</defName>
+		<type>5</type>
+		<texture_paths>
+            <li>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</li>
+        </texture_paths>
+		<orbit_position>(140.0, 100.0, 140.0)</orbit_position>
+		<orbit_spread>(0.1, 0.0, 0.1)</orbit_spread>
+		<orbit_speed_between>(8.0, 10.0)</orbit_speed_between>
+		<size_between>(0.5, 0.5)</size_between>
+		<color_between>(1.0, 1.0)</color_between>
+		<random_rotation>true</random_rotation>
+		<random_direction>true</random_direction>
+		<object_holder>true</object_holder>
+  	</RimNauts2.Defs.ObjectMetadata>
+</Defs>
