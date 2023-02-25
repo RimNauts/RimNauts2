@@ -18,6 +18,10 @@
 				<label>Generate map</label>
 				<desc>Generate map for the object instantly.</desc>
 			</li>
+			<li Class="RimNauts2.World.Comps.RandomizeObjectHolder_Properties">
+				<label>Randomize</label>
+				<desc>Randomize properties.</desc>
+			</li>
 		</comps>
   	</WorldObjectDef>
 </Defs>

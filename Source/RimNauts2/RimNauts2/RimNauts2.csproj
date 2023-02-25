@@ -74,6 +74,7 @@
     <Compile Include="Settings\Page.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
+    <Compile Include="World\Comps\RandomizeObjectHolder.cs" />
     <Compile Include="World\RenderingManager.cs" />
     <Compile Include="World\Tools\DespawnObjects.cs" />
     <Compile Include="World\Tools\PrintStats.cs" />
