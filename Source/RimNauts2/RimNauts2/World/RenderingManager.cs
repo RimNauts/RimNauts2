@@ -14,6 +14,7 @@ namespace RimNauts2.World {
 
         public static int tick;
         private static int prev_tick;
+        public static int spawn_ore_tick;
 
         public static Vector3 camera_position;
         private static Vector3 prev_camera_position = Vector3.zero;
@@ -53,6 +54,7 @@ namespace RimNauts2.World {
             camera = null;
             tick = 0;
             prev_tick = -1;
+            spawn_ore_tick = get_ore_timer();
             camera_position = Vector3.one;
             prev_camera_position = Vector3.zero;
             center = Vector3.zero;
@@ -166,6 +168,10 @@ namespace RimNauts2.World {
             if (visual_objects.NullOrEmpty() && expose_type.Count > 0) LoadedGame();
         }
 
+        public override void GameComponentTick() {
+            if (tick > spawn_ore_tick) Generator.add_asteroid_ore();
+        }
+
         public override void GameComponentUpdate() {
             get_frame_data();
             if (wait) return;
@@ -201,6 +207,8 @@ namespace RimNauts2.World {
                 );
             }
         }
+
+        public static int get_ore_timer() => (int) Rand.Range(0.5f * 60000, 1.5f * 60000) + tick;
 
         public static int get_total(Type type) => visual_objects.Where(visual_object => visual_object.type == type).Count();
 

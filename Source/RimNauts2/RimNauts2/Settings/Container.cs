@@ -39,7 +39,7 @@ namespace RimNauts2.Settings {
         public static bool get_asteroid_ore_toggle {
             get {
                 if (asteroid_ore_toggle != null) return (bool) asteroid_ore_toggle;
-                asteroid_ore_toggle = false;
+                asteroid_ore_toggle = true;
                 return (bool) asteroid_ore_toggle;
             }
         }
@@ -55,7 +55,7 @@ namespace RimNauts2.Settings {
         public static bool get_asteroid_ore_verbose {
             get {
                 if (asteroid_ore_verbose != null) return (bool) asteroid_ore_verbose;
-                asteroid_ore_verbose = false;
+                asteroid_ore_verbose = true;
                 return (bool) asteroid_ore_verbose;
             }
         }

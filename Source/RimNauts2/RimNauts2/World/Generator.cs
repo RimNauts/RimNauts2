@@ -29,6 +29,15 @@ namespace RimNauts2.World {
             }
         }
 
+        public static void add_asteroid_ore() {
+            RenderingManager.spawn_ore_tick = RenderingManager.get_ore_timer();
+            if (!Settings.Container.get_asteroid_ore_toggle || Settings.Container.get_max_asteroid_ores <= Cache.get_total(Type.AsteroidOre)) return;
+            ObjectHolder object_holder = add_object_holder(Type.AsteroidOre);
+            if (!Settings.Container.get_asteroid_ore_verbose) return;
+            RenderingManager.update();
+            Find.LetterStack.ReceiveLetter("You spotted a " + object_holder.Label, object_holder.description, RimWorld.LetterDefOf.NeutralEvent, (LookTargets) object_holder);
+        }
+
         public static void remove_object_holder(Type type) {
             RenderingManager.visual_objects.RemoveAll(visual_object => visual_object.type == type && visual_object.object_holder == null);
             RenderingManager.recache();
