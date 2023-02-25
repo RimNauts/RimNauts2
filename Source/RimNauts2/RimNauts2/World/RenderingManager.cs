@@ -171,12 +171,21 @@ namespace RimNauts2.World {
         }
 
         public static void update() {
-            Parallel.For(0, total_objects, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i => {
-                visual_objects[i].update();
-                if (unpaused || force_update) visual_objects[i].update_when_unpaused();
-                if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
-                cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
-            });
+            if (Settings.Container.get_multi_threaded_update) {
+                Parallel.For(0, total_objects, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i => {
+                    visual_objects[i].update();
+                    if (unpaused || force_update) visual_objects[i].update_when_unpaused();
+                    if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
+                    cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
+                });
+            } else {
+                for (int i = 0; i < total_objects; i++) {
+                    visual_objects[i].update();
+                    if (unpaused || force_update) visual_objects[i].update_when_unpaused();
+                    if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
+                    cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
+                }
+            }
         }
 
         public static void render() {

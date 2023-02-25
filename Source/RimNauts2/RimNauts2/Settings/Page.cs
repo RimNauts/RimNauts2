@@ -22,8 +22,10 @@ namespace RimNauts2.Settings {
             buttons_view.End();
 
             buttons_view = new Listing_Standard();
-            buttons_rectangle = new Rect(buttons_rectangle.x, buttons_rectangle.y + (30f * 2), buttons_rectangle.width, 60f);
+            buttons_rectangle = new Rect(buttons_rectangle.x, buttons_rectangle.y + (30f * 3), buttons_rectangle.width, 90f);
             buttons_view.Begin(buttons_rectangle);
+            toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.multi_thread_update_option", Container.get_multi_threaded_update);
+            Container.multi_threaded_update = toggle_buffer;
             toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.mineral_rich_asteroids", Container.get_asteroid_ore_toggle);
             Container.asteroid_ore_toggle = toggle_buffer;
             toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.mineral_rich_asteroids_messages_option", Container.get_asteroid_ore_verbose);
