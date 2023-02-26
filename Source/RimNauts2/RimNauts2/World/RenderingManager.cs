@@ -215,12 +215,13 @@ namespace RimNauts2.World {
 
         public static void recache() {
             init();
+            get_frame_data();
             force_update = true;
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
             for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
             recache_materials();
-            update();
+            if (tick_manager != null && camera_driver != null && camera != null) update();
         }
 
         public static void recache_materials() {
