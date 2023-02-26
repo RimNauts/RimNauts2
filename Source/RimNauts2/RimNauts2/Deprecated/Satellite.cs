@@ -82,7 +82,7 @@ namespace RimNauts2 {
                     Logger.print(
                         Logger.Importance.Info,
                         key: "RimNauts.Info.successfully_converted_old_object",
-                        prefix: Info.name,
+                        prefix: Style.name_prefix,
                         args: new NamedArgument[] { type.ToString(), Tile.ToString() }
                     );
                     break;
@@ -95,7 +95,7 @@ namespace RimNauts2 {
                     Logger.print(
                         Logger.Importance.Info,
                         key: "RimNauts.Info.successfully_converted_old_object",
-                        prefix: Info.name,
+                        prefix: Style.name_prefix,
                         args: new NamedArgument[] { type.ToString(), Tile.ToString() }
                     );
                     break;
@@ -121,7 +121,7 @@ namespace RimNauts2 {
                     Logger.print(
                         Logger.Importance.Info,
                         key: "RimNauts.Info.successfully_converted_old_object",
-                        prefix: Info.name,
+                        prefix: Style.name_prefix,
                         args: new NamedArgument[] { type.ToString(), Tile.ToString() }
                     );
                     break;
@@ -141,7 +141,7 @@ namespace RimNauts2 {
                     Logger.print(
                         Logger.Importance.Info,
                         key: "RimNauts.Info.successfully_converted_old_object",
-                        prefix: Info.name,
+                        prefix: Style.name_prefix,
                         args: new NamedArgument[] { type.ToString(), Tile.ToString() }
                     );
                     break;
