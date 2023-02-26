@@ -232,6 +232,7 @@ namespace RimNauts2.World {
                 Vector2 days_between = (Vector2) defs.limited_days_between;
                 object_holder.add_expiration_date(days_between.x, days_between.y);
             }
+            Find.World.grid.tiles.ElementAt(object_holder.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(defs.biome_def);
             Find.WorldObjects.Add(object_holder);
             Cache.add(object_holder);
             return object_holder;

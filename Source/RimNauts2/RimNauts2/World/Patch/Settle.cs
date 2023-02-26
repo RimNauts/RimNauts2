@@ -54,16 +54,6 @@ namespace RimNauts2.World.Patch {
                     }
                 }
                 ObjectHolder object_holder = Cache.get(caravan.Tile);
-                Defs.ObjectHolder defs = Defs.Loader.get_object_holder(object_holder.type);
-                if (defs == null) {
-                    Logger.print(
-                        Logger.Importance.Error,
-                        key: "RimNauts.Error.object_holder_missing_def",
-                        prefix: Style.name_prefix
-                    );
-                    return;
-                }
-                Find.World.grid.tiles.ElementAt(object_holder.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(defs.biome_def);
                 // generate map
                 Map map = MapGenerator.GenerateMap(
                     Find.World.info.initialMapSize,
