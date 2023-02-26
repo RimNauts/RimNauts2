@@ -27,6 +27,7 @@ namespace RimNauts2.World {
         public static bool frame_changed;
         private static bool wait;
         public static bool force_update;
+        private static bool world_map_switch;
 
         public static Matrix4x4[] cached_matrices;
         public static Material[] cached_materials;
@@ -63,6 +64,7 @@ namespace RimNauts2.World {
             frame_changed = false;
             wait = false;
             force_update = true;
+            world_map_switch = false;
             cached_matrices = new Matrix4x4[0];
             cached_materials = new Material[0];
             total_objects = 0;
@@ -159,7 +161,7 @@ namespace RimNauts2.World {
         public override void GameComponentUpdate() {
             get_frame_data();
             if (wait) return;
-            if (frame_changed) update();
+            if (frame_changed || force_update) update();
             render();
         }
 
@@ -233,6 +235,11 @@ namespace RimNauts2.World {
             }
             wait = !RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !force_update;
             if (!wait) force_update = false;
+            if (!world_map_switch && RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) {
+                world_map_switch = true;
+                force_update = true;
+                wait = false;
+            } else if (world_map_switch && !RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) world_map_switch = false;
             tick = tick_manager.TicksGame;
             unpaused = tick != prev_tick;
             prev_tick = tick;
