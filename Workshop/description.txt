@@ -32,49 +32,38 @@ Mineral-rich asteroids will randomly show up in the asteroid belt for a limited 
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882438269]Simplified Chinese / 简体中文[/url] ([i]Outdated[/i])
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_for-modders.png[/img]
-- [url=https://steamcommunity.com/workshop/filedetails/discussion/2880599514/3473990693221899916/]Adding custom mineral-rich asteroids (XML)[/url]
+- [url=https://github.com/RimNauts/RimNauts2/wiki/How-to-add-custom-mineral-rich-asteroids]Adding custom mineral-rich asteroids (XML)[/url]
 
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_other.png[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_performance.png[/img]
-The only impact this mod has on performance is on the world map. If it lags for you, I recommend using My Little Planet to generate smaller planets. I have also added settings where you can change the amount of satellite objects you want to spawn (asteroid belt). This, however, requires you to [url=https://github.com/RimNauts/RimNauts2/blob/main/Workshop/Guides/regenerate-satellites.md]regenerate satellites.[/url]
+The only impact this mod has on performance is on the world map. This mod utilizes its own updating loop and multithreading to optimize the NEO calculations and rendering. This mod also provides settings where you can change the amount of NEO objects you want to spawn.
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_recommendations.png[/img]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1909914131]Save our Ship 2[/url] to add their space environment on the biomes.
-- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1117406550]My Little Planet[/url] will help with performance on the world map.
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2878587061]SRTS[/url] for reusable ships.
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_faq.png[/img]
 [quote]
 [b]Is this mod save game compatible?[/b]
 
-Yes, but to see the asteroids you need to [url=https://github.com/RimNauts/RimNauts2/blob/main/Workshop/Guides/regenerate-satellites.md]regenerate satellites.[/url]
+Yes.
 [/quote]
 [quote]
 [b]Can this mod be safely removed from a save?[/b]
 
-Abandon any map that you have generated on a satellite (moons). Go into god mode (developer mode -> the little head icon at the top middle screen when looking at a map) and click on each moon, satellite, and space station that you have spawned and click destroy. Go into mod settings and set the total amount of satellite objects to 0. Then you need to [url=https://github.com/RimNauts/RimNauts2/blob/main/Workshop/Guides/regenerate-satellites.md]regenerate satellites.[/url] Make sure that the last log message says that the total satellite objects are 0.
+Yes, but you need to abandon any map that you have generated on a NEO (Space Station, Moon, mineral-rich asteroids, etc...) and destroy each NEO that is selectable. To destroy the NEOs you need to go into developer mode -> enable god mode -> click on each selectable NEO and click the destroy button that shows in the the bottom left.
 [/quote]
 [quote]
-[b]The satellite / space station doesn't launch.[/b]
+[b]I can't find the buildings/items, where are they?[/b]
 
-This is because you need asteroids on the world map. You can either try it in a new save, or [url=https://github.com/RimNauts/RimNauts2/blob/main/Workshop/Guides/regenerate-satellites.md]regenerate satellites.[/url]
-[/quote]
-[quote]
-[b]I can't find the buildings, where are they?[/b]
-
-Everything is locked behind the [b]Transport Pod research[/b].
-[/quote]
-[quote]
-[b]Can we get a light version?[/b]
-
-No, if you just want the asteroid belt animation, you can just not use the other parts of the mod.
+Everything is locked behind the [b]Transport Pod research[/b]. Items can be crafted in the [b]fabrication bench[/b].
 [/quote]
 [quote]
 [b]What is the point of the moons?[/b]
 
-Mostly for role-play, but there is also asteroid mining which requires you to travel from orbit (moon base, space station). It is also a lot better on performance since there are no animals in new biomes.
+Mostly for role-play, but it is also a lot better on performance since there are no animals or plants on these biomes (This might change in the future).
 [/quote]
 [quote]
 [b]Can we get reusable ships?[/b]
@@ -97,9 +86,7 @@ Main programmer: [url=https://ko-fi.com/sindre0830]sindre0830[/url]
 Main artist: [url=https://ko-fi.com/detvisor]DetVisor[/url]
 
 
-This mod is a continuation of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2198026141]RimNauts 1[/url].  Please refer to that page for the original developer team and their contribution (Especially the C# wizard who made it all possible in the first place; [url=https://steamcommunity.com/profiles/76561198032541893/myworkshopfiles/]Nolabritt[/url]).
-
-Please check out these talented artist from [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2198026141]RimNauts 1[/url] whose art is used in this mod as well, [url=https://ko-fi.com/kasmex]Kasmex[/url] and [url=https://ko-fi.com/genomex]Genome-X.[/url]
+This mod is a continuation of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2198026141]RimNauts 1[/url].  Please refer to that page for the original developer team and their contribution (Especially the C# wizard who made it all possible in the first place; [url=https://steamcommunity.com/profiles/76561198032541893/myworkshopfiles/]Nolabritt[/url]). We also continue to use the art created by [url=https://ko-fi.com/kasmex]Kasmex[/url] and [url=https://ko-fi.com/genomex]Genome-X.[/url]
 
 
 [url=https://discord.gg/FcZX5jDqTj][img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_discord.png[/img][/url]

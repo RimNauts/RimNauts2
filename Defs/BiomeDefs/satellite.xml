@@ -2,7 +2,7 @@
 <Defs>
     <!-- Root class -->
 	<BiomeDef Name="RimNauts2_Biome" Abstract="True">
-		<workerClass>RimNauts2.BiomeWorker_Satellite</workerClass>
+		<workerClass>RimNauts2.Biome.Worker</workerClass>
         <canBuildBase>true</canBuildBase>
     	<canAutoChoose>false</canAutoChoose>
         <allowRoads>false</allowRoads>

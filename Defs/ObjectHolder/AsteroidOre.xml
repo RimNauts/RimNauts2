@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RimNauts2.Defs.ObjectHolder Name="RimNauts2_ObjectHolder_AsteroidOre_Root" Abstract="True">
+		<description>An asteroid rich with minerals.</description>
+        <type>2</type>
+		<biome_def>RimNauts2_Satellite_Biome</biome_def>
+		<keep_after_abandon>false</keep_after_abandon>
+		<limited_days_between>(0.5, 1.5)</limited_days_between>
+		<texture_overlay>UI/Designators/Mine</texture_overlay>
+  	</RimNauts2.Defs.ObjectHolder>
+
+	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
+		<defName>RimNauts2_ObjectHolder_AsteroidOre_Steel</defName>
+		<label>steel ore asteroid</label>
+		<map_generator>RimNauts2_OreSteel_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/Ores/RimNauts2_OreSteel_1</li>
+			<li>Satellites/Ores/RimNauts2_OreSteel_2</li>
+			<li>Satellites/Ores/RimNauts2_OreSteel_3</li>
+		</texture_paths>
+  	</RimNauts2.Defs.ObjectHolder>
+
+	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
+		<defName>RimNauts2_ObjectHolder_AsteroidOre_Gold</defName>
+		<label>gold ore asteroid</label>
+		<map_generator>RimNauts2_OreGold_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/Ores/RimNauts2_OreGold_1</li>
+			<li>Satellites/Ores/RimNauts2_OreGold_2</li>
+			<li>Satellites/Ores/RimNauts2_OreGold_3</li>
+			<li>Satellites/Ores/RimNauts2_OreGold_4</li>
+			<li>Satellites/Ores/RimNauts2_OreGold_5</li>
+		</texture_paths>
+  	</RimNauts2.Defs.ObjectHolder>
+
+	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
+		<defName>RimNauts2_ObjectHolder_AsteroidOre_Plasteel</defName>
+		<label>plasteel ore asteroid</label>
+		<map_generator>RimNauts2_OrePlasteel_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/Ores/RimNauts2_OrePlasteel_1</li>
+			<li>Satellites/Ores/RimNauts2_OrePlasteel_2</li>
+			<li>Satellites/Ores/RimNauts2_OrePlasteel_3</li>
+		</texture_paths>
+  	</RimNauts2.Defs.ObjectHolder>
+
+	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
+		<defName>RimNauts2_ObjectHolder_AsteroidOre_Uranium</defName>
+		<label>uranium ore asteroid</label>
+		<map_generator>RimNauts2_OreUranium_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/Ores/RimNauts2_OreUranium_1</li>
+		</texture_paths>
+  	</RimNauts2.Defs.ObjectHolder>
+</Defs>

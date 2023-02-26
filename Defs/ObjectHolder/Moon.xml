@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RimNauts2.Defs.ObjectHolder>
+		<defName>RimNauts2_ObjectHolder_Moon_Barren</defName>
+		<label>barren moon</label>
+		<description>One of what could be many, many moons orbiting this rimworld.</description>
+        <type>4</type>
+		<map_generator>RimNauts2_MoonBarren_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/Moons/RimNauts2_MoonBarren</li>
+		</texture_paths>
+		<biome_def>RimNauts2_Satellite_Biome</biome_def>
+		<keep_after_abandon>true</keep_after_abandon>
+		<texture_overlay>Satellites/Moons/RimNauts2_Moon_Base</texture_overlay>
+  	</RimNauts2.Defs.ObjectHolder>
+	<RimNauts2.Defs.ObjectHolder>
+		<defName>RimNauts2_ObjectHolder_Moon_Stripped</defName>
+		<label>stripped moon</label>
+		<description>One of what could be many, many moons orbiting this rimworld.</description>
+        <type>4</type>
+		<map_generator>RimNauts2_MoonStripped_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/Moons/RimNauts2_MoonStripped</li>
+		</texture_paths>
+		<biome_def>RimNauts2_Satellite_Biome</biome_def>
+		<keep_after_abandon>true</keep_after_abandon>
+		<texture_overlay>Satellites/Moons/RimNauts2_Moon_Base</texture_overlay>
+  	</RimNauts2.Defs.ObjectHolder>
+	<RimNauts2.Defs.ObjectHolder>
+		<defName>RimNauts2_ObjectHolder_Moon_Water</defName>
+		<label>water moon</label>
+		<description>One of what could be many, many moons orbiting this rimworld.</description>
+        <type>4</type>
+		<map_generator>RimNauts2_MoonWater_MapGen</map_generator>
+		<texture_paths>
+			<li>Satellites/Moons/RimNauts2_MoonWater</li>
+		</texture_paths>
+		<biome_def>RimNauts2_MoonWater_Biome</biome_def>
+		<keep_after_abandon>true</keep_after_abandon>
+		<texture_overlay>Satellites/Moons/RimNauts2_Moon_Base</texture_overlay>
+  	</RimNauts2.Defs.ObjectHolder>
+</Defs>
