@@ -64,19 +64,21 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref color, "color");
             Scribe_Values.Look(ref rotation_angle, "rotation_angle");
             Scribe_Values.Look(ref current_position, "current_position");
-            if (visual_object == null) add_visual_object(
-                type,
-                texture_path,
-                orbit_position,
-                orbit_speed,
-                draw_size,
-                period,
-                time_offset,
-                orbit_direction,
-                color,
-                rotation_angle,
-                current_position
-            );
+            if (visual_object == null) {
+                add_visual_object(
+                    type,
+                    texture_path,
+                    orbit_position,
+                    orbit_speed,
+                    draw_size,
+                    period,
+                    time_offset,
+                    orbit_direction,
+                    color,
+                    rotation_angle,
+                    current_position
+                );
+            }
         }
 
         public override void Tick() {
@@ -184,7 +186,17 @@ namespace RimNauts2.World {
                 current_position
             );
             visual_object.object_holder = this;
-            this.type = type;
+            this.type = visual_object.type;
+            this.texture_path = visual_object.texture_path;
+            this.orbit_speed = visual_object.orbit_speed;
+            this.draw_size = visual_object.draw_size;
+            this.period = visual_object.period;
+            this.time_offset = visual_object.time_offset;
+            this.orbit_direction = visual_object.orbit_direction;
+            this.color = visual_object.color;
+            this.rotation_angle = visual_object.rotation_angle;
+            this.current_position = visual_object.current_position;
+            position = visual_object.current_position;
         }
     }
 }

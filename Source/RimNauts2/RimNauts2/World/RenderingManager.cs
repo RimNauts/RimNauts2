@@ -93,6 +93,7 @@ namespace RimNauts2.World {
                 Generator.generate_fresh();
                 return;
             }
+            foreach (var (_, object_holder) in Caching_Handler.object_holders) object_holder.visual_object = null;
             visual_objects = new List<Objects.NEO>();
             total_objects = expose_type.Count;
             for (int i = 0; i < total_objects; i++) {
@@ -111,6 +112,7 @@ namespace RimNauts2.World {
                 visual_objects.Add(neo);
             }
             recache();
+            foreach (var (_, object_holder) in Caching_Handler.object_holders) object_holder.ExposeData();
         }
 
         public override void ExposeData() {
