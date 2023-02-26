@@ -2,6 +2,7 @@
 using Verse;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RimNauts2.Things {
     public class TransportPod_Properties : CompProperties {
@@ -77,6 +78,16 @@ namespace RimNauts2.Things {
                 World.ObjectHolder object_holder = World.Generator.add_object_holder((World.Type) Props.type);
                 if (object_holder == null) return;
                 if (Props.createMap) {
+                    Defs.ObjectHolder defs = Defs.Loader.get_object_holder(object_holder.type);
+                    if (defs == null) {
+                        Logger.print(
+                            Logger.Importance.Error,
+                            key: "RimNauts.Error.object_holder_missing_def",
+                            prefix: Style.name_prefix
+                        );
+                        return;
+                    }
+                    Find.World.grid.tiles.ElementAt(object_holder.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(defs.biome_def);
                     MapGenerator.GenerateMap(
                         Find.World.info.initialMapSize,
                         object_holder,

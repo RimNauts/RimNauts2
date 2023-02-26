@@ -193,7 +193,14 @@ namespace RimNauts2.World {
             int start_index = 0
         ) {
             Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
-            if (defs == null) return null;
+            if (defs == null) {
+                Logger.print(
+                    Logger.Importance.Error,
+                    key: "RimNauts.Error.object_holder_missing_def",
+                    prefix: Style.name_prefix
+                );
+                return null;
+            }
             int tile = get_free_tile(start_index);
             if (tile == -1) return null;
             ObjectHolder object_holder = (ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
