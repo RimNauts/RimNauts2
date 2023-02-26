@@ -36,271 +36,122 @@
 
 	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_ArtificalSatellite</defName>
-		<label>artificial-satellite</label>
-		<description>artificial-satellite used for space exploration.</description>
-		<texture>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</texture>
-		<expandingIconTexture>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</expandingIconTexture>
-		<expandingIconPriority>1001</expandingIconPriority>
   	</WorldObjectDef>
 
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_1</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_1</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_1</expandingIconTexture>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_2</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_2</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_2</expandingIconTexture>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_3</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_3</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_3</expandingIconTexture>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_4</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_4</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_4</expandingIconTexture>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_5</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_5</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_5</expandingIconTexture>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_6</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_6</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_6</expandingIconTexture>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_7</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_7</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_7</expandingIconTexture>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_8</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_8</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_8</expandingIconTexture>
   	</WorldObjectDef>
    	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_Asteroid_9</defName>
-		<label>asteroid</label>
-		<description>asteroid</description>
-		<texture>Satellites/Asteroids/RimNauts2_Asteroid_9</texture>
-		<expandingIconTexture>Satellites/Asteroids/RimNauts2_Asteroid_9</expandingIconTexture>
   	</WorldObjectDef>
 
 	<!-- Barren moon -->
 	<WorldObjectDef Name="RimNauts2_MoonBarren" ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_MoonBarren</defName>
-		<label>barren moon</label>
-		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_MoonBarren</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonBarren</expandingIconTexture>
 		<mapGenerator>RimNauts2_MoonBarren_MapGen</mapGenerator>
-		<expandingIconPriority>1003</expandingIconPriority>
-		<expandMore>true</expandMore>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_MoonBarren">
 		<defName>RimNauts2_MoonBarren_Base</defName>
-		<label>barren moon</label>
-		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_MoonBarren_Base</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonBarren_Base</expandingIconTexture>
-		<expandMore>true</expandMore>
 	</WorldObjectDef>
 	<!-- Stripped moon -->
 	<WorldObjectDef Name="RimNauts2_MoonStripped" ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_MoonStripped</defName>
-		<label>stripped moon</label>
-		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_MoonStripped</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped</expandingIconTexture>
 		<mapGenerator>RimNauts2_MoonStripped_MapGen</mapGenerator>
-		<expandingIconPriority>1003</expandingIconPriority>
-		<expandMore>true</expandMore>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_MoonStripped">
 		<defName>RimNauts2_MoonStripped_Base</defName>
-		<label>stripped moon</label>
-		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_MoonStripped_Base</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonStripped_Base</expandingIconTexture>
-		<expandMore>true</expandMore>
 	</WorldObjectDef>
 	<!-- Water moon -->
 	<WorldObjectDef Name="RimNauts2_MoonWater" ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_MoonWater</defName>
-		<label>water moon</label>
-		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_MoonWater</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonWater</expandingIconTexture>
 		<mapGenerator>RimNauts2_MoonWater_MapGen</mapGenerator>
-		<expandingIconPriority>1003</expandingIconPriority>
-		<expandMore>true</expandMore>
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-		</comps>
 	</WorldObjectDef>
 	<WorldObjectDef ParentName="RimNauts2_MoonWater">
 		<defName>RimNauts2_MoonWater_Base</defName>
-		<label>water moon</label>
-		<description>One of what could be many, many moons orbiting this rimworld.</description>
-		<texture>Satellites/Moons/RimNauts2_MoonWater_Base</texture>
-		<expandingIconTexture>Satellites/Moons/RimNauts2_MoonWater_Base</expandingIconTexture>
-		<expandMore>true</expandMore>
 	</WorldObjectDef>
 
-	<WorldObjectDef Name="RimNauts2_Ore" ParentName="RimNauts2_Satellite" Abstract="True">
-		<comps>
-			<li Class="WorldObjectCompProperties_Abandon"/>
-		</comps>
-	</WorldObjectDef>
-
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreSteel_1</defName>
-		<label>steel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreSteel_1</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_1</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreSteel_2</defName>
-		<label>steel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreSteel_2</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_2</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreSteel_3</defName>
-		<label>steel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreSteel_3</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_3</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreSteel_4</defName>
-		<label>steel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreSteel_4</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_4</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreSteel_5</defName>
-		<label>steel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreSteel_5</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreSteel_5</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
 	</WorldObjectDef>
 
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreGold_1</defName>
-		<label>gold ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreGold_1</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_1</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreGold_2</defName>
-		<label>gold ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreGold_2</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_2</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreGold_3</defName>
-		<label>gold ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreGold_3</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_3</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreGold_4</defName>
-		<label>gold ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreGold_4</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_4</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreGold_5</defName>
-		<label>gold ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreGold_5</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreGold_5</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
 	</WorldObjectDef>
 
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OrePlasteel_1</defName>
-		<label>plasteel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OrePlasteel_1</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_1</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OrePlasteel_2</defName>
-		<label>plasteel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OrePlasteel_2</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_2</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OrePlasteel_3</defName>
-		<label>plasteel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OrePlasteel_3</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_3</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
 	</WorldObjectDef>
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OrePlasteel_4</defName>
-		<label>plasteel ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OrePlasteel_4</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OrePlasteel_4</expandingIconTexture>
 		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
 	</WorldObjectDef>
 
-	<WorldObjectDef ParentName="RimNauts2_Ore">
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_OreUranium_1</defName>
-		<label>uranium ore asteroid</label>
-		<description>An asteroid rich with minerals.</description>
-		<texture>Satellites/Ores/RimNauts2_OreUranium_1</texture>
-		<expandingIconTexture>Satellites/Ores/RimNauts2_OreUranium_1</expandingIconTexture>
 		<mapGenerator>RimNauts2_OreUranium_MapGen</mapGenerator>
 	</WorldObjectDef>
 
@@ -308,27 +159,14 @@
 	<WorldObjectDef Name="RimNauts2_Satellite">
 		<defName>RimNauts2_Satellite</defName>
 		<worldObjectClass>RimNauts2.Satellite</worldObjectClass>
-		<useDynamicDrawer>false</useDynamicDrawer>
-		<expandingIcon>true</expandingIcon>
-		<expandingIconPriority>1002</expandingIconPriority>
   	</WorldObjectDef>
 
 	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_SpaceStation</defName>
-		<label>space station</label>
-		<description>Space station orbiting the planet.</description>
-		<texture>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</texture>
-		<expandingIconTexture>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</expandingIconTexture>
 		<mapGenerator>RimNauts2_SpaceStation_MapGen</mapGenerator>
-		<expandingIconPriority>1003</expandingIconPriority>
-		<expandMore>true</expandMore>
 	</WorldObjectDef>
 
 	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_WasteSatellite</defName>
-		<label>space junk</label>
-		<description>A random piece of space debris.</description>
-		<texture>Satellites/Waste/RimNauts2_WasteSatellite</texture>
-		<expandingIconTexture>Satellites/Waste/RimNauts2_WasteSatellite</expandingIconTexture>
 	</WorldObjectDef>
 </Defs>
