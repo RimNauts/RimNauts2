@@ -134,6 +134,7 @@ namespace RimNauts2.World {
                 Cache.add(object_holder);
             } else {
                 Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("Ocean");
+                Find.WorldPathGrid.RecalculatePerceivedMovementDifficultyAt(Tile);
                 Generator.remove_visual_object(visual_object);
             }
         }

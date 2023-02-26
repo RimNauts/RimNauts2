@@ -235,6 +235,7 @@ namespace RimNauts2.World {
             Find.World.grid.tiles.ElementAt(object_holder.Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed(defs.biome_def);
             Find.WorldObjects.Add(object_holder);
             Cache.add(object_holder);
+            Find.WorldPathGrid.RecalculatePerceivedMovementDifficultyAt(object_holder.Tile);
             return object_holder;
         }
 
