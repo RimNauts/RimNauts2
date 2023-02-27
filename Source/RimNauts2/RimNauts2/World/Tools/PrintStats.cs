@@ -11,7 +11,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void print_stats() {
-            string msg = Info.name + " Stats:";
+            string msg = Info.name + " Stats:\n";
             foreach (int type in Enum.GetValues(typeof(Type))) {
                 if (type == 0) continue;
                 msg += Style.tab + ((Type) type) + ": " + RenderingManager.get_total((Type) type) + "\n";
