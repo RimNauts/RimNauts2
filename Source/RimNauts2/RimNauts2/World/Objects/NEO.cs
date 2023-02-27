@@ -72,12 +72,10 @@ namespace RimNauts2.World.Objects {
         }
 
         public virtual Matrix4x4 get_transformation_matrix(Vector3 center) {
-            Matrix4x4 transformation_matrix = Matrix4x4.identity;
-            transformation_matrix.SetTRS(
-                pos: current_position,
-                q: Quaternion.LookRotation(Vector3.Cross(center, Vector3.up), center) * rotation,
-                s: draw_size
-            );
+            Vector3 towards_camera = Vector3.Cross(center, Vector3.up);
+            Quaternion.LookRotation_Injected(ref towards_camera, ref center, out Quaternion transformation_rotation);
+            transformation_rotation *= rotation;
+            Matrix4x4.TRS_Injected(ref current_position, ref transformation_rotation, ref draw_size, out Matrix4x4 transformation_matrix);
             return transformation_matrix;
         }
 

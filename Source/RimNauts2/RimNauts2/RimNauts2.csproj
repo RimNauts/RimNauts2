@@ -121,6 +121,14 @@
       <Link>.editorconfig</Link>
     </None>
   </ItemGroup>
+  <ItemGroup>
+		<PackageReference Include="Krafs.Publicizer" Version="2.*">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+  <ItemGroup>
+		<Publicize Include="Assembly-CSharp;UnityEngine.CoreModule" />
+	</ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
