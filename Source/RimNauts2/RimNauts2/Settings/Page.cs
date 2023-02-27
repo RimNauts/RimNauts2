@@ -19,6 +19,7 @@ namespace RimNauts2.Settings {
             buttons_view.Begin(buttons_rectangle);
             if (buttons_view.ButtonText(TranslatorFormattedStringExtensions.Translate("RimNauts.default"))) Container.clear();
             if (Current.Game != null && buttons_view.ButtonText("RimNauts.apply_changes".Translate())) Generator.regenerate();
+            if (Current.Game != null && buttons_view.ButtonText("RimNauts.randomize_all_neo".Translate())) Generator.randomize_all_objects();
             buttons_view.End();
 
             buttons_view = new Listing_Standard();

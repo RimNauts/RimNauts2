@@ -20,6 +20,11 @@ namespace RimNauts2.World {
             }
         }
 
+        public static void randomize_all_objects() {
+            for (int i = 0; i < RenderingManager.total_objects; i++) RenderingManager.visual_objects[i].randomize();
+            RenderingManager.recache();
+        }
+
         public static void regenerate() {
             int diff;
             foreach (var (type, amount) in Settings.Container.get_object_generation_steps) {

@@ -147,7 +147,7 @@ namespace RimNauts2.World {
 
         public static float size(this Type type) {
             Vector2 size_between = type.defs().size_between;
-            return Rand.Range(size_between.x, size_between.y) * 20 * Find.WorldGrid.averageTileSize;
+            return Rand.Range(size_between.x, size_between.y) * 10;
         }
 
         public static float color(this Type type) {
