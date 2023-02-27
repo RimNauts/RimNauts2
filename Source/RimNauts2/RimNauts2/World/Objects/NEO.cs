@@ -51,6 +51,24 @@ namespace RimNauts2.World.Objects {
             if (current_position == null) update_position(tick: 0);
         }
 
+        public virtual void randomize() {
+            orbit_position = type.orbit_position();
+            orbit_speed = type.orbit_speed();
+            float size = type.size();
+            draw_size = new Vector3(size, 1.0f, size);
+            period = (int) (36000.0f + (6000.0f * (Rand.Value - 0.5f)));
+            time_offset = Rand.Range(0, period);
+            orbit_direction = type.orbit_direction();
+            color = type.color();
+            rotation_angle = type.rotation_angle();
+            current_position = orbit_position;
+            rotation = Quaternion.AngleAxis(rotation_angle, Vector3.up);
+            material = null;
+            get_material();
+            update_when_unpaused();
+            update();
+        }
+
         public virtual void update() {
             if (object_holder == null) return;
             object_holder.hide_now = Patch.HideIcons.check_object_holder(current_position);
