@@ -194,13 +194,13 @@ namespace RimNauts2.World {
 
         public static void render() {
             for (int i = 0; i < total_objects; i++) {
-                Graphics.DrawMesh(
+                Graphics.Internal_DrawMesh_Injected(
                     MeshPool.plane10,
-                    cached_matrices[i],
+                    submeshIndex: 0,
+                    ref cached_matrices[i],
                     cached_materials[i],
                     RimWorld.Planet.WorldCameraManager.WorldLayer,
                     camera: null,
-                    submeshIndex: 0,
                     properties: null,
                     ShadowCastingMode.Off,
                     receiveShadows: false,
