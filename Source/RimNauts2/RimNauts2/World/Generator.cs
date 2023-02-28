@@ -53,7 +53,7 @@ namespace RimNauts2.World {
             RenderingManager.spawn_ore_tick = RenderingManager.get_ore_timer();
             if (!Settings.Container.get_asteroid_ore_toggle || Settings.Container.get_max_asteroid_ores <= Cache.get_total(Type.AsteroidOre)) return;
             ObjectHolder object_holder = add_object_holder(Type.AsteroidOre);
-            if (!Settings.Container.get_asteroid_ore_verbose) return;
+            if (!Settings.Container.get_asteroid_ore_verbose || Cache.get_total(Type.Satellite) <= 0) return;
             RenderingManager.update();
             Find.LetterStack.ReceiveLetter(
                 "RimNauts.Label.asteroid_spawned".Translate(),

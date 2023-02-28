@@ -47,7 +47,8 @@ namespace RimNauts2.World.Objects {
             this.color = color ?? type.color();
             this.rotation_angle = rotation_angle ?? type.rotation_angle();
             this.current_position = current_position ?? this.orbit_position;
-            rotation = Quaternion.AngleAxis(this.rotation_angle, Vector3.up);
+            Vector3 axis = Vector3.up;
+            Quaternion.AngleAxis_Injected(this.rotation_angle, ref axis, out rotation);
             if (current_position == null) update_position(tick: 0);
         }
 
@@ -62,7 +63,8 @@ namespace RimNauts2.World.Objects {
             color = type.color();
             rotation_angle = type.rotation_angle();
             current_position = orbit_position;
-            rotation = Quaternion.AngleAxis(rotation_angle, Vector3.up);
+            Vector3 axis = Vector3.up;
+            Quaternion.AngleAxis_Injected(rotation_angle, ref axis, out rotation);
             material = null;
             get_material();
             update_when_unpaused();
