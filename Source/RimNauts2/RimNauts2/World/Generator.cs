@@ -195,7 +195,7 @@ namespace RimNauts2.World {
             float? rotation_angle = null,
             Vector3? current_position = null,
             string object_holder_def = null,
-            int start_index = 0
+            int start_index = 1
         ) {
             Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
             if (defs == null) {
@@ -244,11 +244,12 @@ namespace RimNauts2.World {
             return object_holder;
         }
 
-        public static int get_free_tile(int start_index = 0) {
+        public static int get_free_tile(int start_index = 1) {
             for (int i = start_index; i < Find.World.grid.TilesCount; i++) {
                 if (Find.World.grid.tiles.ElementAt(i).biome.defName == "Ocean" && !Find.World.worldObjects.AnyWorldObjectAt(i)) {
                     List<int> neighbors = new List<int>();
                     Find.World.grid.GetTileNeighbors(i, neighbors);
+                    if (neighbors.Count != 6) continue;
                     var flag = false;
                     foreach (var neighbour in neighbors) {
                         var neighbour_tile = Find.World.grid.tiles.ElementAtOrDefault(neighbour);
