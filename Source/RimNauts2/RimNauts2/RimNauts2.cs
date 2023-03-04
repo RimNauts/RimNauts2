@@ -7,7 +7,6 @@ namespace RimNauts2 {
         static RimNauts2() {
             HarmonyLib.Harmony harmony = new HarmonyLib.Harmony("sindre0830.rimnauts2");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
-            if (ModsConfig.IsActive("torann.rimwar")) harmony.Unpatch(typeof(RimWorld.PawnGroupMakerUtility).GetMethod("GeneratePawns"), typeof(Biome.Patch.PawnGroupMakerUtility_GeneratePawns).GetMethod("Postfix"));
             // print mod info
             Logger.print(
                 Logger.Importance.Info,
