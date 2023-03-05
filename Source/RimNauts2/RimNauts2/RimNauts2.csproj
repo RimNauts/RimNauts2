@@ -66,6 +66,7 @@
     <Compile Include="Biome\Patch\PawnGroupMaker.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Assets.cs" />
+    <Compile Include="Defs\Of.cs" />
     <Compile Include="Defs\ObjectGenerationStep.cs" />
     <Compile Include="Defs\Loader.cs" />
     <Compile Include="Defs\ObjectHolder.cs" />
@@ -91,8 +92,6 @@
     <Compile Include="Map\MoonWater\Terrain.cs" />
     <Compile Include="Map\SpaceStation\Structure.cs" />
     <Compile Include="Map\Vacuum.cs" />
-    <Compile Include="SatelliteDefOf.cs" />
-    <Compile Include="SatelliteDef.cs" />
     <Compile Include="Biome\Patch\IncidentWorker.cs" />
     <Compile Include="RimNauts2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
