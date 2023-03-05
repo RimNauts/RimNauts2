@@ -3,11 +3,7 @@
 	<WorldObjectDef>
 		<defName>RimNauts2_ObjectHolder</defName>
 		<worldObjectClass>RimNauts2.World.ObjectHolder</worldObjectClass>
-		<useDynamicDrawer>false</useDynamicDrawer>
-		<expandingIcon>true</expandingIcon>
-		<texture>RimNauts2_Transparent</texture>
-		<expandingIconTexture>RimNauts2_Transparent</expandingIconTexture>
-		<expandingIconPriority>1003</expandingIconPriority>
+		<canBePlayerHome>true</canBePlayerHome>
 		<comps>
 			<li Class="WorldObjectCompProperties_Abandon"/>
 			<li Class="RimNauts2.World.Comps.DestroyObjectHolder_Properties">
@@ -23,5 +19,10 @@
 				<desc>Randomize properties.</desc>
 			</li>
 		</comps>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>RimNauts2_Transparent</expandingIconTexture>
+		<expandingIconPriority>1003</expandingIconPriority>
+		<texture>RimNauts2_Transparent</texture>
   	</WorldObjectDef>
 </Defs>

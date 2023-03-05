@@ -1,13 +1,14 @@
-﻿namespace RimNauts2.Biome.Patch {
+﻿using System.Collections.Generic;
+
+namespace RimNauts2.Biome.Patch {
     [HarmonyLib.HarmonyPatch(typeof(RimWorld.IncidentWorker), "CanFireNow")]
     class IncidentWorker_CanFireNow {
-        public static void Postfix(ref RimWorld.IncidentWorker __instance, RimWorld.IncidentParms parms, ref bool __result) {
-            if (parms.forced) return;
-            try {
-                if (!__result || !World.Cache.exists(parms.target.Tile)) return;
-                if (SatelliteDefOf.Satellite.AllowedSatelliteIncidents.Contains(__instance.def.defName)) return;
-                __result = false;
-            } catch { }
+        public static void Prefix(ref RimWorld.IncidentWorker __instance) {
+            if (__instance.def.allowedBiomes != null) return;
+            if (Defs.Of.general.allowed_incidents.Contains(__instance.def.defName)) return;
+            if (__instance.def.disallowedBiomes == null) __instance.def.disallowedBiomes = new List<RimWorld.BiomeDef>();
+            __instance.def.disallowedBiomes.Add(RimWorld.BiomeDef.Named("RimNauts2_Satellite_Biome"));
+            __instance.def.disallowedBiomes.Add(RimWorld.BiomeDef.Named("RimNauts2_MoonWater_Biome"));
         }
     }
 

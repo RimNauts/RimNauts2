@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<RimNauts2.SatelliteDef>
-		<defName>Satellite</defName>
-        <AllowedSatelliteIncidents>
+	<RimNauts2.Defs.General>
+		<defName>general</defName>
+        <allowed_incidents>
             <li>RaidEnemy</li>
             <li>SolarFlare</li>
             <li>ShipChunkDrop</li>
@@ -21,6 +21,6 @@
             <li>Disease_Plague</li>
             <li>Disease_SensoryMechanites</li>
             <li>Disease_SleepingSickness</li>
-        </AllowedSatelliteIncidents>
-  	</RimNauts2.SatelliteDef>
+        </allowed_incidents>
+  	</RimNauts2.Defs.General>
 </Defs>
