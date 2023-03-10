@@ -11,5 +11,7 @@ namespace RimNauts2.Defs {
 
     public class General : Def {
         public List<string> allowed_incidents;
+        public string space_station_wall;
+        public string space_station_floor;
     }
 }

@@ -6,12 +6,13 @@ namespace RimNauts2.SpaceStation {
         public override int SeedPart => 262606459;
 
         public override void Generate(Map map, GenStepParams parms) {
+            ThingDef wall_thing = DefDatabase<ThingDef>.GetNamed(Defs.Of.general.space_station_wall);
             // main room
             set_floor_rect(map, 11, 11, new IntVec3(0, 0, 0));
             set_wall_rect(map, 11, 11, new IntVec3(0, 0, 0));
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Door, RimWorld.ThingDefOf.Steel), map, new IntVec3(-5, 0, 0) + map.Center);
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Door, RimWorld.ThingDefOf.Steel), map, new IntVec3(5, 0, 0) + map.Center);
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Door, RimWorld.ThingDefOf.Steel), map, new IntVec3(0, 0, 5) + map.Center);
+            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Door, wall_thing), map, new IntVec3(-5, 0, 0) + map.Center);
+            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Door, wall_thing), map, new IntVec3(5, 0, 0) + map.Center);
+            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Door, wall_thing), map, new IntVec3(0, 0, 5) + map.Center);
             // solarpanels walkway
             set_floor_rect(map, 31, 1, new IntVec3(0, 0, 0));
             set_floor_rect(map, 1, 3, new IntVec3(16, 0, 0));
@@ -91,7 +92,7 @@ namespace RimNauts2.SpaceStation {
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Heater), map, new IntVec3(0, 0, 1) + map.Center);
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Heater), map, new IntVec3(0, 0, -1) + map.Center);
 
-            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Wall, RimWorld.ThingDefOf.Steel), map, map.Center);
+            set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Wall, wall_thing), map, map.Center);
         }
 
         public void set_floor_rect(Map map, int rect_width, int rect_height, IntVec3 center_offset) {
@@ -107,6 +108,7 @@ namespace RimNauts2.SpaceStation {
         }
 
         public void set_wall_rect(Map map, int rect_width, int rect_height, IntVec3 center_offset) {
+            ThingDef wall_thing = DefDatabase<ThingDef>.GetNamed(Defs.Of.general.space_station_wall);
             int rect_width_middle = (int) Math.Floor(rect_width / 2.0f);
             int rect_height_middle = (int) Math.Floor(rect_height / 2.0f);
 
@@ -114,7 +116,7 @@ namespace RimNauts2.SpaceStation {
                 for (int j = 0; j < rect_height; j++) {
                     IntVec3 pos = new IntVec3(i - rect_width_middle, 0, j - rect_height_middle) + (center_offset + map.Center);
                     if (i == 0 || i == rect_width - 1 || j == 0 || j == rect_height - 1) {
-                        set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Wall, RimWorld.ThingDefOf.Steel), map, pos);
+                        set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.Wall, wall_thing), map, pos);
                         set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.PowerConduit), map, pos);
                     }
                     set_roof(map, pos);
@@ -123,7 +125,8 @@ namespace RimNauts2.SpaceStation {
         }
 
         public void set_floor(Map map, IntVec3 pos) {
-            map.terrainGrid.SetTerrain(pos, DefDatabase<TerrainDef>.GetNamed("MetalTile"));
+            TerrainDef floor_thing = DefDatabase<TerrainDef>.GetNamed(Defs.Of.general.space_station_floor);
+            map.terrainGrid.SetTerrain(pos, floor_thing);
         }
 
         public void set_thing(Thing thing, Map map, IntVec3 pos) {

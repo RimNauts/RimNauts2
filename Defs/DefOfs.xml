@@ -22,5 +22,7 @@
             <li>Disease_SensoryMechanites</li>
             <li>Disease_SleepingSickness</li>
         </allowed_incidents>
+        <space_station_wall>Steel</space_station_wall>
+        <space_station_floor>MetalTile</space_station_floor>
   	</RimNauts2.Defs.General>
 </Defs>
