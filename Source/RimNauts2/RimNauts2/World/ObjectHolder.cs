@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -137,6 +138,14 @@ namespace RimNauts2.World {
                 Find.WorldPathGrid.RecalculatePerceivedMovementDifficultyAt(Tile);
                 Generator.remove_visual_object(visual_object);
             }
+        }
+
+        public override IEnumerable<RimWorld.IncidentTargetTagDef> IncidentTargetTags() {
+            foreach (RimWorld.IncidentTargetTagDef incidentTargetTagDef in base.IncidentTargetTags()) yield return incidentTargetTagDef;
+            if (Faction == RimWorld.Faction.OfPlayer)
+                yield return RimWorld.IncidentTargetTagDefOf.Map_PlayerHome;
+            else
+                yield return RimWorld.IncidentTargetTagDefOf.Map_Misc;
         }
 
         public void add_expiration_date(float min_days, float max_days) {
