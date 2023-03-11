@@ -53,7 +53,7 @@ Yes.
 [quote]
 [b]Can this mod be safely removed from a save?[/b]
 
-Yes, but you need to abandon any map that you have generated on a NEO (Space Station, Moon, mineral-rich asteroids, etc...) and destroy each NEO that is selectable. To destroy the NEOs you need to go into developer mode -> enable god mode -> click on each selectable NEO and click the destroy button that shows in the the bottom left.
+Yes, but you need to abandon any map that you have generated on a NEO (Space Station, Moon, mineral-rich asteroids, etc...) and destroy each NEO that is selectable. To destroy the NEOs you need to go into developer mode -> enable god mode -> click on each selectable NEO and click the destroy button that shows in the bottom left.
 [/quote]
 [quote]
 [b]I can't find the buildings/items, where are they?[/b]
