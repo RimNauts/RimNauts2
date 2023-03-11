@@ -12,4 +12,5 @@
     <RimNauts.object_type>Object type</RimNauts.object_type>
     <RimNauts.amount>Amount</RimNauts.amount>
     <RimNauts.randomize_all_neo>Randomize all objects</RimNauts.randomize_all_neo>
+    <RimNauts.incident_patch>Filter incidents on NEOs</RimNauts.incident_patch>
 </LanguageData>

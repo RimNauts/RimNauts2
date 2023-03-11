@@ -10,6 +10,7 @@ namespace RimNauts2.Settings {
         public static int? max_asteroid_ores;
         public static bool? asteroid_ore_verbose;
         public static bool? multi_threaded_update;
+        public static bool? incident_patch;
 
         public override void ExposeData() {
             Scribe_Collections.Look(ref object_generation_steps, "object_generation_steps", LookMode.Value, LookMode.Value);
@@ -17,6 +18,7 @@ namespace RimNauts2.Settings {
             Scribe_Values.Look(ref max_asteroid_ores, "max_asteroid_ores");
             Scribe_Values.Look(ref asteroid_ore_verbose, "asteroid_ore_verbose");
             Scribe_Values.Look(ref multi_threaded_update, "multi_threaded_update");
+            Scribe_Values.Look(ref incident_patch, "incident_patch");
         }
 
         public static void clear() {
@@ -25,6 +27,7 @@ namespace RimNauts2.Settings {
             max_asteroid_ores = null;
             asteroid_ore_verbose = null;
             multi_threaded_update = null;
+            incident_patch = null;
         }
 
         public static Dictionary<World.Type, int> get_object_generation_steps {
@@ -68,6 +71,14 @@ namespace RimNauts2.Settings {
                 if (multi_threaded_update != null) return (bool) multi_threaded_update;
                 multi_threaded_update = true;
                 return (bool) multi_threaded_update;
+            }
+        }
+
+        public static bool get_incident_patch {
+            get {
+                if (incident_patch != null) return (bool) incident_patch;
+                incident_patch = true;
+                return (bool) incident_patch;
             }
         }
     }

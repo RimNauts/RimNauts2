@@ -4,6 +4,7 @@ namespace RimNauts2.Biome.Patch {
     [HarmonyLib.HarmonyPatch(typeof(RimWorld.IncidentWorker), "CanFireNow")]
     class IncidentWorker_CanFireNow {
         public static void Postfix(ref RimWorld.IncidentWorker __instance, RimWorld.IncidentParms parms, ref bool __result) {
+            if (!Settings.Container.get_incident_patch) return;
             if (parms.forced) return;
             try {
                 if (!__result || !World.Cache.exists(parms.target.Tile)) return;
@@ -17,6 +18,7 @@ namespace RimNauts2.Biome.Patch {
     [HarmonyLib.HarmonyPatch(typeof(RimWorld.PawnsArrivalModeWorker), "CanUseWith")]
     class PawnsArrivalModeWorker_CanUseWith {
         public static void Postfix(RimWorld.IncidentParms parms, ref RimWorld.PawnsArrivalModeWorker __instance, bool __result) {
+            if (!Settings.Container.get_incident_patch) return;
             if (__result && World.Cache.exists(parms.target.Tile)) __instance.def.minTechLevel = RimWorld.TechLevel.Industrial;
         }
     }
@@ -24,6 +26,7 @@ namespace RimNauts2.Biome.Patch {
     [HarmonyLib.HarmonyPatch(typeof(RimWorld.IncidentWorker_Raid), "ResolveRaidArriveMode")]
     class IncidentWorker_Raid_ResolveRaidArriveMode {
         public static bool Prefix(RimWorld.IncidentParms parms) {
+            if (!Settings.Container.get_incident_patch) return true;
             if (!World.Cache.exists(parms.target.Tile)) return true;
             parms.raidArrivalMode = parms.raidArrivalMode = (Rand.Value < 0.6f) ? RimWorld.PawnsArrivalModeDefOf.EdgeDrop : RimWorld.PawnsArrivalModeDefOf.CenterDrop;
             return false;
