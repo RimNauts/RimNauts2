@@ -18,6 +18,7 @@ namespace RimNauts2.World {
         public MapGeneratorDef map_generator;
         public string texture_overlay;
         public bool hide_now;
+        public bool remove_now;
         public Type type;
         public Vector3 position = Vector3.zero;
         string texture_path;
@@ -85,11 +86,22 @@ namespace RimNauts2.World {
         public override void Tick() {
             base.Tick();
             if (limited_time) {
-                created_tick++;
                 if (!HasMap && created_tick >= death_tick) {
                     keep_after_abandon = false;
-                    Destroy();
+                    remove_now = true;
+                } else created_tick++;
+            }
+            if (remove_now && !HasMap) {
+                List<RimWorld.Planet.Caravan> caravans = Find.WorldObjects.Caravans;
+                for (int i = 0; i < caravans.Count; i++) {
+                    if (caravans[i].Tile == Tile) return;
                 }
+                foreach (var world_object in Find.World.worldObjects.AllWorldObjects) {
+                    if (!(world_object is RimWorld.Planet.TravelingTransportPods)) continue;
+                    RimWorld.Planet.TravelingTransportPods pod = (RimWorld.Planet.TravelingTransportPods) world_object;
+                    if (pod.initialTile == Tile || pod.destinationTile == Tile) return;
+                }
+                Destroy();
             }
         }
 
