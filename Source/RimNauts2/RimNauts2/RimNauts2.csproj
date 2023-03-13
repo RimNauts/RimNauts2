@@ -73,6 +73,11 @@
     <Compile Include="Defs\ObjectMetadata.cs" />
     <Compile Include="Settings\Container.cs" />
     <Compile Include="Settings\Page.cs" />
+    <Compile Include="Things\Comps\BuildRoof.cs" />
+    <Compile Include="Things\Comps\RemoveRoof.cs" />
+    <Compile Include="Things\Patch\Roof.cs" />
+    <Compile Include="Things\PlaceWorker\BuildRoof.cs" />
+    <Compile Include="Things\PlaceWorker\RemoveRoof.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Comps\RandomizeObjectHolder.cs" />
@@ -121,13 +126,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-		<PackageReference Include="Krafs.Publicizer" Version="2.*">
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
+    <PackageReference Include="Krafs.Publicizer" Version="2.*">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
-		<Publicize Include="Assembly-CSharp;UnityEngine.CoreModule" />
-	</ItemGroup>
+    <Publicize Include="Assembly-CSharp;UnityEngine.CoreModule" />
+  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <RoofDef>
+        <defName>RimNauts2_Roof_MagneticField</defName>
+        <label>magnetic field</label>
+        <isThickRoof>false</isThickRoof>
+        <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+        <soundPunchThrough>PunchThroughRoofMetal</soundPunchThrough>
+    </RoofDef>
+</Defs>
