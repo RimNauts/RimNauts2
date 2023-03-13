@@ -81,6 +81,20 @@ namespace RimNauts2.World {
                     current_position
                 );
             }
+            if (Biome == Defs.Loader.biome_satellite && type == Type.Moon) {
+                Find.World.grid.tiles.ElementAt(Tile).biome = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_MoonBarren_Biome");
+                Find.WorldPathGrid.RecalculatePerceivedMovementDifficultyAt(Tile);
+                Logger.print(Logger.Importance.Info, "Safely converted moon biome from '" + Defs.Loader.biome_satellite.defName + "' to 'RimNauts2_MoonBarren_Biome'", Style.name_prefix);
+            }
+        }
+
+        public override void FinalizeLoading() {
+            base.FinalizeLoading();
+            if (Map != null && type == Type.Moon && Map.weatherManager.curWeather.defName != "OuterSpaceWeather" && Map.weatherManager.curWeather.defName != "RimNauts2_OuterSpaceWeather_Moon") {
+                Map.weatherManager.lastWeather = WeatherDef.Named("RimNauts2_OuterSpaceWeather_Moon");
+                Map.weatherManager.curWeather = WeatherDef.Named("RimNauts2_OuterSpaceWeather_Moon");
+                Logger.print(Logger.Importance.Info, "Safely converted moon weather from 'RimNauts2_OuterSpaceWeather' to 'RimNauts2_OuterSpaceWeather_Moon'", Style.name_prefix);
+            }
         }
 
         public override void Tick() {
