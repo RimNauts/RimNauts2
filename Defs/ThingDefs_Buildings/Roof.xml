@@ -17,7 +17,7 @@
         <selectable>true</selectable>
         <neverMultiSelect>true</neverMultiSelect>
         <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-        <designationCategory>Zone</designationCategory>
+        <designationCategory>Misc</designationCategory>
         <staticSunShadowHeight>1.0</staticSunShadowHeight>
         <blockLight>false</blockLight>
         <canOverlapZones>true</canOverlapZones>
