@@ -5,6 +5,7 @@ namespace RimNauts2 {
     class Environment : GenStep {
         public RimWorld.Planet.Hilliness hilliness = RimWorld.Planet.Hilliness.Flat;
         public bool apply_SOS2_weather = true;
+        public string weather_def = null;
 
         public override int SeedPart => 262606459;
 
@@ -20,10 +21,13 @@ namespace RimNauts2 {
                             prefix: Style.name_prefix
                         );
                     }
-                } else {
-                    map.weatherManager.lastWeather = WeatherDef.Named("RimNauts2_OuterSpaceWeather");
-                    map.weatherManager.curWeather = WeatherDef.Named("RimNauts2_OuterSpaceWeather");
+                } else if (weather_def != null) {
+                    map.weatherManager.lastWeather = WeatherDef.Named(weather_def);
+                    map.weatherManager.curWeather = WeatherDef.Named(weather_def);
                 }
+            } else if (weather_def != null) {
+                map.weatherManager.lastWeather = WeatherDef.Named(weather_def);
+                map.weatherManager.curWeather = WeatherDef.Named(weather_def);
             }
             Find.World.grid.tiles.ElementAt(map.Tile).hilliness = hilliness;
         }

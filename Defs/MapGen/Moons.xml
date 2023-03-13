@@ -15,7 +15,7 @@
 			<li>RimNauts2_MoonBarren_GenStep_RocksFromGrid</li>
 			<li>RimNauts2_MoonBarren_GenStep_Terrain</li>
 			<li>RockChunks</li>
-			<li>RimNauts2_GenStep_Environment</li>
+			<li>RimNauts2_MoonBarren_GenStep_Environment</li>
 		</genSteps>
 	</MapGeneratorDef>
 
@@ -27,7 +27,7 @@
 			<li>RimNauts2_MoonBarren_GenStep_Terrain</li>
 			<li>RimNauts2_MoonStripped_GenStep_Stripes</li>
 			<li>RockChunks</li>
-			<li>RimNauts2_GenStep_Environment</li>
+			<li>RimNauts2_MoonBarren_GenStep_Environment</li>
 		</genSteps>
 	</MapGeneratorDef>
 
