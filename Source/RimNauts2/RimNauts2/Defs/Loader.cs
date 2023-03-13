@@ -8,6 +8,9 @@ namespace RimNauts2.Defs {
         public static Dictionary<World.Type, List<ObjectHolder>> object_holders = new Dictionary<World.Type, List<ObjectHolder>>();
         public static Dictionary<World.Type, ObjectMetadata> object_metadata = new Dictionary<World.Type, ObjectMetadata>();
         public static Dictionary<World.Type, ObjectGenerationStep> object_generation_steps = new Dictionary<World.Type, ObjectGenerationStep>();
+        public static RoofDef roof_magnetic_field = DefDatabase<RoofDef>.GetNamed("RimNauts2_Roof_MagneticField");
+        public static ThingDef thing_roof_magnetic_field = DefDatabase<ThingDef>.GetNamed("RimNauts2_Things_Roof_MagneticField");
+        public static ThingDef thing_unroof_magnetic_field = DefDatabase<ThingDef>.GetNamed("RimNauts2_Things_UnRoof_MagneticField");
 
         public static void init() {
             foreach (ObjectHolder object_holder in DefDatabase<ObjectHolder>.AllDefs) {
