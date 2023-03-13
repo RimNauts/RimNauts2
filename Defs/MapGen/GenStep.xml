@@ -11,6 +11,7 @@
 		<order>1002</order>
 		<genStep Class="RimNauts2.Environment">
             <apply_SOS2_weather>true</apply_SOS2_weather>
+            <weather_def>RimNauts2_OuterSpaceWeather</weather_def>
 		</genStep>
 	</GenStepDef>
 	<!-- space station -->
@@ -20,6 +21,14 @@
 		<genStep Class="RimNauts2.SpaceStation.Structure" />
 	</GenStepDef>
 	<!-- barren moon -->
+	<GenStepDef>
+		<defName>RimNauts2_MoonBarren_GenStep_Environment</defName>
+		<order>1002</order>
+		<genStep Class="RimNauts2.Environment">
+            <apply_SOS2_weather>true</apply_SOS2_weather>
+            <weather_def>RimNauts2_OuterSpaceWeather_Moon</weather_def>
+		</genStep>
+	</GenStepDef>
 	<GenStepDef>
 		<defName>RimNauts2_MoonBarren_GenStep_ElevationFertility</defName>
 		<order>10</order>

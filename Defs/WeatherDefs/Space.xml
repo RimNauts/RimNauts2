@@ -40,4 +40,44 @@
             </li>
         </eventMakers>
     </WeatherDef>
+
+    <WeatherDef>
+        <defName>RimNauts2_OuterSpaceWeather_Moon</defName>
+        <label>outer space</label>
+        <description>It's... space. Try not to go outside.</description>
+        <windSpeedFactor>0.0</windSpeedFactor>
+        <repeatable>true</repeatable>
+        <favorability>Neutral</favorability>
+        <!-- Colors are Clear -->
+        <skyColorsDay>
+            <sky>(1,1,1)</sky>
+            <shadow>(0.718,0.745,0.757)</shadow>
+            <overlay>(1,1,1)</overlay>
+            <saturation>1.25</saturation>
+        </skyColorsDay>
+        <skyColorsDusk>
+            <sky>(0.858,0.650,0.423)</sky>
+            <shadow>(0.955,0.886,0.914)</shadow>
+            <overlay>(0.8,0.8,0.8)</overlay>
+            <saturation>1.25</saturation>
+        </skyColorsDusk>
+        <skyColorsNightEdge>
+            <sky>(0.482,0.603,0.682)</sky>
+            <shadow>(0.92,0.92,0.92)</shadow>
+            <overlay>(0.6,0.6,0.6)</overlay>
+            <saturation>1.25</saturation>
+        </skyColorsNightEdge>
+        <skyColorsNightMid>
+            <sky>(0.482,0.603,0.682)</sky>
+            <shadow>(0.85, 0.85, 0.85)</shadow>
+            <overlay>(0.6,0.6,0.6)</overlay>
+            <saturation>1.25</saturation>
+        </skyColorsNightMid>
+        <eventMakers>
+            <li MayRequire="sindre0830.universum">
+                <averageInterval>120</averageInterval>
+                <eventClass>Universum.Utilities.WeatherEvent_Vacuum</eventClass>
+            </li>
+        </eventMakers>
+    </WeatherDef>
 </Defs>
