@@ -90,7 +90,7 @@ namespace RimNauts2.World {
 
         public override void FinalizeLoading() {
             base.FinalizeLoading();
-            if (Map != null && type == Type.Moon && Map.weatherManager.curWeather.defName != "OuterSpaceWeather" && Map.weatherManager.curWeather.defName != "RimNauts2_OuterSpaceWeather_Moon") {
+            if (Map != null && type == Type.Moon && Map.weatherManager.curWeather.defName != "OuterSpaceWeather" && Map.weatherManager.curWeather.defName == "RimNauts2_OuterSpaceWeather") {
                 Map.weatherManager.lastWeather = WeatherDef.Named("RimNauts2_OuterSpaceWeather_Moon");
                 Map.weatherManager.curWeather = WeatherDef.Named("RimNauts2_OuterSpaceWeather_Moon");
                 Logger.print(Logger.Importance.Info, "Safely converted moon weather from 'RimNauts2_OuterSpaceWeather' to 'RimNauts2_OuterSpaceWeather_Moon'", Style.name_prefix);
