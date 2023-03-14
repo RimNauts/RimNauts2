@@ -24,6 +24,9 @@
         <drawerType>MapMeshAndRealTime</drawerType>
         <clearBuildingArea>false</clearBuildingArea>
         <useHitPoints>false</useHitPoints>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
     </ThingDef>
 
     <ThingDef ParentName="RimNauts2_Roof">
@@ -51,8 +54,7 @@
             <WorkToBuild>250</WorkToBuild>
         </statBases>
         <costList>
-            <Steel>20</Steel>
-            <ComponentIndustrial>1</ComponentIndustrial>
+            <Plasteel>20</Plasteel>
         </costList>
         <uiIconPath>Icons/RimNauts2_BuildRoof_MagneticField</uiIconPath>
         <graphicData>
