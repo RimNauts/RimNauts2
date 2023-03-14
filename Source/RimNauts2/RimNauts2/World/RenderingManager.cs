@@ -31,6 +31,9 @@ namespace RimNauts2.World {
 
         public static Matrix4x4[] cached_matrices;
         public static Material[] cached_materials;
+        public static FeatureMesh[] cached_features;
+
+        public static bool dirty_features;
 
         public static int total_objects;
 
@@ -67,6 +70,8 @@ namespace RimNauts2.World {
             world_map_switch = false;
             cached_matrices = new Matrix4x4[0];
             cached_materials = new Material[0];
+            cached_features = new FeatureMesh[0];
+            dirty_features = true;
             total_objects = 0;
             visual_objects = new List<Objects.NEO>();
             // for file exposing
@@ -164,6 +169,7 @@ namespace RimNauts2.World {
             get_frame_data();
             if (wait) return;
             if (frame_changed || force_update) update();
+            if (dirty_features) recache_features();
             render();
         }
 
@@ -182,12 +188,24 @@ namespace RimNauts2.World {
                     if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
                     cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
                 });
+                for (int i = 0; i < total_objects; i++) {
+                    cached_features[i]?.update_transformation(
+                        visual_objects[i].current_position,
+                        visual_objects[i].draw_size.x,
+                        visual_objects[i].camera_rotation
+                    );
+                }
             } else {
                 for (int i = 0; i < total_objects; i++) {
                     visual_objects[i].update();
                     if (unpaused || force_update) visual_objects[i].update_when_unpaused();
                     if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
                     cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
+                    cached_features[i]?.update_transformation(
+                        visual_objects[i].current_position,
+                        visual_objects[i].draw_size.x,
+                        visual_objects[i].camera_rotation
+                    );
                 }
             }
         }
@@ -208,6 +226,7 @@ namespace RimNauts2.World {
                     lightProbeUsage: LightProbeUsage.BlendProbes,
                     lightProbeProxyVolume: null
                 );
+                if (cached_features[i] != null && !cached_features[i].block) cached_features[i].set_active(true);
             }
         }
 
@@ -218,12 +237,22 @@ namespace RimNauts2.World {
         public static void recache() {
             init();
             get_frame_data();
+            dirty_features = true;
             force_update = true;
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
+            cached_features = new FeatureMesh[total_objects];
             for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
             recache_materials();
             if (tick_manager != null && camera_driver != null && camera != null) update();
+        }
+
+        public static void recache_features() {
+            dirty_features = false;
+            cached_features = new FeatureMesh[total_objects];
+            if (Settings.Container.get_world_feature_name) {
+                for (int i = 0; i < total_objects; i++) cached_features[i] = visual_objects[i].get_feature();
+            } else for (int i = 0; i < total_objects; i++) visual_objects[i].object_holder?.feature_mesh?.set_active(false);
         }
 
         public static void recache_materials() {

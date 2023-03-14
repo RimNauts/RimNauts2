@@ -9,10 +9,12 @@ namespace RimNauts2 {
         public static Shader neo_shader;
         public static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Material> materials = new Dictionary<string, Material>();
+        public static GameObject game_object_world_feature;
 
         public static void init() {
             get_assets();
             neo_shader = get_asset("neo.shader", ShaderDatabase.WorldOverlayCutout);
+            game_object_world_feature = Resources.Load<GameObject>("Prefabs/WorldText");
             foreach (var (type, object_holders) in Defs.Loader.object_holders) {
                 foreach (var object_holder in object_holders) {
                     if (object_holder.texture_overlay != null && !textures.ContainsKey(object_holder.texture_overlay)) {

@@ -11,5 +11,8 @@ namespace RimNauts2.Defs {
         public bool keep_after_abandon;
         public Vector2? limited_days_between;
         public string texture_overlay;
+        public bool features;
+        public string feature_name = "";
+        public Color feature_color = Color.white;
     }
 }

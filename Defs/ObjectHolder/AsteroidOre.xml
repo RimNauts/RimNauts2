@@ -18,6 +18,9 @@
 			<li>Satellites/Ores/RimNauts2_OreSteel_2</li>
 			<li>Satellites/Ores/RimNauts2_OreSteel_3</li>
 		</texture_paths>
+		<features>true</features>
+		<feature_name>Steel</feature_name>
+		<feature_color>(211, 211, 211)</feature_color>
   	</RimNauts2.Defs.ObjectHolder>
 
 	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
@@ -31,6 +34,9 @@
 			<li>Satellites/Ores/RimNauts2_OreGold_4</li>
 			<li>Satellites/Ores/RimNauts2_OreGold_5</li>
 		</texture_paths>
+		<features>true</features>
+		<feature_name>Gold</feature_name>
+		<feature_color>(232, 185, 35)</feature_color>
   	</RimNauts2.Defs.ObjectHolder>
 
 	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
@@ -42,6 +48,9 @@
 			<li>Satellites/Ores/RimNauts2_OrePlasteel_2</li>
 			<li>Satellites/Ores/RimNauts2_OrePlasteel_3</li>
 		</texture_paths>
+		<features>true</features>
+		<feature_name>Plasteel</feature_name>
+		<feature_color>(111, 186, 223)</feature_color>
   	</RimNauts2.Defs.ObjectHolder>
 
 	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
@@ -51,5 +60,8 @@
 		<texture_paths>
 			<li>Satellites/Ores/RimNauts2_OreUranium_1</li>
 		</texture_paths>
+		<features>true</features>
+		<feature_name>Uranium</feature_name>
+		<feature_color>(44, 250, 31)</feature_color>
   	</RimNauts2.Defs.ObjectHolder>
 </Defs>

@@ -13,4 +13,5 @@
     <RimNauts.amount>Amount</RimNauts.amount>
     <RimNauts.randomize_all_neo>Randomize all objects</RimNauts.randomize_all_neo>
     <RimNauts.incident_patch>Filter incidents on NEOs</RimNauts.incident_patch>
+    <RimNauts.world_feature_name>Add labels under NEOs</RimNauts.world_feature_name>
 </LanguageData>
