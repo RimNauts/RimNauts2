@@ -19,6 +19,9 @@ namespace RimNauts2.World {
         public string texture_overlay;
         public bool hide_now;
         public bool remove_now;
+        public bool features;
+        public string feature_name;
+        public Color feature_color;
         public Type type;
         public Vector3 position = Vector3.zero;
         string texture_path;
@@ -31,6 +34,12 @@ namespace RimNauts2.World {
         float color;
         float rotation_angle;
         Vector3 current_position;
+        public FeatureMesh feature_mesh;
+
+        ~ObjectHolder() {
+            feature_mesh?.set_active(false);
+            feature_mesh?.destroy();
+        }
 
         public override void ExposeData() {
             base.ExposeData();
@@ -55,6 +64,9 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref description, "description");
             Scribe_Defs.Look(ref map_generator, "map_generator");
             Scribe_Values.Look(ref texture_overlay, "texture_overlay");
+            Scribe_Values.Look(ref features, "features");
+            Scribe_Values.Look(ref feature_name, "feature_name");
+            Scribe_Values.Look(ref feature_color, "feature_color");
             Scribe_Values.Look(ref type, "type");
             Scribe_Values.Look(ref texture_path, "texture_path");
             Scribe_Values.Look(ref orbit_position, "orbit_position");
@@ -144,6 +156,7 @@ namespace RimNauts2.World {
 
         public override void PostRemove() {
             base.PostRemove();
+            feature_mesh?.destroy();
             if (keep_after_abandon) {
                 ObjectHolder object_holder = (ObjectHolder) RimWorld.Planet.WorldObjectMaker.MakeWorldObject(
                     DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_ObjectHolder")
@@ -173,6 +186,8 @@ namespace RimNauts2.World {
             else
                 yield return RimWorld.IncidentTargetTagDefOf.Map_Misc;
         }
+
+        public void get_feature() => feature_mesh = new FeatureMesh(feature_name, feature_color);
 
         public void add_expiration_date(float min_days, float max_days) {
             limited_time = true;

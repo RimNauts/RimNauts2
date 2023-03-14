@@ -4,7 +4,7 @@
     <RimNauts.mineral_rich_asteroids>Mineral-rich asteroids</RimNauts.mineral_rich_asteroids>
     <RimNauts.mineral_rich_asteroids_messages_option>Mineral-rich asteroids messages</RimNauts.mineral_rich_asteroids_messages_option>
     <RimNauts.multi_thread_update_option>Multithread update loop</RimNauts.multi_thread_update_option>
-    <RimNauts.Label.asteroid_spawned>Mineral-rich asteroid spotted</RimNauts.Label.asteroid_spawned>
+    <RimNauts.Label.asteroid_spawned>Mineral-rich asteroid spotted ({0})</RimNauts.Label.asteroid_spawned>
     <RimNauts.Description.asteroid_spawned>A mineral-rich asteroid has been spotted in the asteroid belt. You have to be fast since it's only visible for a limited time.</RimNauts.Description.asteroid_spawned>
     <RimNauts.days_left> (Days left {0})</RimNauts.days_left>
     <RimNauts.hours_left> (Hours left {0})</RimNauts.hours_left>
@@ -13,4 +13,5 @@
     <RimNauts.amount>Amount</RimNauts.amount>
     <RimNauts.randomize_all_neo>Randomize all objects</RimNauts.randomize_all_neo>
     <RimNauts.incident_patch>Filter incidents on NEOs</RimNauts.incident_patch>
+    <RimNauts.world_feature_name>Add labels under NEOs</RimNauts.world_feature_name>
 </LanguageData>

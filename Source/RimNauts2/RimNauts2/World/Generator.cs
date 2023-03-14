@@ -47,6 +47,7 @@ namespace RimNauts2.World {
                     add_visual_object(diff, type);
                 }
             }
+            RenderingManager.dirty_features = true;
         }
 
         public static void add_asteroid_ore() {
@@ -56,7 +57,7 @@ namespace RimNauts2.World {
             if (!Settings.Container.get_asteroid_ore_verbose || Cache.get_total(Type.Satellite) <= 0) return;
             RenderingManager.update();
             Find.LetterStack.ReceiveLetter(
-                "RimNauts.Label.asteroid_spawned".Translate(),
+                "RimNauts.Label.asteroid_spawned".Translate(object_holder.feature_name),
                 "RimNauts.Description.asteroid_spawned".Translate(),
                 RimWorld.LetterDefOf.NeutralEvent,
                 (LookTargets) object_holder
@@ -220,6 +221,9 @@ namespace RimNauts2.World {
             object_holder.description = defs.description;
             object_holder.keep_after_abandon = defs.keep_after_abandon;
             object_holder.texture_overlay = defs.texture_overlay;
+            object_holder.features = defs.features;
+            object_holder.feature_name = defs.feature_name;
+            object_holder.feature_color = defs.feature_color;
             object_holder.add_visual_object(
                 type,
                 random_texture_path,

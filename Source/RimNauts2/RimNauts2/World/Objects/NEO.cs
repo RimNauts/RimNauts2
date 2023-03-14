@@ -19,6 +19,7 @@ namespace RimNauts2.World.Objects {
         public Material material;
         public Quaternion rotation;
         public ObjectHolder object_holder;
+        public Quaternion camera_rotation;
 
         public NEO(
             Type type,
@@ -74,6 +75,7 @@ namespace RimNauts2.World.Objects {
         public virtual void update() {
             if (object_holder == null) return;
             object_holder.hide_now = Patch.HideIcons.check_object_holder(current_position);
+            object_holder.feature_mesh?.check_hide(current_position);
         }
 
         public virtual void update_when_unpaused() {
@@ -93,10 +95,17 @@ namespace RimNauts2.World.Objects {
 
         public virtual Matrix4x4 get_transformation_matrix(Vector3 center) {
             Vector3 towards_camera = Vector3.Cross(center, Vector3.up);
-            Quaternion.LookRotation_Injected(ref towards_camera, ref center, out Quaternion transformation_rotation);
-            transformation_rotation *= rotation;
+            Quaternion.LookRotation_Injected(ref towards_camera, ref center, out camera_rotation);
+            Quaternion transformation_rotation = camera_rotation * rotation;
             Matrix4x4.TRS_Injected(ref current_position, ref transformation_rotation, ref draw_size, out Matrix4x4 transformation_matrix);
             return transformation_matrix;
+        }
+
+        public virtual FeatureMesh get_feature() {
+            if (object_holder == null) return null;
+            if (!object_holder.features) return null;
+            if (object_holder.feature_mesh == null) object_holder.get_feature();
+            return object_holder.feature_mesh;
         }
 
         public virtual Material get_material() {

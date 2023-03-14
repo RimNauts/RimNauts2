@@ -4,6 +4,39 @@ namespace RimNauts2.World.Tools {
     public static class SpawnObjects {
         [DebugAction(
             category: "RimNauts 2: Spawn",
+            name: "Spawn Asteroid Ore (1)",
+            displayPriority: 8,
+            actionType = DebugActionType.Action,
+            allowedGameStates = AllowedGameStates.PlayingOnWorld
+        )]
+        public static void spawn_asteroid_ore() {
+            Generator.add_object_holder(amount: 1, Type.AsteroidOre);
+        }
+
+        [DebugAction(
+            category: "RimNauts 2: Spawn",
+            name: "Spawn Asteroid Ore (10)",
+            displayPriority: 7,
+            actionType = DebugActionType.Action,
+            allowedGameStates = AllowedGameStates.PlayingOnWorld
+        )]
+        public static void spawn_asteroid_ore_ten() {
+            Generator.add_object_holder(amount: 10, Type.AsteroidOre);
+        }
+
+        [DebugAction(
+            category: "RimNauts 2: Spawn",
+            name: "Spawn Asteroid Ore (100)",
+            displayPriority: 6,
+            actionType = DebugActionType.Action,
+            allowedGameStates = AllowedGameStates.PlayingOnWorld
+        )]
+        public static void spawn_asteroid_ore_houndred() {
+            Generator.add_object_holder(amount: 100, Type.AsteroidOre);
+        }
+
+        [DebugAction(
+            category: "RimNauts 2: Spawn",
             name: "Spawn Asteroid (1)",
             displayPriority: 5,
             actionType = DebugActionType.Action,

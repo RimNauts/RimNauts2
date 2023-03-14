@@ -33,6 +33,7 @@ namespace RimNauts2.World {
 
         public void remove(int tile) {
             if (exists(tile)) update_stats(get(tile).type, -1);
+            if (exists(tile)) get(tile).feature_mesh?.destroy();
             object_holders.Remove(tile);
         }
 
@@ -41,6 +42,7 @@ namespace RimNauts2.World {
         }
 
         public void clear() {
+            if (!object_holders.NullOrEmpty()) foreach (var (_, object_holder) in object_holders) object_holder.feature_mesh?.destroy();
             object_holders = new Dictionary<int, ObjectHolder>();
             object_holder_amount = new Dictionary<Type, int>();
             foreach (var type_index in Enum.GetValues(typeof(Type))) object_holder_amount.Add((Type) type_index, 0);

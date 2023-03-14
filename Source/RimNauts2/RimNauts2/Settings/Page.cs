@@ -23,7 +23,7 @@ namespace RimNauts2.Settings {
             buttons_view.End();
 
             buttons_view = new Listing_Standard();
-            buttons_rectangle = new Rect(buttons_rectangle.x, buttons_rectangle.y + 30f * 3, buttons_rectangle.width, 30f * 4);
+            buttons_rectangle = new Rect(buttons_rectangle.x, buttons_rectangle.y + 30f * 4, buttons_rectangle.width, 30f * 5);
             buttons_view.Begin(buttons_rectangle);
             toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.multi_thread_update_option", Container.get_multi_threaded_update);
             Container.multi_threaded_update = toggle_buffer;
@@ -33,6 +33,8 @@ namespace RimNauts2.Settings {
             Container.asteroid_ore_verbose = toggle_buffer;
             toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.incident_patch", Container.get_incident_patch);
             Container.incident_patch = toggle_buffer;
+            toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.world_feature_name", Container.get_world_feature_name);
+            Container.world_feature_name = toggle_buffer;
             buttons_view.End();
             // table header
             Rect table_header_rectangle = new Rect(buttons_rectangle.x, buttons_rectangle.y + (30f * 5) + 4.0f, buttons_rectangle.width, 30f);
