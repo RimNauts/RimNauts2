@@ -57,7 +57,7 @@ namespace RimNauts2.World {
             if (!Settings.Container.get_asteroid_ore_verbose || Cache.get_total(Type.Satellite) <= 0) return;
             RenderingManager.update();
             Find.LetterStack.ReceiveLetter(
-                "RimNauts.Label.asteroid_spawned".Translate(),
+                "RimNauts.Label.asteroid_spawned".Translate(object_holder.feature_name),
                 "RimNauts.Description.asteroid_spawned".Translate(),
                 RimWorld.LetterDefOf.NeutralEvent,
                 (LookTargets) object_holder
