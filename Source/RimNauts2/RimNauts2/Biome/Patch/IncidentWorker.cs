@@ -9,7 +9,13 @@ namespace RimNauts2.Biome.Patch {
             try {
                 if (!__result || !World.Cache.exists(parms.target.Tile)) return;
                 parms.raidArrivalMode = RimWorld.PawnsArrivalModeDefOf.EdgeDrop;
-                if (Defs.Of.general.allowed_incidents.Contains(__instance.def.defName)) return;
+                if (Defs.Of.general.allowed_incidents.Contains(__instance.def.defName)) {
+                    if (!Settings.Container.get_allow_raids_on_neos && (__instance.def.defName == "RaidEnemy" || __instance.def.defName == "MechCluster")) {
+                        /* continue */
+                    } else if (!Settings.Container.get_allow_quests_on_neos && (__instance.def.defName == "GiveQuest_Random")) {
+                        /* continue */
+                    } else return;
+                }
                 __result = false;
             } catch { }
         }
