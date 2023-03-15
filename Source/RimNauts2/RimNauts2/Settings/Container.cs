@@ -11,6 +11,8 @@ namespace RimNauts2.Settings {
         public static bool? multi_threaded_update;
         public static bool? incident_patch;
         public static bool? world_feature_name;
+        public static bool? allow_raids_on_neos;
+        public static bool? allow_quests_on_neos;
 
         public override void ExposeData() {
             Scribe_Collections.Look(ref object_generation_steps, "object_generation_steps", LookMode.Value, LookMode.Value);
@@ -20,6 +22,8 @@ namespace RimNauts2.Settings {
             Scribe_Values.Look(ref multi_threaded_update, "multi_threaded_update");
             Scribe_Values.Look(ref incident_patch, "incident_patch");
             Scribe_Values.Look(ref world_feature_name, "world_feature_name");
+            Scribe_Values.Look(ref allow_raids_on_neos, "allow_raids_on_neos");
+            Scribe_Values.Look(ref allow_quests_on_neos, "allow_quests_on_neos");
         }
 
         public static void clear() {
@@ -30,6 +34,8 @@ namespace RimNauts2.Settings {
             multi_threaded_update = null;
             incident_patch = null;
             world_feature_name = null;
+            allow_raids_on_neos = null;
+            allow_quests_on_neos = null;
         }
 
         public static Dictionary<World.Type, int> get_object_generation_steps {
@@ -89,6 +95,22 @@ namespace RimNauts2.Settings {
                 if (world_feature_name != null) return (bool) world_feature_name;
                 world_feature_name = true;
                 return (bool) world_feature_name;
+            }
+        }
+
+        public static bool get_allow_raids_on_neos {
+            get {
+                if (allow_raids_on_neos != null) return (bool) allow_raids_on_neos;
+                allow_raids_on_neos = true;
+                return (bool) allow_raids_on_neos;
+            }
+        }
+
+        public static bool get_allow_quests_on_neos {
+            get {
+                if (allow_quests_on_neos != null) return (bool) allow_quests_on_neos;
+                allow_quests_on_neos = true;
+                return (bool) allow_quests_on_neos;
             }
         }
     }
