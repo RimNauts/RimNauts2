@@ -102,6 +102,7 @@
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Comps\RandomizeObjectHolder.cs" />
     <Compile Include="World\FeatureMesh.cs" />
+    <Compile Include="World\Patch\VacuumOverlay.cs" />
     <Compile Include="World\RenderingManager.cs" />
     <Compile Include="World\Tools\DespawnObjects.cs" />
     <Compile Include="World\Tools\PrintStats.cs" />
