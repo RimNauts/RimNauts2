@@ -20,11 +20,13 @@ namespace RimNauts2.Biome.Patch {
             ThingDef spacesuit_helmet = ThingDef.Named("RimNauts2_Apparel_SpaceSuit_Head");
             ThingDef spacesuit_armor = ThingDef.Named("RimNauts2_Apparel_SpaceSuit_Body");
             foreach (Pawn pawn in pawns) {
-                if (pawn != null) {
+                if (pawn != null && pawn.apparel != null && !pawn.RaceProps.Animal) {
                     Universum.Utilities.Vacuum_Protection protection = Universum.Utilities.Cache.spacesuit_protection(pawn);
                     if (protection != Universum.Utilities.Vacuum_Protection.All) {
-                        pawn.apparel.Wear((RimWorld.Apparel) ThingMaker.MakeThing(spacesuit_helmet), false);
-                        pawn.apparel.Wear((RimWorld.Apparel) ThingMaker.MakeThing(spacesuit_armor), false);
+                        try {
+                            pawn.apparel.Wear((RimWorld.Apparel) ThingMaker.MakeThing(spacesuit_helmet), false);
+                            pawn.apparel.Wear((RimWorld.Apparel) ThingMaker.MakeThing(spacesuit_armor), false);
+                        } catch { }
                     }
                 }
                 yield return pawn;
