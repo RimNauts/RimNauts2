@@ -4,7 +4,7 @@ using Verse;
 
 namespace RimNauts2.MoonBarren {
     class RocksFromGrid : GenStep {
-        public override int SeedPart => 262606459;
+        public override int SeedPart => 709489798;
 
         public override void Generate(Map map, GenStepParams parms) {
             map.regionAndRoomUpdater.Enabled = false;

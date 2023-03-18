@@ -3,7 +3,7 @@ using Verse;
 
 namespace RimNauts2.SpaceStation {
     class Structure : GenStep {
-        public override int SeedPart => 262606459;
+        public override int SeedPart => 7856467;
 
         public override void Generate(Map map, GenStepParams parms) {
             ThingDef wall_thing = DefDatabase<ThingDef>.GetNamed(Defs.Of.general.space_station_wall);

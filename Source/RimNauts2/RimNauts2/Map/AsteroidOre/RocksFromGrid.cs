@@ -10,7 +10,7 @@ namespace RimNauts2.AsteroidOre {
         public float inner_elevation = 0.75f;
         public float roof_elevation = 0.55f;
 
-        public override int SeedPart => 262606459;
+        public override int SeedPart => 324563499;
 
         public override void Generate(Map map, GenStepParams parms) {
             float outer_chance = Rand.Range(ore_chance_outer.x, ore_chance_outer.y);
