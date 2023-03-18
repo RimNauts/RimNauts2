@@ -3,7 +3,7 @@ using Verse;
 
 namespace RimNauts2.MoonStripped {
     class Stripes : GenStep {
-        public override int SeedPart => 262606459;
+        public override int SeedPart => 986567587;
 
         public override void Generate(Map map, GenStepParams parms) {
             for (int ind = 1; ind <= Rand.RangeInclusive(4, 10); ind++) {

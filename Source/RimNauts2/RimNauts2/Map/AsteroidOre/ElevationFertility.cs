@@ -5,7 +5,7 @@ using Verse.Noise;
 
 namespace RimNauts2.AsteroidOre {
     class ElevationFertility : GenStep {
-        public override int SeedPart => 262606459;
+        public override int SeedPart => 385767532;
 
         public override void Generate(Map map, GenStepParams parms) {
             // Map generation is based mostly on these two grids. We're making custom grids.

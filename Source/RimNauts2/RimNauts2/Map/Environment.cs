@@ -7,7 +7,7 @@ namespace RimNauts2 {
         public bool apply_SOS2_weather = true;
         public string weather_def = null;
 
-        public override int SeedPart => 262606459;
+        public override int SeedPart => 57678457;
 
         public override void Generate(Map map, GenStepParams parms) {
             if (apply_SOS2_weather) {

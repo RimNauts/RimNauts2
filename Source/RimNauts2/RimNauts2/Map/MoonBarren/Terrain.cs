@@ -4,7 +4,7 @@ using Verse;
 
 namespace RimNauts2.MoonBarren {
     class Terrain : GenStep {
-        public override int SeedPart => 262606459;
+        public override int SeedPart => 98767504;
 
         public override void Generate(Map map, GenStepParams parms) {
             List<IntVec3> list = new List<IntVec3>();

@@ -2,7 +2,7 @@
 
 namespace RimNauts2 {
     class Vacuum : GenStep {
-        public override int SeedPart => 262606459;
+        public override int SeedPart => 45768545;
 
         public override void Generate(Map map, GenStepParams parms) {
             foreach (IntVec3 current in map.AllCells) {
