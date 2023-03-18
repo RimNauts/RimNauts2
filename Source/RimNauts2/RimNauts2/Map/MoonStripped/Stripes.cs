@@ -17,7 +17,9 @@ namespace RimNauts2.MoonStripped {
 
         public void wide_brush(IntVec3 pos, string defName, Map map, int halfWidth) {
             for (int dz = -halfWidth; dz <= halfWidth; dz++) {
-                map.terrainGrid.SetTerrain(new IntVec3(pos.x, 0, pos.z + dz), DefDatabase<ThingDef>.GetNamed(defName).building.naturalTerrain);
+                if (new IntVec3(pos.x, 0, pos.z + dz).InBounds(map)) {
+                    map.terrainGrid.SetTerrain(new IntVec3(pos.x, 0, pos.z + dz), DefDatabase<ThingDef>.GetNamed(defName).building.naturalTerrain);
+                }
             }
         }
     }
