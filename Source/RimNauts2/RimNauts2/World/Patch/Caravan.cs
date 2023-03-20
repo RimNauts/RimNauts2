@@ -12,4 +12,13 @@ namespace RimNauts2.World.Patch {
             return true;
         }
     }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), "GetTileCenter")]
+    class WorldGrid_GetTileCenter {
+        public static bool Prefix(ref Vector3 __result, int tileID) {
+            if (!Cache.exists(tileID)) return true;
+            __result = Cache.get(tileID).position;
+            return false;
+        }
+    }
 }
