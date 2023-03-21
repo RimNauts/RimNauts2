@@ -8,7 +8,7 @@ This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_pods.png[/img]
 The rocket to the left is a [b]satellite[/b] that you can launch into orbit. This will be visible in the world map and is required to find moons. The amount of satellites you have also increases the chance of finding mineral rich asteroids in orbit. The middle rocket is the [b]space station[/b] that you can launch into orbit, and it will generate a map with a simple starter station. The right most rocket is a [b]cargo transport pod[/b] and can carry more weight. Useful for asteroid mining.
 
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/satellite.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/satellite.PNG[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_exploration.png[/img]
 
@@ -22,6 +22,8 @@ To [b]discover moons[/b], you are required to have two satellites in orbit. Once
 
 Mineral-rich asteroids will randomly show up in the asteroid belt for a limited time. Send up a colonist to harvest the asteroids. The number of artificial satellites orbiting the planet will increase the chance of spotting these mineral-rich asteroids.
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_ores.png[/img]
+
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/asteroid_ores.PNG[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_addons.png[/img]
 
