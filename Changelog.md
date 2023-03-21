@@ -1,1 +1,3 @@
 # Changelog
+- Reverting last update as it brought multiple issues such as disabling the sun, throwing shadows all over, solar panels going crazy, etc...
+- Outposts from Vanilla Expanded will now fall to the ocean, this will not be fixed it the future (promise)
