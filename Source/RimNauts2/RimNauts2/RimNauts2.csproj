@@ -93,6 +93,7 @@
     <Compile Include="Defs\ObjectMetadata.cs" />
     <Compile Include="Settings\Container.cs" />
     <Compile Include="Settings\Page.cs" />
+    <Compile Include="Things\Building\DeliveryCannon.cs" />
     <Compile Include="Things\Comps\BuildRoof.cs" />
     <Compile Include="Things\Comps\RemoveRoof.cs" />
     <Compile Include="Things\Patch\Roof.cs" />

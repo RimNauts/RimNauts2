@@ -4,9 +4,9 @@ using Verse;
 using HarmonyLib;
 
 namespace RimNauts2.Things.Patch {
-    [HarmonyPatch(typeof(RimWorld.FuelingPortUtility), "GetFuelingPortCell", new Type[] { typeof(Building) })]
+    [HarmonyPatch(typeof(RimWorld.FuelingPortUtility), "GetFuelingPortCell", new Type[] { typeof(Verse.Building) })]
     class FuelingPortUtility_GetFuelingPortCell {
-        public static bool Prefix(Building podLauncher, ref IntVec3 __result) {
+        public static bool Prefix(Verse.Building podLauncher, ref IntVec3 __result) {
             if (podLauncher.def.defName != "RimNauts2_PodLauncher") return true;
             __result = podLauncher.Position;
             return false;
