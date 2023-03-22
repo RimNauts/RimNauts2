@@ -1,85 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ThingDef ParentName="BuildingBase">
+    <ThingDef ParentName="ShelfBase">
         <defName>RimNauts2_DeliveryCannon</defName>
         <label>delivery cannon</label>
         <description>Devlivery cannon for transporting large amount of resources to other parts of the solar system.</description>
         <thingClass>RimNauts2.Things.Building.DeliveryCannon</thingClass>
-        <altitudeLayer>Building</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <pathCost>20</pathCost>
-        <rotatable>false</rotatable>
+        <graphicData>
+            <texPath>Things/Building/Furniture/Shelf</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,2)</drawSize>
+        </graphicData>
+        <costStuffCount>20</costStuffCount>
         <statBases>
-            <Flammability>0.3</Flammability>
-            <Beauty>0.5</Beauty>
-            <MaxHitPoints>500</MaxHitPoints> 
-            <Mass>100</Mass>
-            <WorkToBuild>2000</WorkToBuild>
+            <MaxHitPoints>100</MaxHitPoints> 
+            <Mass>8</Mass>
+            <WorkToBuild>500</WorkToBuild>
+            <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
         </statBases>
+        <size>(2,1)</size>
+        <designationHotKey>Misc12</designationHotKey>
         <building>
-            <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
-            <maxItemsInCell>5</maxItemsInCell>
-            <storageGroupTag>Shelf</storageGroupTag>
-            <blueprintClass>Blueprint_Storage</blueprintClass>
-            <fixedStorageSettings>
-                <filter>
-                    <disallowNotEverStorable>true</disallowNotEverStorable>
-                    <categories>
-                        <li>Root</li>
-                    </categories>
-                    <disallowedCategories>
-                        <li>Chunks</li>
-                        <li>Plants</li>
-                        <li>Buildings</li>
-                    </disallowedCategories>
-                    <disallowedThingDefs MayRequire="Ludeon.RimWorld.Biotech">
-                        <li MayRequire="Ludeon.RimWorld.Biotech">Wastepack</li>
-                    </disallowedThingDefs>
-                    <specialFiltersToDisallow>
-                        <li>AllowLargeCorpses</li>
-                    </specialFiltersToDisallow>
-                </filter>
-            </fixedStorageSettings>
-            <defaultStorageSettings>
-                <priority>Preferred</priority>
-                <filter>
-                    <categories>
-                        <li>Foods</li>
-                        <li>Manufactured</li>
-                        <li>ResourcesRaw</li>
-                        <li>Items</li>
-                        <li>Weapons</li>
-                        <li>Apparel</li>
-                        <li>BodyParts</li>
-                    </categories>
-                </filter>
-            </defaultStorageSettings>
             <relatedBuildCommands>
                 <li>ShelfSmall</li>
             </relatedBuildCommands>
         </building>
-        <inspectorTabs>
-            <li>ITab_Storage</li>
-        </inspectorTabs>
-        <designationCategory>Misc</designationCategory>
-        <canOverlapZones>false</canOverlapZones>
-        <researchPrerequisites>
-            <li>TransportPod</li>
-        </researchPrerequisites>
-        <placeWorkers>
-            <li>PlaceWorker_NotUnderRoof</li>
-        </placeWorkers>
-        <comps>
-            <li Class="CompProperties_Styleable" />
-        </comps>
-
-        <graphicData>
-            <texPath>Things/Buildings/Misc/RimNauts2_PodLauncher</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(5,5)</drawSize>
-        </graphicData>
-        <costStuffCount>20</costStuffCount>
-        <size>(5,5)</size>
     </ThingDef>
 </Defs>
