@@ -20,6 +20,7 @@ namespace RimNauts2.World.Objects {
         public Quaternion rotation;
         public ObjectHolder object_holder;
         public Quaternion camera_rotation;
+        public GameObject game_object;
 
         public NEO(
             Type type,
@@ -72,6 +73,16 @@ namespace RimNauts2.World.Objects {
             update();
         }
 
+        public virtual void update_object() {
+            if (game_object == null) return;
+            game_object.transform.position = current_position;
+            game_object.GetComponent<TrailRenderer>().time = 0.0f;
+            float speed = (float) RenderingManager.tick_manager.CurTimeSpeed;
+            speed = (float) Math.Pow((double) speed, 2.0);
+            if (speed <= 0) speed = 1.0f;
+            game_object.GetComponent<TrailRenderer>().time = (draw_size.x * 10.0f) / speed;
+        }
+
         public virtual void update() {
             if (object_holder == null) return;
             object_holder.hide_now = Patch.HideIcons.check_object_holder(current_position);
@@ -99,6 +110,26 @@ namespace RimNauts2.World.Objects {
             Quaternion transformation_rotation = camera_rotation * rotation;
             Matrix4x4.TRS_Injected(ref current_position, ref transformation_rotation, ref draw_size, out Matrix4x4 transformation_matrix);
             return transformation_matrix;
+        }
+
+        public virtual void get_trail() {
+            if (game_object != null) return;
+            game_object = UnityEngine.Object.Instantiate(Assets.game_object_world_feature);
+            game_object.GetComponent<TMPro.TextMeshPro>().enabled = false;
+            UnityEngine.Object.DontDestroyOnLoad(game_object);
+            game_object.AddComponent<TrailRenderer>();
+            game_object.GetComponent<TrailRenderer>().startWidth = draw_size.x / 5.0f;
+            game_object.GetComponent<TrailRenderer>().endWidth = 0.0f;
+            game_object.GetComponent<TrailRenderer>().time = draw_size.x * 5.0f;
+            game_object.GetComponent<TrailRenderer>().startColor = new Color(1.0f, 1.0f, 1.0f, 0.4f);
+            game_object.GetComponent<TrailRenderer>().endColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            Material mat = new Material(Shader.Find("Sprites/Default"));
+            mat.mainTexture = Assets.get_content<Texture2D>("rimnauts2_test");
+            game_object.GetComponent<TrailRenderer>().material = mat;
+            foreach (Material sharedMaterial in game_object.GetComponent<TrailRenderer>().sharedMaterials) {
+                sharedMaterial.renderQueue = get_material().renderQueue - 1;
+            }
+            game_object.GetComponent<TrailRenderer>().gameObject.SetActive(true);
         }
 
         public virtual FeatureMesh get_feature() {

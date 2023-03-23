@@ -8,9 +8,9 @@ using Verse;
 namespace RimNauts2.World {
     [StaticConstructorOnStartup]
     class RenderingManager : GameComponent {
-        private static TickManager tick_manager;
-        private static RimWorld.Planet.WorldCameraDriver camera_driver;
-        private static Camera camera;
+        public static TickManager tick_manager;
+        public static RimWorld.Planet.WorldCameraDriver camera_driver;
+        public static Camera camera;
 
         public static int tick;
         private static int prev_tick;
@@ -167,6 +167,7 @@ namespace RimNauts2.World {
 
         public override void GameComponentUpdate() {
             get_frame_data();
+            for (int i = 0; i < total_objects; i++) visual_objects[i].update_object();
             if (wait) return;
             if (frame_changed || force_update) update();
             if (dirty_features) recache_features();
@@ -266,6 +267,7 @@ namespace RimNauts2.World {
                 return;
             }
             wait = !RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !force_update;
+            if (RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) for (int i = 0; i < total_objects; i++) visual_objects[i].get_trail();
             if (!wait) force_update = false;
             if (!world_map_switch && RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) {
                 world_map_switch = true;
