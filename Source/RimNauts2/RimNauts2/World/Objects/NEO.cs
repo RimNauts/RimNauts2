@@ -20,13 +20,14 @@ namespace RimNauts2.World.Objects {
         public Quaternion rotation;
         public ObjectHolder object_holder;
         public Quaternion camera_rotation;
-        public TrailRenderer trail_renderer;
         public bool trail;
         public float trail_width;
         public float trail_length;
         public Color? trail_color;
         public float trail_brightness;
         public float trail_transparency;
+        public TrailRenderer trail_renderer;
+        private TimeSpeed prev_speed;
 
         public NEO(
             Type type,
@@ -64,6 +65,7 @@ namespace RimNauts2.World.Objects {
             trail_color = type.trail_color();
             trail_brightness = type.trail_brightness();
             trail_transparency = type.trail_transparency();
+            prev_speed = TimeSpeed.Paused;
         }
 
         public virtual void randomize() {
@@ -88,11 +90,14 @@ namespace RimNauts2.World.Objects {
         public virtual void update_object() {
             if (trail_renderer == null) return;
             trail_renderer.transform.set_position_Injected(ref current_position);
-            float speed = (float) RenderingManager.tick_manager.CurTimeSpeed;
-            speed = (float) Math.Pow(3.0, (double) speed - 1.0);
-            if (speed <= 0) {
-                trail_renderer.time = 0.0f;
-            } else trail_renderer.time = trail_length / speed;
+            TimeSpeed speed = RenderingManager.tick_manager.CurTimeSpeed;
+            if (speed != prev_speed) {
+                prev_speed = speed;
+                float speed_value = (float) Math.Pow(3.0, (double) speed - 1.0);
+                if (speed_value <= 0) {
+                    trail_renderer.time = 0.0f;
+                } else trail_renderer.time = trail_length / speed_value;
+            }
         }
 
         public virtual void update() {
@@ -133,7 +138,7 @@ namespace RimNauts2.World.Objects {
             trail_renderer = game_object.AddComponent<TrailRenderer>();
             trail_renderer.startWidth = draw_size.x * trail_width;
             trail_renderer.endWidth = 0.0f;
-            trail_renderer.time = trail_length;
+            trail_renderer.time = 0.0f;
             trail_renderer.material = new Material(Shader.Find("Sprites/Default")) {
                 mainTexture = Assets.get_content<Texture2D>("RimNauts2_Trail")
             };
