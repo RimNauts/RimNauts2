@@ -14,5 +14,6 @@
 		<random_rotation>true</random_rotation>
 		<random_direction>false</random_direction>
 		<object_holder>true</object_holder>
+		<trail>false</trail>
   	</RimNauts2.Defs.ObjectMetadata>
 </Defs>

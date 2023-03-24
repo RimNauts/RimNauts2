@@ -20,7 +20,13 @@ namespace RimNauts2.World.Objects {
         public Quaternion rotation;
         public ObjectHolder object_holder;
         public Quaternion camera_rotation;
-        public GameObject game_object;
+        public TrailRenderer trail_renderer;
+        public bool trail;
+        public float trail_width;
+        public float trail_length;
+        public Color? trail_color;
+        public float trail_brightness;
+        public float trail_transparency;
 
         public NEO(
             Type type,
@@ -52,6 +58,12 @@ namespace RimNauts2.World.Objects {
             Vector3 axis = Vector3.up;
             Quaternion.AngleAxis_Injected(this.rotation_angle, ref axis, out rotation);
             if (current_position == null) update_position(tick: 0);
+            trail = type.trail();
+            trail_width = type.trail_width();
+            trail_length = type.trail_length();
+            trail_color = type.trail_color();
+            trail_brightness = type.trail_brightness();
+            trail_transparency = type.trail_transparency();
         }
 
         public virtual void randomize() {
@@ -74,13 +86,13 @@ namespace RimNauts2.World.Objects {
         }
 
         public virtual void update_object() {
-            if (game_object == null) return;
-            game_object.transform.position = current_position;
-            game_object.GetComponent<TrailRenderer>().time = 0.0f;
+            if (trail_renderer == null) return;
+            trail_renderer.transform.set_position_Injected(ref current_position);
             float speed = (float) RenderingManager.tick_manager.CurTimeSpeed;
-            speed = (float) Math.Pow((double) speed, 2.0);
-            if (speed <= 0) speed = 1.0f;
-            game_object.GetComponent<TrailRenderer>().time = (draw_size.x * 10.0f) / speed;
+            speed = (float) Math.Pow(3.0, (double) speed - 1.0);
+            if (speed <= 0) {
+                trail_renderer.time = 0.0f;
+            } else trail_renderer.time = trail_length / speed;
         }
 
         public virtual void update() {
@@ -91,6 +103,7 @@ namespace RimNauts2.World.Objects {
 
         public virtual void update_when_unpaused() {
             update_position(RenderingManager.tick);
+            update_object();
             if (object_holder != null) object_holder.position = current_position;
         }
 
@@ -113,23 +126,25 @@ namespace RimNauts2.World.Objects {
         }
 
         public virtual void get_trail() {
-            if (game_object != null) return;
-            game_object = UnityEngine.Object.Instantiate(Assets.game_object_world_feature);
+            if (!trail || trail_renderer != null) return;
+            GameObject game_object = UnityEngine.Object.Instantiate(Assets.game_object_world_feature);
             game_object.GetComponent<TMPro.TextMeshPro>().enabled = false;
             UnityEngine.Object.DontDestroyOnLoad(game_object);
-            game_object.AddComponent<TrailRenderer>();
-            game_object.GetComponent<TrailRenderer>().startWidth = draw_size.x / 5.0f;
-            game_object.GetComponent<TrailRenderer>().endWidth = 0.0f;
-            game_object.GetComponent<TrailRenderer>().time = draw_size.x * 5.0f;
-            game_object.GetComponent<TrailRenderer>().startColor = new Color(1.0f, 1.0f, 1.0f, 0.4f);
-            game_object.GetComponent<TrailRenderer>().endColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-            Material mat = new Material(Shader.Find("Sprites/Default"));
-            mat.mainTexture = Assets.get_content<Texture2D>("rimnauts2_test");
-            game_object.GetComponent<TrailRenderer>().material = mat;
-            foreach (Material sharedMaterial in game_object.GetComponent<TrailRenderer>().sharedMaterials) {
-                sharedMaterial.renderQueue = get_material().renderQueue - 1;
+            trail_renderer = game_object.AddComponent<TrailRenderer>();
+            trail_renderer.startWidth = draw_size.x * trail_width;
+            trail_renderer.endWidth = 0.0f;
+            trail_renderer.time = trail_length;
+            trail_renderer.material = new Material(Shader.Find("Sprites/Default")) {
+                mainTexture = Assets.get_content<Texture2D>("RimNauts2_Trail")
+            };
+            foreach (Material sharedMaterial in trail_renderer.sharedMaterials) {
+                sharedMaterial.renderQueue = get_material().renderQueue;
             }
-            game_object.GetComponent<TrailRenderer>().gameObject.SetActive(true);
+            Color color = trail_color ?? Assets.get_average_color_from_texture(texture_path);
+            color = color.RGBMultiplied(trail_brightness);
+            trail_renderer.startColor = new Color(color.r, color.g, color.b, trail_transparency);
+            trail_renderer.endColor = new Color(color.r, color.g, color.b, 0.0f);
+            trail_renderer.gameObject.SetActive(true);
         }
 
         public virtual FeatureMesh get_feature() {

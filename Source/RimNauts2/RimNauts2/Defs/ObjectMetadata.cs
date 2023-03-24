@@ -14,5 +14,11 @@ namespace RimNauts2.Defs {
         public bool random_rotation;
         public bool random_direction;
         public bool object_holder;
+        public bool trail;
+        public float trail_width = 1.0f;
+        public float trail_length = 1.0f;
+        public Color? trail_color = null;
+        public float trail_brightness = 1.0f;
+        public float trail_transparency = 1.0f;
     }
 }

@@ -167,7 +167,6 @@ namespace RimNauts2.World {
 
         public override void GameComponentUpdate() {
             get_frame_data();
-            for (int i = 0; i < total_objects; i++) visual_objects[i].update_object();
             if (wait) return;
             if (frame_changed || force_update) update();
             if (dirty_features) recache_features();
@@ -254,11 +253,16 @@ namespace RimNauts2.World {
             if (Settings.Container.get_world_feature_name) {
                 for (int i = 0; i < total_objects; i++) cached_features[i] = visual_objects[i].get_feature();
             } else for (int i = 0; i < total_objects; i++) visual_objects[i].object_holder?.feature_mesh?.set_active(false);
+            for (int i = 0; i < total_objects; i++) {
+                visual_objects[i].get_trail();
+            }
         }
 
         public static void recache_materials() {
             cached_materials = new Material[total_objects];
-            for (int i = 0; i < total_objects; i++) cached_materials[i] = visual_objects[i].get_material();
+            for (int i = 0; i < total_objects; i++) {
+                cached_materials[i] = visual_objects[i].get_material();
+            }
         }
 
         public static void get_frame_data() {
@@ -267,7 +271,6 @@ namespace RimNauts2.World {
                 return;
             }
             wait = !RimWorld.Planet.WorldRendererUtility.WorldRenderedNow && !force_update;
-            if (RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) for (int i = 0; i < total_objects; i++) visual_objects[i].get_trail();
             if (!wait) force_update = false;
             if (!world_map_switch && RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) {
                 world_map_switch = true;

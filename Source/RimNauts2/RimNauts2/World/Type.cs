@@ -162,5 +162,29 @@ namespace RimNauts2.World {
         public static int orbit_direction(this Type type) {
             return type.defs().random_direction && Rand.Bool ? 1 : -1;
         }
+
+        public static bool trail(this Type type) {
+            return type.defs().trail;
+        }
+
+        public static float trail_width(this Type type) {
+            return type.defs().trail_width;
+        }
+
+        public static float trail_length(this Type type) {
+            return type.defs().trail_length;
+        }
+
+        public static Color? trail_color(this Type type) {
+            return type.defs().trail_color;
+        }
+
+        public static float trail_brightness(this Type type) {
+            return type.defs().trail_brightness;
+        }
+
+        public static float trail_transparency(this Type type) {
+            return type.defs().trail_transparency;
+        }
     }
 }

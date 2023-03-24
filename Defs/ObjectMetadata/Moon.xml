@@ -16,5 +16,10 @@
 		<random_rotation>false</random_rotation>
 		<random_direction>true</random_direction>
 		<object_holder>true</object_holder>
+		<trail>true</trail>
+		<trail_width>0.5</trail_width>
+		<trail_length>500.0</trail_length>
+		<trail_brightness>2.0</trail_brightness>
+		<trail_transparency>0.2</trail_transparency>
   	</RimNauts2.Defs.ObjectMetadata>
 </Defs>
