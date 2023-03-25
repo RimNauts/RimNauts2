@@ -93,6 +93,7 @@
     <Compile Include="Defs\ObjectMetadata.cs" />
     <Compile Include="Settings\Container.cs" />
     <Compile Include="Settings\Page.cs" />
+    <Compile Include="Things\Building\PodLauncher.cs" />
     <Compile Include="Things\Comps\BuildRoof.cs" />
     <Compile Include="Things\Comps\RemoveRoof.cs" />
     <Compile Include="Things\Patch\Roof.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="World\Objects\SpaceStation.cs" />
     <Compile Include="World\Patch\Caravan.cs" />
     <Compile Include="World\Patch\Transportpod.cs" />
+    <Compile Include="World\Trail.cs" />
     <Compile Include="World\Type.cs" />
     <Compile Include="World\Patch\HideIcons.cs" />
     <Compile Include="Things\TransportPod.cs" />

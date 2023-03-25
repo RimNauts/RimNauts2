@@ -33,6 +33,7 @@ namespace RimNauts2.World {
         int orbit_direction;
         float color;
         float rotation_angle;
+        float transformation_rotation_angle;
         Vector3 current_position;
         public FeatureMesh feature_mesh;
 
@@ -54,6 +55,7 @@ namespace RimNauts2.World {
                 orbit_direction = visual_object.orbit_direction;
                 color = visual_object.color;
                 rotation_angle = visual_object.rotation_angle;
+                transformation_rotation_angle = visual_object.transformation_rotation_angle;
                 current_position = visual_object.current_position;
             }
             Scribe_Values.Look(ref keep_after_abandon, "keep_after_abandon");
@@ -77,6 +79,7 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref orbit_direction, "orbit_direction");
             Scribe_Values.Look(ref color, "color");
             Scribe_Values.Look(ref rotation_angle, "rotation_angle");
+            Scribe_Values.Look(ref transformation_rotation_angle, "transformation_rotation_angle");
             Scribe_Values.Look(ref current_position, "current_position");
             if (visual_object == null) {
                 add_visual_object(
@@ -90,6 +93,7 @@ namespace RimNauts2.World {
                     orbit_direction,
                     color,
                     rotation_angle,
+                    transformation_rotation_angle,
                     current_position
                 );
             }
@@ -221,6 +225,7 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null
         ) {
             visual_object = Generator.add_visual_object(
@@ -234,6 +239,7 @@ namespace RimNauts2.World {
                 orbit_direction,
                 color,
                 rotation_angle,
+                transformation_rotation_angle,
                 current_position
             );
             visual_object.object_holder = this;
@@ -246,6 +252,7 @@ namespace RimNauts2.World {
             this.orbit_direction = visual_object.orbit_direction;
             this.color = visual_object.color;
             this.rotation_angle = visual_object.rotation_angle;
+            this.transformation_rotation_angle = visual_object.transformation_rotation_angle;
             this.current_position = visual_object.current_position;
             position = visual_object.current_position;
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HarmonyLib;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -8,9 +9,9 @@ using Verse;
 namespace RimNauts2.World {
     [StaticConstructorOnStartup]
     class RenderingManager : GameComponent {
-        private static TickManager tick_manager;
-        private static RimWorld.Planet.WorldCameraDriver camera_driver;
-        private static Camera camera;
+        public static TickManager tick_manager;
+        public static RimWorld.Planet.WorldCameraDriver camera_driver;
+        public static Camera camera;
 
         public static int tick;
         private static int prev_tick;
@@ -28,10 +29,12 @@ namespace RimNauts2.World {
         private static bool wait;
         public static bool force_update;
         private static bool world_map_switch;
+        private static bool reset_trail;
 
         public static Matrix4x4[] cached_matrices;
         public static Material[] cached_materials;
         public static FeatureMesh[] cached_features;
+        public static Trail[] cached_trails;
 
         public static bool dirty_features;
 
@@ -49,9 +52,12 @@ namespace RimNauts2.World {
         private static List<int> expose_orbit_direction;
         private static List<float> expose_color;
         private static List<float> expose_rotation_angle;
+        private static List<float> expose_transformation_rotation_angle;
         private static List<Vector3> expose_current_position;
 
-        public RenderingManager(Game game) : base() {
+        public RenderingManager(Game game) : base() => reset_instance();
+
+        public static void reset_instance() {
             tick_manager = null;
             camera_driver = null;
             camera = null;
@@ -68,9 +74,11 @@ namespace RimNauts2.World {
             wait = false;
             force_update = true;
             world_map_switch = false;
+            reset_trail = false;
             cached_matrices = new Matrix4x4[0];
             cached_materials = new Material[0];
             cached_features = new FeatureMesh[0];
+            cached_trails = new Trail[0];
             dirty_features = true;
             total_objects = 0;
             visual_objects = new List<Objects.NEO>();
@@ -85,6 +93,7 @@ namespace RimNauts2.World {
             expose_orbit_direction = new List<int>();
             expose_color = new List<float>();
             expose_rotation_angle = new List<float>();
+            expose_transformation_rotation_angle = new List<float>();
             expose_current_position = new List<Vector3>();
         }
 
@@ -98,10 +107,13 @@ namespace RimNauts2.World {
                 Generator.generate_fresh();
                 return;
             }
+            if (!cached_trails.NullOrEmpty()) for (int i = 0; i < cached_trails.Length; i++) cached_trails[i]?.set_active(false);
             foreach (var (_, object_holder) in Caching_Handler.object_holders) object_holder.visual_object = null;
             visual_objects = new List<Objects.NEO>();
             total_objects = expose_type.Count;
             for (int i = 0; i < total_objects; i++) {
+                float? transformation_rotation_angle = null;
+                if (!expose_transformation_rotation_angle.NullOrEmpty()) transformation_rotation_angle = expose_transformation_rotation_angle[i];
                 Objects.NEO neo = expose_type[i].neo(
                     expose_texture_path[i],
                     expose_orbit_position[i],
@@ -112,6 +124,7 @@ namespace RimNauts2.World {
                     expose_orbit_direction[i],
                     expose_color[i],
                     expose_rotation_angle[i],
+                    transformation_rotation_angle,
                     expose_current_position[i]
                 );
                 visual_objects.Add(neo);
@@ -132,6 +145,7 @@ namespace RimNauts2.World {
             expose_orbit_direction = new List<int>();
             expose_color = new List<float>();
             expose_rotation_angle = new List<float>();
+            expose_transformation_rotation_angle = new List<float>();
             expose_current_position = new List<Vector3>();
             for (int i = 0; i < total_objects; i++) {
                 if (visual_objects[i].object_holder != null) continue;
@@ -145,6 +159,7 @@ namespace RimNauts2.World {
                 expose_orbit_direction.Add(visual_objects[i].orbit_direction);
                 expose_color.Add(visual_objects[i].color);
                 expose_rotation_angle.Add(visual_objects[i].rotation_angle);
+                expose_transformation_rotation_angle.Add(visual_objects[i].transformation_rotation_angle);
                 expose_current_position.Add(visual_objects[i].current_position);
             }
             Scribe_Collections.Look(ref expose_type, "expose_type", LookMode.Value);
@@ -157,6 +172,7 @@ namespace RimNauts2.World {
             Scribe_Collections.Look(ref expose_orbit_direction, "expose_orbit_direction", LookMode.Value);
             Scribe_Collections.Look(ref expose_color, "expose_color", LookMode.Value);
             Scribe_Collections.Look(ref expose_rotation_angle, "expose_rotation_angle", LookMode.Value);
+            Scribe_Collections.Look(ref expose_transformation_rotation_angle, "expose_transformation_rotation_angle", LookMode.Value);
             Scribe_Collections.Look(ref expose_current_position, "expose_current_position", LookMode.Value);
             if (visual_objects.NullOrEmpty() && expose_type.Count > 0) LoadedGame();
         }
@@ -190,10 +206,11 @@ namespace RimNauts2.World {
                 });
                 for (int i = 0; i < total_objects; i++) {
                     cached_features[i]?.update_transformation(
-                        visual_objects[i].current_position,
+                        visual_objects[i].get_position(),
                         visual_objects[i].draw_size.x,
                         visual_objects[i].camera_rotation
                     );
+                    if (unpaused) cached_trails[i]?.update_transformation(visual_objects[i].get_position());
                 }
             } else {
                 for (int i = 0; i < total_objects; i++) {
@@ -202,10 +219,11 @@ namespace RimNauts2.World {
                     if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
                     cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
                     cached_features[i]?.update_transformation(
-                        visual_objects[i].current_position,
+                        visual_objects[i].get_position(),
                         visual_objects[i].draw_size.x,
                         visual_objects[i].camera_rotation
                     );
+                    if (unpaused) cached_trails[i]?.update_transformation(visual_objects[i].get_position());
                 }
             }
         }
@@ -227,7 +245,10 @@ namespace RimNauts2.World {
                     lightProbeProxyVolume: null
                 );
                 if (cached_features[i] != null && !cached_features[i].block) cached_features[i].set_active(true);
+                cached_trails[i]?.set_active(true);
+                if (reset_trail) cached_trails[i]?.clear_trail();
             }
+            if (reset_trail) reset_trail = false;
         }
 
         public static int get_ore_timer() => (int) Rand.Range(0.5f * 60000, 1.5f * 60000) + tick;
@@ -237,11 +258,13 @@ namespace RimNauts2.World {
         public static void recache() {
             init();
             get_frame_data();
+            for (int i = 0; i < cached_trails.Length; i++) cached_trails[i]?.set_active(false);
             dirty_features = true;
             force_update = true;
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
             cached_features = new FeatureMesh[total_objects];
+            cached_trails = new Trail[total_objects];
             for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
             recache_materials();
             if (tick_manager != null && camera_driver != null && camera != null) update();
@@ -250,14 +273,22 @@ namespace RimNauts2.World {
         public static void recache_features() {
             dirty_features = false;
             cached_features = new FeatureMesh[total_objects];
-            if (Settings.Container.get_world_feature_name) {
-                for (int i = 0; i < total_objects; i++) cached_features[i] = visual_objects[i].get_feature();
-            } else for (int i = 0; i < total_objects; i++) visual_objects[i].object_holder?.feature_mesh?.set_active(false);
+            cached_trails = new Trail[total_objects];
+            for (int i = 0; i < total_objects; i++) {
+                if (Settings.Container.get_world_feature_name) {
+                    cached_features[i] = visual_objects[i].get_feature();
+                } else visual_objects[i].object_holder?.feature_mesh?.set_active(false);
+                if (Settings.Container.get_neo_trails) {
+                    cached_trails[i] = visual_objects[i].get_trail();
+                } else visual_objects[i].trail_renderer?.set_active(false);
+            }
         }
 
         public static void recache_materials() {
             cached_materials = new Material[total_objects];
-            for (int i = 0; i < total_objects; i++) cached_materials[i] = visual_objects[i].get_material();
+            for (int i = 0; i < total_objects; i++) {
+                cached_materials[i] = visual_objects[i].get_material();
+            }
         }
 
         public static void get_frame_data() {
@@ -269,6 +300,7 @@ namespace RimNauts2.World {
             if (!wait) force_update = false;
             if (!world_map_switch && RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) {
                 world_map_switch = true;
+                reset_trail = true;
                 force_update = true;
                 wait = false;
             } else if (world_map_switch && !RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) world_map_switch = false;
@@ -281,6 +313,14 @@ namespace RimNauts2.World {
             center = camera_driver.CurrentlyLookingAtPointOnSphere;
             altitude_percent = camera_driver.AltitudePercent;
             frame_changed = unpaused || camera_moved;
+        }
+    }
+
+    [HarmonyPatch(typeof(Verse.Profile.MemoryUtility), "ClearAllMapsAndWorld")]
+    public class MemoryUtility_ClearAllMapsAndWorld {
+        public static void Prefix() {
+            if (!RenderingManager.cached_trails.NullOrEmpty()) for (int i = 0; i < RenderingManager.cached_trails.Length; i++) RenderingManager.cached_trails[i]?.set_active(false);
+            RenderingManager.reset_instance();
         }
     }
 }

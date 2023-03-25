@@ -4,7 +4,7 @@
         <defName>RimNauts2_PodLauncher</defName>
         <label>Large pod launcher</label>
         <description>A fueling port for launching large transport pods. Pod launchers can launch as a group - but the launchers must be placed adjacent to each other.</description>
-        <thingClass>Building_PodLauncher</thingClass>
+        <thingClass>RimNauts2.Things.Building.PodLauncher</thingClass>
         <graphicData>
             <texPath>Things/Buildings/Misc/RimNauts2_PodLauncher</texPath>
             <graphicClass>Graphic_Single</graphicClass>

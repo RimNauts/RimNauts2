@@ -11,6 +11,7 @@ namespace RimNauts2.Settings {
         public static bool? multi_threaded_update;
         public static bool? incident_patch;
         public static bool? world_feature_name;
+        public static bool? neo_trails;
         public static bool? allow_raids_on_neos;
         public static bool? allow_quests_on_neos;
 
@@ -22,6 +23,7 @@ namespace RimNauts2.Settings {
             Scribe_Values.Look(ref multi_threaded_update, "multi_threaded_update");
             Scribe_Values.Look(ref incident_patch, "incident_patch");
             Scribe_Values.Look(ref world_feature_name, "world_feature_name");
+            Scribe_Values.Look(ref neo_trails, "neo_trails");
             Scribe_Values.Look(ref allow_raids_on_neos, "allow_raids_on_neos");
             Scribe_Values.Look(ref allow_quests_on_neos, "allow_quests_on_neos");
         }
@@ -34,6 +36,7 @@ namespace RimNauts2.Settings {
             multi_threaded_update = null;
             incident_patch = null;
             world_feature_name = null;
+            neo_trails = null;
             allow_raids_on_neos = null;
             allow_quests_on_neos = null;
         }
@@ -95,6 +98,14 @@ namespace RimNauts2.Settings {
                 if (world_feature_name != null) return (bool) world_feature_name;
                 world_feature_name = true;
                 return (bool) world_feature_name;
+            }
+        }
+
+        public static bool get_neo_trails {
+            get {
+                if (neo_trails != null) return (bool) neo_trails;
+                neo_trails = true;
+                return (bool) neo_trails;
             }
         }
 
