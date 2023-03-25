@@ -47,6 +47,7 @@ namespace RimNauts2.World {
                     add_visual_object(diff, type);
                 }
             }
+            for (int i = 0; i < RenderingManager.total_objects; i++) RenderingManager.visual_objects[i].trail_renderer?.set_active(false);
             RenderingManager.dirty_features = true;
         }
 
