@@ -73,7 +73,7 @@ namespace RimNauts2.World.Objects {
             if (out_of_bounds_direction_towards_surface) {
                 crash_course = Math.Min(1.0f, current_out_of_bounds);
             } else crash_course = Math.Max(1.0f, current_out_of_bounds);
-            if (trail_renderer != null && crash_course == 1.0f) trail_renderer.Clear();
+            if (trail_renderer != null && crash_course == 1.0f) trail_renderer.clear_trail();
         }
     }
 }

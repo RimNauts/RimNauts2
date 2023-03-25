@@ -138,6 +138,7 @@
     <Compile Include="World\Objects\SpaceStation.cs" />
     <Compile Include="World\Patch\Caravan.cs" />
     <Compile Include="World\Patch\Transportpod.cs" />
+    <Compile Include="World\Trail.cs" />
     <Compile Include="World\Type.cs" />
     <Compile Include="World\Patch\HideIcons.cs" />
     <Compile Include="Things\TransportPod.cs" />

@@ -28,10 +28,12 @@ namespace RimNauts2.World {
         private static bool wait;
         public static bool force_update;
         private static bool world_map_switch;
+        private static bool reset_trail;
 
         public static Matrix4x4[] cached_matrices;
         public static Material[] cached_materials;
         public static FeatureMesh[] cached_features;
+        public static Trail[] cached_trails;
 
         public static bool dirty_features;
 
@@ -68,9 +70,11 @@ namespace RimNauts2.World {
             wait = false;
             force_update = true;
             world_map_switch = false;
+            reset_trail = false;
             cached_matrices = new Matrix4x4[0];
             cached_materials = new Material[0];
             cached_features = new FeatureMesh[0];
+            cached_trails = new Trail[0];
             dirty_features = true;
             total_objects = 0;
             visual_objects = new List<Objects.NEO>();
@@ -194,6 +198,7 @@ namespace RimNauts2.World {
                         visual_objects[i].draw_size.x,
                         visual_objects[i].camera_rotation
                     );
+                    if (unpaused) cached_trails[i]?.update_transformation(visual_objects[i].current_position);
                 }
             } else {
                 for (int i = 0; i < total_objects; i++) {
@@ -206,6 +211,7 @@ namespace RimNauts2.World {
                         visual_objects[i].draw_size.x,
                         visual_objects[i].camera_rotation
                     );
+                    if (unpaused) cached_trails[i]?.update_transformation(visual_objects[i].current_position);
                 }
             }
         }
@@ -227,7 +233,10 @@ namespace RimNauts2.World {
                     lightProbeProxyVolume: null
                 );
                 if (cached_features[i] != null && !cached_features[i].block) cached_features[i].set_active(true);
+                cached_trails[i]?.set_active(true);
+                if (reset_trail) cached_trails[i]?.clear_trail();
             }
+            if (reset_trail) reset_trail = false;
         }
 
         public static int get_ore_timer() => (int) Rand.Range(0.5f * 60000, 1.5f * 60000) + tick;
@@ -242,6 +251,7 @@ namespace RimNauts2.World {
             total_objects = visual_objects.Count;
             cached_matrices = new Matrix4x4[total_objects];
             cached_features = new FeatureMesh[total_objects];
+            cached_trails = new Trail[total_objects];
             for (int i = 0; i < total_objects; i++) visual_objects[i].index = i;
             recache_materials();
             if (tick_manager != null && camera_driver != null && camera != null) update();
@@ -250,12 +260,11 @@ namespace RimNauts2.World {
         public static void recache_features() {
             dirty_features = false;
             cached_features = new FeatureMesh[total_objects];
+            cached_trails = new Trail[total_objects];
             if (Settings.Container.get_world_feature_name) {
                 for (int i = 0; i < total_objects; i++) cached_features[i] = visual_objects[i].get_feature();
             } else for (int i = 0; i < total_objects; i++) visual_objects[i].object_holder?.feature_mesh?.set_active(false);
-            for (int i = 0; i < total_objects; i++) {
-                visual_objects[i].get_trail();
-            }
+            for (int i = 0; i < total_objects; i++) cached_trails[i] = visual_objects[i].get_trail();
         }
 
         public static void recache_materials() {
@@ -274,6 +283,7 @@ namespace RimNauts2.World {
             if (!wait) force_update = false;
             if (!world_map_switch && RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) {
                 world_map_switch = true;
+                reset_trail = true;
                 force_update = true;
                 wait = false;
             } else if (world_map_switch && !RimWorld.Planet.WorldRendererUtility.WorldRenderedNow) world_map_switch = false;
