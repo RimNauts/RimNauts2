@@ -7,6 +7,7 @@
 		<keep_after_abandon>false</keep_after_abandon>
 		<limited_days_between>(0.5, 1.5)</limited_days_between>
 		<texture_overlay>UI/Designators/Mine</texture_overlay>
+		<spawn_weight>1000</spawn_weight>
   	</RimNauts2.Defs.ObjectHolder>
 
 	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
@@ -21,6 +22,7 @@
 		<features>true</features>
 		<feature_name>Steel</feature_name>
 		<feature_color>(211, 211, 211)</feature_color>
+		<spawn_weight>1000</spawn_weight>
   	</RimNauts2.Defs.ObjectHolder>
 
 	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
@@ -37,6 +39,7 @@
 		<features>true</features>
 		<feature_name>Gold</feature_name>
 		<feature_color>(232, 185, 35)</feature_color>
+		<spawn_weight>250</spawn_weight>
   	</RimNauts2.Defs.ObjectHolder>
 
 	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
@@ -51,6 +54,7 @@
 		<features>true</features>
 		<feature_name>Plasteel</feature_name>
 		<feature_color>(111, 186, 223)</feature_color>
+		<spawn_weight>400</spawn_weight>
   	</RimNauts2.Defs.ObjectHolder>
 
 	<RimNauts2.Defs.ObjectHolder ParentName="RimNauts2_ObjectHolder_AsteroidOre_Root">
@@ -63,5 +67,6 @@
 		<features>true</features>
 		<feature_name>Uranium</feature_name>
 		<feature_color>(44, 250, 31)</feature_color>
+		<spawn_weight>500</spawn_weight>
   	</RimNauts2.Defs.ObjectHolder>
 </Defs>

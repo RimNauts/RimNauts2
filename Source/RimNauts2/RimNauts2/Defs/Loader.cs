@@ -42,9 +42,13 @@ namespace RimNauts2.Defs {
             );
         }
 
-        public static ObjectHolder get_object_holder(World.Type type, string def_name = null) {
+        public static ObjectHolder get_object_holder(World.Type type, string def_name = null, bool weighted_choice = false) {
             if (!object_holders.ContainsKey(type)) return null;
-            if (def_name == null) return object_holders[type].RandomElement();
+            if (def_name == null) {
+                if (weighted_choice) {
+                    return object_holders[type].RandomElementByWeight((ObjectHolder def) => def.spawn_weight);
+                } else return object_holders[type].RandomElement();
+            }
             return object_holders[type].Find(object_holder => object_holder.defName == def_name);
         }
 

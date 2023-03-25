@@ -10,7 +10,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void spawn_asteroid_ore() {
-            Generator.add_object_holder(amount: 1, Type.AsteroidOre);
+            Generator.add_object_holder(amount: 1, Type.AsteroidOre, weighted_choice: true);
         }
 
         [DebugAction(
@@ -21,7 +21,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void spawn_asteroid_ore_ten() {
-            Generator.add_object_holder(amount: 10, Type.AsteroidOre);
+            Generator.add_object_holder(amount: 10, Type.AsteroidOre, weighted_choice: true);
         }
 
         [DebugAction(
@@ -32,7 +32,7 @@ namespace RimNauts2.World.Tools {
             allowedGameStates = AllowedGameStates.PlayingOnWorld
         )]
         public static void spawn_asteroid_ore_houndred() {
-            Generator.add_object_holder(amount: 100, Type.AsteroidOre);
+            Generator.add_object_holder(amount: 100, Type.AsteroidOre, weighted_choice: true);
         }
 
         [DebugAction(

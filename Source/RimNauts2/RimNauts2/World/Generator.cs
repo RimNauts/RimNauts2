@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -54,7 +55,7 @@ namespace RimNauts2.World {
         public static void add_asteroid_ore() {
             RenderingManager.spawn_ore_tick = RenderingManager.get_ore_timer();
             if (!Settings.Container.get_asteroid_ore_toggle || Settings.Container.get_max_asteroid_ores <= Cache.get_total(Type.AsteroidOre)) return;
-            ObjectHolder object_holder = add_object_holder(Type.AsteroidOre);
+            ObjectHolder object_holder = add_object_holder(Type.AsteroidOre, weighted_choice: true);
             if (!Settings.Container.get_asteroid_ore_verbose || Cache.get_total(Type.Satellite) <= 0) return;
             RenderingManager.update();
             Find.LetterStack.ReceiveLetter(
@@ -164,7 +165,8 @@ namespace RimNauts2.World {
             float? color = null,
             float? rotation_angle = null,
             Vector3? current_position = null,
-            string object_holder_def = null
+            string object_holder_def = null,
+            bool weighted_choice = false
         ) {
             for (int i = 0; i < amount; i++) {
                 add_object_holder(
@@ -179,7 +181,8 @@ namespace RimNauts2.World {
                     color,
                     rotation_angle,
                     current_position,
-                    object_holder_def
+                    object_holder_def,
+                    weighted_choice: weighted_choice
                 );
             }
         }
@@ -197,9 +200,10 @@ namespace RimNauts2.World {
             float? rotation_angle = null,
             Vector3? current_position = null,
             string object_holder_def = null,
-            int start_index = 1
+            int start_index = 1,
+            bool weighted_choice = false
         ) {
-            Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
+            Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def, weighted_choice);
             if (defs == null) {
                 Logger.print(
                     Logger.Importance.Error,
