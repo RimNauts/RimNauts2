@@ -24,7 +24,7 @@ namespace RimNauts2.Things {
 
     [StaticConstructorOnStartup]
     public class TransportPod : ThingComp {
-        public Building FuelingPortSource => RimWorld.FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map);
+        public Verse.Building FuelingPortSource => RimWorld.FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map);
         public bool ConnectedToFuelingPort => FuelingPortSource != null;
         public float FuelingPortSourceFuel => !ConnectedToFuelingPort ? 0.0f : FuelingPortSource.GetComp<RimWorld.CompRefuelable>().Fuel;
         public TransportPod_Properties Props => (TransportPod_Properties) props;
@@ -54,7 +54,7 @@ namespace RimNauts2.Things {
                 );
             } else {
                 Map map = parent.Map;
-                Building fuelingPortSource = FuelingPortSource;
+                Verse.Building fuelingPortSource = FuelingPortSource;
                 fuelingPortSource?.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(Props.fuelThreshold);
                 RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
                 activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();

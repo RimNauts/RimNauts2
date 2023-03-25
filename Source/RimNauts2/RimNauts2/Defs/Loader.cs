@@ -12,6 +12,7 @@ namespace RimNauts2.Defs {
         public static ThingDef thing_roof_magnetic_field = DefDatabase<ThingDef>.GetNamed("RimNauts2_Things_Roof_MagneticField");
         public static ThingDef thing_unroof_magnetic_field = DefDatabase<ThingDef>.GetNamed("RimNauts2_Things_UnRoof_MagneticField");
         public static RimWorld.BiomeDef biome_satellite = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Satellite_Biome");
+        public static ThingDef thing_cargo_pod = DefDatabase<ThingDef>.GetNamed("RimNauts2_TransportPod_Cargo");
 
         public static void init() {
             foreach (ObjectHolder object_holder in DefDatabase<ObjectHolder>.AllDefs) {
