@@ -25,6 +25,7 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null
         ) {
             switch (type) {
@@ -39,6 +40,7 @@ namespace RimNauts2.World {
                         orbit_direction,
                         color,
                         rotation_angle,
+                        transformation_rotation_angle,
                         current_position
                     );
                 case Type.AsteroidOre:
@@ -52,6 +54,7 @@ namespace RimNauts2.World {
                         orbit_direction,
                         color,
                         rotation_angle,
+                        transformation_rotation_angle,
                         current_position
                     );
                 case Type.AsteroidCrashing:
@@ -65,6 +68,7 @@ namespace RimNauts2.World {
                         orbit_direction,
                         color,
                         rotation_angle,
+                        transformation_rotation_angle,
                         current_position
                     );
                 case Type.Moon:
@@ -78,6 +82,7 @@ namespace RimNauts2.World {
                         orbit_direction,
                         color,
                         rotation_angle,
+                        transformation_rotation_angle,
                         current_position
                     );
                 case Type.Satellite:
@@ -91,6 +96,7 @@ namespace RimNauts2.World {
                         orbit_direction,
                         color,
                         rotation_angle,
+                        transformation_rotation_angle,
                         current_position
                     );
                 case Type.SpaceStation:
@@ -104,6 +110,7 @@ namespace RimNauts2.World {
                         orbit_direction,
                         color,
                         rotation_angle,
+                        transformation_rotation_angle,
                         current_position
                     );
                 default:
@@ -157,6 +164,10 @@ namespace RimNauts2.World {
 
         public static float rotation_angle(this Type type) {
             return type.defs().random_rotation ? UnityEngine.Random.value * 360.0f : 270.0f;
+        }
+
+        public static float transformation_rotation_angle(this Type type) {
+            return type.defs().random_transformation_rotation ? (UnityEngine.Random.value * 180.0f) - 90.0f : 0.0f;
         }
 
         public static int orbit_direction(this Type type) {

@@ -52,6 +52,7 @@ namespace RimNauts2.World {
         private static List<int> expose_orbit_direction;
         private static List<float> expose_color;
         private static List<float> expose_rotation_angle;
+        private static List<float> expose_transformation_rotation_angle;
         private static List<Vector3> expose_current_position;
 
         public RenderingManager(Game game) : base() => reset_instance();
@@ -92,6 +93,7 @@ namespace RimNauts2.World {
             expose_orbit_direction = new List<int>();
             expose_color = new List<float>();
             expose_rotation_angle = new List<float>();
+            expose_transformation_rotation_angle = new List<float>();
             expose_current_position = new List<Vector3>();
         }
 
@@ -120,6 +122,7 @@ namespace RimNauts2.World {
                     expose_orbit_direction[i],
                     expose_color[i],
                     expose_rotation_angle[i],
+                    expose_transformation_rotation_angle[i],
                     expose_current_position[i]
                 );
                 visual_objects.Add(neo);
@@ -140,6 +143,7 @@ namespace RimNauts2.World {
             expose_orbit_direction = new List<int>();
             expose_color = new List<float>();
             expose_rotation_angle = new List<float>();
+            expose_transformation_rotation_angle = new List<float>();
             expose_current_position = new List<Vector3>();
             for (int i = 0; i < total_objects; i++) {
                 if (visual_objects[i].object_holder != null) continue;
@@ -153,6 +157,7 @@ namespace RimNauts2.World {
                 expose_orbit_direction.Add(visual_objects[i].orbit_direction);
                 expose_color.Add(visual_objects[i].color);
                 expose_rotation_angle.Add(visual_objects[i].rotation_angle);
+                expose_transformation_rotation_angle.Add(visual_objects[i].transformation_rotation_angle);
                 expose_current_position.Add(visual_objects[i].current_position);
             }
             Scribe_Collections.Look(ref expose_type, "expose_type", LookMode.Value);
@@ -165,6 +170,7 @@ namespace RimNauts2.World {
             Scribe_Collections.Look(ref expose_orbit_direction, "expose_orbit_direction", LookMode.Value);
             Scribe_Collections.Look(ref expose_color, "expose_color", LookMode.Value);
             Scribe_Collections.Look(ref expose_rotation_angle, "expose_rotation_angle", LookMode.Value);
+            Scribe_Collections.Look(ref expose_transformation_rotation_angle, "expose_transformation_rotation_angle", LookMode.Value);
             Scribe_Collections.Look(ref expose_current_position, "expose_current_position", LookMode.Value);
             if (visual_objects.NullOrEmpty() && expose_type.Count > 0) LoadedGame();
         }
@@ -198,11 +204,11 @@ namespace RimNauts2.World {
                 });
                 for (int i = 0; i < total_objects; i++) {
                     cached_features[i]?.update_transformation(
-                        visual_objects[i].current_position,
+                        visual_objects[i].get_position(),
                         visual_objects[i].draw_size.x,
                         visual_objects[i].camera_rotation
                     );
-                    if (unpaused) cached_trails[i]?.update_transformation(visual_objects[i].current_position);
+                    if (unpaused) cached_trails[i]?.update_transformation(visual_objects[i].get_position());
                 }
             } else {
                 for (int i = 0; i < total_objects; i++) {
@@ -211,11 +217,11 @@ namespace RimNauts2.World {
                     if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
                     cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
                     cached_features[i]?.update_transformation(
-                        visual_objects[i].current_position,
+                        visual_objects[i].get_position(),
                         visual_objects[i].draw_size.x,
                         visual_objects[i].camera_rotation
                     );
-                    if (unpaused) cached_trails[i]?.update_transformation(visual_objects[i].current_position);
+                    if (unpaused) cached_trails[i]?.update_transformation(visual_objects[i].get_position());
                 }
             }
         }

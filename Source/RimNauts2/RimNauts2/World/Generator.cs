@@ -103,6 +103,7 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null
         ) {
             for (int i = 0; i < amount; i++) {
@@ -116,6 +117,7 @@ namespace RimNauts2.World {
                     time_offset,
                     orbit_direction,
                     color,
+                    transformation_rotation_angle,
                     rotation_angle,
                     current_position
                 );
@@ -133,6 +135,7 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null
         ) {
             Objects.NEO visual_object = type.neo(
@@ -145,6 +148,7 @@ namespace RimNauts2.World {
                 orbit_direction,
                 color,
                 rotation_angle,
+                transformation_rotation_angle,
                 current_position
             );
             RenderingManager.visual_objects.Add(visual_object);
@@ -164,6 +168,7 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null,
             string object_holder_def = null,
             bool weighted_choice = false
@@ -180,6 +185,7 @@ namespace RimNauts2.World {
                     orbit_direction,
                     color,
                     rotation_angle,
+                    transformation_rotation_angle,
                     current_position,
                     object_holder_def,
                     weighted_choice: weighted_choice
@@ -198,6 +204,7 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null,
             string object_holder_def = null,
             int start_index = 1,
@@ -240,6 +247,7 @@ namespace RimNauts2.World {
                 orbit_direction,
                 color,
                 rotation_angle,
+                transformation_rotation_angle,
                 current_position
             );
             if (defs.limited_days_between != null) {

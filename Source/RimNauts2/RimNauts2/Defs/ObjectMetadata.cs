@@ -12,6 +12,7 @@ namespace RimNauts2.Defs {
         public Vector2 size_between = Vector2.one;
         public Vector2 color_between = Vector2.one;
         public bool random_rotation;
+        public bool random_transformation_rotation;
         public bool random_direction;
         public bool object_holder;
         public bool trail;
