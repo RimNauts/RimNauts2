@@ -107,11 +107,13 @@ namespace RimNauts2.World {
                 Generator.generate_fresh();
                 return;
             }
-            for (int i = 0; i < cached_trails.Length; i++) cached_trails[i]?.set_active(false);
+            if (!cached_trails.NullOrEmpty()) for (int i = 0; i < cached_trails.Length; i++) cached_trails[i]?.set_active(false);
             foreach (var (_, object_holder) in Caching_Handler.object_holders) object_holder.visual_object = null;
             visual_objects = new List<Objects.NEO>();
             total_objects = expose_type.Count;
             for (int i = 0; i < total_objects; i++) {
+                float? transformation_rotation_angle = null;
+                if (!expose_transformation_rotation_angle.NullOrEmpty()) transformation_rotation_angle = expose_transformation_rotation_angle[i];
                 Objects.NEO neo = expose_type[i].neo(
                     expose_texture_path[i],
                     expose_orbit_position[i],
@@ -122,7 +124,7 @@ namespace RimNauts2.World {
                     expose_orbit_direction[i],
                     expose_color[i],
                     expose_rotation_angle[i],
-                    expose_transformation_rotation_angle[i],
+                    transformation_rotation_angle,
                     expose_current_position[i]
                 );
                 visual_objects.Add(neo);
@@ -317,7 +319,7 @@ namespace RimNauts2.World {
     [HarmonyPatch(typeof(Verse.Profile.MemoryUtility), "ClearAllMapsAndWorld")]
     public class MemoryUtility_ClearAllMapsAndWorld {
         public static void Prefix() {
-            for (int i = 0; i < RenderingManager.cached_trails.Length; i++) RenderingManager.cached_trails[i]?.set_active(false);
+            if (!RenderingManager.cached_trails.NullOrEmpty()) for (int i = 0; i < RenderingManager.cached_trails.Length; i++) RenderingManager.cached_trails[i]?.set_active(false);
             RenderingManager.reset_instance();
         }
     }
