@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HarmonyLib;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -53,7 +54,9 @@ namespace RimNauts2.World {
         private static List<float> expose_rotation_angle;
         private static List<Vector3> expose_current_position;
 
-        public RenderingManager(Game game) : base() {
+        public RenderingManager(Game game) : base() => reset_instance();
+
+        public static void reset_instance() {
             tick_manager = null;
             camera_driver = null;
             camera = null;
@@ -102,6 +105,7 @@ namespace RimNauts2.World {
                 Generator.generate_fresh();
                 return;
             }
+            for (int i = 0; i < cached_trails.Length; i++) cached_trails[i]?.set_active(false);
             foreach (var (_, object_holder) in Caching_Handler.object_holders) object_holder.visual_object = null;
             visual_objects = new List<Objects.NEO>();
             total_objects = expose_type.Count;
@@ -246,6 +250,7 @@ namespace RimNauts2.World {
         public static void recache() {
             init();
             get_frame_data();
+            for (int i = 0; i < cached_trails.Length; i++) cached_trails[i]?.set_active(false);
             dirty_features = true;
             force_update = true;
             total_objects = visual_objects.Count;
@@ -300,6 +305,14 @@ namespace RimNauts2.World {
             center = camera_driver.CurrentlyLookingAtPointOnSphere;
             altitude_percent = camera_driver.AltitudePercent;
             frame_changed = unpaused || camera_moved;
+        }
+    }
+
+    [HarmonyPatch(typeof(Verse.Profile.MemoryUtility), "ClearAllMapsAndWorld")]
+    public class MemoryUtility_ClearAllMapsAndWorld {
+        public static void Prefix() {
+            for (int i = 0; i < RenderingManager.cached_trails.Length; i++) RenderingManager.cached_trails[i]?.set_active(false);
+            RenderingManager.reset_instance();
         }
     }
 }

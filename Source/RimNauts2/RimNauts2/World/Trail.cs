@@ -49,10 +49,12 @@ namespace RimNauts2.World {
             if (this.active == active) return;
             trail_renderer.gameObject.SetActive(active);
             this.active = active;
+            trail_renderer.enabled = active;
             clear_trail();
         }
 
         public void update_transformation(Vector3 position) {
+            if (!active) return;
             trail_renderer.transform.set_position_Injected(ref position);
             TimeSpeed speed = RenderingManager.tick_manager.CurTimeSpeed;
             if (speed != prev_speed) {
