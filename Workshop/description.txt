@@ -2,11 +2,14 @@
 
 This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and artificial-satellites. Everything is [b]visible[/b] and [b]animated[/b] as an orbit on the world map. The moons are playable biomes that needs to be discovered and the artifical satellites needs to be launched into orbit.
 
-[img]https://imgur.com/FfzNxvB.gif[/img]
+[img]https://imgur.com/pz5yhVb.gif[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_blast-off.png[/img]
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_pods.png[/img]
-The rocket to the left is a [b]satellite[/b] that you can launch into orbit. This will be visible in the world map and is required to find moons. The amount of satellites you have also increases the chance of finding mineral rich asteroids in orbit. The middle rocket is the [b]space station[/b] that you can launch into orbit, and it will generate a map with a simple starter station. The right most rocket is a [b]cargo transport pod[/b] and can carry more weight. Useful for asteroid mining.
+
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_pod_launcher.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_cargo_pod.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_satellite_pod.png[/img]
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_space_station_pod.png[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/satellite.PNG[/img]
 
@@ -16,7 +19,7 @@ The rocket to the left is a [b]satellite[/b] that you can launch into orbit. Thi
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/moon.png[/img]
 
-To [b]discover moons[/b], you are required to have two satellites in orbit. Once you have that you can use the [b]satellite dish[/b] to communicate with the satellites to find a moon orbiting the planet.
+[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_satellite_dish.png[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_asteroid-mining.png[/img]
 
@@ -29,9 +32,10 @@ Mineral-rich asteroids will randomly show up in the asteroid belt for a limited 
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_translations.png[/img]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882402885]Japanese / 日本[/url]
+- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2950253969]French / Français[/url]
+- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2928845873]Simplified Chinese / 简体中文[/url]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881457639]Russian / Русский[/url] ([i]Outdated[/i])
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881589373]German / Deutsch[/url] ([i]Outdated[/i])
-- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882438269]Simplified Chinese / 简体中文[/url] ([i]Outdated[/i])
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_for-modders.png[/img]
 - [url=https://github.com/RimNauts/RimNauts2/wiki/How-to-add-custom-mineral-rich-asteroids]Adding custom mineral-rich asteroids (XML)[/url]
