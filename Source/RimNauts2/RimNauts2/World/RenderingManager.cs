@@ -261,10 +261,14 @@ namespace RimNauts2.World {
             dirty_features = false;
             cached_features = new FeatureMesh[total_objects];
             cached_trails = new Trail[total_objects];
-            if (Settings.Container.get_world_feature_name) {
-                for (int i = 0; i < total_objects; i++) cached_features[i] = visual_objects[i].get_feature();
-            } else for (int i = 0; i < total_objects; i++) visual_objects[i].object_holder?.feature_mesh?.set_active(false);
-            for (int i = 0; i < total_objects; i++) cached_trails[i] = visual_objects[i].get_trail();
+            for (int i = 0; i < total_objects; i++) {
+                if (Settings.Container.get_world_feature_name) {
+                    cached_features[i] = visual_objects[i].get_feature();
+                } else visual_objects[i].object_holder?.feature_mesh?.set_active(false);
+                if (Settings.Container.get_neo_trails) {
+                    cached_trails[i] = visual_objects[i].get_trail();
+                } else visual_objects[i].trail_renderer?.set_active(false);
+            }
         }
 
         public static void recache_materials() {

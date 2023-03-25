@@ -14,6 +14,7 @@
     <RimNauts.randomize_all_neo>Randomize all objects</RimNauts.randomize_all_neo>
     <RimNauts.incident_patch>Filter incidents on NEOs</RimNauts.incident_patch>
     <RimNauts.world_feature_name>Add labels under NEOs</RimNauts.world_feature_name>
+    <RimNauts.neo_trails>Add trails to NEOs</RimNauts.neo_trails>
     <RimNauts.raids_in_space>Allow raids on NEOs</RimNauts.raids_in_space>
     <RimNauts.quests_in_space>Allow quests on NEOs</RimNauts.quests_in_space>
 </LanguageData>

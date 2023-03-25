@@ -49,6 +49,7 @@ namespace RimNauts2.World {
             if (this.active == active) return;
             trail_renderer.gameObject.SetActive(active);
             this.active = active;
+            clear_trail();
         }
 
         public void update_transformation(Vector3 position) {
