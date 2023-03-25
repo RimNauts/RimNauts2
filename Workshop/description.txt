@@ -91,6 +91,8 @@ Yes.
 Main programmer: [url=https://ko-fi.com/sindre0830]sindre0830[/url]
 Main artist: [url=https://ko-fi.com/detvisor]DetVisor[/url]
 
+Workshop infographic template: [url=https://ko-fi.com/bingbopjeebo8087]Bing Bop Jeebo[/url]
+
 
 This mod is a continuation of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2198026141]RimNauts 1[/url].  Please refer to that page for the original developer team and their contribution (Especially the C# wizard who made it all possible in the first place; [url=https://steamcommunity.com/profiles/76561198032541893/myworkshopfiles/]Nolabritt[/url]). We also continue to use the art created by [url=https://ko-fi.com/kasmex]Kasmex[/url] and [url=https://ko-fi.com/genomex]Genome-X.[/url]
 
