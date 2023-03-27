@@ -13,6 +13,7 @@ namespace RimNauts2.Defs {
         public float max_altitude = 1600.0f;
         public float field_of_view = 40.0f;
         public float drag_sensitivity_multiplier = 0.50f;
+        public float drag_velocity_multiplier = 0.50f;
         public float zoom_sensitivity_multiplier = 0.75f;
         public float altitude_hide_labels_multiplier = 0.50f;
         public List<string> allowed_incidents;

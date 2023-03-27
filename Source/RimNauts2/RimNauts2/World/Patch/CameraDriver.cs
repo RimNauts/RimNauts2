@@ -87,7 +87,7 @@ namespace RimNauts2.World.Patch {
                     __instance.rotationVelocity = new Vector2(curInputDollyVect.x, curInputDollyVect.y) * num;
                 }
                 if ((!Input.GetMouseButton(2) || SteamDeck.IsSteamDeck && __instance.releasedLeftWhileHoldingMiddle) && __instance.dragTimeStamps.Any()) {
-                    __instance.rotationVelocity += CameraDriver.GetExtraVelocityFromReleasingDragButton(__instance.dragTimeStamps, 5f);
+                    __instance.rotationVelocity += CameraDriver.GetExtraVelocityFromReleasingDragButton(__instance.dragTimeStamps, 5f * Defs.Of.general.drag_velocity_multiplier);
                     __instance.dragTimeStamps.Clear();
                 }
                 if (!__instance.AnythingPreventsCameraMotion) {
