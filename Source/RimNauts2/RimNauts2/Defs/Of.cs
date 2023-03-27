@@ -10,6 +10,7 @@ namespace RimNauts2.Defs {
     }
 
     public class General : Def {
+        public float max_altitude = 1100.0f;
         public List<string> allowed_incidents;
         public string space_station_wall;
         public string space_station_floor;
