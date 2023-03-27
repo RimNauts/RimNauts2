@@ -31,7 +31,7 @@ namespace RimNauts2.World.Patch {
                 if (currentEventDelta != Vector2.zero) {
                     RimWorld.PlayerKnowledgeDatabase.KnowledgeDemonstrated(RimWorld.ConceptDefOf.WorldCameraMovement, RimWorld.KnowledgeAmount.FrameInteraction);
                     currentEventDelta.x *= -1f;
-                    __instance.desiredRotationRaw += currentEventDelta / RimWorld.Planet.GenWorldUI.CurUITileSize() * 0.273f * (Prefs.MapDragSensitivity * 0.50f);
+                    __instance.desiredRotationRaw += currentEventDelta / RimWorld.Planet.GenWorldUI.CurUITileSize() * 0.273f * (Prefs.MapDragSensitivity * Defs.Of.general.drag_sensitivity_multiplier);
                 }
             }
             float num = 0.0f;
@@ -47,7 +47,7 @@ namespace RimNauts2.World.Patch {
                 num -= 2f;
                 RimWorld.PlayerKnowledgeDatabase.KnowledgeDemonstrated(RimWorld.ConceptDefOf.WorldCameraMovement, RimWorld.KnowledgeAmount.SpecificInteraction);
             }
-            __instance.desiredAltitude -= (float) ((double) num * (double) (__instance.config.zoomSpeed * 0.75f) * (double) __instance.altitude / 12.0);
+            __instance.desiredAltitude -= (float) ((double) num * (double) (__instance.config.zoomSpeed * Defs.Of.general.zoom_sensitivity_multiplier) * (double) __instance.altitude / 12.0);
             __instance.desiredAltitude = Mathf.Clamp(__instance.desiredAltitude, RimWorld.Planet.WorldCameraDriver.MinAltitude, Defs.Of.general.max_altitude);
             __instance.desiredRotation = Vector2.zero;
             if (RimWorld.KeyBindingDefOf.MapDolly_Left.IsDown) {
