@@ -10,6 +10,10 @@ namespace RimNauts2.Defs {
     }
 
     public class General : Def {
+        public float max_altitude = 1600.0f;
+        public float field_of_view = 40.0f;
+        public float drag_sensitivity_multiplier = 0.50f;
+        public float zoom_sensitivity_multiplier = 0.75f;
         public List<string> allowed_incidents;
         public string space_station_wall;
         public string space_station_floor;

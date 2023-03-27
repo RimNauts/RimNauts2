@@ -68,6 +68,10 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
@@ -103,6 +107,7 @@
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Comps\RandomizeObjectHolder.cs" />
     <Compile Include="World\FeatureMesh.cs" />
+    <Compile Include="World\Patch\CameraDriver.cs" />
     <Compile Include="World\Patch\VacuumOverlay.cs" />
     <Compile Include="World\RenderingManager.cs" />
     <Compile Include="World\Tools\DespawnObjects.cs" />

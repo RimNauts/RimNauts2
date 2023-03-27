@@ -193,7 +193,9 @@ namespace RimNauts2.World {
             tick_manager = Find.TickManager;
             camera_driver = Find.WorldCameraDriver;
             camera = Find.WorldCamera.GetComponent<Camera>();
-            camera.farClipPlane = 1600.0f;
+            camera.farClipPlane = 500.0f + Defs.Of.general.max_altitude;
+            camera.fieldOfView = Defs.Of.general.field_of_view;
+            RimWorld.Planet.WorldCameraManager.worldSkyboxCameraInt.farClipPlane = 500.0f + Defs.Of.general.max_altitude;
         }
 
         public static void update() {
