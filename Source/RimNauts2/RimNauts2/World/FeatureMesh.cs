@@ -36,7 +36,7 @@ namespace RimNauts2.World {
         }
 
         public void check_hide(Vector3 position) {
-            if ((Vector3.Distance(text_mesh.transform.localPosition, RenderingManager.center) + 220.0f) > Vector3.Distance(RenderingManager.center, RenderingManager.camera_position)) {
+            if ((Vector3.Distance(text_mesh.transform.localPosition, RenderingManager.center) + (220.0f * Defs.Of.general.altitude_hide_labels_multiplier)) > Vector3.Distance(RenderingManager.center, RenderingManager.camera_position)) {
                 if (!block) block = true;
             } else if (block) block = false;
         }
