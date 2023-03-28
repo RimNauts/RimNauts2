@@ -141,4 +141,21 @@ namespace RimNauts2.World.Patch {
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldCameraDriver), "CurrentZoom", MethodType.Getter)]
+    class WorldCameraDriver_CurrentZoom {
+        public static bool Prefix(ref RimWorld.Planet.WorldCameraDriver __instance, ref RimWorld.Planet.WorldCameraZoomRange __result) {
+            float altitudePercent = __instance.AltitudePercent;
+            if ((double) altitudePercent < 0.025 * Defs.Of.general.zoom_enum_multiplier) {
+                __result = RimWorld.Planet.WorldCameraZoomRange.VeryClose;
+                return false;
+            }
+            if ((double) altitudePercent < 0.042 * Defs.Of.general.zoom_enum_multiplier) {
+                __result = RimWorld.Planet.WorldCameraZoomRange.Close;
+                return false;
+            }
+            __result = (double) altitudePercent < (0.125 * Defs.Of.general.zoom_enum_multiplier) ? RimWorld.Planet.WorldCameraZoomRange.Far : RimWorld.Planet.WorldCameraZoomRange.VeryFar;
+            return false;
+        }
+    }
 }
