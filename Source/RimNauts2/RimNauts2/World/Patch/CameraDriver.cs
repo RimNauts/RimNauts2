@@ -133,4 +133,12 @@ namespace RimNauts2.World.Patch {
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(RimWorld.Planet.WorldCameraDriver), "MinAltitude", MethodType.Getter)]
+    class WorldCameraDriver_MinAltitude {
+        public static bool Prefix(ref float __result) {
+            __result = (float) ((double) Defs.Of.general.min_altitude + (SteamDeck.IsSteamDeck ? 17.0 : 25.0));
+            return false;
+        }
+    }
 }
