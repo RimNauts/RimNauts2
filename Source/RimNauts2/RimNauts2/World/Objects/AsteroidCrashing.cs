@@ -19,6 +19,7 @@ namespace RimNauts2.World.Objects {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null
         ) : base(
             Type.AsteroidCrashing,
@@ -31,6 +32,7 @@ namespace RimNauts2.World.Objects {
             orbit_direction,
             color,
             rotation_angle,
+            transformation_rotation_angle,
             current_position
         ) {
             out_of_bounds_direction_towards_surface = Rand.Bool;
@@ -38,6 +40,7 @@ namespace RimNauts2.World.Objects {
                 out_of_bounds_offset = out_of_bounds_offset = Rand.Range(1.0f, 10.0f);
             } else out_of_bounds_offset = Rand.Range(-10.0f, 1.0f);
             current_out_of_bounds = out_of_bounds_offset;
+            trail = true;
         }
 
         public override void update() {
@@ -72,6 +75,7 @@ namespace RimNauts2.World.Objects {
             if (out_of_bounds_direction_towards_surface) {
                 crash_course = Math.Min(1.0f, current_out_of_bounds);
             } else crash_course = Math.Max(1.0f, current_out_of_bounds);
+            if (trail_renderer != null && crash_course == 1.0f) trail_renderer.clear_trail();
         }
     }
 }

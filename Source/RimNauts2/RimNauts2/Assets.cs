@@ -9,6 +9,7 @@ namespace RimNauts2 {
         public static Shader neo_shader;
         public static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Material> materials = new Dictionary<string, Material>();
+        public static Dictionary<string, Color> texture_colors = new Dictionary<string, Color>();
         public static GameObject game_object_world_feature;
 
         public static void init() {
@@ -110,6 +111,48 @@ namespace RimNauts2 {
         public static Texture2D get_texture(string path) {
             if (path == null || !textures.ContainsKey(path)) return null;
             return textures[path];
+        }
+
+        public static Color get_average_color_from_texture(string path) {
+            if (path == null) return Color.white;
+            if (texture_colors.TryGetValue(path, out Color value)) return value;
+            texture_colors[path] = average_color_from_texture(get_content<Texture2D>(path));
+            return texture_colors[path];
+        }
+
+        private static Color average_color_from_texture(Texture2D tex) {
+            if (tex == null) return Color.white;
+            // Create a temporary RenderTexture of the same size as the texture
+            RenderTexture tmp = RenderTexture.GetTemporary(
+                tex.width,
+                tex.height,
+                0,
+                RenderTextureFormat.Default,
+                RenderTextureReadWrite.Linear
+            );
+            Graphics.Blit(tex, tmp);
+            RenderTexture.active = tmp;
+            // Create a new readable Texture2D to copy the pixels to it
+            Texture2D myTexture2D = new Texture2D(tex.width, tex.height);
+            // Copy the pixels from the RenderTexture to the new Texture
+            myTexture2D.ReadPixels(new Rect(0, 0, tmp.width, tmp.height), 0, 0);
+            myTexture2D.Apply();
+            // Reset the active RenderTexture
+            //RenderTexture.active = previous;
+            // Release the temporary RenderTexture
+
+            Color[] texColors = myTexture2D.GetPixels();
+            RenderTexture.ReleaseTemporary(tmp);
+            int total = texColors.Length;
+            float r = 0;
+            float g = 0;
+            float b = 0;
+            for (int i = 0; i < total; i++) {
+                r += texColors[i].r;
+                g += texColors[i].g;
+                b += texColors[i].b;
+            }
+            return new Color(r / total, g / total, b / total, 1.0f);
         }
     }
 }

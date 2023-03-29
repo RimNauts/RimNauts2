@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -47,13 +48,14 @@ namespace RimNauts2.World {
                     add_visual_object(diff, type);
                 }
             }
+            for (int i = 0; i < RenderingManager.total_objects; i++) RenderingManager.visual_objects[i].trail_renderer?.set_active(false);
             RenderingManager.dirty_features = true;
         }
 
         public static void add_asteroid_ore() {
             RenderingManager.spawn_ore_tick = RenderingManager.get_ore_timer();
             if (!Settings.Container.get_asteroid_ore_toggle || Settings.Container.get_max_asteroid_ores <= Cache.get_total(Type.AsteroidOre)) return;
-            ObjectHolder object_holder = add_object_holder(Type.AsteroidOre);
+            ObjectHolder object_holder = add_object_holder(Type.AsteroidOre, weighted_choice: true);
             if (!Settings.Container.get_asteroid_ore_verbose || Cache.get_total(Type.Satellite) <= 0) return;
             RenderingManager.update();
             Find.LetterStack.ReceiveLetter(
@@ -101,6 +103,7 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null
         ) {
             for (int i = 0; i < amount; i++) {
@@ -114,6 +117,7 @@ namespace RimNauts2.World {
                     time_offset,
                     orbit_direction,
                     color,
+                    transformation_rotation_angle,
                     rotation_angle,
                     current_position
                 );
@@ -131,6 +135,7 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null
         ) {
             Objects.NEO visual_object = type.neo(
@@ -143,6 +148,7 @@ namespace RimNauts2.World {
                 orbit_direction,
                 color,
                 rotation_angle,
+                transformation_rotation_angle,
                 current_position
             );
             RenderingManager.visual_objects.Add(visual_object);
@@ -162,8 +168,10 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null,
-            string object_holder_def = null
+            string object_holder_def = null,
+            bool weighted_choice = false
         ) {
             for (int i = 0; i < amount; i++) {
                 add_object_holder(
@@ -177,8 +185,10 @@ namespace RimNauts2.World {
                     orbit_direction,
                     color,
                     rotation_angle,
+                    transformation_rotation_angle,
                     current_position,
-                    object_holder_def
+                    object_holder_def,
+                    weighted_choice: weighted_choice
                 );
             }
         }
@@ -194,11 +204,13 @@ namespace RimNauts2.World {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null,
             string object_holder_def = null,
-            int start_index = 1
+            int start_index = 1,
+            bool weighted_choice = false
         ) {
-            Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def);
+            Defs.ObjectHolder defs = Defs.Loader.get_object_holder(type, object_holder_def, weighted_choice);
             if (defs == null) {
                 Logger.print(
                     Logger.Importance.Error,
@@ -235,6 +247,7 @@ namespace RimNauts2.World {
                 orbit_direction,
                 color,
                 rotation_angle,
+                transformation_rotation_angle,
                 current_position
             );
             if (defs.limited_days_between != null) {

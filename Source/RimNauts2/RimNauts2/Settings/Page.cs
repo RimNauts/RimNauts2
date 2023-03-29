@@ -33,6 +33,8 @@ namespace RimNauts2.Settings {
             Container.asteroid_ore_verbose = toggle_buffer;
             toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.world_feature_name", Container.get_world_feature_name);
             Container.world_feature_name = toggle_buffer;
+            toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.neo_trails", Container.get_neo_trails);
+            Container.neo_trails = toggle_buffer;
             toggle_buffer = add_checkbox(buttons_view, key: "RimNauts.incident_patch", Container.get_incident_patch);
             Container.incident_patch = toggle_buffer;
             if (Container.get_incident_patch) {
@@ -43,7 +45,7 @@ namespace RimNauts2.Settings {
             }
             buttons_view.End();
             // table header
-            Rect table_header_rectangle = new Rect(buttons_rectangle.x, buttons_rectangle.y + (30f * 7) + 4.0f, buttons_rectangle.width, 30f);
+            Rect table_header_rectangle = new Rect(buttons_rectangle.x, buttons_rectangle.y + (30f * 8) + 4.0f, buttons_rectangle.width, 30f);
             Listing_Standard table_header_view = new Listing_Standard();
             Widgets.DrawHighlight(table_header_rectangle);
             table_header_view.Begin(table_header_rectangle);

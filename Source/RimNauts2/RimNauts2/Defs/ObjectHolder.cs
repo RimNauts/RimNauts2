@@ -14,5 +14,6 @@ namespace RimNauts2.Defs {
         public bool features;
         public string feature_name = "";
         public Color feature_color = Color.white;
+        public int spawn_weight = 1;
     }
 }

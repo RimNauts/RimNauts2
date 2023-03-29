@@ -37,8 +37,8 @@ namespace RimNauts2.World.Patch {
             }
             Vector3 normalized = pos.normalized;
             float mag = pos.magnitude;
-            float min_alt = 125;
-            float max_alt = 1100;
+            float min_alt = RimWorld.Planet.WorldCameraDriver.MinAltitude;
+            float max_alt = Defs.Of.general.max_altitude;
             float alt = RenderingManager.altitude_percent * (max_alt - min_alt) + max_alt;
             bool hide = Vector3.Angle(normalized, RenderingManager.center) > (Math.Acos(115 / alt) + Math.Acos(115 / mag)) * (degree / 3.14d);
             if (mag < 115) hide = Vector3.Angle(normalized, RenderingManager.center) > 73.0f;

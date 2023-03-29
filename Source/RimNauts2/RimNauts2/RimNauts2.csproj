@@ -68,6 +68,10 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
@@ -94,6 +98,7 @@
     <Compile Include="Settings\Container.cs" />
     <Compile Include="Settings\Page.cs" />
     <Compile Include="Things\Building\DeliveryCannon.cs" />
+    <Compile Include="Things\Building\PodLauncher.cs" />
     <Compile Include="Things\Comps\BuildRoof.cs" />
     <Compile Include="Things\Comps\RemoveRoof.cs" />
     <Compile Include="Things\Patch\Roof.cs" />
@@ -103,6 +108,7 @@
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Comps\RandomizeObjectHolder.cs" />
     <Compile Include="World\FeatureMesh.cs" />
+    <Compile Include="World\Patch\CameraDriver.cs" />
     <Compile Include="World\Patch\VacuumOverlay.cs" />
     <Compile Include="World\RenderingManager.cs" />
     <Compile Include="World\Tools\DespawnObjects.cs" />
@@ -139,6 +145,7 @@
     <Compile Include="World\Objects\SpaceStation.cs" />
     <Compile Include="World\Patch\Caravan.cs" />
     <Compile Include="World\Patch\Transportpod.cs" />
+    <Compile Include="World\Trail.cs" />
     <Compile Include="World\Type.cs" />
     <Compile Include="World\Patch\HideIcons.cs" />
     <Compile Include="Things\TransportPod.cs" />

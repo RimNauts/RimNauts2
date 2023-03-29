@@ -12,6 +12,7 @@ namespace RimNauts2.World.Objects {
             int? orbit_direction = null,
             float? color = null,
             float? rotation_angle = null,
+            float? transformation_rotation_angle = null,
             Vector3? current_position = null
         ) : base(
             Type.AsteroidOre,
@@ -24,6 +25,7 @@ namespace RimNauts2.World.Objects {
             orbit_direction,
             color,
             rotation_angle,
+            transformation_rotation_angle,
             current_position
         ) { }
 
