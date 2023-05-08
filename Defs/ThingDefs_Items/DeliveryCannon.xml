@@ -1,28 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ThingDef ParentName="ShelfBase">
+    <ThingDef ParentName="BuildingBase">
         <defName>RimNauts2_DeliveryCannon</defName>
         <label>delivery cannon</label>
         <description>Devlivery cannon for transporting large amount of resources to other parts of the solar system.</description>
         <thingClass>RimNauts2.Things.Building.DeliveryCannon</thingClass>
         <graphicData>
-            <texPath>Things/Building/Furniture/Shelf</texPath>
-            <graphicClass>Graphic_Multi</graphicClass>
-            <drawSize>(3,2)</drawSize>
+            <texPath>Things/Buildings/Misc/RimNauts2_DeliveryCannon</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(6, 6)</drawSize>
         </graphicData>
-        <costStuffCount>20</costStuffCount>
+        <designationCategory>Misc</designationCategory>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <castEdgeShadows>false</castEdgeShadows>
+        <pathCost>50</pathCost>
+        <defaultPlacingRot>North</defaultPlacingRot>
         <statBases>
             <MaxHitPoints>100</MaxHitPoints> 
             <Mass>8</Mass>
             <WorkToBuild>500</WorkToBuild>
-            <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+            <Flammability>0.5</Flammability>
         </statBases>
-        <size>(2,1)</size>
-        <designationHotKey>Misc12</designationHotKey>
+        <costList>
+            <Steel>100</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <size>(4, 4)</size>
+        <rotatable>false</rotatable>
+        <staticSunShadowHeight>0.0</staticSunShadowHeight>
         <building>
-            <relatedBuildCommands>
-                <li>ShelfSmall</li>
-            </relatedBuildCommands>
+            <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+            <maxItemsInCell>10</maxItemsInCell>
+            <storageGroupTag>Shelf</storageGroupTag>
+            <blueprintClass>Blueprint_Storage</blueprintClass>
+            <fixedStorageSettings>
+                <filter>
+                    <disallowNotEverStorable>true</disallowNotEverStorable>
+                    <categories>
+                        <li>Root</li>
+                    </categories>
+                    <disallowedCategories>
+                    </disallowedCategories>
+                    <specialFiltersToDisallow>
+                    </specialFiltersToDisallow>
+                </filter>
+            </fixedStorageSettings>
+            <defaultStorageSettings>
+                <priority>Preferred</priority>
+                <filter>
+                    <categories>
+                        <li>Foods</li>
+                        <li>Manufactured</li>
+                        <li>ResourcesRaw</li>
+                        <li>Items</li>
+                        <li>Weapons</li>
+                        <li>Apparel</li>
+                        <li>BodyParts</li>
+                    </categories>
+                </filter>
+            </defaultStorageSettings>
+            <paintable>false</paintable>
         </building>
+        <inspectorTabs>
+            <li>ITab_Storage</li>
+        </inspectorTabs>
+        <surfaceType>Item</surfaceType>
+        <canOverlapZones>false</canOverlapZones>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
     </ThingDef>
 </Defs>
