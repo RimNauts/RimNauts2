@@ -5,7 +5,7 @@
         <soundInteract>Metal_Drop</soundInteract>
         <soundDrop>Standard_Drop</soundDrop>
         <stackLimit>1</stackLimit>
-        <healthAffectsPrice>true</healthAffectsPrice>
+        <healthAffectsPrice>false</healthAffectsPrice>
         <intricate>true</intricate>
         <thingCategories>
             <li>Manufactured</li>
@@ -27,7 +27,6 @@
             <MarketValue>32</MarketValue>
             <Mass>50.0</Mass>
             <Flammability>1.6</Flammability>
-            <DeteriorationRate>3.0</DeteriorationRate>
         </statBases>
     </ThingDef>
     
@@ -45,7 +44,6 @@
             <MarketValue>32</MarketValue>
             <Mass>50.0</Mass>
             <Flammability>1.6</Flammability>
-            <DeteriorationRate>3.0</DeteriorationRate>
         </statBases>
     </ThingDef>
 </Defs>
