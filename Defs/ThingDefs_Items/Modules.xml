@@ -20,6 +20,7 @@
         <graphicData>
             <texPath>Things/Items/RimNauts2_SatelliteModule</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
         </graphicData>
         <statBases>
             <MaxHitPoints>250</MaxHitPoints>
@@ -37,6 +38,7 @@
         <graphicData>
             <texPath>Things/Items/RimNauts2_StationModule</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
         </graphicData>
         <statBases>
             <MaxHitPoints>250</MaxHitPoints>

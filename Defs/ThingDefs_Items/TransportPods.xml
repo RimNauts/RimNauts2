@@ -48,19 +48,6 @@
             <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
         <comps>
-            <li Class="RimNauts2.Things.TransportPod_Properties">
-                <fuelThreshold>200.0</fuelThreshold>
-                <label>Launch satellite</label>
-                <desc>Launch satellite into orbit.</desc>
-                <name>satellite</name>
-                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</iconPath>
-                <failMessageFuel>fuel required, currently at</failMessageFuel>
-                <failMessageLaunch>Failed to launch satellite into orbit.</failMessageLaunch>
-                <successMessage>Successfully launched a satellite into orbit.</successMessage>
-                <type>5</type>
-                <createMap>false</createMap>
-                <skyfallerLeaving>RimNauts2_DropPodLeaving_ArtificialSatellite</skyfallerLeaving>
-            </li>
         </comps>
     </ThingDef>
 
@@ -79,19 +66,6 @@
             <ComponentIndustrial>40</ComponentIndustrial>
         </costList>
         <comps>
-            <li Class="RimNauts2.Things.TransportPod_Properties">
-                <fuelThreshold>1000.0</fuelThreshold>
-                <label>Launch space station</label>
-                <desc>Launch space station into orbit.</desc>
-                <name>space station</name>
-                <iconPath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</iconPath>
-                <failMessageFuel>fuel required, currently at</failMessageFuel>
-                <failMessageLaunch>Failed to launch space station into orbit.</failMessageLaunch>
-                <successMessage>Successfully launched a space station into orbit.</successMessage>
-                <type>6</type>
-                <createMap>true</createMap>
-                <skyfallerLeaving>RimNauts2_DropPodLeaving_SpaceStation</skyfallerLeaving>
-            </li>
         </comps>
     </ThingDef>
 
@@ -116,6 +90,34 @@
             </li>
             <li Class="CompProperties_Launchable">
                 <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <label>Launch satellite</label>
+                <desc>Launch satellite into orbit.</desc>
+                <name>satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</iconPath>
+                <failMessageFuel>fuel required, currently at</failMessageFuel>
+                <failMessageLaunch>Failed to launch satellite into orbit.</failMessageLaunch>
+                <successMessage>Successfully launched a satellite into orbit.</successMessage>
+                <type>5</type>
+                <createMap>false</createMap>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite</module_def>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>1000.0</fuelThreshold>
+                <label>Launch space station</label>
+                <desc>Launch space station into orbit.</desc>
+                <name>space station</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</iconPath>
+                <failMessageFuel>fuel required, currently at</failMessageFuel>
+                <failMessageLaunch>Failed to launch space station into orbit.</failMessageLaunch>
+                <successMessage>Successfully launched a space station into orbit.</successMessage>
+                <type>6</type>
+                <createMap>true</createMap>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving_SpaceStation</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Station</module_def>
             </li>
         </comps>
         <inspectorTabs>

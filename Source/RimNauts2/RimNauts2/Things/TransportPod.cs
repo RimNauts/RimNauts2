@@ -18,12 +18,14 @@ namespace RimNauts2.Things {
         public int type;
         public bool createMap;
         public ThingDef skyfallerLeaving;
+        public string module_def;
 
         public TransportPod_Properties() => compClass = typeof(TransportPod);
     }
 
     [StaticConstructorOnStartup]
     public class TransportPod : ThingComp {
+        private RimWorld.CompTransporter cached_comp_transporter;
         public Verse.Building FuelingPortSource => RimWorld.FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map);
         public bool ConnectedToFuelingPort => FuelingPortSource != null;
         public float FuelingPortSourceFuel => !ConnectedToFuelingPort ? 0.0f : FuelingPortSource.GetComp<RimWorld.CompRefuelable>().Fuel;
@@ -39,8 +41,14 @@ namespace RimNauts2.Things {
                 action = new Action(launch)
             };
             if (!DebugSettings.godMode) {
-                if (FuelingPortSourceFuel < Props.fuelThreshold)
+                ThingDef module_thing = ThingDef.Named(Props.module_def);
+                if (!Transporter.innerContainer.Contains(module_thing)) {
+                    cmd.Disable("Requires 1 " + module_thing.label);
+                } else if (FuelingPortSourceFuel < Props.fuelThreshold) {
                     cmd.Disable(Props.fuelThreshold + " " + Props.failMessageFuel + " " + FuelingPortSourceFuel + "/" + Props.fuelThreshold);
+                } else if (Transporter.innerContainer.Count != 1) {
+                    cmd.Disable("Can only send 1 module into orbit, please remove everything else");
+                }
             }
             yield return cmd;
         }
@@ -89,6 +97,14 @@ namespace RimNauts2.Things {
                     Find.World.WorldUpdate();
                 }
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
+            }
+        }
+
+        public RimWorld.CompTransporter Transporter {
+            get {
+                if (cached_comp_transporter == null)
+                    cached_comp_transporter = parent.GetComp<RimWorld.CompTransporter>();
+                return cached_comp_transporter;
             }
         }
     }
