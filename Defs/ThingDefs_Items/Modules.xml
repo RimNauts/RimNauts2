@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef Name="RimNauts2_Module" ParentName="ResourceBase">
+        <possessionCount>2</possessionCount>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <stackLimit>1</stackLimit>
+        <healthAffectsPrice>true</healthAffectsPrice>
+        <intricate>true</intricate>
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        <allowedArchonexusCount>2</allowedArchonexusCount>
+    </ThingDef>
+    
+    <ThingDef ParentName="RimNauts2_Module">
+        <defName>RimNauts2_Module_Satellite</defName>
+        <label>satellite module</label>
+        <description>Satellite module for construction of an artificial satellite. Send it up into orbit with a rocket.</description>
+        <graphicData>
+            <texPath>Things/Items/RimNauts2_SatelliteModule</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <MarketValue>32</MarketValue>
+            <Mass>50.0</Mass>
+            <Flammability>1.6</Flammability>
+            <DeteriorationRate>3.0</DeteriorationRate>
+        </statBases>
+    </ThingDef>
+    
+    <ThingDef ParentName="RimNauts2_Module">
+        <defName>RimNauts2_Module_Station</defName>
+        <label>station module</label>
+        <description>Station module for construction of a space station. Send it up into orbit with a rocket.</description>
+        <graphicData>
+            <texPath>Things/Items/RimNauts2_StationModule</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <MarketValue>32</MarketValue>
+            <Mass>50.0</Mass>
+            <Flammability>1.6</Flammability>
+            <DeteriorationRate>3.0</DeteriorationRate>
+        </statBases>
+    </ThingDef>
+</Defs>
