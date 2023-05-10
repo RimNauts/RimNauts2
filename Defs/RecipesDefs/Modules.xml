@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <RecipeDef Name="RimNauts2_Make_Module">
+    <RecipeDef Name="RimNauts2_Make_Module" Abstract="True">
         <jobString>Making module.</jobString>
         <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
         <effectWorking>Cook</effectWorking>

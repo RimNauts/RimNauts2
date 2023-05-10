@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ThingDef Name="RimNauts2_Module" ParentName="ResourceBase">
+    <ThingDef Name="RimNauts2_Module" ParentName="ResourceBase" Abstract="True">
         <possessionCount>2</possessionCount>
         <soundInteract>Metal_Drop</soundInteract>
         <soundDrop>Standard_Drop</soundDrop>
