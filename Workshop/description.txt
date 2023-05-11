@@ -34,8 +34,8 @@ Mineral-rich asteroids will randomly show up in the asteroid belt for a limited 
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2882402885]Japanese / 日本[/url]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2950253969]French / Français[/url]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2928845873]Simplified Chinese / 简体中文[/url]
+- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881589373]German / Deutsch[/url]
 - [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881457639]Russian / Русский[/url] ([i]Outdated[/i])
-- [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2881589373]German / Deutsch[/url] ([i]Outdated[/i])
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_for-modders.png[/img]
 - [url=https://github.com/RimNauts/RimNauts2/wiki/How-to-add-custom-mineral-rich-asteroids]Adding custom mineral-rich asteroids (XML)[/url]
