@@ -8,8 +8,8 @@ This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_pod_launcher.png[/img]
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_cargo_pod.png[/img]
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_satellite_pod.png[/img]
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_space_station_pod.png[/img]
+
+To launch artificial satellites you need to craft modules in the fabrication bench and load it into the cargo pod.
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/satellite.PNG[/img]
 
@@ -64,7 +64,7 @@ Yes, but you need to abandon any map that you have generated on a NEO (Space Sta
 [quote]
 [b]I can't find the buildings/items, where are they?[/b]
 
-Everything is locked behind the [b]Transport Pod research[/b]. Items can be crafted in the [b]fabrication bench[/b].
+You can check it out on the [url=https://github.com/RimNauts/RimNauts2/wiki/Items]wiki.[/url]
 [/quote]
 [quote]
 [b]What is the point of the moons?[/b]
@@ -74,7 +74,7 @@ Mostly for role-play, but it is also a lot better on performance since there are
 [quote]
 [b]Can we get reusable ships?[/b]
 
-Use SRTS or Vehicles Framework.
+Use SRTS or Vehicles Framework (Magnetic field roof currently doesn't work with SRTS).
 [/quote]
 [quote]
 [b]Should I use RimNauts 1 together with RimNauts 2?[/b]
