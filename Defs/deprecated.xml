@@ -169,4 +169,66 @@
 	<WorldObjectDef ParentName="RimNauts2_Satellite">
 		<defName>RimNauts2_WasteSatellite</defName>
 	</WorldObjectDef>
+
+    <ThingDef ParentName="RimNauts2_TransportPod">
+        <defName>RimNauts2_TransportPod_Satellite</defName>
+        <label>Satellite</label>
+        <description>A launchable satellite capable of carrying it out to orbit.</description>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+        <costList>
+            <Steel>60</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <comps></comps>
+        <designationCategory></designationCategory>
+        <researchPrerequisites></researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_TransportPod">
+        <defName>RimNauts2_TransportPod_SpaceStation</defName>
+        <label>Space station</label>
+        <description>A launchable space station capable of carrying it out to orbit.</description>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+        <costList>
+            <Steel>1000</Steel>
+            <ComponentIndustrial>40</ComponentIndustrial>
+        </costList>
+        <comps></comps>
+        <designationCategory></designationCategory>
+        <researchPrerequisites></researchPrerequisites>
+    </ThingDef>
+
+	<ThingDef ParentName="RimNauts2_DropPodLeaving">
+        <defName>RimNauts2_DropPodLeaving_ArtificialSatellite</defName>
+        <label>Satellite (leaving)</label>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutFlying</shaderType>
+            <drawSize>5</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_DropPodLeaving">
+        <defName>RimNauts2_DropPodLeaving_SpaceStation</defName>
+        <label>Space station (leaving)</label>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutFlying</shaderType>
+            <drawSize>5</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+    </ThingDef>
 </Defs>
