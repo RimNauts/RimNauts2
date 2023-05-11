@@ -61,6 +61,7 @@ namespace RimNauts2.Things {
                     prefix: Style.name_prefix
                 );
             } else {
+                Transporter.innerContainer.Clear();
                 Map map = parent.Map;
                 Verse.Building fuelingPortSource = FuelingPortSource;
                 fuelingPortSource?.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(Props.fuelThreshold);
