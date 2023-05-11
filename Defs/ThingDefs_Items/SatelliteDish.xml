@@ -4,7 +4,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>RimNauts2_SatelliteDish</defName>
 		<label>Satellite dish</label>
-		<description>A way for your colonist to explore the outer space and find suitable places for exploration.</description>
+		<description>A way for your colonist to explore outer space and find suitable places for exploration.</description>
 		<graphicData>
 			<texPath>Things/Items/RimNauts2_SatelliteDish</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

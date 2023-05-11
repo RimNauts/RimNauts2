@@ -36,7 +36,7 @@
     <ThingDef ParentName="RimNauts2_TransportPod">
         <defName>RimNauts2_TransportPod_Cargo</defName>
         <label>Cargo transport pod</label>
-        <description>A launchable cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+        <description>A launchable cargo pod capable of carrying people, items, or animals. It can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
         <graphicData>
             <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
             <graphicClass>Graphic_Single</graphicClass>

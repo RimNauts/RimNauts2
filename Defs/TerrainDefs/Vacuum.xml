@@ -34,7 +34,7 @@
 	<TerrainDef ParentName="FloorBase">
 		<defName>RimNauts2_Vacuum_Glass</defName>
 		<label>Vacuum Sealed Glass Floor</label>
-    	<description>Vacuum sealed glass floor allows your colonist to view outerspace without the risks of decompression or suffocation.</description>
+    	<description>Vacuum sealed glass floor allows your colonist to view outer space without the risks of decompression or suffocation.</description>
 		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum</texturePath>
 		<edgeType>Hard</edgeType>
 		<renderPrecedence>20</renderPrecedence>

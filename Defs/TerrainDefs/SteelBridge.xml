@@ -6,7 +6,7 @@
 		<label>Steel bridge</label>
 		<description>Bridge which can be built over water. Unlike the wooden bridge, anything can be built on this bridge.</description>
 		<texturePath>Terrain/Surfaces/RimNauts2_SteelBridge</texturePath>
-		<uiIconPath>Terrain/Surfaces/RimNauts2_SteelBridge_MenuIcon</uiIconPath>
+		<uiIconPath>Icons/RimNauts2_SteelBridge</uiIconPath>
 		<layerable>true</layerable>
 		<bridge>true</bridge>
 		<affordances>
