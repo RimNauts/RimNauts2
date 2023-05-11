@@ -43,11 +43,11 @@ namespace RimNauts2.Things {
             if (!DebugSettings.godMode) {
                 ThingDef module_thing = ThingDef.Named(Props.module_def);
                 if (!Transporter.innerContainer.Contains(module_thing)) {
-                    cmd.Disable("Requires 1 " + module_thing.label);
+                    cmd.Disable(TranslatorFormattedStringExtensions.Translate(key: "RimNauts.module_required", module_thing.label));
                 } else if (FuelingPortSourceFuel < Props.fuelThreshold) {
                     cmd.Disable(Props.fuelThreshold + " " + Props.failMessageFuel + " " + FuelingPortSourceFuel + "/" + Props.fuelThreshold);
                 } else if (Transporter.innerContainer.Count != 1) {
-                    cmd.Disable("Can only send 1 module into orbit, please remove everything else");
+                    cmd.Disable(TranslatorFormattedStringExtensions.Translate(key: "RimNauts.only_module", module_thing.label));
                 }
             }
             yield return cmd;
