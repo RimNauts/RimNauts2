@@ -24,4 +24,39 @@
             </ticksToImpactRange>
         </skyfaller>
     </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_DropPodLeaving">
+        <defName>RimNauts2_DropPodLeaving_Shell</defName>
+        <label>shell (leaving)</label>
+        <thingClass>FlyShipLeaving</thingClass>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutFlying</shaderType>
+            <drawSize>(2, 2)</drawSize>
+            <drawOffset>(0.5, 0.0, 1.5)</drawOffset>
+        </graphicData>
+        <skyfaller>
+            <movementType>Decelerate</movementType>
+            <reversed>true</reversed>
+            <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+            <shadowSize>(2, 2)</shadowSize>
+            <anticipationSound>Explosion_Bomb</anticipationSound>
+            <anticipationSoundTicks>0</anticipationSoundTicks>
+            <ticksToImpactRange>
+                <min>0</min>
+                <max>0</max>
+            </ticksToImpactRange>
+            <angleCurve>
+                <points>
+                    <li>(0, 0)</li>
+                </points>
+            </angleCurve>
+            <rotationCurve>
+                <points>
+                    <li>(0, 0)</li>
+                </points>
+            </rotationCurve>
+        </skyfaller>
+    </ThingDef>
 </Defs>

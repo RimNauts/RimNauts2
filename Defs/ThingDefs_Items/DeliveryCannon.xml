@@ -11,11 +11,12 @@
             <drawSize>(6, 6)</drawSize>
         </graphicData>
         <designationCategory>Misc</designationCategory>
-        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <altitudeLayer>Building</altitudeLayer>
         <passability>PassThroughOnly</passability>
         <castEdgeShadows>false</castEdgeShadows>
         <pathCost>50</pathCost>
         <defaultPlacingRot>North</defaultPlacingRot>
+        <tickerType>Normal</tickerType>
         <statBases>
             <MaxHitPoints>100</MaxHitPoints> 
             <Mass>8</Mass>
