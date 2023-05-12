@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>RimNauts2_Unifinished_Module_Satellite</defName>
+        <label>unfinished satellite module</label>
+        <description>An unfinished satellite module.</description>
+        <graphicData>
+            <texPath>Things/Items/RimNauts2_SatelliteModule</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <stuffCategories Inherit="false" />
+    </ThingDef>
+    
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>RimNauts2_Unifinished_Module_Station</defName>
+        <label>unfinished station module</label>
+        <description>An unfinished station module.</description>
+        <graphicData>
+            <texPath>Things/Items/RimNauts2_StationModule</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <stuffCategories Inherit="false" />
+    </ThingDef>
+</Defs>

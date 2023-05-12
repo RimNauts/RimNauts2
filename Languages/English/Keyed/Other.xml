@@ -17,4 +17,6 @@
     <RimNauts.neo_trails>Add trails to NEOs</RimNauts.neo_trails>
     <RimNauts.raids_in_space>Allow raids on NEOs</RimNauts.raids_in_space>
     <RimNauts.quests_in_space>Allow quests on NEOs</RimNauts.quests_in_space>
+    <RimNauts.module_required>Requires 1 {0}</RimNauts.module_required>
+    <RimNauts.only_module>Can only send 1 module into orbit, please remove everything else</RimNauts.only_module>
 </LanguageData>
