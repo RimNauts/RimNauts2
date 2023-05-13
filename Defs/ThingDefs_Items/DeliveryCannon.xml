@@ -64,6 +64,9 @@
             </defaultStorageSettings>
             <paintable>false</paintable>
         </building>
+        <comps>
+            <li Class="RimNauts2.Things.Comps.DeliveryCannonTarget_Properties"></li>
+        </comps>
         <inspectorTabs>
             <li>ITab_Storage</li>
         </inspectorTabs>

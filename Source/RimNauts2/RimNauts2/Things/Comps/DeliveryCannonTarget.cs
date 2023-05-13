@@ -1,0 +1,128 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using Verse;
+
+namespace RimNauts2.Things.Comps {
+    public class DeliveryCannonTarget_Properties : CompProperties {
+        public DeliveryCannonTarget_Properties() => compClass = typeof(Target);
+    }
+
+    public class Target : ThingComp {
+        public DeliveryCannonTarget_Properties Props => (DeliveryCannonTarget_Properties) props;
+        public int target_tile = -1;
+        public IntVec3 target_cell = new IntVec3(-1, -1, -1);
+
+        public override IEnumerable<Gizmo> CompGetGizmosExtra() {
+            Command_Action cmd = new Command_Action {
+                defaultLabel = "Choose target",
+                defaultDesc = "",
+                icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack", true),
+                action = new Action(target)
+            };
+            yield return cmd;
+        }
+
+        public void target() {
+            CameraJumper.TryJump(CameraJumper.GetWorldTarget((RimWorld.Planet.GlobalTargetInfo) parent));
+            Find.WorldSelector.ClearSelection();
+            Find.WorldTargeter.BeginTargeting(
+                action: new Func<RimWorld.Planet.GlobalTargetInfo, bool>(get_tile_target),
+                canTargetTiles: false,
+                RimWorld.CompLaunchable.TargeterMouseAttachment,
+                closeWorldTabWhenFinished: false,
+                onUpdate: null,
+                extraLabelGetter: null
+            );
+        }
+
+        public bool get_tile_target(RimWorld.Planet.GlobalTargetInfo target) {
+            if (!target.IsValid) {
+                Messages.Message((string) "MessageTransportPodsDestinationIsInvalid".Translate(), RimWorld.MessageTypeDefOf.RejectInput, false);
+                return false;
+            }
+            Map target_map = get_map(target.Tile);
+            if (target_map == null) return false;
+
+            CameraJumper.TryJump(new RimWorld.Planet.GlobalTargetInfo(new IntVec3(target_map.Size.x / 2, 0, target_map.Size.z / 2), target_map));
+
+            Find.Targeter.BeginTargeting(
+                new RimWorld.TargetingParameters {
+                    canTargetLocations = true,
+                    canTargetSelf = false,
+                    canTargetPawns = false,
+                    canTargetFires = false,
+                    canTargetBuildings = false,
+                    canTargetItems = false,
+                    validator = (TargetInfo x) => RimWorld.DropCellFinder.IsGoodDropSpot(x.Cell, x.Map, allowFogged: false, canRoofPunch: true)
+                },
+                action: x => chose_cell_target(target.Tile, x),
+                highlightAction: x => RimWorld.RoyalTitlePermitWorker_CallShuttle.DrawShuttleGhost(x, target_map),
+                targetValidator: x => {
+                    AcceptanceReport acceptanceReport = RimWorld.RoyalTitlePermitWorker_CallShuttle.ShuttleCanLandHere(x, target_map);
+                    return acceptanceReport.Accepted;
+                },
+                mouseAttachment: RimWorld.CompLaunchable.TargeterMouseAttachment
+            );
+            return true;
+        }
+
+        public void chose_cell_target(int tile, LocalTargetInfo target) {
+            target_tile = tile;
+            target_cell = target.Cell;
+
+            CameraJumper.TryJump(new RimWorld.Planet.GlobalTargetInfo(parent.Position, parent.Map));
+
+            Log.Message(target_tile + ", " + target_cell);
+        }
+
+        public bool valid_target() {
+            if (target_tile == -1) {
+                target_cell = new IntVec3(-1, -1, -1);
+                return false;
+            }
+            if (target_cell.x == -1) {
+                target_tile = -1;
+                return false;
+            }
+            if (target_cell.y == -1) {
+                target_tile = -1;
+                return false;
+            }
+            if (target_cell.z == -1) {
+                target_tile = -1;
+                return false;
+            }
+            if (get_map(target_tile) == null) {
+                target_tile = -1;
+                target_cell = new IntVec3(-1, -1, -1);
+                return false;
+            }
+            return true;
+        }
+
+        public Map get_map(int tile) {
+            foreach (Map map in Find.Maps) {
+                if (map.Tile == tile) return map;
+            }
+            return null;
+        }
+
+        public override IEnumerable<RimWorld.StatDrawEntry> SpecialDisplayStats() {
+            yield return new RimWorld.StatDrawEntry(
+                RimWorld.StatCategoryDefOf.Building,
+                "Target tile: ",
+                target_tile.ToString(),
+                "Tile on the world map to target.",
+                3171
+            );
+            yield return new RimWorld.StatDrawEntry(
+                RimWorld.StatCategoryDefOf.Building,
+                "Target cell: ",
+                target_cell.ToString(),
+                "Position on map to target.",
+                3171
+            );
+        }
+    }
+}
