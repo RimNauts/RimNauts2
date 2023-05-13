@@ -1,11 +1,10 @@
-﻿using RimWorld.Planet;
-using Verse;
+﻿using Verse;
 
 namespace RimNauts2.Things.Building {
     [StaticConstructorOnStartup]
     public class DeliveryCannon : RimWorld.Building_Storage {
         readonly int launch_interval = 800;
-        readonly float max_capacity = 1000;
+        readonly float max_capacity = 100;
         Effecter effect = null;
         int effect_start = 0;
         readonly int effect_length_ticks = 50;
@@ -29,7 +28,6 @@ namespace RimNauts2.Things.Building {
         private void launch() {
             ThingOwner<Thing> things = new ThingOwner<Thing>();
             float capacity = 0;
-            
             foreach (Thing thing in slotGroup.HeldThings) {
                 if (capacity >= max_capacity) return;
                 capacity += thing.def.BaseMass * thing.stackCount;
