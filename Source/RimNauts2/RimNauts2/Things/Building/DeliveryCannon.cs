@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using RimWorld.Planet;
+using Verse;
 
 namespace RimNauts2.Things.Building {
     [StaticConstructorOnStartup]
@@ -40,17 +41,19 @@ namespace RimNauts2.Things.Building {
             activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
             activeDropPod.Contents.innerContainer.TryAddRangeOrTransfer(things, destroyLeftover: true);
 
-            RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(ThingDef.Named("RimNauts2_DropPodLeaving_Shell"), activeDropPod);
+            RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(
+                ThingDef.Named("RimNauts2_DropPodLeaving_Shell"),
+                activeDropPod
+            );
             flyShipLeaving.groupID = 0;
-            flyShipLeaving.destinationTile = Map.Tile;
-            flyShipLeaving.arrivalAction = null;
+            flyShipLeaving.destinationTile = Target.target_tile;
+            flyShipLeaving.arrivalAction = new TransportPodArrivalAction(Target.get_map(Target.target_tile).Parent, Target.target_cell);
             flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
 
             effect = Defs.Loader.effecter_delivery_cannon_shot.Spawn();
             effect_start = 0;
 
             GenSpawn.Spawn(flyShipLeaving, Position + new IntVec3(0, 0, 1), Map);
-            CameraJumper.TryHideWorld();
         }
     }
 }

@@ -105,6 +105,7 @@
     <Compile Include="Things\Patch\Roof.cs" />
     <Compile Include="Things\PlaceWorker\BuildRoof.cs" />
     <Compile Include="Things\PlaceWorker\RemoveRoof.cs" />
+    <Compile Include="Things\TransportPodArrivalAction.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Comps\RandomizeObjectHolder.cs" />

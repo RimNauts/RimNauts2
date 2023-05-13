@@ -12,6 +12,7 @@ namespace RimNauts2.Things.Comps {
         public DeliveryCannonTarget_Properties Props => (DeliveryCannonTarget_Properties) props;
         public int target_tile = -1;
         public IntVec3 target_cell = new IntVec3(-1, -1, -1);
+        public bool valid = false;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             Command_Action cmd = new Command_Action {
@@ -57,7 +58,7 @@ namespace RimNauts2.Things.Comps {
                     validator = (TargetInfo x) => RimWorld.DropCellFinder.IsGoodDropSpot(x.Cell, x.Map, allowFogged: false, canRoofPunch: true)
                 },
                 action: x => chose_cell_target(target.Tile, x),
-                highlightAction: x => RimWorld.RoyalTitlePermitWorker_CallShuttle.DrawShuttleGhost(x, target_map),
+                highlightAction: x => GenDraw.DrawTargetHighlight(x),//RimWorld.RoyalTitlePermitWorker_CallShuttle.DrawShuttleGhost(x, target_map),
                 targetValidator: x => {
                     AcceptanceReport acceptanceReport = RimWorld.RoyalTitlePermitWorker_CallShuttle.ShuttleCanLandHere(x, target_map);
                     return acceptanceReport.Accepted;
@@ -70,32 +71,34 @@ namespace RimNauts2.Things.Comps {
         public void chose_cell_target(int tile, LocalTargetInfo target) {
             target_tile = tile;
             target_cell = target.Cell;
-
+            valid = true;
             CameraJumper.TryJump(new RimWorld.Planet.GlobalTargetInfo(parent.Position, parent.Map));
-
-            Log.Message(target_tile + ", " + target_cell);
         }
 
         public bool valid_target() {
+            if (!valid) return false;
             if (target_tile == -1) {
                 target_cell = new IntVec3(-1, -1, -1);
+                valid = false;
                 return false;
             }
-            if (target_cell.x == -1) {
-                target_tile = -1;
-                return false;
-            }
-            if (target_cell.y == -1) {
-                target_tile = -1;
-                return false;
-            }
-            if (target_cell.z == -1) {
-                target_tile = -1;
-                return false;
-            }
-            if (get_map(target_tile) == null) {
+            if (target_cell.x == -1 || target_cell.y == -1 || target_cell.z == -1) {
                 target_tile = -1;
                 target_cell = new IntVec3(-1, -1, -1);
+                valid = false;
+                return false;
+            }
+            Map map = get_map(target_tile);
+            if (map == null) {
+                target_tile = -1;
+                target_cell = new IntVec3(-1, -1, -1);
+                valid = false;
+                return false;
+            }
+            if (!RimWorld.DropCellFinder.IsGoodDropSpot(target_cell, map, allowFogged: false, canRoofPunch: true)) {
+                target_tile = -1;
+                target_cell = new IntVec3(-1, -1, -1);
+                valid = false;
                 return false;
             }
             return true;
@@ -106,6 +109,14 @@ namespace RimNauts2.Things.Comps {
                 if (map.Tile == tile) return map;
             }
             return null;
+        }
+
+        public override string GetDescriptionPart() {
+            return "Valid target: " + valid;
+        }
+
+        public override string CompInspectStringExtra() {
+            return "Valid target: " + valid;
         }
 
         public override IEnumerable<RimWorld.StatDrawEntry> SpecialDisplayStats() {
