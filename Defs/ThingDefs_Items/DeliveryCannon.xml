@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BuildingBase">
+        <defName>RimNauts2_DeliveryCannon</defName>
+        <label>delivery cannon</label>
+        <description>Delivery cannon for transporting a large number of resources to other parts of the solar system.</description>
+        <thingClass>RimNauts2.Things.Building.DeliveryCannon</thingClass>
+        <graphicData>
+            <texPath>Things/Buildings/Misc/RimNauts2_DeliveryCannon</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(6, 6)</drawSize>
+        </graphicData>
+        <designationCategory>Misc</designationCategory>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>Impassable</passability>
+        <castEdgeShadows>false</castEdgeShadows>
+        <pathCost>500</pathCost>
+        <defaultPlacingRot>North</defaultPlacingRot>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints> 
+            <Mass>8</Mass>
+            <WorkToBuild>500</WorkToBuild>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <costList>
+            <Steel>75</Steel>
+            <Plasteel>25</Plasteel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <size>(6, 6)</size>
+        <rotatable>false</rotatable>
+        <staticSunShadowHeight>0.0</staticSunShadowHeight>
+        <building>
+            <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+            <maxItemsInCell>3</maxItemsInCell>
+            <storageGroupTag>Shelf</storageGroupTag>
+            <blueprintClass>Blueprint_Storage</blueprintClass>
+            <fixedStorageSettings>
+                <filter>
+                    <disallowNotEverStorable>true</disallowNotEverStorable>
+                    <categories>
+                        <li>Root</li>
+                    </categories>
+                    <disallowedCategories>
+                    </disallowedCategories>
+                    <specialFiltersToDisallow>
+                    </specialFiltersToDisallow>
+                </filter>
+            </fixedStorageSettings>
+            <defaultStorageSettings>
+                <priority>Preferred</priority>
+                <filter>
+                    <categories>
+                        <li>Foods</li>
+                        <li>Manufactured</li>
+                        <li>ResourcesRaw</li>
+                        <li>Items</li>
+                        <li>Weapons</li>
+                        <li>Apparel</li>
+                        <li>BodyParts</li>
+                    </categories>
+                </filter>
+            </defaultStorageSettings>
+            <paintable>false</paintable>
+        </building>
+        <comps>
+            <li Class="RimNauts2.Things.Comps.DeliveryCannonCharger_Properties">
+                <charge_interval>2000</charge_interval>
+                <max_capacity>200</max_capacity>
+            </li>
+            <li Class="RimNauts2.Things.Comps.DeliveryCannonTargeter_Properties"></li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>600</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+        </comps>
+        <inspectorTabs>
+            <li>ITab_Storage</li>
+        </inspectorTabs>
+        <surfaceType>Item</surfaceType>
+        <canOverlapZones>false</canOverlapZones>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
+    </ThingDef>
+</Defs>

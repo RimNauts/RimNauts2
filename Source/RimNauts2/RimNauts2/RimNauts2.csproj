@@ -97,12 +97,16 @@
     <Compile Include="Defs\ObjectMetadata.cs" />
     <Compile Include="Settings\Container.cs" />
     <Compile Include="Settings\Page.cs" />
+    <Compile Include="Things\Building\DeliveryCannon.cs" />
     <Compile Include="Things\Building\PodLauncher.cs" />
     <Compile Include="Things\Comps\BuildRoof.cs" />
+    <Compile Include="Things\Comps\DeliveryCannonCharger.cs" />
+    <Compile Include="Things\Comps\DeliveryCannonTargeter.cs" />
     <Compile Include="Things\Comps\RemoveRoof.cs" />
     <Compile Include="Things\Patch\Roof.cs" />
     <Compile Include="Things\PlaceWorker\BuildRoof.cs" />
     <Compile Include="Things\PlaceWorker\RemoveRoof.cs" />
+    <Compile Include="Things\TransportPodArrivalAction.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Comps\RandomizeObjectHolder.cs" />

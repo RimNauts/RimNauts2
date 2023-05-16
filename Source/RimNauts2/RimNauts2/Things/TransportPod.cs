@@ -2,7 +2,6 @@
 using Verse;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace RimNauts2.Things {
     public class TransportPod_Properties : CompProperties {
