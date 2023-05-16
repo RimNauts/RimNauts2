@@ -27,10 +27,10 @@
 
     <ThingDef ParentName="RimNauts2_DropPodLeaving">
         <defName>RimNauts2_DropPodLeaving_Shell</defName>
-        <label>shell (leaving)</label>
+        <label>delivery cannon shell (leaving)</label>
         <thingClass>FlyShipLeaving</thingClass>
         <graphicData>
-            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <texPath>Things/Special/RimNauts2_DeliveryCannon_Shell</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <shaderType>CutoutFlying</shaderType>
             <drawSize>(2, 2)</drawSize>
@@ -41,7 +41,7 @@
             <reversed>true</reversed>
             <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
             <shadowSize>(2, 2)</shadowSize>
-            <anticipationSound>Explosion_Bomb</anticipationSound>
+            <anticipationSound>RimNauts2_DeliveryCannon_Explosion</anticipationSound>
             <anticipationSoundTicks>0</anticipationSoundTicks>
             <ticksToImpactRange>
                 <min>0</min>

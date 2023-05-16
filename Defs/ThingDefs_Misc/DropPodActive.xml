@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef>
+        <defName>RimNauts2_ActiveDropPod_Shell</defName>
+        <label>delivery cannon shell</label>
+        <category>Item</category>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <thingClass>ActiveDropPod</thingClass>
+        <scatterableOnMapGen>false</scatterableOnMapGen>
+        <tickerType>Normal</tickerType>
+        <soundOpen>DropPod_Open</soundOpen>
+        <graphicData>
+            <texPath>RimNauts2_Transparent</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2, 2)</drawSize>
+            <shadowData>
+                <volume>(0.0, 0.0, 0.0)</volume>
+            </shadowData>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <blockWind>true</blockWind>
+        <useHitPoints>true</useHitPoints>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Flammability>0</Flammability>
+        </statBases>
+        <selectable>true</selectable>
+    </ThingDef>
+</Defs>

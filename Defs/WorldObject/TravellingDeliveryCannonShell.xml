@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorldObjectDef>
+        <defName>RimNauts2_TravellingDeliveryCannonShell</defName>
+        <label>delivery cannon shell</label>
+        <description>Delivery cannon shell in flight.</description>
+        <worldObjectClass>TravelingTransportPods</worldObjectClass>
+        <texture>Things/Special/RimNauts2_DeliveryCannon_Shell</texture>
+        <useDynamicDrawer>true</useDynamicDrawer>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconTexture>Things/Special/RimNauts2_DeliveryCannon_Shell</expandingIconTexture>
+        <expandingIconPriority>1004</expandingIconPriority>
+        <expandMore>true</expandMore>
+        <allowCaravanIncidentsWhichGenerateMap>false</allowCaravanIncidentsWhichGenerateMap>
+    </WorldObjectDef>
+</Defs>

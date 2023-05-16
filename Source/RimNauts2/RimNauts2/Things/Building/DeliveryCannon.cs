@@ -1,14 +1,39 @@
-﻿using Verse;
+﻿using System.Linq;
+using Verse;
 
 namespace RimNauts2.Things.Building {
     [StaticConstructorOnStartup]
     public class DeliveryCannon : RimWorld.Building_Storage {
-        readonly int launch_interval = 800;
-        readonly float max_capacity = 100;
         Effecter effect = null;
         int effect_start = 0;
-        readonly int effect_length_ticks = 50;
-        public Comps.Target Target => GetComp<Comps.Target>();
+        readonly int effect_length_ticks = 40;
+        Comps.Targeter targeter = null;
+        Comps.Charger charger = null;
+        RimWorld.CompPowerTrader power = null;
+
+        public Comps.Targeter Targeter {
+            get {
+                if (targeter != null) return targeter;
+                targeter = GetComp<Comps.Targeter>();
+                return targeter;
+            }
+        }
+
+        public Comps.Charger Charger {
+            get {
+                if (charger != null) return charger;
+                charger = GetComp<Comps.Charger>();
+                return charger;
+            }
+        }
+
+        public RimWorld.CompPowerTrader Power {
+            get {
+                if (power != null) return power;
+                power = GetComp<RimWorld.CompPowerTrader>();
+                return power;
+            }
+        }
 
         public override void Tick() {
             base.Tick();
@@ -20,16 +45,19 @@ namespace RimNauts2.Things.Building {
                     effect = null;
                 }
             }
-            if (World.RenderingManager.tick % launch_interval != 0) return;
-            if (!Target.valid_target()) return;
+            if (!Power.PowerOn) return;
+            if (Charger.charging()) return;
+            if (slotGroup.HeldThings.Count() <= 0) return;
+            if (!Targeter.valid_target()) return;
             launch();
+            Charger.reset();
         }
 
         private void launch() {
             ThingOwner<Thing> things = new ThingOwner<Thing>();
             float capacity = 0;
             foreach (Thing thing in slotGroup.HeldThings) {
-                if (capacity >= max_capacity) return;
+                if (capacity >= Charger.Props.max_capacity) return;
                 capacity += thing.def.BaseMass * thing.stackCount;
                 thing.holdingOwner = null;
                 things.TryAddOrTransfer(thing, thing.stackCount);
@@ -44,9 +72,9 @@ namespace RimNauts2.Things.Building {
                 activeDropPod
             );
             flyShipLeaving.groupID = 0;
-            flyShipLeaving.destinationTile = Target.target_tile;
-            flyShipLeaving.arrivalAction = new TransportPodArrivalAction(Target.get_map(Target.target_tile).Parent, Target.target_cell);
-            flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
+            flyShipLeaving.destinationTile = Targeter.target_tile;
+            flyShipLeaving.arrivalAction = new TransportPodArrivalAction(Targeter.get_map(Targeter.target_tile).Parent, Targeter.target_cell);
+            flyShipLeaving.worldObjectDef = Defs.Loader.world_object_travelling_delivery_cannon_shell;
 
             effect = Defs.Loader.effecter_delivery_cannon_shot.Spawn();
             effect_start = 0;

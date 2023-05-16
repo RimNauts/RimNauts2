@@ -94,7 +94,7 @@
         <label>Delivery Cannon Shell</label>
         <description>A shell capable of launching items through Delivery Cannon.</description>
         <graphicData>
-            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <texPath>Things/Special/RimNauts2_DeliveryCannon_Shell</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(2, 2)</drawSize>
             <drawOffset>(0.0, 0.0, 1.0)</drawOffset>

@@ -14,6 +14,9 @@ namespace RimNauts2.Defs {
         public static RimWorld.BiomeDef biome_satellite = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_Satellite_Biome");
         public static ThingDef thing_cargo_pod = DefDatabase<ThingDef>.GetNamed("RimNauts2_TransportPod_Cargo");
         public static EffecterDef effecter_delivery_cannon_shot = DefDatabase<EffecterDef>.GetNamed("RimNauts2_DeliveryCannon_Shot");
+        public static RimWorld.WorldObjectDef world_object_travelling_delivery_cannon_shell = DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_TravellingDeliveryCannonShell");
+        public static ThingDef thing_delivery_cannon_incoming = DefDatabase<ThingDef>.GetNamed("RimNauts2_DropPodIncoming_Shell");
+        public static ThingDef thing_delivery_cannon_active = DefDatabase<ThingDef>.GetNamed("RimNauts2_ActiveDropPod_Shell");
 
         public static void init() {
             foreach (ObjectHolder object_holder in DefDatabase<ObjectHolder>.AllDefs) {

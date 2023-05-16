@@ -32,7 +32,11 @@ namespace RimNauts2.Things {
             for (int i = 0; i < pods.Count; i++) {
                 pod.innerContainer.TryAddRangeOrTransfer(pods[i].innerContainer, destroyLeftover: true);
             }
-            DropPodUtility.MakeDropPodAt(cell, map_parent.Map, pod);
+            pod.openDelay = 0;
+            Thing activeDropPod_thing = ThingMaker.MakeThing(Defs.Loader.thing_delivery_cannon_active);
+            RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) activeDropPod_thing;
+            activeDropPod.Contents = pod;
+            RimWorld.SkyfallerMaker.SpawnSkyfaller(Defs.Loader.thing_delivery_cannon_incoming, activeDropPod, cell, map_parent.Map);
         }
 
         public static bool CanLandInSpecificCell(IEnumerable<IThingHolder> pods, RimWorld.Planet.MapParent mapParent) {

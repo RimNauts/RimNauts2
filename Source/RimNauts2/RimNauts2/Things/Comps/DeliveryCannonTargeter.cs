@@ -4,15 +4,22 @@ using UnityEngine;
 using Verse;
 
 namespace RimNauts2.Things.Comps {
-    public class DeliveryCannonTarget_Properties : CompProperties {
-        public DeliveryCannonTarget_Properties() => compClass = typeof(Target);
+    public class DeliveryCannonTargeter_Properties : CompProperties {
+        public DeliveryCannonTargeter_Properties() => compClass = typeof(Targeter);
     }
 
-    public class Target : ThingComp {
-        public DeliveryCannonTarget_Properties Props => (DeliveryCannonTarget_Properties) props;
+    public class Targeter : ThingComp {
+        public DeliveryCannonTargeter_Properties Props => (DeliveryCannonTargeter_Properties) props;
         public int target_tile = -1;
         public IntVec3 target_cell = new IntVec3(-1, -1, -1);
         public bool valid = false;
+
+        public override void PostExposeData() {
+            base.PostExposeData();
+            Scribe_Values.Look(ref target_tile, "target_tile", -1);
+            Scribe_Values.Look(ref target_cell, "target_cell", new IntVec3(-1, -1, -1));
+            Scribe_Values.Look(ref valid, "valid", false);
+        }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             Command_Action cmd = new Command_Action {
@@ -29,11 +36,7 @@ namespace RimNauts2.Things.Comps {
             Find.WorldSelector.ClearSelection();
             Find.WorldTargeter.BeginTargeting(
                 action: new Func<RimWorld.Planet.GlobalTargetInfo, bool>(get_tile_target),
-                canTargetTiles: false,
-                RimWorld.CompLaunchable.TargeterMouseAttachment,
-                closeWorldTabWhenFinished: false,
-                onUpdate: null,
-                extraLabelGetter: null
+                canTargetTiles: false
             );
         }
 
@@ -58,12 +61,8 @@ namespace RimNauts2.Things.Comps {
                     validator = (TargetInfo x) => RimWorld.DropCellFinder.IsGoodDropSpot(x.Cell, x.Map, allowFogged: false, canRoofPunch: true)
                 },
                 action: x => chose_cell_target(target.Tile, x),
-                highlightAction: x => GenDraw.DrawTargetHighlight(x),//RimWorld.RoyalTitlePermitWorker_CallShuttle.DrawShuttleGhost(x, target_map),
-                targetValidator: x => {
-                    AcceptanceReport acceptanceReport = RimWorld.RoyalTitlePermitWorker_CallShuttle.ShuttleCanLandHere(x, target_map);
-                    return acceptanceReport.Accepted;
-                },
-                mouseAttachment: RimWorld.CompLaunchable.TargeterMouseAttachment
+                highlightAction: x => GenDraw.DrawTargetHighlight(x),
+                targetValidator: x => RimWorld.DropCellFinder.IsGoodDropSpot(x.Cell, target_map, allowFogged: false, canRoofPunch: true)
             );
             return true;
         }
@@ -109,10 +108,6 @@ namespace RimNauts2.Things.Comps {
                 if (map.Tile == tile) return map;
             }
             return null;
-        }
-
-        public override string GetDescriptionPart() {
-            return "Valid target: " + valid;
         }
 
         public override string CompInspectStringExtra() {

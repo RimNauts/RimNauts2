@@ -33,7 +33,7 @@
         <building>
             <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
             <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
-            <maxItemsInCell>10</maxItemsInCell>
+            <maxItemsInCell>5</maxItemsInCell>
             <storageGroupTag>Shelf</storageGroupTag>
             <blueprintClass>Blueprint_Storage</blueprintClass>
             <fixedStorageSettings>
@@ -65,7 +65,16 @@
             <paintable>false</paintable>
         </building>
         <comps>
-            <li Class="RimNauts2.Things.Comps.DeliveryCannonTarget_Properties"></li>
+            <li Class="RimNauts2.Things.Comps.DeliveryCannonCharger_Properties">
+                <charge_interval>2000</charge_interval>
+                <max_capacity>200</max_capacity>
+            </li>
+            <li Class="RimNauts2.Things.Comps.DeliveryCannonTargeter_Properties"></li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>600</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
         </comps>
         <inspectorTabs>
             <li>ITab_Storage</li>
