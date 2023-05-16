@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="SkyfallerBase">
+        <defName>RimNauts2_DropPodIncoming_Shell</defName>
+        <label>delivery cannon shell (incoming)</label>
+        <thingClass>DropPodIncoming</thingClass>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DeliveryCannon_Shell</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutFlying</shaderType>
+            <drawSize>(2, 2)</drawSize>
+        </graphicData>
+        <skyfaller>
+            <movementType>Decelerate</movementType>
+            <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+            <shadowSize>(2, 2)</shadowSize>
+            <anticipationSound>DropPod_Fall</anticipationSound>
+            <anticipationSoundTicks>100</anticipationSoundTicks>
+            <impactSound>DropPod_Impact</impactSound>
+            <motesPerCell>0</motesPerCell>
+            <angleCurve>
+                <points>
+                    <li>(0, 0)</li>
+                </points>
+            </angleCurve>
+            <rotationCurve>
+                <points>
+                    <li>(0, 0)</li>
+                </points>
+            </rotationCurve>
+        </skyfaller>
+    </ThingDef>
+</Defs>

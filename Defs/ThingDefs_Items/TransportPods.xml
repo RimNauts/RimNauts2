@@ -88,4 +88,52 @@
             <li>ITab_ContentsTransporter</li>
         </inspectorTabs>
     </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>RimNauts2_TransportPod_Shell</defName>
+        <label>delivery cannon shell</label>
+        <description>A shell capable of launching items through a delivery cannon.</description>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DeliveryCannon_Shell</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2, 2)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.0)</drawOffset>
+        </graphicData>
+        <size>(2, 2)</size>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <castEdgeShadows>false</castEdgeShadows>
+        <fillPercent>0.5</fillPercent>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<building>
+			<!--Stops it from destroying the launchpad-->
+			<isEdifice>false</isEdifice>
+		</building>
+        <clearBuildingArea>false</clearBuildingArea>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <WorkToBuild>1600</WorkToBuild>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <placeWorkers>
+            <li>PlaceWorker_NotUnderRoof</li>
+        </placeWorkers>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Transporter">
+                <restEffectiveness>0.8</restEffectiveness>
+                <massCapacity>1000.0</massCapacity>
+            </li>
+            <li Class="CompProperties_Launchable">
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+            </li>
+        </comps>
+        <inspectorTabs>
+            <li>ITab_ContentsTransporter</li>
+        </inspectorTabs>
+    </ThingDef>
 </Defs>
