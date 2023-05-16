@@ -3,7 +3,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>RimNauts2_DeliveryCannon</defName>
         <label>delivery cannon</label>
-        <description>Devlivery cannon for transporting large amount of resources to other parts of the solar system.</description>
+        <description>Delivery cannon for transporting a large number of resources to other parts of the solar system.</description>
         <thingClass>RimNauts2.Things.Building.DeliveryCannon</thingClass>
         <graphicData>
             <texPath>Things/Buildings/Misc/RimNauts2_DeliveryCannon</texPath>
