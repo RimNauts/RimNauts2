@@ -28,6 +28,9 @@ Mineral-rich asteroids will randomly show up in the asteroid belt for a limited 
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/asteroid_ores.PNG[/img]
 
+A good way to transfer the large amount of resources you will get from the asteroids back to your base is with a delivery cannon.
+[img]https://imgur.com/lSLTu7x.gif[/img]
+
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_addons.png[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/sub-header_translations.png[/img]
