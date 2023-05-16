@@ -91,8 +91,8 @@
 
     <ThingDef ParentName="BuildingBase">
         <defName>RimNauts2_TransportPod_Shell</defName>
-        <label>Delivery Cannon Shell</label>
-        <description>A shell capable of launching items through Delivery Cannon.</description>
+        <label>delivery cannon shell</label>
+        <description>A shell capable of launching items through a delivery cannon.</description>
         <graphicData>
             <texPath>Things/Special/RimNauts2_DeliveryCannon_Shell</texPath>
             <graphicClass>Graphic_Single</graphicClass>
