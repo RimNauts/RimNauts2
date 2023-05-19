@@ -57,7 +57,7 @@ namespace RimNauts2.Things.Building {
             ThingOwner<Thing> things = new ThingOwner<Thing>();
             float capacity = 0;
             foreach (Thing thing in slotGroup.HeldThings) {
-                if (capacity >= Charger.Props.max_capacity) return;
+                if (capacity >= Charger.Props.max_capacity) break;
                 capacity += thing.def.BaseMass * thing.stackCount;
                 thing.holdingOwner = null;
                 things.TryAddOrTransfer(thing, thing.stackCount);
