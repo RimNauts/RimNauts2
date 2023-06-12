@@ -76,6 +76,7 @@
                 <basePowerConsumption>600</basePowerConsumption>
                 <shortCircuitInRain>false</shortCircuitInRain>
             </li>
+            <li Class="CompProperties_Flickable"/>
         </comps>
         <inspectorTabs>
             <li>ITab_Storage</li>
