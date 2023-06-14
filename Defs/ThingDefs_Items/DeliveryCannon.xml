@@ -71,6 +71,7 @@
                 <max_capacity>200</max_capacity>
             </li>
             <li Class="RimNauts2.Things.Comps.DeliveryCannonTargeter_Properties"></li>
+            <li Class="RimNauts2.Things.Comps.DeliveryCannonMode_Properties"/>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
                 <basePowerConsumption>600</basePowerConsumption>
