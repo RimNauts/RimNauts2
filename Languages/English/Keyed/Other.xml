@@ -19,4 +19,12 @@
     <RimNauts.quests_in_space>Allow quests on NEOs</RimNauts.quests_in_space>
     <RimNauts.module_required>Requires 1 {0}</RimNauts.module_required>
     <RimNauts.only_module>Can only send 1 module into orbit, please remove everything else</RimNauts.only_module>
+    <RimNauts.Label.delivery_cannon_mode_auto>Change firing mode to manual</RimNauts.Label.delivery_cannon_mode_auto>
+    <RimNauts.Description.delivery_cannon_mode_auto>Change to manual firing</RimNauts.Description.delivery_cannon_mode_auto>
+    <RimNauts.Label.delivery_cannon_mode_manual>Change firing mode to automatic</RimNauts.Label.delivery_cannon_mode_manual>
+    <RimNauts.Description.delivery_cannon_mode_manual>Change to automatic firing</RimNauts.Description.delivery_cannon_mode_manual>
+    <RimNauts.Label.delivery_cannon_send_delivery>Send delivery</RimNauts.Label.delivery_cannon_send_delivery>
+    <RimNauts.Description.delivery_cannon_send_delivery>Order the delivery cannon to fire once ready</RimNauts.Description.delivery_cannon_send_delivery>
+    <RimNauts.Label.delivery_cannon_stop_delivery>Cancel delivery</RimNauts.Label.delivery_cannon_stop_delivery>
+    <RimNauts.Description.delivery_cannon_stop_delivery>Stop the the delivery cannon from firing</RimNauts.Description.delivery_cannon_stop_delivery>
 </LanguageData>
