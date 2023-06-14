@@ -10,6 +10,7 @@ namespace RimNauts2.Things.Building {
         Comps.Targeter targeter = null;
         Comps.Charger charger = null;
         RimWorld.CompPowerTrader power = null;
+        Comps.Mode mode = null;
 
         public Comps.Targeter Targeter {
             get {
@@ -35,6 +36,14 @@ namespace RimNauts2.Things.Building {
             }
         }
 
+        public Comps.Mode Mode {
+            get {
+                if (mode != null) return mode;
+                mode = GetComp<Comps.Mode>();
+                return mode;
+            }
+        }
+
         public override void Tick() {
             base.Tick();
             if (effect != null) {
@@ -49,6 +58,7 @@ namespace RimNauts2.Things.Building {
             if (Charger.charging()) return;
             if (slotGroup.HeldThings.Count() <= 0) return;
             if (!Targeter.valid_target()) return;
+            if (!Mode.can_fire()) return;
             launch();
             Charger.reset();
         }

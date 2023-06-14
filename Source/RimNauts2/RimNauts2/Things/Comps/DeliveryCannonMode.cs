@@ -69,5 +69,12 @@ namespace RimNauts2.Things.Comps {
         public void order_fire() {
             fire_once = !fire_once;
         }
+
+        public bool can_fire() {
+            if (automatic) return true;
+            if (!fire_once) return false;
+            fire_once = false;
+            return true;
+        }
     }
 }
