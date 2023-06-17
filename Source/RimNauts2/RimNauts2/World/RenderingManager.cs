@@ -205,6 +205,7 @@ namespace RimNauts2.World {
                     if (unpaused || force_update) visual_objects[i].update_when_unpaused();
                     if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
                     cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
+                    if (visual_objects[i].object_holder != null && (unpaused || force_update)) visual_objects[i].object_holder.position = visual_objects[i].get_position();
                 });
                 for (int i = 0; i < total_objects; i++) {
                     cached_features[i]?.update_transformation(
@@ -220,6 +221,7 @@ namespace RimNauts2.World {
                     if (unpaused || force_update) visual_objects[i].update_when_unpaused();
                     if (camera_moved || force_update) visual_objects[i].update_when_camera_moved();
                     cached_matrices[i] = visual_objects[i].get_transformation_matrix(center);
+                    if (visual_objects[i].object_holder != null && (unpaused || force_update)) visual_objects[i].object_holder.position = visual_objects[i].get_position();
                     cached_features[i]?.update_transformation(
                         visual_objects[i].get_position(),
                         visual_objects[i].draw_size.x,
