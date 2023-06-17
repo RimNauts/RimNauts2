@@ -131,7 +131,6 @@ namespace RimNauts2.World.Objects {
 
         public virtual void update_when_unpaused() {
             update_position(RenderingManager.tick);
-            if (object_holder != null) object_holder.position = get_position();
         }
 
         public virtual void update_when_camera_moved() { }
