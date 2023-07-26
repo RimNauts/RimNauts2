@@ -17,6 +17,7 @@ namespace RimNauts2.Defs {
         public static RimWorld.WorldObjectDef world_object_travelling_delivery_cannon_shell = DefDatabase<RimWorld.WorldObjectDef>.GetNamed("RimNauts2_TravellingDeliveryCannonShell");
         public static ThingDef thing_delivery_cannon_incoming = DefDatabase<ThingDef>.GetNamed("RimNauts2_DropPodIncoming_Shell");
         public static ThingDef thing_delivery_cannon_active = DefDatabase<ThingDef>.GetNamed("RimNauts2_ActiveDropPod_Shell");
+        public static RimWorld.BiomeDef biome_barren_moon = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_MoonBarren_Biome");
 
         public static void init() {
             foreach (ObjectHolder object_holder in DefDatabase<ObjectHolder>.AllDefs) {

@@ -27,4 +27,7 @@
     <RimNauts.Description.delivery_cannon_send_delivery>Order the delivery cannon to fire once ready</RimNauts.Description.delivery_cannon_send_delivery>
     <RimNauts.Label.delivery_cannon_stop_delivery>Cancel delivery</RimNauts.Label.delivery_cannon_stop_delivery>
     <RimNauts.Description.delivery_cannon_stop_delivery>Stop the the delivery cannon from firing</RimNauts.Description.delivery_cannon_stop_delivery>
+    <RimNauts.can_only_be_placed>Can only be placed on {0}</RimNauts.can_only_be_placed>
+    <RimNauts.cant_be_placed>Can't be placed on {0}</RimNauts.cant_be_placed>
+    <RimNauts.barren_moon>barren moon</RimNauts.barren_moon>
 </LanguageData>
