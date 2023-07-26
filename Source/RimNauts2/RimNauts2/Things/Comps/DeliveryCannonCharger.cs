@@ -31,7 +31,9 @@ namespace RimNauts2.Things.Comps {
         }
 
         public override string CompInspectStringExtra() {
-            return "Charge: " + (int) Math.Floor(((float) charge_current / (float) Props.charge_interval) * 100) + "%";
+            return "RimNauts.delivery_cannon_charge".Translate(
+                (int) Math.Floor(((float) charge_current / (float) Props.charge_interval) * 100)
+            );
         }
     }
 }
