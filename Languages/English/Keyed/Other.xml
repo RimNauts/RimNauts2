@@ -27,4 +27,15 @@
     <RimNauts.Description.delivery_cannon_send_delivery>Order the delivery cannon to fire once ready</RimNauts.Description.delivery_cannon_send_delivery>
     <RimNauts.Label.delivery_cannon_stop_delivery>Cancel delivery</RimNauts.Label.delivery_cannon_stop_delivery>
     <RimNauts.Description.delivery_cannon_stop_delivery>Stop the the delivery cannon from firing</RimNauts.Description.delivery_cannon_stop_delivery>
+    <RimNauts.can_only_be_placed>Can only be placed on {0}</RimNauts.can_only_be_placed>
+    <RimNauts.cant_be_placed>Can't be placed on {0}</RimNauts.cant_be_placed>
+    <RimNauts.barren_moon>barren moon</RimNauts.barren_moon>
+    <RimNauts.delivery_cannon_charge>Charge: {0}%</RimNauts.delivery_cannon_charge>
+    <RimNauts.delivery_cannon_automatic_firing_mode>Automatic firing mode: {0}</RimNauts.delivery_cannon_automatic_firing_mode>
+    <RimNauts.delivery_cannon_choose_target>Choose target</RimNauts.delivery_cannon_choose_target>
+    <RimNauts.delivery_cannon_valid>Valid target: {0}</RimNauts.delivery_cannon_valid>
+    <RimNauts.delivery_cannon_target_tile>Target tile: </RimNauts.delivery_cannon_target_tile>
+    <RimNauts.delivery_cannon_target_cell>Target cell: </RimNauts.delivery_cannon_target_cell>
+    <RimNauts.delivery_cannon_target_tile_report>Tile on the world map to target.</RimNauts.delivery_cannon_target_tile_report>
+    <RimNauts.delivery_cannon_target_cell_report>Position on map to target.</RimNauts.delivery_cannon_target_cell_report>
 </LanguageData>

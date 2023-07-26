@@ -58,7 +58,7 @@ namespace RimNauts2.Things.Comps {
         }
 
         public override string CompInspectStringExtra() {
-            return "Automatic firing mode: " + automatic;
+            return "RimNauts.delivery_cannon_automatic_firing_mode".Translate(automatic.ToString());
         }
 
         public void change_mode() {

@@ -23,7 +23,7 @@ namespace RimNauts2.Things.Comps {
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             Command_Action cmd = new Command_Action {
-                defaultLabel = "Choose target",
+                defaultLabel = "RimNauts.delivery_cannon_choose_target".Translate(),
                 defaultDesc = "",
                 icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack", true),
                 action = new Action(target)
@@ -111,22 +111,22 @@ namespace RimNauts2.Things.Comps {
         }
 
         public override string CompInspectStringExtra() {
-            return "Valid target: " + valid;
+            return "RimNauts.delivery_cannon_valid".Translate(valid.ToString());
         }
 
         public override IEnumerable<RimWorld.StatDrawEntry> SpecialDisplayStats() {
             yield return new RimWorld.StatDrawEntry(
                 RimWorld.StatCategoryDefOf.Building,
-                "Target tile: ",
+                "RimNauts.delivery_cannon_target_tile".Translate(),
                 target_tile.ToString(),
-                "Tile on the world map to target.",
+                "RimNauts.delivery_cannon_target_tile_report".Translate(),
                 3171
             );
             yield return new RimWorld.StatDrawEntry(
                 RimWorld.StatCategoryDefOf.Building,
-                "Target cell: ",
+                "RimNauts.delivery_cannon_target_cell".Translate(),
                 target_cell.ToString(),
-                "Position on map to target.",
+                "RimNauts.delivery_cannon_target_cell_report".Translate(),
                 3171
             );
         }
