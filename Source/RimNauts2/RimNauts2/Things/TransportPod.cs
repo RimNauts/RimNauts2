@@ -29,6 +29,7 @@ namespace RimNauts2.Things {
         public bool ConnectedToFuelingPort => FuelingPortSource != null;
         public float FuelingPortSourceFuel => !ConnectedToFuelingPort ? 0.0f : FuelingPortSource.GetComp<RimWorld.CompRefuelable>().Fuel;
         public TransportPod_Properties Props => (TransportPod_Properties) props;
+        public float FuelThreshold => Universum.Utilities.Cache.allowed_utility(parent.Map, "universum.vacuum") ? Props.fuelThreshold * 0.2f : Props.fuelThreshold;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             string label = Props.label;
@@ -43,8 +44,8 @@ namespace RimNauts2.Things {
                 ThingDef module_thing = ThingDef.Named(Props.module_def);
                 if (!Transporter.innerContainer.Contains(module_thing)) {
                     cmd.Disable(TranslatorFormattedStringExtensions.Translate(key: "RimNauts.module_required", module_thing.label));
-                } else if (FuelingPortSourceFuel < Props.fuelThreshold) {
-                    cmd.Disable(Props.fuelThreshold + " " + Props.failMessageFuel + " " + FuelingPortSourceFuel + "/" + Props.fuelThreshold);
+                } else if (FuelingPortSourceFuel < FuelThreshold) {
+                    cmd.Disable(FuelThreshold + " " + Props.failMessageFuel + " " + FuelingPortSourceFuel + "/" + FuelThreshold);
                 } else if (Transporter.innerContainer.Count != 1) {
                     cmd.Disable(TranslatorFormattedStringExtensions.Translate(key: "RimNauts.only_module", module_thing.label));
                 }
@@ -63,7 +64,7 @@ namespace RimNauts2.Things {
                 Transporter.innerContainer.Clear();
                 Map map = parent.Map;
                 Verse.Building fuelingPortSource = FuelingPortSource;
-                fuelingPortSource?.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(Props.fuelThreshold);
+                fuelingPortSource?.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(FuelThreshold);
                 RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
                 activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
                 RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving, activeDropPod);
