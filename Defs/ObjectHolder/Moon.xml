@@ -15,7 +15,7 @@
   	</RimNauts2.Defs.ObjectHolder>
 	<RimNauts2.Defs.ObjectHolder>
 		<defName>RimNauts2_ObjectHolder_Moon_Stripped</defName>
-		<label>stripped moon</label>
+		<label>barren moon</label>
 		<description>One of what could be many, many moons orbiting this rimworld.</description>
         <type>4</type>
 		<map_generator>RimNauts2_MoonStripped_MapGen</map_generator>

@@ -26,9 +26,13 @@ namespace RimNauts2.World.Patch {
     [HarmonyPatch(typeof(RimWorld.Planet.WorldGrid), nameof(RimWorld.Planet.WorldGrid.TraversalDistanceBetween))]
     public static class WorldGrid_TraversalDistanceBetween {
         public static void Postfix(int start, int end, bool passImpassable, int maxDist, ref int __result) {
-            bool to_orbit = Cache.exists(end);
             bool from_orbit = Cache.exists(start);
-            if (to_orbit || from_orbit) __result = 100;
+            if (from_orbit) {
+                __result = 20;
+                return;
+            }
+            bool to_orbit = Cache.exists(end);
+            if (to_orbit) __result = 100;
         }
     }
 
