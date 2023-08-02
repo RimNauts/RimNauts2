@@ -39,10 +39,10 @@
             </li>
 			<li Class="RimNauts2.Things.SatelliteDish_Properties">
                 <object_holder>RimNauts2_ObjectHolder_Moon_Stripped</object_holder>
-				<label>Look for a stripped moon</label>
-				<desc>Your pawn will look for a stripped moon orbiting the planet.</desc>
+				<label>Look for a barren moon (with stripes)</label>
+				<desc>Your pawn will look for a barren moon orbiting the planet.</desc>
 				<failMessage>more satellite(s) orbiting the planet is required.</failMessage>
-				<successMessage>Successfully found a stripped moon orbiting the planet!</successMessage>
+				<successMessage>Successfully found a barren moon orbiting the planet!</successMessage>
 				<texPath>Satellites/Moons/RimNauts2_MoonStripped</texPath>
             </li>
 			<li Class="RimNauts2.Things.SatelliteDish_Properties">
