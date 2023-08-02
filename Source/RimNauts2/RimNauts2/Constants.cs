@@ -1,7 +1,7 @@
 ﻿namespace RimNauts2 {
     public static class Info {
         public static readonly string name = "RimNauts 2";
-        public static readonly string version = "4.20.0";
+        public static readonly string version = "4.21.0";
     }
 
     public static class Style {
