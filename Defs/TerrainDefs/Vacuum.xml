@@ -38,7 +38,6 @@
 		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum</texturePath>
 		<edgeType>Hard</edgeType>
 		<renderPrecedence>20</renderPrecedence>
-		<pathCost>42</pathCost>
 		<changeable>true</changeable>
 		<statBases>
 			<WorkToBuild>300</WorkToBuild>
