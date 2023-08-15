@@ -25,4 +25,7 @@
 		<li>brrainz.harmony</li>
 		<li>sindre0830.universum</li>
 	</loadAfter>
+	<loadBefore>
+		<li>nmkj.customfonts</li>
+	</loadBefore>
 </ModMetaData>
