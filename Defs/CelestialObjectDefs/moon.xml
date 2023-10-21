@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <Universum.Defs.CelestialObject>
+        <defName>RimNauts2_CelestialObject_Moon_Barren</defName>
+        <celestialObjectClass>Universum.World.Objects.Moon</celestialObjectClass>
+        <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
+        <scalePercentageBetween>(0.2, 0.3)</scalePercentageBetween>
+        <speedPercentageBetween>(1.0, 1.0)</speedPercentageBetween>
+        <orbitPathOffsetPercentage>5.0</orbitPathOffsetPercentage>
+        <orbitEccentricityBetween>(0.0, 0.5)</orbitEccentricityBetween>
+        <orbitSpreadBetween>(0.25, 0.25)</orbitSpreadBetween>
+        <yOffsetBetween>(0.0, 0.0)</yOffsetBetween>
+        <orbitDirection>RIGHT</orbitDirection>
+        <axialAngleBetween>(0.0, 180.0)</axialAngleBetween>
+        <spinRotationSpeedBetween>(0.001, 0.05)</spinRotationSpeedBetween>
+        <inclinationAngleBetween>(0.1, 30.0)</inclinationAngleBetween>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_MoonBarren_MapGen</mapGeneratorDef>
+            <biomeDef>RimNauts2_MoonBarren_Biome</biomeDef>
+            <keepAfterAbandon>true</keepAfterAbandon>
+            <description>Barren Moon</description>
+            <overlayIconPath>Satellites/Moons/RimNauts2_Moon_Base</overlayIconPath>
+        </objectHolder>
+        <components>
+            <li>
+                <componentClass>Universum.World.Component.FloatingLabel</componentClass>
+                <offSet>(0.0, 0.0, 0.0)</offSet>
+                <color>(255, 255, 255)</color>
+                <hideAtMinAltitude>0.5</hideAtMinAltitude>
+                <hideAtMaxAltitude>2.75</hideAtMaxAltitude>
+                <fontSize>40.0</fontSize>
+                <outlineColor>(0, 0, 0)</outlineColor>
+                <outlineWidth>0.2</outlineWidth>
+            </li>
+        </components>
+        <shape>
+            <meshes>
+                <li>
+                    <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
+                    <type>SPHERE</type>
+                    <detail>5</detail>
+                    <radius>1.0</radius>
+                    <maxElevationColor>(255, 255, 255)</maxElevationColor>
+                    <minElevationColor>(0, 0, 0)</minElevationColor>
+                    <noiseLayers>
+                        <li>
+                            <isMask>true</isMask>
+                            <useMask>false</useMask>
+                            <strenghtBetween>(0.03, 0.03)</strenghtBetween>
+                            <roughnessBetween>(2.5, 2.5)</roughnessBetween>
+                            <iterationsBetween>(4, 4)</iterationsBetween>
+                            <persistenceBetween>(0.54, 0.54)</persistenceBetween>
+                            <baseRoughnessBetween>(0.7, 0.7)</baseRoughnessBetween>
+                            <minNoiseValueBetween>(0.3, 0.3)</minNoiseValueBetween>
+                        </li>
+                        <li>
+                            <isMask>false</isMask>
+                            <useMask>true</useMask>
+                            <strenghtBetween>(0.03, 0.03)</strenghtBetween>
+                            <roughnessBetween>(3.5, 3.5)</roughnessBetween>
+                            <iterationsBetween>(6, 6)</iterationsBetween>
+                            <persistenceBetween>(0.9, 0.9)</persistenceBetween>
+                            <baseRoughnessBetween>(2.7, 2.7)</baseRoughnessBetween>
+                            <minNoiseValueBetween>(0.1, 0.1)</minNoiseValueBetween>
+                        </li>
+                        <li>
+                            <isMask>false</isMask>
+                            <useMask>true</useMask>
+                            <strenghtBetween>(0.05, 0.05)</strenghtBetween>
+                            <roughnessBetween>(1.5, 1.5)</roughnessBetween>
+                            <iterationsBetween>(5, 5)</iterationsBetween>
+                            <persistenceBetween>(0.50, 0.50)</persistenceBetween>
+                            <baseRoughnessBetween>(1.4, 1.4)</baseRoughnessBetween>
+                            <minNoiseValueBetween>(0.2, 0.2)</minNoiseValueBetween>
+                        </li>
+                    </noiseLayers>
+                </li>
+                <li>
+                    <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
+                    <type>SPHERE</type>
+                    <detail>5</detail>
+                    <radius>1.016</radius>
+                    <maxElevationColor>(75, 75, 75)</maxElevationColor>
+                    <minElevationColor>(25, 25, 25)</minElevationColor>
+                    <noiseLayers>
+                        <li>
+                            <isMask>false</isMask>
+                            <useMask>false</useMask>
+                            <strenghtBetween>(0.003, 0.003)</strenghtBetween>
+                            <roughnessBetween>(2.5, 2.5)</roughnessBetween>
+                            <iterationsBetween>(5, 5)</iterationsBetween>
+                            <persistenceBetween>(0.54, 0.54)</persistenceBetween>
+                            <baseRoughnessBetween>(0.7, 0.7)</baseRoughnessBetween>
+                            <minNoiseValueBetween>(0.3, 0.3)</minNoiseValueBetween>
+                        </li>
+                        <li>
+                            <isMask>false</isMask>
+                            <useMask>false</useMask>
+                            <strenghtBetween>(0.004, 0.004)</strenghtBetween>
+                            <roughnessBetween>(1.9, 1.9)</roughnessBetween>
+                            <iterationsBetween>(5, 5)</iterationsBetween>
+                            <persistenceBetween>(0.54, 0.54)</persistenceBetween>
+                            <baseRoughnessBetween>(1.1, 1.1)</baseRoughnessBetween>
+                            <minNoiseValueBetween>(0.0, 0.0)</minNoiseValueBetween>
+                        </li>
+                    </noiseLayers>
+                </li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+</Defs>

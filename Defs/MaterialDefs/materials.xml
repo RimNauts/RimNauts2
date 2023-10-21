@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <Universum.Defs.Material>
+		<defName>RimNauts2_Material_BasicShapeSurface</defName>
+        <shaderName>BasicShape.shader</shaderName>
+    </Universum.Defs.Material>
+    <Universum.Defs.Material>
+		<defName>RimNauts2_Material_BasicShapeSurface_Metal</defName>
+        <shaderName>BasicShapeMetal.shader</shaderName>
+    </Universum.Defs.Material>
+    <Universum.Defs.Material>
+		<defName>RimNauts2_Material_Trail</defName>
+        <shaderName>Sprites/Default</shaderName>
+        <texturePath>RimNauts2_Trail</texturePath>
+    </Universum.Defs.Material>
+</Defs>
