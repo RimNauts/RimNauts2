@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_CrashingAsteroids</defName>
+        <total>30</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Small</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Medium</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_Moons</defName>
+        <total>1</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Moon_Barren</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing</defName>
-        <total>2000</total>
+        <total>3000</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -20,22 +46,11 @@
         </objectGroup>
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
-        <defName>RimNauts2_ObjectGeneration_Moons</defName>
-        <total>1</total>
-        <initializationType>START_UP</initializationType>
-        <objectGroup>
-            <li>
-                <celestialDefName>RimNauts2_CelestialObject_Moon_Barren</celestialDefName>
-                <tickets>1</tickets>
-            </li>
-        </objectGroup>
-    </Universum.Defs.ObjectGeneration>
-    <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidOres</defName>
         <total>1</total>
         <initializationType>RANDOM</initializationType>
-        <spawnBetweenDays>(0.1, 0.1)</spawnBetweenDays>
-        <despawnBetweenDays>(0.05, 0.05)</despawnBetweenDays>
+        <spawnBetweenDays>(0.25, 0.25)</spawnBetweenDays>
+        <despawnBetweenDays>(0.20, 0.20)</despawnBetweenDays>
         <spawnAmountBetween>(1, 1)</spawnAmountBetween>
         <objectGroup>
             <li>

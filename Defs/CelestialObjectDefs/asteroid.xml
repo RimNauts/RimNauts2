@@ -19,8 +19,8 @@
                     <type>SPHERE</type>
                     <detail>1</detail>
                     <radius>1.0</radius>
-                    <maxElevationColor>(147,146,140)</maxElevationColor>
-                    <minElevationColor>(118,118,118)</minElevationColor>
+                    <maxElevationColor>(147, 146, 140)</maxElevationColor>
+                    <minElevationColor>(118, 118, 118)</minElevationColor>
                     <noiseLayers>
                         <li>
                             <isMask>true</isMask>
@@ -38,8 +38,8 @@
                     <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
                     <type>PREV</type>
                     <subdivisionIterations>2</subdivisionIterations>
-                    <maxElevationColor>(147,146,140)</maxElevationColor>
-                    <minElevationColor>(118,118,118)</minElevationColor>
+                    <maxElevationColor>(147, 146, 140)</maxElevationColor>
+                    <minElevationColor>(118, 118, 118)</minElevationColor>
                     <noiseLayers>
                         <li>
                             <isMask>false</isMask>
@@ -71,5 +71,30 @@
         <speedPercentageBetween>(3.0, 5.0)</speedPercentageBetween>
         <orbitSpreadBetween>(0.1, 0.7)</orbitSpreadBetween>
         <spinRotationSpeedBetween>(0.02, 0.3)</spinRotationSpeedBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small" Name="RimNauts2_CelestialObject_CrashingAsteroid_Small">
+        <defName>RimNauts2_CelestialObject_CrashingAsteroid_Small</defName>
+        <celestialObjectClass>Universum.World.Objects.CrashingAsteroid</celestialObjectClass>
+        <speedPercentageBetween>(8.0, 10.0)</speedPercentageBetween>
+        <components>
+            <li>
+                <componentClass>Universum.World.Component.Trail</componentClass>
+                <materialDefName>RimNauts2_Material_Trail</materialDefName>
+                <offSet>(0.0, 0.0, 0.0)</offSet>
+                <color>(211, 211, 211)</color>
+                <trailWidth>0.4</trailWidth>
+                <trailLength>3.0</trailLength>
+                <trailTransparency>0.5</trailTransparency>
+            </li>
+        </components>
+    </Universum.Defs.CelestialObject>
+    
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_CrashingAsteroid_Small">
+        <defName>RimNauts2_CelestialObject_CrashingAsteroid_Medium</defName>
+        <scalePercentageBetween>(0.005, 0.0075)</scalePercentageBetween>
+        <speedPercentageBetween>(6.0, 8.0)</speedPercentageBetween>
+        <orbitSpreadBetween>(0.3, 1.2)</orbitSpreadBetween>
+        <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
     </Universum.Defs.CelestialObject>
 </Defs>

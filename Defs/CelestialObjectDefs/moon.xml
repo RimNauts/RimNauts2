@@ -26,8 +26,8 @@
                 <componentClass>Universum.World.Component.FloatingLabel</componentClass>
                 <offSet>(0.0, 0.0, 0.0)</offSet>
                 <color>(255, 255, 255)</color>
-                <hideAtMinAltitude>0.5</hideAtMinAltitude>
-                <hideAtMaxAltitude>2.75</hideAtMaxAltitude>
+                <hideAtMinAltitude>200</hideAtMinAltitude>
+                <hideAtMaxAltitude>700</hideAtMaxAltitude>
                 <fontSize>40.0</fontSize>
                 <outlineColor>(0, 0, 0)</outlineColor>
                 <outlineWidth>0.2</outlineWidth>
