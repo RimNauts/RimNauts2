@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Asteroid_1">
+        <defName>RimNauts2_Mesh_Asteroid_1</defName>
+        <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
+        <type>SPHERE</type>
+        <detail>1</detail>
+        <radius>1.0</radius>
+        <maxElevationColor>(147, 146, 140)</maxElevationColor>
+        <minElevationColor>(118, 118, 118)</minElevationColor>
+        <noiseLayers>
+            <li>
+                <isMask>true</isMask>
+                <useMask>false</useMask>
+                <strenghtBetween>(1.75, 1.75)</strenghtBetween>
+                <roughnessBetween>(4.75, 5.25)</roughnessBetween>
+                <iterationsBetween>(1, 1)</iterationsBetween>
+                <persistenceBetween>(0.0, 0.0)</persistenceBetween>
+                <baseRoughnessBetween>(1.75, 2.25)</baseRoughnessBetween>
+                <minNoiseValueBetween>(0.0, 0.0)</minNoiseValueBetween>
+            </li>
+        </noiseLayers>
+    </Universum.Defs.Mesh>
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Asteroid_2">
+        <defName>RimNauts2_Mesh_Asteroid_2</defName>
+        <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
+        <type>PREV</type>
+        <subdivisionIterations>2</subdivisionIterations>
+        <maxElevationColor>(147, 146, 140)</maxElevationColor>
+        <minElevationColor>(118, 118, 118)</minElevationColor>
+        <noiseLayers>
+            <li>
+                <isMask>false</isMask>
+                <useMask>false</useMask>
+                <strenghtBetween>(0.07, 0.09)</strenghtBetween>
+                <roughnessBetween>(1.25, 1.75)</roughnessBetween>
+                <iterationsBetween>(4, 6)</iterationsBetween>
+                <persistenceBetween>(0.4, 0.6)</persistenceBetween>
+                <baseRoughnessBetween>(1.6, 1.8)</baseRoughnessBetween>
+                <minNoiseValueBetween>(0.0, 0.0)</minNoiseValueBetween>
+            </li>
+        </noiseLayers>
+    </Universum.Defs.Mesh>
+</Defs>

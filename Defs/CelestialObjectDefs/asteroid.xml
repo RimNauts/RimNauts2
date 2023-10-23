@@ -2,7 +2,7 @@
 <Defs>
     <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_Asteroid_Small</defName>
-        <celestialObjectClass>Universum.World.Objects.Moon</celestialObjectClass>
+        <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
         <scalePercentageBetween>(0.003, 0.005)</scalePercentageBetween>
         <speedPercentageBetween>(5.0, 10.0)</speedPercentageBetween>
@@ -14,45 +14,8 @@
         <spinRotationSpeedBetween>(0.2, 1.2)</spinRotationSpeedBetween>
         <shape>
             <meshes>
-                <li>
-                    <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
-                    <type>SPHERE</type>
-                    <detail>1</detail>
-                    <radius>1.0</radius>
-                    <maxElevationColor>(147, 146, 140)</maxElevationColor>
-                    <minElevationColor>(118, 118, 118)</minElevationColor>
-                    <noiseLayers>
-                        <li>
-                            <isMask>true</isMask>
-                            <useMask>false</useMask>
-                            <strenghtBetween>(1.75, 1.75)</strenghtBetween>
-                            <roughnessBetween>(4.75, 5.25)</roughnessBetween>
-                            <iterationsBetween>(1, 1)</iterationsBetween>
-                            <persistenceBetween>(0.0, 0.0)</persistenceBetween>
-                            <baseRoughnessBetween>(1.75, 2.25)</baseRoughnessBetween>
-                            <minNoiseValueBetween>(0.0, 0.0)</minNoiseValueBetween>
-                        </li>
-                    </noiseLayers>
-                </li>
-                <li>
-                    <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
-                    <type>PREV</type>
-                    <subdivisionIterations>2</subdivisionIterations>
-                    <maxElevationColor>(147, 146, 140)</maxElevationColor>
-                    <minElevationColor>(118, 118, 118)</minElevationColor>
-                    <noiseLayers>
-                        <li>
-                            <isMask>false</isMask>
-                            <useMask>false</useMask>
-                            <strenghtBetween>(0.09, 0.07)</strenghtBetween>
-                            <roughnessBetween>(1.25, 1.75)</roughnessBetween>
-                            <iterationsBetween>(4, 6)</iterationsBetween>
-                            <persistenceBetween>(0.4, 0.6)</persistenceBetween>
-                            <baseRoughnessBetween>(1.6, 1.8)</baseRoughnessBetween>
-                            <minNoiseValueBetween>(0.0, 0.0)</minNoiseValueBetween>
-                        </li>
-                    </noiseLayers>
-                </li>
+                <li>RimNauts2_Mesh_Asteroid_1</li>
+                <li>RimNauts2_Mesh_Asteroid_2</li>
             </meshes>
         </shape>
     </Universum.Defs.CelestialObject>

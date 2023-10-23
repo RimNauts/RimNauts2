@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <Universum.Defs.ObjectGeneration>
-        <defName>RimNauts2_ObjectGeneration_CrashingAsteroids</defName>
-        <total>30</total>
+        <defName>RimNauts2_ObjectGeneration_AsteroidOre</defName>
+        <total>100</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
-                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Small</celestialDefName>
-                <tickets>9</tickets>
+                <celestialDefName>RimNauts2_CelestialObject_AsteroidOre_Steel</celestialDefName>
+                <tickets>1</tickets>
             </li>
             <li>
-                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Medium</celestialDefName>
+                <celestialDefName>RimNauts2_CelestialObject_AsteroidOre_Gold</celestialDefName>
                 <tickets>1</tickets>
             </li>
         </objectGroup>
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
-        <defName>RimNauts2_ObjectGeneration_Moons</defName>
+        <defName>RimNauts2_ObjectGeneration_Moons_Ocean</defName>
+        <total>1</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Moon_Ocean</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_Moons_Barren</defName>
         <total>1</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
@@ -46,6 +57,21 @@
         </objectGroup>
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_CrashingAsteroids</defName>
+        <total>30</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Small</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Medium</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <!--<Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidOres</defName>
         <total>1</total>
         <initializationType>RANDOM</initializationType>
@@ -58,5 +84,5 @@
                 <tickets>1</tickets>
             </li>
         </objectGroup>
-    </Universum.Defs.ObjectGeneration>
+    </Universum.Defs.ObjectGeneration>-->
 </Defs>
