@@ -4,7 +4,7 @@
         <defName>RimNauts2_Mesh_AsteroidOre_Steel_1</defName>
         <materialDefName>RimNauts2_Material_BasicShapeSurface_Metal</materialDefName>
         <type>SPHERE</type>
-        <detail>1</detail>
+        <detailBetween>(1, 1)</detailBetween>
         <radius>0.9</radius>
         <maxElevationColor>(113, 121, 126)</maxElevationColor>
         <minElevationColor>(113, 114, 126)</minElevationColor>

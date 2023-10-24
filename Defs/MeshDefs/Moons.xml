@@ -4,7 +4,7 @@
         <defName>RimNauts2_Mesh_Moon_Barren_1</defName>
         <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
         <type>SPHERE</type>
-        <detail>5</detail>
+        <detailBetween>(5, 5)</detailBetween>
         <radius>1.0</radius>
         <maxElevationColor>(255, 255, 255)</maxElevationColor>
         <minElevationColor>(0, 0, 0)</minElevationColor>
@@ -45,7 +45,7 @@
         <defName>RimNauts2_Mesh_Moon_Barren_2</defName>
         <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
         <type>SPHERE</type>
-        <detail>5</detail>
+        <detailBetween>(5, 5)</detailBetween>
         <radius>1.016</radius>
         <maxElevationColor>(75, 75, 75)</maxElevationColor>
         <minElevationColor>(25, 25, 25)</minElevationColor>
@@ -77,7 +77,7 @@
         <defName>RimNauts2_Mesh_Moon_Ocean_1</defName>
         <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
         <type>SPHERE</type>
-        <detail>6</detail>
+        <detailBetween>(6, 6)</detailBetween>
         <radius>1.0</radius>
         <maxElevationColor>(50, 150, 200)</maxElevationColor>
         <minElevationColor>(10, 60, 80)</minElevationColor>
