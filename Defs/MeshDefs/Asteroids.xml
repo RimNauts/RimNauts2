@@ -41,4 +41,22 @@
             </li>
         </noiseLayers>
     </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Asteroid_Test_1">
+        <defName>RimNauts2_Mesh_Asteroid_Test_1</defName>
+        <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
+        <type>SPHERE</type>
+        <detail>5</detail>
+        <radius>1.0</radius>
+        <maxElevationColor>(255, 255, 255)</maxElevationColor>
+        <minElevationColor>(118, 118, 118)</minElevationColor>
+    </Universum.Defs.Mesh>
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Asteroid_Test_2">
+        <defName>RimNauts2_Mesh_Asteroid_Test_2</defName>
+        <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
+        <type>VORONOI</type>
+        <detail>70</detail>
+        <maxElevationColor>(200, 200, 200)</maxElevationColor>
+        <minElevationColor>(64, 64, 64)</minElevationColor>
+    </Universum.Defs.Mesh>
 </Defs>

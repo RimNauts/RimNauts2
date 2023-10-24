@@ -4,7 +4,7 @@
         <defName>RimNauts2_CelestialObject_Asteroid_Small</defName>
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.003, 0.005)</scalePercentageBetween>
+        <scalePercentageBetween>(0.012, 0.02)</scalePercentageBetween>
         <speedPercentageBetween>(5.0, 10.0)</speedPercentageBetween>
         <orbitPathOffsetPercentage>2.5</orbitPathOffsetPercentage>
         <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
@@ -14,15 +14,15 @@
         <spinRotationSpeedBetween>(0.2, 1.2)</spinRotationSpeedBetween>
         <shape>
             <meshes>
-                <li>RimNauts2_Mesh_Asteroid_1</li>
-                <li>RimNauts2_Mesh_Asteroid_2</li>
+                <li>RimNauts2_Mesh_Asteroid_Test_1</li>
+                <li>RimNauts2_Mesh_Asteroid_Test_2</li>
             </meshes>
         </shape>
     </Universum.Defs.CelestialObject>
     
     <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_Asteroid_Medium</defName>
-        <scalePercentageBetween>(0.005, 0.0075)</scalePercentageBetween>
+        <scalePercentageBetween>(0.02, 0.03)</scalePercentageBetween>
         <speedPercentageBetween>(4.0, 8.0)</speedPercentageBetween>
         <orbitSpreadBetween>(0.3, 1.2)</orbitSpreadBetween>
         <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
@@ -30,7 +30,7 @@
     
     <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_Asteroid_Large</defName>
-        <scalePercentageBetween>(0.0075, 0.0085)</scalePercentageBetween>
+        <scalePercentageBetween>(0.03, 0.034)</scalePercentageBetween>
         <speedPercentageBetween>(3.0, 5.0)</speedPercentageBetween>
         <orbitSpreadBetween>(0.1, 0.7)</orbitSpreadBetween>
         <spinRotationSpeedBetween>(0.02, 0.3)</spinRotationSpeedBetween>
