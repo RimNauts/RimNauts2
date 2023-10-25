@@ -33,16 +33,26 @@
         </components>
         <shape>
             <meshes>
-                <li>RimNauts2_Mesh_Asteroid_Test_1</li>
-                <li>RimNauts2_Mesh_Asteroid_Test_2</li>
+                <li>RimNauts2_Mesh_Asteroid_1</li>
+                <li>RimNauts2_Mesh_Asteroid_2</li>
                 <li>RimNauts2_Mesh_AsteroidOre_Steel_1</li>
                 <li>RimNauts2_Mesh_AsteroidOre_Steel_2</li>
             </meshes>
         </shape>
     </Universum.Defs.CelestialObject>
 
-    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Gold" ParentName="RimNauts2_CelestialObject_AsteroidOre_Steel">
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Gold">
         <defName>RimNauts2_CelestialObject_AsteroidOre_Gold</defName>
+        <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
+        <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
+        <scalePercentageBetween>(0.0065, 0.008)</scalePercentageBetween>
+        <speedPercentageBetween>(4.0, 5.0)</speedPercentageBetween>
+        <orbitPathOffsetPercentage>2.5</orbitPathOffsetPercentage>
+        <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
+        <orbitSpreadBetween>(0.1, 0.7)</orbitSpreadBetween>
+        <yOffsetBetween>(-5.0, 5.0)</yOffsetBetween>
+        <orbitDirection>RIGHT</orbitDirection>
+        <spinRotationSpeedBetween>(0.2, 0.6)</spinRotationSpeedBetween>
         <objectHolder>
             <mapGeneratorDef>RimNauts2_OreGold_MapGen</mapGeneratorDef>
             <biomeDef>RimNauts2_Satellite_Biome</biomeDef>
@@ -64,8 +74,8 @@
         </components>
         <shape>
             <meshes>
-                <li>RimNauts2_Mesh_Asteroid_Test_1</li>
-                <li>RimNauts2_Mesh_Asteroid_Test_2</li>
+                <li>RimNauts2_Mesh_Asteroid_1</li>
+                <li>RimNauts2_Mesh_Asteroid_2</li>
                 <li>RimNauts2_Mesh_AsteroidOre_Gold_1</li>
                 <li>RimNauts2_Mesh_AsteroidOre_Gold_2</li>
             </meshes>

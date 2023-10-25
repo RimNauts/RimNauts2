@@ -14,8 +14,8 @@
         <spinRotationSpeedBetween>(0.2, 1.2)</spinRotationSpeedBetween>
         <shape>
             <meshes>
-                <li>RimNauts2_Mesh_Asteroid_Test_1</li>
-                <li>RimNauts2_Mesh_Asteroid_Test_2</li>
+                <li>RimNauts2_Mesh_Asteroid_1</li>
+                <li>RimNauts2_Mesh_Asteroid_2</li>
             </meshes>
         </shape>
     </Universum.Defs.CelestialObject>

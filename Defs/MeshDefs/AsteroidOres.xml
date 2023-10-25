@@ -1,54 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Steel_1">
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Steel_1" ParentName="RimNauts2_Mesh_Asteroid_1">
         <defName>RimNauts2_Mesh_AsteroidOre_Steel_1</defName>
         <materialDefName>RimNauts2_Material_BasicShapeSurface_Metal</materialDefName>
-        <type>SPHERE</type>
-        <detailBetween>(1, 1)</detailBetween>
-        <radius>0.9</radius>
         <maxElevationColor>(113, 121, 126)</maxElevationColor>
         <minElevationColor>(113, 114, 126)</minElevationColor>
-        <noiseLayers>
-            <li>
-                <isMask>true</isMask>
-                <useMask>false</useMask>
-                <strenghtBetween>(1.75, 1.75)</strenghtBetween>
-                <roughnessBetween>(4.75, 5.25)</roughnessBetween>
-                <iterationsBetween>(1, 1)</iterationsBetween>
-                <persistenceBetween>(0.0, 0.0)</persistenceBetween>
-                <baseRoughnessBetween>(1.75, 2.25)</baseRoughnessBetween>
-                <minNoiseValueBetween>(0.0, 0.0)</minNoiseValueBetween>
-            </li>
-        </noiseLayers>
     </Universum.Defs.Mesh>
-    <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Steel_2">
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Steel_2" ParentName="RimNauts2_Mesh_Asteroid_2">
         <defName>RimNauts2_Mesh_AsteroidOre_Steel_2</defName>
         <materialDefName>RimNauts2_Material_BasicShapeSurface_Metal</materialDefName>
-        <type>PREV</type>
-        <subdivisionIterations>4</subdivisionIterations>
         <maxElevationColor>(113, 121, 126)</maxElevationColor>
         <minElevationColor>(113, 114, 126)</minElevationColor>
-        <noiseLayers>
-            <li>
-                <isMask>false</isMask>
-                <useMask>false</useMask>
-                <strenghtBetween>(0.1, 0.2)</strenghtBetween>
-                <roughnessBetween>(1.25, 1.75)</roughnessBetween>
-                <iterationsBetween>(4, 6)</iterationsBetween>
-                <persistenceBetween>(0.4, 0.6)</persistenceBetween>
-                <baseRoughnessBetween>(1.6, 1.8)</baseRoughnessBetween>
-                <minNoiseValueBetween>(0.0, 0.0)</minNoiseValueBetween>
-            </li>
-        </noiseLayers>
     </Universum.Defs.Mesh>
 
-    <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Gold_1" ParentName="RimNauts2_Mesh_AsteroidOre_Steel_1">
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Gold_1" ParentName="RimNauts2_Mesh_Asteroid_1">
         <defName>RimNauts2_Mesh_AsteroidOre_Gold_1</defName>
+        <materialDefName>RimNauts2_Material_BasicShapeSurface_Metal</materialDefName>
         <maxElevationColor>(255,215,0)</maxElevationColor>
         <minElevationColor>(218,165,32)</minElevationColor>
     </Universum.Defs.Mesh>
-    <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Gold_2" ParentName="RimNauts2_Mesh_AsteroidOre_Steel_2">
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Gold_2" ParentName="RimNauts2_Mesh_Asteroid_2">
         <defName>RimNauts2_Mesh_AsteroidOre_Gold_2</defName>
+        <materialDefName>RimNauts2_Material_BasicShapeSurface_Metal</materialDefName>
         <maxElevationColor>(255,215,0)</maxElevationColor>
         <minElevationColor>(218,165,32)</minElevationColor>
     </Universum.Defs.Mesh>
