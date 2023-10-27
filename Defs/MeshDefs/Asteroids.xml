@@ -6,8 +6,6 @@
         <type>SPHERE</type>
         <detailBetween>(5, 5)</detailBetween>
         <radius>1.0</radius>
-        <maxElevationColor>(255, 255, 255)</maxElevationColor>
-        <minElevationColor>(118, 118, 118)</minElevationColor>
     </Universum.Defs.Mesh>
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_Asteroid_2">
         <defName>RimNauts2_Mesh_Asteroid_2</defName>

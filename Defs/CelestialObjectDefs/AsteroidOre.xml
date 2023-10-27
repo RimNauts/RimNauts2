@@ -1,83 +1,90 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Steel">
-        <defName>RimNauts2_CelestialObject_AsteroidOre_Steel</defName>
+    <Universum.Defs.CelestialObject Abstract="True" Name="RimNauts2_CelestialObject_AsteroidOre">
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.0065, 0.008)</scalePercentageBetween>
-        <speedPercentageBetween>(4.0, 5.0)</speedPercentageBetween>
+        <scalePercentageBetween>(0.02, 0.03)</scalePercentageBetween>
+        <speedPercentageBetween>(4.0, 8.0)</speedPercentageBetween>
+        <orbitSpreadBetween>(0.3, 1.2)</orbitSpreadBetween>
+        <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
         <orbitPathOffsetPercentage>2.5</orbitPathOffsetPercentage>
         <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
-        <orbitSpreadBetween>(0.1, 0.7)</orbitSpreadBetween>
         <yOffsetBetween>(-5.0, 5.0)</yOffsetBetween>
         <orbitDirection>RIGHT</orbitDirection>
-        <spinRotationSpeedBetween>(0.2, 0.6)</spinRotationSpeedBetween>
         <objectHolder>
-            <mapGeneratorDef>RimNauts2_OreSteel_MapGen</mapGeneratorDef>
             <biomeDef>RimNauts2_Satellite_Biome</biomeDef>
             <keepAfterAbandon>false</keepAfterAbandon>
-            <description>Steel ore asteroid</description>
-            <overlayIconPath>Satellites/Moons/RimNauts2_Moon_Base</overlayIconPath>
+            <overlayIconPath>UI/Designators/Mine</overlayIconPath>
         </objectHolder>
-        <components>
-            <li>
-                <componentClass>Universum.World.Component.FloatingLabel</componentClass>
-                <offSet>(0.0, 0.0, 0.0)</offSet>
-                <color>(211, 211, 211)</color>
-                <hideAtMinAltitude>10</hideAtMinAltitude>
-                <hideAtMaxAltitude>700</hideAtMaxAltitude>
-                <fontSize>10.0</fontSize>
-                <outlineColor>(0, 0, 0)</outlineColor>
-                <outlineWidth>0.1</outlineWidth>
-            </li>
-        </components>
         <shape>
             <meshes>
                 <li>RimNauts2_Mesh_Asteroid_1</li>
                 <li>RimNauts2_Mesh_Asteroid_2</li>
-                <li>RimNauts2_Mesh_AsteroidOre_Steel_1</li>
-                <li>RimNauts2_Mesh_AsteroidOre_Steel_2</li>
+                <li>RimNauts2_Mesh_AsteroidOre</li>
             </meshes>
         </shape>
     </Universum.Defs.CelestialObject>
 
-    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Gold">
-        <defName>RimNauts2_CelestialObject_AsteroidOre_Gold</defName>
-        <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
-        <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.0065, 0.008)</scalePercentageBetween>
-        <speedPercentageBetween>(4.0, 5.0)</speedPercentageBetween>
-        <orbitPathOffsetPercentage>2.5</orbitPathOffsetPercentage>
-        <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
-        <orbitSpreadBetween>(0.1, 0.7)</orbitSpreadBetween>
-        <yOffsetBetween>(-5.0, 5.0)</yOffsetBetween>
-        <orbitDirection>RIGHT</orbitDirection>
-        <spinRotationSpeedBetween>(0.2, 0.6)</spinRotationSpeedBetween>
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Steel" ParentName="RimNauts2_CelestialObject_AsteroidOre">
+        <defName>RimNauts2_CelestialObject_AsteroidOre_Steel</defName>
         <objectHolder>
-            <mapGeneratorDef>RimNauts2_OreGold_MapGen</mapGeneratorDef>
-            <biomeDef>RimNauts2_Satellite_Biome</biomeDef>
-            <keepAfterAbandon>false</keepAfterAbandon>
-            <description>Gold ore asteroid</description>
-            <overlayIconPath>Satellites/Moons/RimNauts2_Moon_Base</overlayIconPath>
+            <mapGeneratorDef>RimNauts2_OreSteel_MapGen</mapGeneratorDef>
+            <description>Steel ore asteroid</description>
         </objectHolder>
         <components>
-            <li>
-                <componentClass>Universum.World.Component.FloatingLabel</componentClass>
-                <offSet>(0.0, 0.0, 0.0)</offSet>
-                <color>(232, 185, 35)</color>
-                <hideAtMinAltitude>10</hideAtMinAltitude>
-                <hideAtMaxAltitude>700</hideAtMaxAltitude>
-                <fontSize>10.0</fontSize>
-                <outlineColor>(0, 0, 0)</outlineColor>
-                <outlineWidth>0.1</outlineWidth>
-            </li>
+            <li>RimNauts2_Component_AsteroidOre_Steel</li>
         </components>
         <shape>
             <meshes>
-                <li>RimNauts2_Mesh_Asteroid_1</li>
-                <li>RimNauts2_Mesh_Asteroid_2</li>
-                <li>RimNauts2_Mesh_AsteroidOre_Gold_1</li>
-                <li>RimNauts2_Mesh_AsteroidOre_Gold_2</li>
+                <li>RimNauts2_Mesh_AsteroidOre_Steel</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Gold" ParentName="RimNauts2_CelestialObject_AsteroidOre">
+        <defName>RimNauts2_CelestialObject_AsteroidOre_Gold</defName>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_OreGold_MapGen</mapGeneratorDef>
+            <description>Gold ore asteroid</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_AsteroidOre_Gold</li>
+        </components>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_AsteroidOre_Gold</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Plasteel" ParentName="RimNauts2_CelestialObject_AsteroidOre">
+        <defName>RimNauts2_CelestialObject_AsteroidOre_Plasteel</defName>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_OrePlasteel_MapGen</mapGeneratorDef>
+            <description>Plasteel ore asteroid</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_AsteroidOre_Plasteel</li>
+        </components>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_AsteroidOre_Plasteel</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Uranium" ParentName="RimNauts2_CelestialObject_AsteroidOre">
+        <defName>RimNauts2_CelestialObject_AsteroidOre_Uranium</defName>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_OreUranium_MapGen</mapGeneratorDef>
+            <description>Uranium ore asteroid</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_AsteroidOre_Uranium</li>
+        </components>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_AsteroidOre_Uranium</li>
             </meshes>
         </shape>
     </Universum.Defs.CelestialObject>

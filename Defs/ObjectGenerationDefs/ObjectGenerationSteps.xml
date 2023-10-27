@@ -7,11 +7,19 @@
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_AsteroidOre_Steel</celestialDefName>
-                <tickets>1</tickets>
+                <tickets>1000</tickets>
             </li>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_AsteroidOre_Gold</celestialDefName>
-                <tickets>1</tickets>
+                <tickets>250</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_AsteroidOre_Plasteel</celestialDefName>
+                <tickets>400</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_AsteroidOre_Uranium</celestialDefName>
+                <tickets>500</tickets>
             </li>
         </objectGroup>
     </Universum.Defs.ObjectGeneration>

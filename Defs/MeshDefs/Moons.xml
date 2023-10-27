@@ -73,8 +73,8 @@
         </noiseLayers>
     </Universum.Defs.Mesh>
 
-    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Moon_Ocean_1">
-        <defName>RimNauts2_Mesh_Moon_Ocean_1</defName>
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Moon_Ocean">
+        <defName>RimNauts2_Mesh_Moon_Ocean</defName>
         <materialDefName>RimNauts2_Material_BasicShapeSurface</materialDefName>
         <type>SPHERE</type>
         <detailBetween>(6, 6)</detailBetween>
