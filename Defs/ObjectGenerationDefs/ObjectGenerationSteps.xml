@@ -7,6 +7,10 @@
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Satellite</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Satellite_Station</celestialDefName>
                 <tickets>1</tickets>
             </li>
         </objectGroup>

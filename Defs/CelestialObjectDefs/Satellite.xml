@@ -18,4 +18,22 @@
             <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</texturePath>
         </icon>
     </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Satellite_Station" ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_Station</defName>
+        <scalePercentageBetween>(0.007, 0.007)</scalePercentageBetween>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_SpaceStation_MapGen</mapGeneratorDef>
+            <biomeDef>RimNauts2_Satellite_Biome</biomeDef>
+            <keepAfterAbandon>false</keepAfterAbandon>
+            <description>Space Station</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_Trail_Satellite</li>
+            <li>RimNauts2_Component_Label_Satellite</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
 </Defs>
