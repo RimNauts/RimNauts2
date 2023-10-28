@@ -2,7 +2,7 @@
 <Defs>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_Satellite</defName>
-        <total>20</total>
+        <total>100</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -58,7 +58,7 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing</defName>
-        <total>100</total>
+        <total>3000</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>

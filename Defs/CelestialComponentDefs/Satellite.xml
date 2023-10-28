@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<Universum.Defs.Component Name="RimNauts2_Component_Trail_Satellite">
+        <defName>RimNauts2_Component_Trail_Satellite</defName>
+        <componentClass>Universum.World.Component.Trail</componentClass>
+        <materialDefName>RimNauts2_Material_Trail</materialDefName>
+        <color>(211, 211, 211)</color>
+        <trailWidth>0.3</trailWidth>
+        <trailLength>2.0</trailLength>
+        <trailTransparency>0.5</trailTransparency>
+  	</Universum.Defs.Component>
+</Defs>

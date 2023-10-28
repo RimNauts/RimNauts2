@@ -4,7 +4,7 @@
         <defName>RimNauts2_Mesh_Asteroid_1</defName>
         <materialDefName>RimNauts2_Material_Surface_Rock</materialDefName>
         <type>SPHERE</type>
-        <detailBetween>(5, 5)</detailBetween>
+        <detailBetween>(4, 4)</detailBetween>
         <radius>1.0</radius>
     </Universum.Defs.Mesh>
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_Asteroid_2">

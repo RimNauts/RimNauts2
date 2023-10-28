@@ -4,13 +4,16 @@
         <defName>RimNauts2_CelestialObject_Satellite</defName>
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.01, 0.01)</scalePercentageBetween>
+        <scalePercentageBetween>(0.005, 0.005)</scalePercentageBetween>
         <speedPercentageBetween>(8.0, 10.0)</speedPercentageBetween>
-        <orbitPathOffsetPercentage>1.5</orbitPathOffsetPercentage>
+        <orbitPathOffsetPercentage>1.2</orbitPathOffsetPercentage>
         <orbitSpreadBetween>(0.1, 0.1)</orbitSpreadBetween>
         <orbitDirection>RANDOM</orbitDirection>
-        <axialAngleBetween>(0.0, 180.0)</axialAngleBetween>
-        <inclinationAngleBetween>(0.1, 30.0)</inclinationAngleBetween>
+        <axialAngleBetween>(-90.0, 90.0)</axialAngleBetween>
+        <inclinationAngleBetween>(0.0, 180.0)</inclinationAngleBetween>
+        <components>
+            <li>RimNauts2_Component_Trail_Satellite</li>
+        </components>
         <icon>
             <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</texturePath>
         </icon>
