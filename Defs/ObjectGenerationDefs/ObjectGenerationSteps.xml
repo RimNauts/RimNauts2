@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_Satellite</defName>
+        <total>20</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Satellite</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidOre</defName>
-        <total>100</total>
+        <total>20</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -47,7 +58,7 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing</defName>
-        <total>3000</total>
+        <total>100</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
