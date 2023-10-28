@@ -3,7 +3,7 @@
     <Universum.Defs.CelestialObject Abstract="True" Name="RimNauts2_CelestialObject_AsteroidOre">
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.02, 0.03)</scalePercentageBetween>
+        <scalePercentageBetween>(0.01, 0.015)</scalePercentageBetween>
         <speedPercentageBetween>(4.0, 8.0)</speedPercentageBetween>
         <orbitSpreadBetween>(0.3, 1.2)</orbitSpreadBetween>
         <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
