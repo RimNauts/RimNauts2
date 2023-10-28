@@ -61,7 +61,7 @@
             </li>
             <li>
                 <name>_BumpMap</name>
-                <texturePathValue>Universum_NormalMap_Rock_2</texturePathValue>
+                <texturePathValue>Universum_NormalMap_Metal</texturePathValue>
             </li>
             <li>
                 <name>_BumpIntensity</name>
