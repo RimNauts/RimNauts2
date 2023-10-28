@@ -9,8 +9,8 @@
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Steel" ParentName="RimNauts2_Mesh_Asteroid_2">
         <defName>RimNauts2_Mesh_AsteroidOre_Steel</defName>
         <materialDefName>RimNauts2_Material_BasicShapeSurface_Metal</materialDefName>
-        <maxElevationColor>(113, 121, 126)</maxElevationColor>
-        <minElevationColor>(113, 114, 126)</minElevationColor>
+        <maxElevationColor>(188, 143, 143)</maxElevationColor>
+        <minElevationColor>(157, 108, 108)</minElevationColor>
     </Universum.Defs.Mesh>
 
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Gold" ParentName="RimNauts2_Mesh_AsteroidOre_Steel">
