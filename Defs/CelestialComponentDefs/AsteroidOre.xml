@@ -3,8 +3,8 @@
 	<Universum.Defs.Component Name="RimNauts2_Component_AsteroidOre" Abstract="True">
         <componentClass>Universum.World.Component.FloatingLabel</componentClass>
         <offSet>(0.0, 0.0, 0.0)</offSet>
-        <hideAtMinAltitude>10</hideAtMinAltitude>
-        <hideAtMaxAltitude>700</hideAtMaxAltitude>
+        <hideAtMinAltitude>50</hideAtMinAltitude>
+        <hideAtMaxAltitude>300</hideAtMaxAltitude>
         <fontSize>10.0</fontSize>
         <outlineColor>(0, 0, 0)</outlineColor>
         <outlineWidth>0.1</outlineWidth>
