@@ -34,6 +34,7 @@
             </li>
         </shaderProperties>
     </Universum.Defs.Material>
+
     <Universum.Defs.Material>
 		<defName>RimNauts2_Material_Surface_Metal</defName>
         <shaderName>BasicShape.shader</shaderName>
@@ -68,6 +69,42 @@
             </li>
         </shaderProperties>
     </Universum.Defs.Material>
+    
+    <Universum.Defs.Material>
+		<defName>RimNauts2_Material_Surface_Wet</defName>
+        <shaderName>BasicShape.shader</shaderName>
+        <shaderProperties>
+            <li>
+                <name>_Shininess</name>
+                <floatValue>50.0</floatValue>
+            </li>
+            <li>
+                <name>_SpecularIntensity</name>
+                <floatValue>1.0</floatValue>
+            </li>
+            <li>
+                <name>_DiffuseIntensity</name>
+                <floatValue>0.2</floatValue>
+            </li>
+            <li>
+                <name>_DiffuseColor</name>
+                <colorValue>(204, 204, 204)</colorValue>
+            </li>
+            <li>
+                <name>_AmbientColor</name>
+                <colorValue>(191, 191, 191)</colorValue>
+            </li>
+            <li>
+                <name>_BumpMap</name>
+                <texturePathValue>Universum_NormalMap_Ocean</texturePathValue>
+            </li>
+            <li>
+                <name>_BumpIntensity</name>
+                <floatValue>1.5</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
     <Universum.Defs.Material>
 		<defName>RimNauts2_Material_Trail</defName>
         <shaderName>Sprites/Default</shaderName>

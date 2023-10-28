@@ -75,7 +75,7 @@
 
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_Moon_Ocean">
         <defName>RimNauts2_Mesh_Moon_Ocean</defName>
-        <materialDefName>RimNauts2_Material_Surface_Rock</materialDefName>
+        <materialDefName>RimNauts2_Material_Surface_Wet</materialDefName>
         <type>SPHERE</type>
         <detailBetween>(6, 6)</detailBetween>
         <radius>1.0</radius>
