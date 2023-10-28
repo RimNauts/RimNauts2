@@ -2,13 +2,13 @@
 <Defs>
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre" ParentName="RimNauts2_Mesh_Asteroid_1">
         <defName>RimNauts2_Mesh_AsteroidOre</defName>
-        <materialDefName>RimNauts2_Material_BasicShapeSurface_Metal</materialDefName>
+        <materialDefName>RimNauts2_Material_Surface_Metal</materialDefName>
         <radius>0.95</radius>
     </Universum.Defs.Mesh>
 
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidOre_Steel" ParentName="RimNauts2_Mesh_Asteroid_2">
         <defName>RimNauts2_Mesh_AsteroidOre_Steel</defName>
-        <materialDefName>RimNauts2_Material_BasicShapeSurface_Metal</materialDefName>
+        <materialDefName>RimNauts2_Material_Surface_Metal</materialDefName>
         <maxElevationColor>(188, 143, 143)</maxElevationColor>
         <minElevationColor>(157, 108, 108)</minElevationColor>
     </Universum.Defs.Mesh>
