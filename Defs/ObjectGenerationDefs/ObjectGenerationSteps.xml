@@ -2,23 +2,22 @@
 <Defs>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_Satellite</defName>
-        <total>100</total>
+        <total>0</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Satellite</celestialDefName>
                 <tickets>9</tickets>
             </li>
-            <li>
-                <celestialDefName>RimNauts2_CelestialObject_Satellite_Station</celestialDefName>
-                <tickets>1</tickets>
-            </li>
         </objectGroup>
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidOre</defName>
-        <total>20</total>
-        <initializationType>START_UP</initializationType>
+        <total>100</total>
+        <initializationType>RANDOM</initializationType>
+        <spawnBetweenDays>(0.25, 0.25)</spawnBetweenDays>
+        <despawnBetweenDays>(0.20, 0.20)</despawnBetweenDays>
+        <spawnAmountBetween>(1, 5)</spawnAmountBetween>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_AsteroidOre_Steel</celestialDefName>
@@ -94,18 +93,4 @@
             </li>
         </objectGroup>
     </Universum.Defs.ObjectGeneration>
-    <!--<Universum.Defs.ObjectGeneration>
-        <defName>RimNauts2_ObjectGeneration_AsteroidOres</defName>
-        <total>1</total>
-        <initializationType>RANDOM</initializationType>
-        <spawnBetweenDays>(0.25, 0.25)</spawnBetweenDays>
-        <despawnBetweenDays>(0.20, 0.20)</despawnBetweenDays>
-        <spawnAmountBetween>(1, 1)</spawnAmountBetween>
-        <objectGroup>
-            <li>
-                <celestialDefName>RimNauts2_CelestialObject_Moon_Barren</celestialDefName>
-                <tickets>1</tickets>
-            </li>
-        </objectGroup>
-    </Universum.Defs.ObjectGeneration>-->
 </Defs>
