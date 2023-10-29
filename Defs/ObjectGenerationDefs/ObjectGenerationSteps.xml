@@ -2,7 +2,7 @@
 <Defs>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_Satellite</defName>
-        <total>0</total>
+        <total>1</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -13,11 +13,11 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidOre</defName>
-        <total>100</total>
+        <total>50</total>
         <initializationType>RANDOM</initializationType>
-        <spawnBetweenDays>(0.25, 0.25)</spawnBetweenDays>
-        <despawnBetweenDays>(0.20, 0.20)</despawnBetweenDays>
-        <spawnAmountBetween>(1, 5)</spawnAmountBetween>
+        <spawnBetweenDays>(0.5, 1.5)</spawnBetweenDays>
+        <despawnBetweenDays>(0.5, 1.5)</despawnBetweenDays>
+        <spawnAmountBetween>(1, 4)</spawnAmountBetween>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_AsteroidOre_Steel</celestialDefName>
