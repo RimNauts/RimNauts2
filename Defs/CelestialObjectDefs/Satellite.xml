@@ -4,10 +4,10 @@
         <defName>RimNauts2_CelestialObject_Satellite</defName>
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.005, 0.005)</scalePercentageBetween>
+        <scalePercentageBetween>(0.002, 0.002)</scalePercentageBetween>
         <speedPercentageBetween>(8.0, 10.0)</speedPercentageBetween>
         <orbitPathOffsetPercentage>1.2</orbitPathOffsetPercentage>
-        <orbitSpreadBetween>(0.1, 0.1)</orbitSpreadBetween>
+        <orbitSpreadBetween>(0.05, 0.05)</orbitSpreadBetween>
         <orbitDirection>RANDOM</orbitDirection>
         <axialAngleBetween>(-90.0, 90.0)</axialAngleBetween>
         <inclinationAngleBetween>(0.0, 180.0)</inclinationAngleBetween>
@@ -21,7 +21,7 @@
 
     <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Satellite_Station" ParentName="RimNauts2_CelestialObject_Satellite">
         <defName>RimNauts2_CelestialObject_Satellite_Station</defName>
-        <scalePercentageBetween>(0.007, 0.007)</scalePercentageBetween>
+        <scalePercentageBetween>(0.004, 0.004)</scalePercentageBetween>
         <objectHolder>
             <mapGeneratorDef>RimNauts2_SpaceStation_MapGen</mapGeneratorDef>
             <biomeDef>RimNauts2_Satellite_Biome</biomeDef>

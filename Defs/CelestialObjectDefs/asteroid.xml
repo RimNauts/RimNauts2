@@ -20,7 +20,7 @@
         </shape>
     </Universum.Defs.CelestialObject>
     
-    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Asteroid_Medium" ParentName="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_Asteroid_Medium</defName>
         <scalePercentageBetween>(0.01, 0.015)</scalePercentageBetween>
         <speedPercentageBetween>(4.0, 8.0)</speedPercentageBetween>
@@ -36,7 +36,7 @@
         <spinRotationSpeedBetween>(0.02, 0.3)</spinRotationSpeedBetween>
     </Universum.Defs.CelestialObject>
 
-    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small" Name="RimNauts2_CelestialObject_CrashingAsteroid_Small">
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_CrashingAsteroid_Small</defName>
         <celestialObjectClass>Universum.World.Objects.CrashingAsteroid</celestialObjectClass>
         <speedPercentageBetween>(8.0, 10.0)</speedPercentageBetween>
@@ -45,11 +45,12 @@
         </components>
     </Universum.Defs.CelestialObject>
     
-    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_CrashingAsteroid_Small">
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
         <defName>RimNauts2_CelestialObject_CrashingAsteroid_Medium</defName>
-        <scalePercentageBetween>(0.01, 0.015)</scalePercentageBetween>
+        <celestialObjectClass>Universum.World.Objects.CrashingAsteroid</celestialObjectClass>
         <speedPercentageBetween>(6.0, 8.0)</speedPercentageBetween>
-        <orbitSpreadBetween>(0.3, 1.2)</orbitSpreadBetween>
-        <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
+        <components>
+            <li>RimNauts2_Component_Trail_CrashingAsteroid</li>
+        </components>
     </Universum.Defs.CelestialObject>
 </Defs>

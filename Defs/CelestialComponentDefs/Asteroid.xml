@@ -6,8 +6,8 @@
         <materialDefName>RimNauts2_Material_Trail</materialDefName>
         <offSet>(0.0, 0.0, 0.0)</offSet>
         <color>(211, 211, 211)</color>
-        <trailWidth>0.4</trailWidth>
-        <trailLength>3.0</trailLength>
+        <trailWidth>0.2</trailWidth>
+        <trailLength>2.0</trailLength>
         <trailTransparency>0.5</trailTransparency>
   	</Universum.Defs.Component>
 </Defs>

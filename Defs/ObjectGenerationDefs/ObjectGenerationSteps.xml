@@ -61,6 +61,21 @@
         </objectGroup>
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_CrashingAsteroids</defName>
+        <total>30</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Small</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Medium</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing</defName>
         <total>3000</total>
         <initializationType>START_UP</initializationType>
@@ -75,21 +90,6 @@
             </li>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large</celestialDefName>
-                <tickets>1</tickets>
-            </li>
-        </objectGroup>
-    </Universum.Defs.ObjectGeneration>
-    <Universum.Defs.ObjectGeneration>
-        <defName>RimNauts2_ObjectGeneration_CrashingAsteroids</defName>
-        <total>30</total>
-        <initializationType>START_UP</initializationType>
-        <objectGroup>
-            <li>
-                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Small</celestialDefName>
-                <tickets>9</tickets>
-            </li>
-            <li>
-                <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Medium</celestialDefName>
                 <tickets>1</tickets>
             </li>
         </objectGroup>
