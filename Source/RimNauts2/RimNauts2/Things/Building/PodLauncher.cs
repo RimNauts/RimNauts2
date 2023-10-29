@@ -12,13 +12,14 @@ namespace RimNauts2.Things.Building {
             AcceptanceReport acceptanceReport = GenConstruct.CanPlaceBlueprintAt(Defs.Loader.thing_cargo_pod, FuelingPortUtility.GetFuelingPortCell(this), Defs.Loader.thing_cargo_pod.defaultPlacingRot, Map);
             Designator_Build designator_Build = BuildCopyCommandUtility.FindAllowedDesignator(Defs.Loader.thing_cargo_pod);
             if (designator_Build != null) {
-                Command_Action command_Action = new Command_Action();
-                command_Action.defaultLabel = "BuildThing".Translate(Defs.Loader.thing_cargo_pod.label);
-                command_Action.icon = designator_Build.icon;
-                command_Action.defaultDesc = designator_Build.Desc;
-                command_Action.action = delegate {
-                    IntVec3 fuelingPortCell = FuelingPortUtility.GetFuelingPortCell(this);
-                    GenConstruct.PlaceBlueprintForBuild(Defs.Loader.thing_cargo_pod, fuelingPortCell, Map, Defs.Loader.thing_cargo_pod.defaultPlacingRot, Faction.OfPlayer, null);
+                Command_Action command_Action = new Command_Action {
+                    defaultLabel = "BuildThing".Translate(Defs.Loader.thing_cargo_pod.label),
+                    icon = designator_Build.icon,
+                    defaultDesc = designator_Build.Desc,
+                    action = delegate {
+                        IntVec3 fuelingPortCell = FuelingPortUtility.GetFuelingPortCell(this);
+                        GenConstruct.PlaceBlueprintForBuild(Defs.Loader.thing_cargo_pod, fuelingPortCell, Map, Defs.Loader.thing_cargo_pod.defaultPlacingRot, Faction.OfPlayer, null);
+                    }
                 };
                 if (!acceptanceReport.Accepted) {
                     command_Action.Disable(acceptanceReport.Reason);

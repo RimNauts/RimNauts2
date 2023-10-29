@@ -64,7 +64,7 @@
                 <failMessageFuel>fuel required, currently at</failMessageFuel>
                 <failMessageLaunch>Failed to launch satellite into orbit.</failMessageLaunch>
                 <successMessage>Successfully launched a satellite into orbit.</successMessage>
-                <type>5</type>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite</celestialObjectDefName>
                 <createMap>false</createMap>
                 <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
                 <module_def>RimNauts2_Module_Satellite</module_def>
@@ -78,7 +78,7 @@
                 <failMessageFuel>fuel required, currently at</failMessageFuel>
                 <failMessageLaunch>Failed to launch space station into orbit.</failMessageLaunch>
                 <successMessage>Successfully launched a space station into orbit.</successMessage>
-                <type>6</type>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Station</celestialObjectDefName>
                 <createMap>true</createMap>
                 <skyfallerLeaving>RimNauts2_DropPodLeaving_SpaceStation</skyfallerLeaving>
                 <module_def>RimNauts2_Module_Station</module_def>

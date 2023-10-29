@@ -14,7 +14,6 @@ namespace RimNauts2 {
                 args: new NamedArgument[] { Info.name, Info.version }
             );
             Defs.Loader.init();
-            Assets.init();
         }
     }
 
