@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <Universum.Defs.ObjectGeneration>
-        <defName>RimNauts2_ObjectGeneration_Satellite</defName>
-        <total>1</total>
-        <initializationType>START_UP</initializationType>
-        <objectGroup>
-            <li>
-                <celestialDefName>RimNauts2_CelestialObject_Satellite</celestialDefName>
-                <tickets>9</tickets>
-            </li>
-        </objectGroup>
-    </Universum.Defs.ObjectGeneration>
-    <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidOre</defName>
-        <total>50</total>
+        <total>32</total>
         <initializationType>RANDOM</initializationType>
         <spawnBetweenDays>(0.5, 1.5)</spawnBetweenDays>
         <despawnBetweenDays>(0.5, 1.5)</despawnBetweenDays>
@@ -61,7 +50,7 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_CrashingAsteroids</defName>
-        <total>30</total>
+        <total>20</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
