@@ -11,6 +11,10 @@ namespace RimNauts2.World {
         Satellite = 5,
         SpaceStation = 6,
     }
+
+    public class Caching_Handler : GameComponent {
+        public Caching_Handler(Game game) : base() { }
+    }
     
     class RenderingManager : GameComponent {
         public RenderingManager(Game game) : base() { }
@@ -25,6 +29,10 @@ namespace RimNauts2.World {
             base.ExposeData();
             Scribe_Defs.Look(ref map_generator, "map_generator");
             Scribe_Values.Look(ref type, "type");
+        }
+
+        public override void Tick() {
+            if (destroyed) return;
 
             Universum.World.Generator.UpdateTile(Tile, RimWorld.BiomeDefOf.Ocean);
 
@@ -62,10 +70,6 @@ namespace RimNauts2.World {
                 } else Universum.World.Generator.Create(celestialObjectDef.defName);
             }
             Destroy();
-        }
-
-        public override void Tick() {
-            base.Tick();
         }
 
         public override void Draw() { }
