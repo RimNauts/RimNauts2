@@ -24,13 +24,6 @@ namespace RimNauts2.Defs {
                 object_generation_steps.Add(type, object_generation_step);
                 total_defs++;
             }
-            // print mod info
-            Logger.print(
-                Logger.Importance.Info,
-                key: "RimNauts.Info.def_loader_done",
-                prefix: Style.tab,
-                args: new NamedArgument[] { total_defs }
-            );
         }
     }
 }
