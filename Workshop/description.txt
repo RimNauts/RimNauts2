@@ -2,7 +2,9 @@
 
 This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and artificial-satellites. Everything is [b]visible[/b] and [b]animated[/b] as an orbit on the world map. The moons are playable biomes that needs to be discovered and the artifical satellites needs to be launched into orbit.
 
-[img]https://imgur.com/pz5yhVb.gif[/img]
+[img]https://imgur.com/3qt61R7.png[/img]
+[img]https://imgur.com/0nVS087.gif[/img]
+[i]Note: The gif lags due to the Imgur compression.[/i]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_blast-off.png[/img]
 
@@ -11,13 +13,13 @@ This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and
 
 To launch artificial satellites you need to craft modules in the fabrication bench and load it into the cargo pod.
 
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/satellite.PNG[/img]
+[img]https://imgur.com/a59Mixl.png[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_exploration.png[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_spacesuit.png[/img]
 
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/moon.png[/img]
+[img]https://imgur.com/RmOJOjg.png[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_satellite_dish.png[/img]
 
@@ -26,7 +28,7 @@ To launch artificial satellites you need to craft modules in the fabrication ben
 Mineral-rich asteroids will randomly show up in the asteroid belt for a limited time. Send up a colonist to harvest the asteroids. The number of artificial satellites orbiting the planet will increase the chance of spotting these mineral-rich asteroids.
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/info_ores.png[/img]
 
-[img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/asteroid_ores.PNG[/img]
+[img]https://imgur.com/7tVbVjM.png[/img]
 
 A good way to transfer the large amount of resources you will get from the asteroids is with a delivery cannon.
 [img]https://imgur.com/lSLTu7x.gif[/img]
