@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RimNauts2.Things {
     public class SatelliteDish_Properties : CompProperties {
-        public string object_holder;
+        public string celestialObjectDefName;
         public string label;
         public string desc;
         public string failMessage;
@@ -26,8 +26,8 @@ namespace RimNauts2.Things {
                 action = new Action(generate_moon)
             };
             if (!DebugSettings.godMode) {
-                int total_moons = World.Cache.get_total(World.Type.Moon);
-                int total_satellites = World.Cache.get_total(World.Type.Satellite);
+                int total_moons = Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects[Props.celestialObjectDefName]);
+                int total_satellites = Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite"]);
                 if (total_satellites < (total_moons + 1) * 2) {
                     int diff = (total_moons + 1) * 2 - total_satellites;
                     cmd.Disable(diff.ToString() + " " + Props.failMessage);
@@ -37,10 +37,10 @@ namespace RimNauts2.Things {
         }
 
         public void generate_moon() {
-            int new_moon_tile_id = World.Generator.get_free_tile();
+            int new_moon_tile_id = Universum.World.Generator.GetFreeTile();
 
             if (new_moon_tile_id != -1) {
-                World.Generator.add_object_holder(World.Type.Moon, object_holder_def: Props.object_holder);
+                Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: new_moon_tile_id);
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             } else {
                 Logger.print(

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<Universum.Defs.Component Name="RimNauts2_Component_AsteroidOre" Abstract="True">
+        <componentClass>Universum.World.Component.FloatingLabel</componentClass>
+        <offSet>(0.0, 0.0, 0.0)</offSet>
+        <hideAtMinAltitude>50</hideAtMinAltitude>
+        <hideAtMaxAltitude>300</hideAtMaxAltitude>
+        <fontSize>10.0</fontSize>
+        <outlineColor>(0, 0, 0)</outlineColor>
+        <outlineWidth>0.1</outlineWidth>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component Name="RimNauts2_Component_AsteroidOre_Steel" ParentName="RimNauts2_Component_AsteroidOre">
+        <defName>RimNauts2_Component_AsteroidOre_Steel</defName>
+        <overwriteText>Steel</overwriteText>
+        <color>(211, 211, 211)</color>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component Name="RimNauts2_Component_AsteroidOre_Gold" ParentName="RimNauts2_Component_AsteroidOre">
+        <defName>RimNauts2_Component_AsteroidOre_Gold</defName>
+        <overwriteText>Gold</overwriteText>
+        <color>(232, 185, 35)</color>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component Name="RimNauts2_Component_AsteroidOre_Plasteel" ParentName="RimNauts2_Component_AsteroidOre">
+        <defName>RimNauts2_Component_AsteroidOre_Plasteel</defName>
+        <overwriteText>Plasteel</overwriteText>
+        <color>(111, 186, 223)</color>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component Name="RimNauts2_Component_AsteroidOre_Uranium" ParentName="RimNauts2_Component_AsteroidOre">
+        <defName>RimNauts2_Component_AsteroidOre_Uranium</defName>
+        <overwriteText>Uranium</overwriteText>
+        <color>(44, 250, 31)</color>
+  	</Universum.Defs.Component>
+</Defs>
