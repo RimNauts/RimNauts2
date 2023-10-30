@@ -13,8 +13,7 @@ namespace RimNauts2.Things {
         public string failMessageFuel;
         public string failMessageLaunch;
         public string successMessage;
-        public string createDefName;
-        public int type;
+        public string celestialObjectDefName;
         public bool createMap;
         public ThingDef skyfallerLeaving;
         public string module_def;
@@ -74,7 +73,7 @@ namespace RimNauts2.Things {
                 parent.Destroy(DestroyMode.Vanish);
                 GenSpawn.Spawn(flyShipLeaving, parent.Position, map);
                 CameraJumper.TryHideWorld();
-                int tile_id = World.Generator.get_free_tile();
+                int tile_id = Universum.World.Generator.GetFreeTile();
                 if (tile_id == -1) {
                     Messages.Message(Props.failMessageLaunch, RimWorld.MessageTypeDefOf.NegativeEvent, true);
                     Logger.print(
@@ -84,19 +83,17 @@ namespace RimNauts2.Things {
                     );
                     return;
                 }
-                World.ObjectHolder object_holder = World.Generator.add_object_holder((World.Type) Props.type);
-                if (object_holder == null) return;
-                if (Props.createMap) {
-                    MapGenerator.GenerateMap(
-                        Find.World.info.initialMapSize,
-                        object_holder,
-                        object_holder.MapGeneratorDef,
-                        object_holder.ExtraGenStepDefs,
-                        extraInitBeforeContentGen: null
-                    );
-                    object_holder.SetFaction(RimWorld.Faction.OfPlayer);
-                    Find.World.WorldUpdate();
+
+                Universum.Defs.CelestialObject celestialObjectDef = Universum.Defs.Loader.celestialObjects[Props.celestialObjectDefName];
+
+                if (celestialObjectDef.objectHolder != null) {
+                    Universum.World.ObjectHolder object_holder = Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: tile_id);
+                    if (object_holder == null) return;
+                    if (Props.createMap) object_holder.CreateMap(RimWorld.Faction.OfPlayer);
+                } else {
+                    Universum.World.Generator.Create(Props.celestialObjectDefName);
                 }
+
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             }
         }

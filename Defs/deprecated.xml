@@ -231,4 +231,15 @@
             <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
         </graphicData>
     </ThingDef>
+
+	<WorldObjectDef>
+		<defName>RimNauts2_ObjectHolder</defName>
+		<worldObjectClass>RimNauts2.World.ObjectHolder</worldObjectClass>
+		<canBePlayerHome>true</canBePlayerHome>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>RimNauts2_Transparent</expandingIconTexture>
+		<expandingIconPriority>1003</expandingIconPriority>
+		<texture>RimNauts2_Transparent</texture>
+  	</WorldObjectDef>
 </Defs>
