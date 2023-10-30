@@ -31,19 +31,6 @@ namespace RimNauts2.Settings {
                 Container.allow_quests_on_neos = toggle_buffer;
             }
             buttons_view.End();
-            // table header
-            Rect table_header_rectangle = new Rect(buttons_rectangle.x, buttons_rectangle.y + (30f * 8) + 4.0f, buttons_rectangle.width, 30f);
-            Listing_Standard table_header_view = new Listing_Standard();
-            Widgets.DrawHighlight(table_header_rectangle);
-            table_header_view.Begin(table_header_rectangle);
-            table_header_view.Gap(5f);
-            table_header_view.ColumnWidth = 300f;
-            table_header_view.Label("Object type");
-            table_header_view.NewColumn();
-            table_header_view.Gap(5f);
-            table_header_view.ColumnWidth = 500f;
-            table_header_view.Label("Amount");
-            table_header_view.End();
         }
 
         public bool add_checkbox(Listing_Standard view, string key, bool toggle) {
