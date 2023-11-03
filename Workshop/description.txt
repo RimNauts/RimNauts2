@@ -3,7 +3,7 @@
 This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and artificial-satellites. Everything is [b]visible[/b] and [b]animated[/b] as an orbit on the world map. The moons are playable biomes that needs to be discovered and the artifical satellites needs to be launched into orbit.
 
 [img]https://imgur.com/3qt61R7.png[/img]
-[img]https://imgur.com/GgWveJD.gif[/img]
+[img]https://imgur.com/G4Ylg13.gif[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_blast-off.png[/img]
 
