@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Satellite">
-        <defName>RimNauts2_CelestialObject_Satellite</defName>
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Satellite" Abstract="True">
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
         <scalePercentageBetween>(0.002, 0.002)</scalePercentageBetween>
@@ -14,12 +13,9 @@
         <components>
             <li>RimNauts2_Component_Trail_Satellite</li>
         </components>
-        <icon>
-            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</texturePath>
-        </icon>
     </Universum.Defs.CelestialObject>
 
-    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Satellite_Station" ParentName="RimNauts2_CelestialObject_Satellite">
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
         <defName>RimNauts2_CelestialObject_Satellite_Station</defName>
         <scalePercentageBetween>(0.004, 0.004)</scalePercentageBetween>
         <objectHolder>
@@ -29,11 +25,20 @@
             <description>Space Station</description>
         </objectHolder>
         <components>
-            <li>RimNauts2_Component_Trail_Satellite</li>
-            <li>RimNauts2_Component_Label_Satellite</li>
+            <li>RimNauts2_Component_Label_Satellite_Station</li>
         </components>
         <icon>
             <texturePath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_Relay</defName>
+        <components>
+            <li>RimNauts2_Component_Label_Satellite_Relay</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Relay</texturePath>
         </icon>
     </Universum.Defs.CelestialObject>
 </Defs>
