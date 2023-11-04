@@ -51,4 +51,14 @@
             <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Energy</texturePath>
         </icon>
     </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_StellarCartography</defName>
+        <components>
+            <li>RimNauts2_Component_Label_Satellite_StellarCartography</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_StellarCartography</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
 </Defs>
