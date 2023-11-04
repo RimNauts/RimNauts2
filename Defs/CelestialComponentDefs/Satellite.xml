@@ -34,4 +34,10 @@
         <color>(116, 101, 90)</color>
         <overwriteText>Relay Satellite</overwriteText>
   	</Universum.Defs.Component>
+
+	<Universum.Defs.Component ParentName="RimNauts2_Component_Label_Satellite">
+        <defName>RimNauts2_Component_Label_Satellite_Energy</defName>
+        <color>(192, 150, 7)</color>
+        <overwriteText>Energy Relay Satellite</overwriteText>
+  	</Universum.Defs.Component>
 </Defs>
