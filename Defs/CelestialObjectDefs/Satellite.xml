@@ -8,7 +8,7 @@
         <orbitPathOffsetPercentage>1.2</orbitPathOffsetPercentage>
         <orbitSpreadBetween>(0.05, 0.05)</orbitSpreadBetween>
         <orbitDirection>RANDOM</orbitDirection>
-        <axialAngleBetween>(-90.0, 270.0)</axialAngleBetween>
+        <axialAngleBetween>(0.0, 360.0)</axialAngleBetween>
         <inclinationAngleBetween>(0.0, 180.0)</inclinationAngleBetween>
         <components>
             <li>RimNauts2_Component_Trail_Satellite</li>
