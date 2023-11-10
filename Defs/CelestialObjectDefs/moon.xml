@@ -20,6 +20,9 @@
             <keepAfterAbandon>true</keepAfterAbandon>
             <description>Barren Moon</description>
             <overlayIconPath>Satellites/Moons/RimNauts2_Moon_Base</overlayIconPath>
+            <commandLabelKey>RimNauts.moon_command_label</commandLabelKey>
+            <commandDescKey>RimNauts.moon_command_desc</commandDescKey>
+            <commandIconPath>Satellites/Moons/RimNauts2_Moon_Base</commandIconPath>
         </objectHolder>
         <components>
             <li>RimNauts2_Component_Label_Moon_Barren</li>
@@ -52,6 +55,9 @@
             <keepAfterAbandon>true</keepAfterAbandon>
             <description>Ocean Moon</description>
             <overlayIconPath>Satellites/Moons/RimNauts2_Moon_Base</overlayIconPath>
+            <commandLabelKey>RimNauts.moon_command_label</commandLabelKey>
+            <commandDescKey>RimNauts.moon_command_desc</commandDescKey>
+            <commandIconPath>Satellites/Moons/RimNauts2_Moon_Base</commandIconPath>
         </objectHolder>
         <components>
             <li>RimNauts2_Component_Label_Moon_Ocean</li>
