@@ -42,8 +42,8 @@
   	</Universum.Defs.Component>
 
 	<Universum.Defs.Component ParentName="RimNauts2_Component_Label_Satellite">
-        <defName>RimNauts2_Component_Label_Satellite_StellarCartography</defName>
+        <defName>RimNauts2_Component_Label_Satellite_CosmicSurveillance</defName>
         <color>(41, 58, 160)</color>
-        <overwriteText>Stellar Cartography Satellite</overwriteText>
+        <overwriteText>Cosmic Surveillance Satellite</overwriteText>
   	</Universum.Defs.Component>
 </Defs>

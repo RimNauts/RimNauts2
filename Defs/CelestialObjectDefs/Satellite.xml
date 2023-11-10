@@ -53,12 +53,12 @@
     </Universum.Defs.CelestialObject>
 
     <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
-        <defName>RimNauts2_CelestialObject_Satellite_StellarCartography</defName>
+        <defName>RimNauts2_CelestialObject_Satellite_CosmicSurveillance</defName>
         <components>
-            <li>RimNauts2_Component_Label_Satellite_StellarCartography</li>
+            <li>RimNauts2_Component_Label_Satellite_CosmicSurveillance</li>
         </components>
         <icon>
-            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_StellarCartography</texturePath>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_CosmicSurveillance</texturePath>
         </icon>
     </Universum.Defs.CelestialObject>
 </Defs>
