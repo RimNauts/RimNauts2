@@ -6,17 +6,9 @@
         <description>Allows radio contact with other factions and orbital traders.</description>
         <thingClass>RimNauts2.Things.Building.SatelliteOperationsCenter</thingClass>
         <graphicData>
-            <texPath>Things/Building/Misc/CommsConsole</texPath>
+            <texPath>Things/Buildings/Misc/RimNauts2_SatelliteOperationsCenter</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
-            <drawSize>(5,4)</drawSize>
-            <damageData>
-                <rect>(0,0,3,1.8)</rect>
-                <cornerBL>Damage/Corner</cornerBL>
-                <cornerBR>Damage/Corner</cornerBR>
-            </damageData>
-            <shadowData>
-                <volume>(3,0.5,2)</volume>
-            </shadowData>
+            <drawSize>(3,2)</drawSize>
         </graphicData>
         <altitudeLayer>Building</altitudeLayer>
         <passability>PassThroughOnly</passability>
