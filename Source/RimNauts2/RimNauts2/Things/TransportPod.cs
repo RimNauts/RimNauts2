@@ -6,13 +6,8 @@ using System.Collections.Generic;
 namespace RimNauts2.Things {
     public class TransportPod_Properties : CompProperties {
         public float fuelThreshold;
-        public string label;
-        public string desc;
         public string name;
         public string iconPath;
-        public string failMessageFuel;
-        public string failMessageLaunch;
-        public string successMessage;
         public string celestialObjectDefName;
         public bool createMap;
         public ThingDef skyfallerLeaving;
@@ -31,11 +26,11 @@ namespace RimNauts2.Things {
         public float FuelThreshold => Universum.Utilities.Cache.allowed_utility(parent.Map, "universum.vacuum") ? Props.fuelThreshold * 0.2f : Props.fuelThreshold;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-            string label = Props.label;
+            string label = "RimNauts.transportpod_label".Translate(Props.name);
             if (DebugSettings.godMode) label += " (Dev)";
             Command_Action cmd = new Command_Action {
                 defaultLabel = label,
-                defaultDesc = Props.desc,
+                defaultDesc = "RimNauts.transportpod_desc".Translate(Props.name),
                 icon = ContentFinder<Texture2D>.Get(Props.iconPath, true),
                 action = new Action(launch)
             };
@@ -44,7 +39,8 @@ namespace RimNauts2.Things {
                 if (!Transporter.innerContainer.Contains(module_thing)) {
                     cmd.Disable(TranslatorFormattedStringExtensions.Translate(key: "RimNauts.module_required", module_thing.label));
                 } else if (FuelingPortSourceFuel < FuelThreshold) {
-                    cmd.Disable(FuelThreshold + " " + Props.failMessageFuel + " " + FuelingPortSourceFuel + "/" + FuelThreshold);
+                    "RimNauts.transportpod_fail_message_fuel".Translate(FuelThreshold, FuelingPortSourceFuel + "/" + FuelThreshold);
+                    cmd.Disable("RimNauts.transportpod_fail_message_fuel".Translate(FuelThreshold, FuelingPortSourceFuel + "/" + FuelThreshold));
                 } else if (Transporter.innerContainer.Count != 1) {
                     cmd.Disable(TranslatorFormattedStringExtensions.Translate(key: "RimNauts.only_module", module_thing.label));
                 }
@@ -59,23 +55,28 @@ namespace RimNauts2.Things {
                     key: "RimNauts.Error.tried_to_launch_thing",
                     prefix: Style.name_prefix
                 );
-            } else {
-                Transporter.innerContainer.Clear();
-                Map map = parent.Map;
-                Verse.Building fuelingPortSource = FuelingPortSource;
-                fuelingPortSource?.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(FuelThreshold);
-                RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
-                activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
-                RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving, activeDropPod);
-                flyShipLeaving.groupID = 0;
-                flyShipLeaving.destinationTile = map.Tile;
-                flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
-                parent.Destroy(DestroyMode.Vanish);
-                GenSpawn.Spawn(flyShipLeaving, parent.Position, map);
-                CameraJumper.TryHideWorld();
+                return;
+            }
+            Transporter.innerContainer.Clear();
+            Map map = parent.Map;
+            Verse.Building fuelingPortSource = FuelingPortSource;
+            fuelingPortSource?.TryGetComp<RimWorld.CompRefuelable>().ConsumeFuel(FuelThreshold);
+            RimWorld.ActiveDropPod activeDropPod = (RimWorld.ActiveDropPod) ThingMaker.MakeThing(RimWorld.ThingDefOf.ActiveDropPod);
+            activeDropPod.Contents = new RimWorld.ActiveDropPodInfo();
+            RimWorld.FlyShipLeaving flyShipLeaving = (RimWorld.FlyShipLeaving) RimWorld.SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving, activeDropPod);
+            flyShipLeaving.groupID = 0;
+            flyShipLeaving.destinationTile = map.Tile;
+            flyShipLeaving.worldObjectDef = RimWorld.WorldObjectDefOf.TravelingTransportPods;
+            parent.Destroy(DestroyMode.Vanish);
+            GenSpawn.Spawn(flyShipLeaving, parent.Position, map);
+            CameraJumper.TryHideWorld();
+
+            Universum.Defs.CelestialObject celestialObjectDef = Universum.Defs.Loader.celestialObjects[Props.celestialObjectDefName];
+
+            if (celestialObjectDef.objectHolder != null) {
                 int tile_id = Universum.World.Generator.GetFreeTile();
                 if (tile_id == -1) {
-                    Messages.Message(Props.failMessageLaunch, RimWorld.MessageTypeDefOf.NegativeEvent, true);
+                    Messages.Message("RimNauts.transportpod_fail_message_launch".Translate(), RimWorld.MessageTypeDefOf.NegativeEvent, true);
                     Logger.print(
                         Logger.Importance.Error,
                         key: "RimNauts.Error.no_free_tile_for_satellite",
@@ -83,19 +84,12 @@ namespace RimNauts2.Things {
                     );
                     return;
                 }
+                Universum.World.ObjectHolder object_holder = Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: tile_id);
+                if (object_holder == null) return;
+                if (Props.createMap) object_holder.CreateMap(RimWorld.Faction.OfPlayer);
+            } else Universum.World.Generator.Create(Props.celestialObjectDefName);
 
-                Universum.Defs.CelestialObject celestialObjectDef = Universum.Defs.Loader.celestialObjects[Props.celestialObjectDefName];
-
-                if (celestialObjectDef.objectHolder != null) {
-                    Universum.World.ObjectHolder object_holder = Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: tile_id);
-                    if (object_holder == null) return;
-                    if (Props.createMap) object_holder.CreateMap(RimWorld.Faction.OfPlayer);
-                } else {
-                    Universum.World.Generator.Create(Props.celestialObjectDefName);
-                }
-
-                Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
-            }
+            Messages.Message("RimNauts.transportpod_success_message_launch".Translate(), RimWorld.MessageTypeDefOf.PositiveEvent, true);
         }
 
         public RimWorld.CompTransporter Transporter {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <RecipeDef Name="RimNauts2_Make_Module" Abstract="True">
+        <description>Make module.</description>
         <jobString>Making module.</jobString>
         <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
         <effectWorking>Cook</effectWorking>
@@ -14,43 +15,8 @@
     </RecipeDef>
     
     <RecipeDef ParentName="RimNauts2_Make_Module">
-        <defName>RimNauts2_Make_Module_Satellite</defName>
-        <label>make satellite module</label>
-        <description>Make a satellite module.</description>
-        <unfinishedThingDef>RimNauts2_Unifinished_Module_Satellite</unfinishedThingDef>
-        <ingredients>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>Steel</li>
-                    </thingDefs>
-                </filter>
-                <count>60</count>
-            </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>ComponentIndustrial</li>
-                    </thingDefs>
-                </filter>
-                <count>1</count>
-            </li>
-        </ingredients>
-        <fixedIngredientFilter>
-            <thingDefs>
-                <li>Steel</li>
-                <li>ComponentIndustrial</li>
-            </thingDefs>
-        </fixedIngredientFilter>
-        <products>
-            <RimNauts2_Module_Satellite>1</RimNauts2_Module_Satellite>
-        </products>
-    </RecipeDef>
-    
-    <RecipeDef ParentName="RimNauts2_Make_Module">
         <defName>RimNauts2_Make_Module_Station</defName>
         <label>make station module</label>
-        <description>Make a station module.</description>
         <unfinishedThingDef>RimNauts2_Unifinished_Module_Station</unfinishedThingDef>
         <ingredients>
             <li>
@@ -78,6 +44,39 @@
         </fixedIngredientFilter>
         <products>
             <RimNauts2_Module_Station>1</RimNauts2_Module_Station>
+        </products>
+    </RecipeDef>
+    
+    <RecipeDef ParentName="RimNauts2_Make_Module">
+        <defName>RimNauts2_Make_Module_Satellite</defName>
+        <label>Make Relay Satellite module</label>
+        <unfinishedThingDef>RimNauts2_Unifinished_Module_Satellite</unfinishedThingDef>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>60</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <RimNauts2_Module_Satellite>1</RimNauts2_Module_Satellite>
         </products>
     </RecipeDef>
 </Defs>

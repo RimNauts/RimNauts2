@@ -135,13 +135,13 @@ namespace RimNauts2.Things.Building {
         }
 
         private void _UpdateCosmicSurveillanceSatelliteCmd() {
-            string desc = _BuildHeader("Cosmic Surveillanc Satellite");
+            string desc = _BuildHeader("Cosmic Surveillance Satellite");
             desc += _BuildOverview("The Cosmic Surveillance Satellite is used for expansive space surveillance. It enhances vision in space and paves the way for discovering celestial objects.");
             desc += _AddDetail($"Total Satellites: {_cosmicSurveillanceTotal}");
             desc += _AddDetail($"Total Power Consumption: {_cosmicSurveillancePowerConsumption}");
 
             _cosmicSurveillanceSatelliteCmd = new Command_Action {
-                defaultLabel = "Cosmic Surveillanc Satellite",
+                defaultLabel = "Cosmic Surveillance Satellite",
                 defaultDesc = desc,
                 icon = _cosmicSurveillanceSatelliteIcon,
                 action = new Action(_Void)
