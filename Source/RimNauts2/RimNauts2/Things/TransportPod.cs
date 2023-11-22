@@ -32,7 +32,7 @@ namespace RimNauts2.Things {
                 defaultLabel = label,
                 defaultDesc = "RimNauts.transportpod_desc".Translate(Props.name),
                 icon = ContentFinder<Texture2D>.Get(Props.iconPath, true),
-                action = new Action(launch)
+                action = new Action(target)
             };
             if (!DebugSettings.godMode) {
                 ThingDef module_thing = ThingDef.Named(Props.module_def);
@@ -48,7 +48,40 @@ namespace RimNauts2.Things {
             yield return cmd;
         }
 
-        public void launch() {
+        public void target() {
+            CameraJumper.TryJump(CameraJumper.GetWorldTarget((RimWorld.Planet.GlobalTargetInfo) parent));
+            Find.WorldSelector.ClearSelection();
+            Find.WorldTargeter.BeginTargeting(
+                action: new Func<RimWorld.Planet.GlobalTargetInfo, bool>(get_tile_target),
+                canTargetTiles: true,
+                canSelectTarget: new Func<RimWorld.Planet.GlobalTargetInfo, bool>(CanSelectCelestialObject)
+            );
+        }
+
+        public bool get_tile_target(RimWorld.Planet.GlobalTargetInfo target) {
+            if (!CanSelectCelestialObject(target)) return false;
+
+            Universum.World.CelestialObject targetToOrbit = null;
+
+            Universum.World.ObjectHolder objectHolder = Universum.World.ObjectHolderCache.Get(target.Tile);
+            if (objectHolder != null) targetToOrbit = objectHolder.celestialObject;
+
+            launch(targetToOrbit);
+
+            return true;
+        }
+
+        public bool CanSelectCelestialObject(RimWorld.Planet.GlobalTargetInfo target) {
+            if (!target.IsValid) return false;
+
+            Universum.World.ObjectHolder objectHolder = Universum.World.ObjectHolderCache.Get(target.Tile);
+            bool dynamicLifeCycle = objectHolder != null && (objectHolder.keepAfterAbandon == false || objectHolder.celestialObject.deathTick != null);
+            if (dynamicLifeCycle) return false;
+
+            return true;
+        }
+
+        public void launch(Universum.World.CelestialObject targetToOrbit) {
             if (!parent.Spawned) {
                 Logger.print(
                     Logger.Importance.Error,
@@ -84,10 +117,15 @@ namespace RimNauts2.Things {
                     );
                     return;
                 }
-                Universum.World.ObjectHolder object_holder = Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: tile_id);
-                if (object_holder == null) return;
-                if (Props.createMap) object_holder.CreateMap(RimWorld.Faction.OfPlayer);
-            } else Universum.World.Generator.Create(Props.celestialObjectDefName);
+                Universum.World.ObjectHolder objectHolder = Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: tile_id);
+                if (objectHolder == null) return;
+                if (Props.createMap) objectHolder.CreateMap(RimWorld.Faction.OfPlayer);
+
+                objectHolder.celestialObject.SetTarget(targetToOrbit);
+            } else {
+                Universum.World.CelestialObject celestialObject = Universum.World.Generator.Create(Props.celestialObjectDefName);
+                celestialObject.SetTarget(targetToOrbit);
+            }
 
             Messages.Message("RimNauts.transportpod_success_message_launch".Translate(), RimWorld.MessageTypeDefOf.PositiveEvent, true);
         }
