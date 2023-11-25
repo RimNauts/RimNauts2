@@ -13,11 +13,11 @@ namespace RimNauts2.World {
     }
 
     public class Caching_Handler : GameComponent {
-        public Caching_Handler(Game game) : base() { }
+        public Caching_Handler(Verse.Game game) : base() { }
     }
     
     class RenderingManager : GameComponent {
-        public RenderingManager(Game game) : base() { }
+        public RenderingManager(Verse.Game game) : base() { }
     }
 
     [StaticConstructorOnStartup]
