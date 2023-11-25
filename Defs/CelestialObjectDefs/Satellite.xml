@@ -55,6 +55,16 @@
     </Universum.Defs.CelestialObject>
 
     <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_EnergyBooster</defName>
+        <components>
+            <li>RimNauts2_Component_Label_Satellite_EnergyBooster</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_EnergyBooster</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
         <defName>RimNauts2_CelestialObject_Satellite_CosmicSurveillance</defName>
         <components>
             <li>RimNauts2_Component_Label_Satellite_CosmicSurveillance</li>

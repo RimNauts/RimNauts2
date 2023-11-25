@@ -72,6 +72,30 @@
                 <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
                 <module_def>RimNauts2_Module_Satellite</module_def>
             </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Energy Relay Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Energy</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Energy</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_Energy</module_def>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Energy Booster Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_EnergyBooster</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_EnergyBooster</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_EnergyBooster</module_def>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Cosmic Surveillance Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_CosmicSurveillance</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_CosmicSurveillance</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_CosmicSurveillance</module_def>
+            </li>
         </comps>
         <inspectorTabs>
             <li>ITab_ContentsTransporter</li>

@@ -24,4 +24,19 @@
         <defName>RimNauts2_Unifinished_Module_Satellite</defName>
         <label>Unfinished Relay Satellite module</label>
     </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Unifinished_Module">
+        <defName>RimNauts2_Unifinished_Module_Satellite_Energy</defName>
+        <label>Unfinished Energy Relay Satellite module</label>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Unifinished_Module">
+        <defName>RimNauts2_Unifinished_Module_Satellite_EnergyBooster</defName>
+        <label>Unfinished Energy Booster Satellite module</label>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Unifinished_Module">
+        <defName>RimNauts2_Unifinished_Module_Satellite_CosmicSurveillance</defName>
+        <label>Unfinished Cosmic Surveillance Satellite module</label>
+    </ThingDef>
 </Defs>

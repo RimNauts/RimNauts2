@@ -8,6 +8,7 @@ namespace RimNauts2.Things.Building {
         private string descConnection = "Connecting...";
 
         private Universum.Defs.CelestialObject _relaySatelliteDef;
+        private ThingDef _relaySatelliteThingDef;
         private Texture2D _relaySatelliteIcon;
         private Command _relaySatelliteCmd;
         private int _relayTotal = 0;
@@ -15,6 +16,7 @@ namespace RimNauts2.Things.Building {
         private int _relayTotalNeeded = 0;
 
         private Universum.Defs.CelestialObject _energyRelaySatelliteDef;
+        private ThingDef _energyRelaySatelliteThingDef;
         private Texture2D _energyRelaySatelliteIcon;
         private Command _energyRelaySatelliteCmd;
         private int _energyRelayTotal = 0;
@@ -22,7 +24,15 @@ namespace RimNauts2.Things.Building {
         private int _powerGenerated = 0;
         private int _powerNeeded = 0;
 
+        private Universum.Defs.CelestialObject _energyBoosterSatelliteDef;
+        private ThingDef _energyBoosterSatelliteThingDef;
+        private Texture2D _energyBoosterSatelliteIcon;
+        private Command _energyBoosterSatelliteCmd;
+        private int _energyBoosterTotal = 0;
+        private int _energyBoosterPowerGenerated = 0;
+
         private Universum.Defs.CelestialObject _cosmicSurveillanceSatelliteDef;
+        private ThingDef _cosmicSurveillanceSatelliteThingDef;
         private Texture2D _cosmicSurveillanceSatelliteIcon;
         private Command _cosmicSurveillanceSatelliteCmd;
         private int _cosmicSurveillanceTotal = 0;
@@ -30,16 +40,24 @@ namespace RimNauts2.Things.Building {
 
         public SatelliteOperationsCenter() {
             _relaySatelliteDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Relay"];
+            _relaySatelliteThingDef = ThingDef.Named("RimNauts2_Module_Satellite");
             _relaySatelliteIcon = Universum.Assets.GetTexture(_relaySatelliteDef.icon.texturePath);
 
             _energyRelaySatelliteDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Energy"];
+            _energyRelaySatelliteThingDef = ThingDef.Named("RimNauts2_Module_Satellite_Energy");
             _energyRelaySatelliteIcon = Universum.Assets.GetTexture(_energyRelaySatelliteDef.icon.texturePath);
 
+            _energyBoosterSatelliteDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_EnergyBooster"];
+            _energyBoosterSatelliteThingDef = ThingDef.Named("RimNauts2_Module_Satellite_EnergyBooster");
+            _energyBoosterSatelliteIcon = Universum.Assets.GetTexture(_energyBoosterSatelliteDef.icon.texturePath);
+
             _cosmicSurveillanceSatelliteDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_CosmicSurveillance"];
+            _cosmicSurveillanceSatelliteThingDef = ThingDef.Named("RimNauts2_Module_Satellite_CosmicSurveillance");
             _cosmicSurveillanceSatelliteIcon = Universum.Assets.GetTexture(_cosmicSurveillanceSatelliteDef.icon.texturePath);
 
             _UpdateRelaySatelliteCmd();
             _UpdateEnergyRelaySatelliteCmd();
+            _UpdateEnergyBoosterSatelliteCmd();
             _UpdateCosmicSurveillanceSatelliteCmd();
         }
 
@@ -63,13 +81,18 @@ namespace RimNauts2.Things.Building {
             _energyRelayCapacity = _energyRelayTotal * 50;
             _powerGenerated = _energyRelayTotal * 20;
 
+            _energyBoosterTotal = Universum.Game.MainLoop.instance.GetTotal(_energyBoosterSatelliteDef);
+            _energyBoosterPowerGenerated = _energyBoosterTotal * 360;
+
             _cosmicSurveillanceTotal = Universum.Game.MainLoop.instance.GetTotal(_cosmicSurveillanceSatelliteDef);
             _cosmicSurveillancePowerConsumption = _cosmicSurveillanceTotal * 50;
             _relayTotalNeeded += _cosmicSurveillanceTotal;
             _powerNeeded += _cosmicSurveillancePowerConsumption;
+            _powerGenerated += _energyBoosterPowerGenerated;
             // update commands
             _UpdateRelaySatelliteCmd();
             _UpdateEnergyRelaySatelliteCmd();
+            _UpdateEnergyBoosterSatelliteCmd();
             _UpdateCosmicSurveillanceSatelliteCmd();
             // update description
             descConnection = "Connected";
@@ -82,6 +105,7 @@ namespace RimNauts2.Things.Building {
 
             yield return _relaySatelliteCmd;
             yield return _energyRelaySatelliteCmd;
+            yield return _energyBoosterSatelliteCmd;
             yield return _cosmicSurveillanceSatelliteCmd;
         }
 
@@ -93,7 +117,7 @@ namespace RimNauts2.Things.Building {
             bool problemDetected = needCapacity;
 
             string desc = _BuildHeader("Relay Satellite");
-            desc += _BuildOverview("The Relay Satellite is vital for satellite signal transmission, requiring enough units for communication needs.");
+            desc += _BuildOverview(_relaySatelliteThingDef.description);
             desc += _AddDetail($"Total Satellites: {_relayTotal}");
             desc += _AddDetail($"Relay Demand/Capacity: {_relayTotalNeeded}/{_relayCapacity} ({_GetSurplusString(surplus: _relayCapacity - _relayTotalNeeded)})");
             if (problemDetected) desc += _AddAlertHeader("ALERT");
@@ -116,12 +140,12 @@ namespace RimNauts2.Things.Building {
             bool problemDetected = needPower || needCapacity;
 
             string desc = _BuildHeader("Energy Relay Satellite");
-            desc += _BuildOverview("Key for power transmission, this satellite is essential for managing your network's power distribution.");
+            desc += _BuildOverview(_energyRelaySatelliteThingDef.description);
             desc += _AddDetail($"Total Satellites: {_energyRelayTotal}");
             desc += _AddDetail($"Relay Demand/Capacity: {_powerNeeded}/{_energyRelayCapacity} ({_GetSurplusString(surplus: _energyRelayCapacity - _powerNeeded)})");
             desc += _AddDetail($"Power Demand/Supply: {_powerNeeded}/{_powerGenerated} ({_GetSurplusString(surplus: _powerGenerated - _powerNeeded)})");
             if (problemDetected) desc += _AddAlertHeader("ALERT");
-            if (needPower) desc += _AddAlertDetail(reason: "Power deficit detected.", solution: "Increase power generation by deploying Solar Grid Satellites.");
+            if (needPower) desc += _AddAlertDetail(reason: "Power deficit detected.", solution: "Increase power generation by deploying Energy Booster Satellites.");
             if (needCapacity) desc += _AddAlertDetail(reason: "Limited relay capacity.", solution: "Deploy additional Energy Relay Satellites to increase capacity.");
 
             _energyRelaySatelliteCmd = new Command_Action {
@@ -134,9 +158,23 @@ namespace RimNauts2.Things.Building {
             if (problemDetected) _energyRelaySatelliteCmd.defaultIconColor = Color.red;
         }
 
+        private void _UpdateEnergyBoosterSatelliteCmd() {
+            string desc = _BuildHeader("Energy Booster Satellite");
+            desc += _BuildOverview(_energyBoosterSatelliteThingDef.description);
+            desc += _AddDetail($"Total Satellites: {_energyBoosterTotal}");
+            desc += _AddDetail($"Total Power Generated: {_energyBoosterPowerGenerated}");
+
+            _energyBoosterSatelliteCmd = new Command_Action {
+                defaultLabel = "Energy Booster Satellite",
+                defaultDesc = desc,
+                icon = _energyBoosterSatelliteIcon,
+                action = new Action(_Void)
+            };
+        }
+
         private void _UpdateCosmicSurveillanceSatelliteCmd() {
             string desc = _BuildHeader("Cosmic Surveillance Satellite");
-            desc += _BuildOverview("The Cosmic Surveillance Satellite is used for expansive space surveillance. It enhances vision in space and paves the way for discovering celestial objects.");
+            desc += _BuildOverview(_cosmicSurveillanceSatelliteThingDef.description);
             desc += _AddDetail($"Total Satellites: {_cosmicSurveillanceTotal}");
             desc += _AddDetail($"Total Power Consumption: {_cosmicSurveillancePowerConsumption}");
 
