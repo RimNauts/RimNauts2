@@ -37,6 +37,9 @@
             <ToxicResistance>1.0</ToxicResistance>
             <MoveSpeed>-0.04</MoveSpeed>
             <ShootingAccuracyPawn>-0.1</ShootingAccuracyPawn>
+            <HypoxiaResistance MayRequire="kentington.saveourship2">1</HypoxiaResistance>
+            <DecompressionResistance MayRequire="kentington.saveourship2">1</DecompressionResistance>
+            <VacuumSpeedMultiplier MayRequire="kentington.saveourship2">4</VacuumSpeedMultiplier>
         </equippedStatOffsets>
         <costList>
             <ComponentSpacer>1</ComponentSpacer>
@@ -64,6 +67,11 @@
                 <li>EVA</li>
             </tags>
         </apparel>
+        <comps>
+            <li MayRequire="kentington.saveourship2">
+                <compClass>SaveOurShip2.Comp_EVA</compClass>
+            </li>
+        </comps>
     </ThingDef>
     
     <ThingDef ParentName="ArmorMachineableBase">
@@ -105,6 +113,9 @@
             <MoveSpeed>-0.4</MoveSpeed>
             <ToxicResistance>1.0</ToxicResistance>
             <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.3</SlaveSuppressionOffset>
+            <HypoxiaResistance MayRequire="kentington.saveourship2">1</HypoxiaResistance>
+            <DecompressionResistance MayRequire="kentington.saveourship2">1</DecompressionResistance>
+            <VacuumSpeedMultiplier MayRequire="kentington.saveourship2">4</VacuumSpeedMultiplier>
         </equippedStatOffsets>
         <thingCategories>
             <li>ApparelArmor</li>
@@ -152,6 +163,9 @@
                 <hotKey>Misc4</hotKey>
                 <chargeNoun>jump</chargeNoun>
                 <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+            </li>
+            <li MayRequire="kentington.saveourship2">
+                <compClass>SaveOurShip2.Comp_EVA</compClass>
             </li>
         </comps>
         <verbs>
