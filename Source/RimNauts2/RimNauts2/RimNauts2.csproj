@@ -92,11 +92,13 @@
     <Compile Include="Defs\Of.cs" />
     <Compile Include="Defs\ObjectGenerationStep.cs" />
     <Compile Include="Defs\Loader.cs" />
+    <Compile Include="Game\MainLoop.cs" />
     <Compile Include="Patch\Generator.cs" />
     <Compile Include="Settings\Container.cs" />
     <Compile Include="Settings\Page.cs" />
     <Compile Include="Things\Building\DeliveryCannon.cs" />
     <Compile Include="Things\Building\PodLauncher.cs" />
+    <Compile Include="Things\Building\SatelliteOperationsCenter.cs" />
     <Compile Include="Things\Comps\BuildRoof.cs" />
     <Compile Include="Things\Comps\DeliveryCannonCharger.cs" />
     <Compile Include="Things\Comps\DeliveryCannonMode.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Things\PlaceWorker\IsBarrenMoon.cs" />
     <Compile Include="Things\PlaceWorker\NotBarrenMoon.cs" />
     <Compile Include="Things\PlaceWorker\RemoveRoof.cs" />
+    <Compile Include="Things\SatelliteInformationCommand.cs" />
     <Compile Include="Things\TransportPodArrivalAction.cs" />
     <Compile Include="Deprecated\RenderingManager.cs" />
     <Compile Include="Logger.cs" />

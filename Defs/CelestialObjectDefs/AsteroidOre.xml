@@ -15,6 +15,9 @@
             <biomeDef>RimNauts2_Satellite_Biome</biomeDef>
             <keepAfterAbandon>false</keepAfterAbandon>
             <overlayIconPath>UI/Designators/Mine</overlayIconPath>
+            <commandLabelKey>RimNauts.asteroid_command_label</commandLabelKey>
+            <commandDescKey>RimNauts.asteroid_command_desc</commandDescKey>
+            <commandIconPath>UI/Designators/Mine</commandIconPath>
         </objectHolder>
         <shape>
             <meshes>

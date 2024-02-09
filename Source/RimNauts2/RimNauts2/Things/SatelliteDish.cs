@@ -27,7 +27,7 @@ namespace RimNauts2.Things {
             };
             if (!DebugSettings.godMode) {
                 int total_moons = Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects[Props.celestialObjectDefName]);
-                int total_satellites = Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite"]);
+                int total_satellites = Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Relay"]);
                 if (total_satellites < (total_moons + 1) * 2) {
                     int diff = (total_moons + 1) * 2 - total_satellites;
                     cmd.Disable(diff.ToString() + " " + Props.failMessage);

@@ -38,4 +38,13 @@
     <RimNauts.delivery_cannon_target_cell>Target cell: </RimNauts.delivery_cannon_target_cell>
     <RimNauts.delivery_cannon_target_tile_report>Tile on the world map to target.</RimNauts.delivery_cannon_target_tile_report>
     <RimNauts.delivery_cannon_target_cell_report>Position on map to target.</RimNauts.delivery_cannon_target_cell_report>
+    <RimNauts.asteroid_command_label>Land on Asteroid</RimNauts.asteroid_command_label>
+    <RimNauts.asteroid_command_desc>Initiate the landing sequence for your pawns on the asteroid.</RimNauts.asteroid_command_desc>
+    <RimNauts.moon_command_label>Land on Moon</RimNauts.moon_command_label>
+    <RimNauts.moon_command_desc>Command your pawns to land on the moon's surface.</RimNauts.moon_command_desc>
+    <RimNauts.transportpod_fail_message_fuel>{} fuel required, currently at {}</RimNauts.transportpod_fail_message_fuel>
+    <RimNauts.transportpod_fail_message_launch>Failed to launch module into orbit.</RimNauts.transportpod_fail_message_launch>
+    <RimNauts.transportpod_success_message_launch>Successfully launched module into orbit.</RimNauts.transportpod_success_message_launch>
+    <RimNauts.transportpod_label>Launch {0}</RimNauts.transportpod_label>
+    <RimNauts.transportpod_desc>Launch {0} into orbit.</RimNauts.transportpod_desc>
 </LanguageData>

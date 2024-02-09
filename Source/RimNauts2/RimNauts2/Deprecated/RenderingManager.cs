@@ -13,11 +13,11 @@ namespace RimNauts2.World {
     }
 
     public class Caching_Handler : GameComponent {
-        public Caching_Handler(Game game) : base() { }
+        public Caching_Handler(Verse.Game game) : base() { }
     }
     
     class RenderingManager : GameComponent {
-        public RenderingManager(Game game) : base() { }
+        public RenderingManager(Verse.Game game) : base() { }
     }
 
     [StaticConstructorOnStartup]
@@ -51,7 +51,7 @@ namespace RimNauts2.World {
                         if (map_generator.defName == "RimNauts2_OreUranium_MapGen") celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_AsteroidOre_Uranium"];
                         break;
                     case Type.Satellite:
-                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite"];
+                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Relay"];
                         break;
                     case Type.SpaceStation:
                         celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Station"];

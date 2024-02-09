@@ -3,7 +3,7 @@ using Verse;
 
 namespace RimNauts2 {
     public class RimNauts_GameComponent : GameComponent {
-        public RimNauts_GameComponent(Game game) : base() { }
+        public RimNauts_GameComponent(Verse.Game game) : base() { }
     }
 
     [StaticConstructorOnStartup]

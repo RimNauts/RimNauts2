@@ -56,33 +56,46 @@
                 <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
             </li>
             <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>1000.0</fuelThreshold>
+                <name>Space Station</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Station</celestialObjectDefName>
+                <createMap>true</createMap>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Station</module_def>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
                 <fuelThreshold>200.0</fuelThreshold>
-                <label>Launch satellite</label>
-                <desc>Launch satellite into orbit.</desc>
-                <name>satellite</name>
-                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite</iconPath>
-                <failMessageFuel>fuel required, currently at</failMessageFuel>
-                <failMessageLaunch>Failed to launch satellite into orbit.</failMessageLaunch>
-                <successMessage>Successfully launched a satellite into orbit.</successMessage>
-                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite</celestialObjectDefName>
-                <createMap>false</createMap>
+                <name>Relay Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Relay</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Relay</celestialObjectDefName>
                 <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
                 <module_def>RimNauts2_Module_Satellite</module_def>
             </li>
-            <li Class="RimNauts2.Things.TransportPod_Properties">
-                <fuelThreshold>1000.0</fuelThreshold>
-                <label>Launch space station</label>
-                <desc>Launch space station into orbit.</desc>
-                <name>space station</name>
-                <iconPath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</iconPath>
-                <failMessageFuel>fuel required, currently at</failMessageFuel>
-                <failMessageLaunch>Failed to launch space station into orbit.</failMessageLaunch>
-                <successMessage>Successfully launched a space station into orbit.</successMessage>
-                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Station</celestialObjectDefName>
-                <createMap>true</createMap>
-                <skyfallerLeaving>RimNauts2_DropPodLeaving_SpaceStation</skyfallerLeaving>
-                <module_def>RimNauts2_Module_Station</module_def>
+            <!--<li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Energy Relay Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Energy</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Energy</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_Energy</module_def>
             </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Energy Booster Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_EnergyBooster</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_EnergyBooster</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_EnergyBooster</module_def>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Cosmic Surveillance Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_CosmicSurveillance</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_CosmicSurveillance</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_CosmicSurveillance</module_def>
+            </li>-->
         </comps>
         <inspectorTabs>
             <li>ITab_ContentsTransporter</li>

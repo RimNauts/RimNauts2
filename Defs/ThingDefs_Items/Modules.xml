@@ -11,12 +11,6 @@
             <li>Manufactured</li>
         </thingCategories>
         <allowedArchonexusCount>2</allowedArchonexusCount>
-    </ThingDef>
-    
-    <ThingDef ParentName="RimNauts2_Module">
-        <defName>RimNauts2_Module_Satellite</defName>
-        <label>satellite module</label>
-        <description>Satellite module for construction of an artificial satellite. Send it up into orbit with a rocket.</description>
         <graphicData>
             <texPath>Things/Items/RimNauts2_SatelliteModule</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -36,14 +30,30 @@
         <description>Station module for construction of a space station. Send it up into orbit with a rocket.</description>
         <graphicData>
             <texPath>Things/Items/RimNauts2_StationModule</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(2,2)</drawSize>
         </graphicData>
-        <statBases>
-            <MaxHitPoints>250</MaxHitPoints>
-            <MarketValue>32</MarketValue>
-            <Mass>50.0</Mass>
-            <Flammability>1.6</Flammability>
-        </statBases>
+    </ThingDef>
+    
+    <ThingDef ParentName="RimNauts2_Module">
+        <defName>RimNauts2_Module_Satellite</defName>
+        <label>Relay Satellite module</label>
+        <description>The Relay Satellite is vital for satellite signal transmission, requiring enough units for communication needs.</description>
+    </ThingDef>
+    
+    <ThingDef ParentName="RimNauts2_Module">
+        <defName>RimNauts2_Module_Satellite_Energy</defName>
+        <label>Energy Relay Satellite module</label>
+        <description>Key for power transmission, this satellite is essential for managing your network's power distribution.</description>
+    </ThingDef>
+    
+    <ThingDef ParentName="RimNauts2_Module">
+        <defName>RimNauts2_Module_Satellite_EnergyBooster</defName>
+        <label>Energy Booster Satellite module</label>
+        <description>The Energy Booster Satellite is crucial for amplifying the power within your satellite network, significantly enhancing overall energy output and efficiency.</description>
+    </ThingDef>
+    
+    <ThingDef ParentName="RimNauts2_Module">
+        <defName>RimNauts2_Module_Satellite_CosmicSurveillance</defName>
+        <label>Cosmic Surveillance Satellite module</label>
+        <description>The Cosmic Surveillance Satellite is used for expansive space surveillance. It enhances vision in space and paves the way for discovering celestial objects.</description>
     </ThingDef>
 </Defs>

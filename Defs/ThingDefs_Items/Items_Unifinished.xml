@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ThingDef ParentName="UnfinishedBase">
-        <defName>RimNauts2_Unifinished_Module_Satellite</defName>
-        <label>unfinished satellite module</label>
-        <description>An unfinished satellite module.</description>
+    <ThingDef Name="RimNauts2_Unifinished_Module" ParentName="UnfinishedBase" Abstract="True">
+        <description>An unfinished module.</description>
         <graphicData>
             <texPath>Things/Items/RimNauts2_SatelliteModule</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -14,17 +12,31 @@
         <stuffCategories Inherit="false" />
     </ThingDef>
     
-    <ThingDef ParentName="UnfinishedBase">
+    <ThingDef ParentName="RimNauts2_Unifinished_Module">
         <defName>RimNauts2_Unifinished_Module_Station</defName>
         <label>unfinished station module</label>
-        <description>An unfinished station module.</description>
         <graphicData>
             <texPath>Things/Items/RimNauts2_StationModule</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <statBases>
-            <Flammability>0.5</Flammability>
-        </statBases>
-        <stuffCategories Inherit="false" />
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Unifinished_Module">
+        <defName>RimNauts2_Unifinished_Module_Satellite</defName>
+        <label>Unfinished Relay Satellite module</label>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Unifinished_Module">
+        <defName>RimNauts2_Unifinished_Module_Satellite_Energy</defName>
+        <label>Unfinished Energy Relay Satellite module</label>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Unifinished_Module">
+        <defName>RimNauts2_Unifinished_Module_Satellite_EnergyBooster</defName>
+        <label>Unfinished Energy Booster Satellite module</label>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Unifinished_Module">
+        <defName>RimNauts2_Unifinished_Module_Satellite_CosmicSurveillance</defName>
+        <label>Unfinished Cosmic Surveillance Satellite module</label>
     </ThingDef>
 </Defs>

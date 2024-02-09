@@ -16,7 +16,7 @@ namespace RimNauts2.Patch {
         public static MethodBase TargetMethod() => AccessTools.Method("Universum.World.Generator:SendLetter");
 
         public static void Postfix(Universum.Defs.ObjectGeneration objectGenerationStep, List<string> celestialDefNames, List<Universum.World.ObjectHolder> objectHolders) {
-            if (objectGenerationStep.defName == "RimNauts2_ObjectGeneration_AsteroidOre" && Settings.Container.get_asteroid_ore_verbose && Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite"]) > 0) {
+            if (objectGenerationStep.defName == "RimNauts2_ObjectGeneration_AsteroidOre" && Settings.Container.get_asteroid_ore_verbose && Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Relay"]) > 0) {
                 if (objectHolders.NullOrEmpty()) return;
 
                 string asteroid_ore_names = null;

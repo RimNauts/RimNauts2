@@ -3,8 +3,7 @@
 This mod adds [b]Near-Earth Objects[/b] like moons, asteroids, space debris, and artificial-satellites. Everything is [b]visible[/b] and [b]animated[/b] as an orbit on the world map. The moons are playable biomes that needs to be discovered and the artifical satellites needs to be launched into orbit.
 
 [img]https://imgur.com/3qt61R7.png[/img]
-[img]https://imgur.com/0nVS087.gif[/img]
-[i]Note: The gif lags due to the Imgur compression.[/i]
+[img]https://imgur.com/G4Ylg13.gif[/img]
 
 [img]https://raw.githubusercontent.com/RimNauts/RimNauts2/main/Workshop/PNG/header_blast-off.png[/img]
 
@@ -96,6 +95,8 @@ Yes.
 Main programmer: [url=https://ko-fi.com/sindre0830]sindre0830[/url]
 Main artist: [url=https://ko-fi.com/detvisor]DetVisor[/url]
 
+Artist who has helped tremendously with the work-in-progress satellite update: [url=https://steamcommunity.com/profiles/76561198048619250]Azzafof[/url]
+Satellite icon and helped with a future spaceship update: [url=https://steamcommunity.com/id/Oskarpotocki/myworkshopfiles/?appid=294100]Oskar Potocki[/url]
 Workshop infographic template: [url=https://ko-fi.com/bingbopjeebo8087]Bing Bop Jeebo[/url]
 Rimefeller compatibility patch: [url=https://steamcommunity.com/id/Jiopaba/myworkshopfiles/?appid=294100]Jiopaba[/url]
 Delivery cannon art: dronecadge
