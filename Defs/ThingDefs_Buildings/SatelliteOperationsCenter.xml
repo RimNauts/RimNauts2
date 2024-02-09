@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <ThingDef ParentName="BuildingBase">
+    <!--<ThingDef ParentName="BuildingBase">
         <defName>RimNauts2_SatelliteOperationsCenter</defName>
         <label>satellite operations center</label>
         <description>Allows radio contact with other factions and orbital traders.</description>
@@ -44,5 +44,5 @@
         </researchPrerequisites>
         <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
         <tickerType>Rare</tickerType>
-    </ThingDef>
+    </ThingDef>-->
 </Defs>

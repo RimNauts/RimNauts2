@@ -80,7 +80,7 @@
         </products>
     </RecipeDef>
     
-    <RecipeDef ParentName="RimNauts2_Make_Module">
+    <!--<RecipeDef ParentName="RimNauts2_Make_Module">
         <defName>RimNauts2_Make_Module_Satellite_Energy</defName>
         <label>Make Energy Relay Satellite module</label>
         <unfinishedThingDef>RimNauts2_Unifinished_Module_Satellite_Energy</unfinishedThingDef>
@@ -177,5 +177,5 @@
         <products>
             <RimNauts2_Module_Satellite>1</RimNauts2_Module_Satellite>
         </products>
-    </RecipeDef>
+    </RecipeDef>-->
 </Defs>

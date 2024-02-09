@@ -22,7 +22,7 @@ namespace RimNauts2.Game {
         }
 
         public override void GameComponentTick() {
-            if (_tickManager == null) {
+            /*if (_tickManager == null) {
                 _tickManager = Find.TickManager;
                 return;
             }
@@ -34,7 +34,7 @@ namespace RimNauts2.Game {
             foreach (var satelliteCommand in satelliteCommands) {
                 satelliteCommand.UpdateText();
                 satelliteCommand.UpdateCmd();
-            }
+            }*/
         }
     }
 }
