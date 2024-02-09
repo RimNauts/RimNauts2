@@ -51,7 +51,7 @@ namespace RimNauts2.World {
                         if (map_generator.defName == "RimNauts2_OreUranium_MapGen") celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_AsteroidOre_Uranium"];
                         break;
                     case Type.Satellite:
-                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite"];
+                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Relay"];
                         break;
                     case Type.SpaceStation:
                         celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Station"];
