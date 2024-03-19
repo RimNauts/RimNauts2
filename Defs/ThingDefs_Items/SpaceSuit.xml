@@ -154,7 +154,7 @@
             <li>RewardStandardHighFreq</li>
         </thingSetMakerTags>
         <comps>
-            <li MayRequire="Ludeon.RimWorld.Royalty" Class="CompProperties_Reloadable">
+            <li MayRequire="Ludeon.RimWorld.Royalty"  Class="CompProperties_ApparelReloadable">
                 <maxCharges>25</maxCharges>
                 <ammoDef>Chemfuel</ammoDef>
                 <ammoCountPerCharge>20</ammoCountPerCharge>
