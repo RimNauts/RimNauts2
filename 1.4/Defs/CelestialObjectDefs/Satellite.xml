@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Satellite" Abstract="True">
+        <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
+        <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
+        <scalePercentageBetween>(0.003, 0.003)</scalePercentageBetween>
+        <minSize>0.3</minSize>
+        <speedPercentageBetween>(8.0, 10.0)</speedPercentageBetween>
+        <orbitPathOffsetPercentage>1.2</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.05, 0.05)</orbitSpreadBetween>
+        <orbitDirection>RANDOM</orbitDirection>
+        <axialAngleBetween>(0.0, 360.0)</axialAngleBetween>
+        <inclinationAngleBetween>(0.0, 180.0)</inclinationAngleBetween>
+        <components>
+            <li>RimNauts2_Component_Trail_Satellite</li>
+        </components>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_Station</defName>
+        <scalePercentageBetween>(0.005, 0.005)</scalePercentageBetween>
+        <minSize>0.5</minSize>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_SpaceStation_MapGen</mapGeneratorDef>
+            <biomeDef>RimNauts2_Satellite_Biome</biomeDef>
+            <keepAfterAbandon>false</keepAfterAbandon>
+            <description>Space Station</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_Label_Satellite_Station</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_Relay</defName>
+        <components>
+            <li>RimNauts2_Component_Label_Satellite_Relay</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Relay</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_Energy</defName>
+        <components>
+            <li>RimNauts2_Component_Label_Satellite_Energy</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Energy</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_EnergyBooster</defName>
+        <components>
+            <li>RimNauts2_Component_Label_Satellite_EnergyBooster</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_EnergyBooster</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Satellite">
+        <defName>RimNauts2_CelestialObject_Satellite_CosmicSurveillance</defName>
+        <components>
+            <li>RimNauts2_Component_Label_Satellite_CosmicSurveillance</li>
+        </components>
+        <icon>
+            <texturePath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_CosmicSurveillance</texturePath>
+        </icon>
+    </Universum.Defs.CelestialObject>
+</Defs>

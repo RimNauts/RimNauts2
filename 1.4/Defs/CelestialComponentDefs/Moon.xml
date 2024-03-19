@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<Universum.Defs.Component Name="RimNauts2_Component_Label_Moon" Abstract="True">
+        <componentClass>Universum.World.Component.FloatingLabel</componentClass>
+        <offSet>(0.0, 0.0, 0.0)</offSet>
+        <color>(255, 255, 255)</color>
+        <hideAtMinAltitude>200</hideAtMinAltitude>
+        <hideAtMaxAltitude>700</hideAtMaxAltitude>
+        <fontSize>40.0</fontSize>
+        <outlineColor>(0, 0, 0)</outlineColor>
+        <outlineWidth>0.2</outlineWidth>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component Name="RimNauts2_Component_Label_Moon_Barren" ParentName="RimNauts2_Component_Label_Moon">
+        <defName>RimNauts2_Component_Label_Moon_Barren</defName>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component Name="RimNauts2_Component_Label_Moon_Ocean" ParentName="RimNauts2_Component_Label_Moon">
+        <defName>RimNauts2_Component_Label_Moon_Ocean</defName>
+  	</Universum.Defs.Component>
+</Defs>

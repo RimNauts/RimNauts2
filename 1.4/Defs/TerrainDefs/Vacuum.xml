@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Vacuum -->
+	<TerrainDef>
+		<defName>RimNauts2_Vacuum</defName>
+		<label>Vacuum</label>
+		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>20</renderPrecedence>
+		<pathCost>42</pathCost>
+		<changeable>true</changeable>
+		<filthAcceptanceMask>
+			<li>None</li>
+		</filthAcceptanceMask>
+		<fertility>0</fertility>
+		<avoidWander>true</avoidWander>
+		<holdSnow>false</holdSnow>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>RimNauts2_Vacuum_Affordance</li>
+		</affordances>
+		<modExtensions>
+			<li Class="Universum.Utilities.Terrain.Properties">
+				<allowed_utilities>
+					<li>universum.vacuum</li>
+					<li>universum.vacuum_overlay</li>
+				</allowed_utilities>
+			</li>
+		</modExtensions>
+  	</TerrainDef>
+	<!-- Floor glass -->
+	<TerrainDef ParentName="FloorBase">
+		<defName>RimNauts2_Vacuum_Glass</defName>
+		<label>Vacuum Sealed Glass Floor</label>
+    	<description>Vacuum sealed glass floor allows your colonist to view outer space without the risks of decompression or suffocation.</description>
+		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum</texturePath>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>20</renderPrecedence>
+		<changeable>true</changeable>
+		<statBases>
+			<WorkToBuild>300</WorkToBuild>
+			<CleaningTimeFactor>0.8</CleaningTimeFactor>
+		</statBases>
+		<costList>
+			<Steel>2</Steel>
+		</costList>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
+		<terrainAffordanceNeeded>RimNauts2_Vacuum_Affordance</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="Universum.Utilities.Terrain.Properties">
+				<allowed_utilities>
+					<li>universum.vacuum_overlay</li>
+				</allowed_utilities>
+			</li>
+		</modExtensions>
+  	</TerrainDef>
+	<!-- Affordance for vacuum -->
+	<TerrainAffordanceDef>
+		<defName>RimNauts2_Vacuum_Affordance</defName>
+		<label>vacuum</label>
+		<order>2400</order>
+	</TerrainAffordanceDef>
+</Defs>

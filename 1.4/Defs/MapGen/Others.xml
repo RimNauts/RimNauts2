@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<MapGeneratorDef>
+	    <defName>RimNauts2_SpaceStation_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_GenStep_Vacuum</li>
+			<li>RimNauts2_SpaceStation_GenStep_Structure</li>
+			<li>RimNauts2_GenStep_Environment</li>
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+</Defs>

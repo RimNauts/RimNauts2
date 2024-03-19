@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef Name="RimNauts2_Roof" Abstract="True">
+        <category>Building</category>
+        <thingClass>Building</thingClass>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>Standable</passability>
+        <blockWind>true</blockWind>
+        <castEdgeShadows>true</castEdgeShadows>
+        <fillPercent>0</fillPercent>
+        <coversFloor>false</coversFloor>
+        <placingDraggableDimensions>2</placingDraggableDimensions>
+        <tickerType>Normal</tickerType>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <designationCategory>Misc</designationCategory>
+        <staticSunShadowHeight>1.0</staticSunShadowHeight>
+        <blockLight>false</blockLight>
+        <canOverlapZones>true</canOverlapZones>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <clearBuildingArea>false</clearBuildingArea>
+        <useHitPoints>false</useHitPoints>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Roof">
+        <defName>RimNauts2_Things_Roof_MagneticField</defName>
+        <label>build magnetic field</label>
+        <description>Provides an airtight roof that allows ships to fly through.</description>
+        <building>
+            <isInert>true</isInert>
+            <canPlaceOverWall>true</canPlaceOverWall>
+            <isEdifice>false</isEdifice>
+            <blueprintGraphicData>
+                <texPath>Things/Special/TerrainBlueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="RimNauts2.Things.Comps.CompProperties_BuildRoof">
+                <roof_def>RimNauts2_Roof_MagneticField</roof_def>
+            </li>
+        </comps>
+        <placeWorkers>
+            <li>RimNauts2.Things.PlaceWorker.PlaceWorker_BuildRoof</li>
+        </placeWorkers>
+        <statBases>
+            <WorkToBuild>250</WorkToBuild>
+        </statBases>
+        <costList>
+            <Plasteel>20</Plasteel>
+        </costList>
+        <uiIconPath>Icons/RimNauts2_BuildRoof_MagneticField</uiIconPath>
+        <graphicData>
+            <texPath>Things/Special/TerrainBlueprint</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_Roof">
+        <defName>RimNauts2_Things_UnRoof_MagneticField</defName>
+        <label>remove magnetic field</label>
+        <building>
+            <isInert>true</isInert>
+            <canPlaceOverWall>true</canPlaceOverWall>
+            <isEdifice>false</isEdifice>
+            <blueprintGraphicData>
+                <texPath>Things/Special/TerrainBlueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="RimNauts2.Things.Comps.CompProperties_RemoveRoof">
+                <roof_def>RimNauts2_Roof_MagneticField</roof_def>
+            </li>
+        </comps>
+        <placeWorkers>
+            <li>RimNauts2.Things.PlaceWorker.PlaceWorker_RemoveRoof</li>
+        </placeWorkers>
+        <statBases>
+            <WorkToBuild>50</WorkToBuild>
+        </statBases>
+        <uiIconPath>Icons/RimNauts2_RemoveRoof_MagneticField</uiIconPath>
+        <graphicData>
+            <texPath>Things/Special/TerrainBlueprint</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+</Defs>

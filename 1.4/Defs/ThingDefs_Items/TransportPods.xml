@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef Abstract="True" Name="RimNauts2_TransportPod" ParentName="BuildingBase">
+        <size>(3,3)</size>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <castEdgeShadows>false</castEdgeShadows>
+        <designationHotKey>Misc12</designationHotKey>
+        <fillPercent>0.5</fillPercent>
+        <designationCategory>Misc</designationCategory>
+        <uiOrder>2200</uiOrder>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<building>
+			<!--Stops it from destroying the launchpad-->
+			<isEdifice>false</isEdifice>
+		</building>
+        <clearBuildingArea>false</clearBuildingArea>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <WorkToBuild>1600</WorkToBuild>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <placeWorkers>
+            <li>PlaceWorker_NeedsFuelingPort</li>
+            <li>PlaceWorker_NotUnderRoof</li>
+        </placeWorkers>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <uiIconScale>1.1</uiIconScale>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_TransportPod">
+        <defName>RimNauts2_TransportPod_Cargo</defName>
+        <label>Cargo transport pod</label>
+        <description>A launchable cargo pod capable of carrying people, items, or animals. It can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+        <costList>
+            <Steel>100</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Transporter">
+                <restEffectiveness>0.8</restEffectiveness>
+                <massCapacity>1000.0</massCapacity>
+            </li>
+            <li Class="CompProperties_Launchable">
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>1000.0</fuelThreshold>
+                <name>Space Station</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_SpaceStation</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Station</celestialObjectDefName>
+                <createMap>true</createMap>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Station</module_def>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Relay Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Relay</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Relay</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite</module_def>
+            </li>
+            <!--<li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Energy Relay Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_Energy</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_Energy</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_Energy</module_def>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Energy Booster Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_EnergyBooster</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_EnergyBooster</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_EnergyBooster</module_def>
+            </li>
+            <li Class="RimNauts2.Things.TransportPod_Properties">
+                <fuelThreshold>200.0</fuelThreshold>
+                <name>Cosmic Surveillance Satellite</name>
+                <iconPath>Satellites/ArtificalSatellites/RimNauts2_ArtificialSatellite_CosmicSurveillance</iconPath>
+                <celestialObjectDefName>RimNauts2_CelestialObject_Satellite_CosmicSurveillance</celestialObjectDefName>
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+                <module_def>RimNauts2_Module_Satellite_CosmicSurveillance</module_def>
+            </li>-->
+        </comps>
+        <inspectorTabs>
+            <li>ITab_ContentsTransporter</li>
+        </inspectorTabs>
+    </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>RimNauts2_TransportPod_Shell</defName>
+        <label>delivery cannon shell</label>
+        <description>A shell capable of launching items through a delivery cannon.</description>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DeliveryCannon_Shell</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2, 2)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.0)</drawOffset>
+        </graphicData>
+        <size>(2, 2)</size>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <castEdgeShadows>false</castEdgeShadows>
+        <fillPercent>0.5</fillPercent>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<building>
+			<!--Stops it from destroying the launchpad-->
+			<isEdifice>false</isEdifice>
+		</building>
+        <clearBuildingArea>false</clearBuildingArea>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <WorkToBuild>1600</WorkToBuild>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <placeWorkers>
+            <li>PlaceWorker_NotUnderRoof</li>
+        </placeWorkers>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Transporter">
+                <restEffectiveness>0.8</restEffectiveness>
+                <massCapacity>1000.0</massCapacity>
+            </li>
+            <li Class="CompProperties_Launchable">
+                <skyfallerLeaving>RimNauts2_DropPodLeaving</skyfallerLeaving>
+            </li>
+        </comps>
+        <inspectorTabs>
+            <li>ITab_ContentsTransporter</li>
+        </inspectorTabs>
+    </ThingDef>
+</Defs>

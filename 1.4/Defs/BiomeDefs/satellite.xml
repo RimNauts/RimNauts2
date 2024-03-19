@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- Root class -->
+	<BiomeDef Name="RimNauts2_Biome" Abstract="True">
+		<workerClass>RimNauts2.Biome.Worker</workerClass>
+        <canBuildBase>true</canBuildBase>
+    	<canAutoChoose>false</canAutoChoose>
+        <allowRoads>false</allowRoads>
+        <allowRivers>false</allowRivers>
+        <hasVirtualPlants>false</hasVirtualPlants>
+        <texture>World/Biomes/Ocean</texture>
+        <impassable>false</impassable>
+    	<allowFarmingCamps>false</allowFarmingCamps>
+		<animalDensity>0</animalDensity>
+		<plantDensity>0</plantDensity>
+		<settlementSelectionWeight>0</settlementSelectionWeight>
+		<movementDifficulty>1</movementDifficulty>
+		<forageability>0</forageability>
+    	<isExtremeBiome>true</isExtremeBiome>
+		<soundsAmbient></soundsAmbient>
+		<diseaseMtbDays>90</diseaseMtbDays>
+		<diseases>
+			<li>
+				<diseaseInc>Disease_Flu</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+		</diseases>
+		<baseWeatherCommonalities>
+			<RimNauts2_OuterSpaceWeather_Moon>0</RimNauts2_OuterSpaceWeather_Moon>
+			<RimNauts2_OuterSpaceWeather>1</RimNauts2_OuterSpaceWeather>
+			<Clear>0</Clear>
+			<Fog>0</Fog>
+			<Rain>0</Rain>
+			<DryThunderstorm>0</DryThunderstorm>
+			<RainyThunderstorm>0</RainyThunderstorm>
+			<FoggyRain>0</FoggyRain>
+			<SnowGentle>0</SnowGentle>
+			<SnowHard>0</SnowHard>
+		</baseWeatherCommonalities>
+		<wildPlants><!-- nothing --></wildPlants>
+		<wildAnimals><!-- nothing --></wildAnimals>
+		<allowedPackAnimals><!-- nothing --></allowedPackAnimals>
+		<modExtensions>
+			<li Class="GeologicalLandforms.BiomeProperties" MayRequire="m00nl1ght.GeologicalLandforms">
+				<allowLandforms>false</allowLandforms>
+				<allowBiomeTransitions>false</allowBiomeTransitions>
+			</li>
+		</modExtensions>
+	</BiomeDef>
+    <!-- Satellite objects -->
+	<BiomeDef ParentName="RimNauts2_Biome">
+		<defName>RimNauts2_Satellite_Biome</defName>
+		<label>Ocean</label>
+		<description>Open ocean. Great for fish. Not so great for you.</description>
+		<modExtensions>
+			<li Class="Universum.Utilities.Biome.Properties">
+				<allowed_utilities>
+					<li>universum.vacuum_decompression</li>
+            		<li>universum.vacuum_suffocation</li>
+            		<li>universum.temperature</li>
+					<li>universum.ocean_masking</li>
+					<li>universum.vacuum</li>
+					<li>universum.disable_weather_change</li>
+					<li>universum.remove_shadows</li>
+				</allowed_utilities>
+				<temperature>-100.0</temperature>
+			</li>
+		</modExtensions>
+  	</BiomeDef>
+    <!-- Moons -->
+	<BiomeDef ParentName="RimNauts2_Biome">
+		<defName>RimNauts2_MoonBarren_Biome</defName>
+		<label>Ocean</label>
+		<description>Open ocean. Great for fish. Not so great for you.</description>
+		<baseWeatherCommonalities>
+			<RimNauts2_OuterSpaceWeather_Moon>1</RimNauts2_OuterSpaceWeather_Moon>
+			<RimNauts2_OuterSpaceWeather>0</RimNauts2_OuterSpaceWeather>
+			<Clear>0</Clear>
+			<Fog>0</Fog>
+			<Rain>0</Rain>
+			<DryThunderstorm>0</DryThunderstorm>
+			<RainyThunderstorm>0</RainyThunderstorm>
+			<FoggyRain>0</FoggyRain>
+			<SnowGentle>0</SnowGentle>
+			<SnowHard>0</SnowHard>
+		</baseWeatherCommonalities>
+		<modExtensions>
+			<li Class="Universum.Utilities.Biome.Properties">
+				<allowed_utilities>
+					<li>universum.vacuum_decompression</li>
+            		<li>universum.vacuum_suffocation</li>
+            		<li>universum.temperature</li>
+					<li>universum.ocean_masking</li>
+					<li>universum.vacuum</li>
+					<li>universum.disable_weather_change</li>
+				</allowed_utilities>
+				<temperature>-100.0</temperature>
+			</li>
+		</modExtensions>
+  	</BiomeDef>
+	<BiomeDef ParentName="RimNauts2_Biome">
+		<defName>RimNauts2_MoonWater_Biome</defName>
+		<label>Ocean</label>
+		<description>Open ocean. Great for fish. Not so great for you.</description>
+		<baseWeatherCommonalities>
+			<RimNauts2_OuterSpaceWeather_Moon>0</RimNauts2_OuterSpaceWeather_Moon>
+			<RimNauts2_OuterSpaceWeather>0</RimNauts2_OuterSpaceWeather>
+			<Clear>0.4</Clear>
+			<Fog>0.2</Fog>
+			<Rain>1</Rain>
+			<DryThunderstorm>0</DryThunderstorm>
+			<RainyThunderstorm>0.8</RainyThunderstorm>
+			<FoggyRain>0.2</FoggyRain>
+			<SnowGentle>0</SnowGentle>
+			<SnowHard>0</SnowHard>
+		</baseWeatherCommonalities>
+		<modExtensions>
+			<li Class="Universum.Utilities.Biome.Properties">
+				<allowed_utilities>
+					<li>universum.ocean_masking</li>
+				</allowed_utilities>
+			</li>
+		</modExtensions>
+  	</BiomeDef>
+</Defs>

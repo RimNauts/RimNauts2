@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <Universum.Defs.CelestialObject Abstract="True" Name="RimNauts2_CelestialObject_AsteroidOre">
+        <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
+        <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
+        <scalePercentageBetween>(0.01, 0.015)</scalePercentageBetween>
+        <speedPercentageBetween>(4.0, 8.0)</speedPercentageBetween>
+        <orbitSpreadBetween>(0.3, 1.2)</orbitSpreadBetween>
+        <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
+        <orbitPathOffsetPercentage>2.5</orbitPathOffsetPercentage>
+        <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
+        <yOffsetBetween>(-5.0, 5.0)</yOffsetBetween>
+        <orbitDirection>RIGHT</orbitDirection>
+        <objectHolder>
+            <biomeDef>RimNauts2_Satellite_Biome</biomeDef>
+            <keepAfterAbandon>false</keepAfterAbandon>
+            <overlayIconPath>UI/Designators/Mine</overlayIconPath>
+            <commandLabelKey>RimNauts.asteroid_command_label</commandLabelKey>
+            <commandDescKey>RimNauts.asteroid_command_desc</commandDescKey>
+            <commandIconPath>UI/Designators/Mine</commandIconPath>
+        </objectHolder>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_Asteroid_1</li>
+                <li>RimNauts2_Mesh_Asteroid_2</li>
+                <li>RimNauts2_Mesh_AsteroidOre</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Steel" ParentName="RimNauts2_CelestialObject_AsteroidOre">
+        <defName>RimNauts2_CelestialObject_AsteroidOre_Steel</defName>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_OreSteel_MapGen</mapGeneratorDef>
+            <description>Steel ore asteroid</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_AsteroidOre_Steel</li>
+        </components>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_AsteroidOre_Steel</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Gold" ParentName="RimNauts2_CelestialObject_AsteroidOre">
+        <defName>RimNauts2_CelestialObject_AsteroidOre_Gold</defName>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_OreGold_MapGen</mapGeneratorDef>
+            <description>Gold ore asteroid</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_AsteroidOre_Gold</li>
+        </components>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_AsteroidOre_Gold</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Plasteel" ParentName="RimNauts2_CelestialObject_AsteroidOre">
+        <defName>RimNauts2_CelestialObject_AsteroidOre_Plasteel</defName>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_OrePlasteel_MapGen</mapGeneratorDef>
+            <description>Plasteel ore asteroid</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_AsteroidOre_Plasteel</li>
+        </components>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_AsteroidOre_Plasteel</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidOre_Uranium" ParentName="RimNauts2_CelestialObject_AsteroidOre">
+        <defName>RimNauts2_CelestialObject_AsteroidOre_Uranium</defName>
+        <objectHolder>
+            <mapGeneratorDef>RimNauts2_OreUranium_MapGen</mapGeneratorDef>
+            <description>Uranium ore asteroid</description>
+        </objectHolder>
+        <components>
+            <li>RimNauts2_Component_AsteroidOre_Uranium</li>
+        </components>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_AsteroidOre_Uranium</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+</Defs>

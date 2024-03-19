@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <EffecterDef>
+        <defName>RimNauts2_DeliveryCannon_Shot</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+                <fleckDef>Smoke</fleckDef>
+                <ticksBetweenMotes>15</ticksBetweenMotes>
+                <scale>4.0~6.0</scale>
+                <spawnLocType>OnSource</spawnLocType>
+                <absoluteAngle>true</absoluteAngle>
+                <angle>30~70</angle>
+                <speed>0.2~0.35</speed>
+            </li>
+        </children>
+    </EffecterDef>
+</Defs>

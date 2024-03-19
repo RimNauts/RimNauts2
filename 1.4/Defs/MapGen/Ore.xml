@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <MapGeneratorDef Name="RimNauts2_Ore_MapGen" Abstract="True">
+		<genSteps>
+			<li>Fog</li>
+			<li>FindPlayerStartSpot</li>
+      		<li>ScenParts</li>
+			<li>RimNauts2_Ore_GenStep_ElevationFertility</li>
+			<li>RimNauts2_GenStep_Vacuum</li>
+			<li>RimNauts2_GenStep_Environment</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+    <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
+		<defName>RimNauts2_OreGold_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_OreGold_GenStep_RocksFromGrid</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+    <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
+		<defName>RimNauts2_OrePlasteel_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_OrePlasteel_GenStep_RocksFromGrid</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+    <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
+		<defName>RimNauts2_OreSteel_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_OreSteel_GenStep_RocksFromGrid</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+    <MapGeneratorDef ParentName="RimNauts2_Ore_MapGen">
+		<defName>RimNauts2_OreUranium_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_OreUranium_GenStep_RocksFromGrid</li>
+		</genSteps>
+	</MapGeneratorDef>
+</Defs>

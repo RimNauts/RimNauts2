@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <RimNauts.default>Default</RimNauts.default>
+    <RimNauts.mineral_rich_asteroids>Mineral-rich asteroids</RimNauts.mineral_rich_asteroids>
+    <RimNauts.mineral_rich_asteroids_messages_option>Mineral-rich asteroids messages</RimNauts.mineral_rich_asteroids_messages_option>
+    <RimNauts.multi_thread_update_option>Multithread update loop</RimNauts.multi_thread_update_option>
+    <RimNauts.Label.asteroid_spawned>Mineral-rich asteroid spotted ({0})</RimNauts.Label.asteroid_spawned>
+    <RimNauts.Description.asteroid_spawned>A mineral-rich asteroid has been spotted in the asteroid belt. You have to be fast since it's only visible for a limited time.</RimNauts.Description.asteroid_spawned>
+    <RimNauts.days_left> (Days left {0})</RimNauts.days_left>
+    <RimNauts.hours_left> (Hours left {0})</RimNauts.hours_left>
+    <RimNauts.apply_changes>Apply changes</RimNauts.apply_changes>
+    <RimNauts.object_type>Object type</RimNauts.object_type>
+    <RimNauts.amount>Amount</RimNauts.amount>
+    <RimNauts.randomize_all_neo>Randomize all objects</RimNauts.randomize_all_neo>
+    <RimNauts.incident_patch>Filter incidents on NEOs</RimNauts.incident_patch>
+    <RimNauts.world_feature_name>Add labels under NEOs</RimNauts.world_feature_name>
+    <RimNauts.neo_trails>Add trails to NEOs</RimNauts.neo_trails>
+    <RimNauts.raids_in_space>Allow raids on NEOs</RimNauts.raids_in_space>
+    <RimNauts.quests_in_space>Allow quests on NEOs</RimNauts.quests_in_space>
+    <RimNauts.module_required>Requires 1 {0}</RimNauts.module_required>
+    <RimNauts.only_module>Can only send 1 module into orbit, please remove everything else</RimNauts.only_module>
+    <RimNauts.Label.delivery_cannon_mode_auto>Change firing mode to manual</RimNauts.Label.delivery_cannon_mode_auto>
+    <RimNauts.Description.delivery_cannon_mode_auto>Change to manual firing</RimNauts.Description.delivery_cannon_mode_auto>
+    <RimNauts.Label.delivery_cannon_mode_manual>Change firing mode to automatic</RimNauts.Label.delivery_cannon_mode_manual>
+    <RimNauts.Description.delivery_cannon_mode_manual>Change to automatic firing</RimNauts.Description.delivery_cannon_mode_manual>
+    <RimNauts.Label.delivery_cannon_send_delivery>Send delivery</RimNauts.Label.delivery_cannon_send_delivery>
+    <RimNauts.Description.delivery_cannon_send_delivery>Order the delivery cannon to fire once ready</RimNauts.Description.delivery_cannon_send_delivery>
+    <RimNauts.Label.delivery_cannon_stop_delivery>Cancel delivery</RimNauts.Label.delivery_cannon_stop_delivery>
+    <RimNauts.Description.delivery_cannon_stop_delivery>Stop the the delivery cannon from firing</RimNauts.Description.delivery_cannon_stop_delivery>
+    <RimNauts.can_only_be_placed>Can only be placed on {0}</RimNauts.can_only_be_placed>
+    <RimNauts.cant_be_placed>Can't be placed on {0}</RimNauts.cant_be_placed>
+    <RimNauts.barren_moon>barren moon</RimNauts.barren_moon>
+    <RimNauts.delivery_cannon_charge>Charge: {0}%</RimNauts.delivery_cannon_charge>
+    <RimNauts.delivery_cannon_automatic_firing_mode>Automatic firing mode: {0}</RimNauts.delivery_cannon_automatic_firing_mode>
+    <RimNauts.delivery_cannon_choose_target>Choose target</RimNauts.delivery_cannon_choose_target>
+    <RimNauts.delivery_cannon_valid>Valid target: {0}</RimNauts.delivery_cannon_valid>
+    <RimNauts.delivery_cannon_target_tile>Target tile: </RimNauts.delivery_cannon_target_tile>
+    <RimNauts.delivery_cannon_target_cell>Target cell: </RimNauts.delivery_cannon_target_cell>
+    <RimNauts.delivery_cannon_target_tile_report>Tile on the world map to target.</RimNauts.delivery_cannon_target_tile_report>
+    <RimNauts.delivery_cannon_target_cell_report>Position on map to target.</RimNauts.delivery_cannon_target_cell_report>
+    <RimNauts.asteroid_command_label>Land on Asteroid</RimNauts.asteroid_command_label>
+    <RimNauts.asteroid_command_desc>Initiate the landing sequence for your pawns on the asteroid.</RimNauts.asteroid_command_desc>
+    <RimNauts.moon_command_label>Land on Moon</RimNauts.moon_command_label>
+    <RimNauts.moon_command_desc>Command your pawns to land on the moon's surface.</RimNauts.moon_command_desc>
+    <RimNauts.transportpod_fail_message_fuel>{0} fuel required, currently at {1}</RimNauts.transportpod_fail_message_fuel>
+    <RimNauts.transportpod_fail_message_launch>Failed to launch module into orbit.</RimNauts.transportpod_fail_message_launch>
+    <RimNauts.transportpod_success_message_launch>Successfully launched module into orbit.</RimNauts.transportpod_success_message_launch>
+    <RimNauts.transportpod_label>Launch {0}</RimNauts.transportpod_label>
+    <RimNauts.transportpod_desc>Launch {0} into orbit.</RimNauts.transportpod_desc>
+</LanguageData>

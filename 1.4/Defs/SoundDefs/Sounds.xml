@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <SoundDef>
+        <defName>RimNauts2_DeliveryCannon_Explosion</defName>  
+        <context>MapOnly</context> 
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipFolderPath>Weapon/Artillery/Mortar_Explode_Dry</clipFolderPath>
+                    </li>
+                </grains>      
+                <volumeRange>20~20</volumeRange>      
+                <pitchRange>0.8516304~1.254348</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+</Defs>
