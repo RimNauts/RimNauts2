@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- space -->
+	<GenStepDef>
+		<defName>RimNauts2_GenStep_Vacuum</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.Vacuum" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_GenStep_Environment</defName>
+		<order>1002</order>
+		<genStep Class="RimNauts2.Environment">
+            <apply_SOS2_weather>true</apply_SOS2_weather>
+            <weather_def>RimNauts2_OuterSpaceWeather</weather_def>
+		</genStep>
+	</GenStepDef>
+	<!-- space station -->
+	<GenStepDef>
+		<defName>RimNauts2_SpaceStation_GenStep_Structure</defName>
+		<order>1001</order>
+		<genStep Class="RimNauts2.SpaceStation.Structure" />
+	</GenStepDef>
+	<!-- barren moon -->
+	<GenStepDef>
+		<defName>RimNauts2_MoonBarren_GenStep_Environment</defName>
+		<order>1002</order>
+		<genStep Class="RimNauts2.Environment">
+            <apply_SOS2_weather>true</apply_SOS2_weather>
+            <weather_def>RimNauts2_OuterSpaceWeather_Moon</weather_def>
+		</genStep>
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_MoonBarren_GenStep_ElevationFertility</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.MoonBarren.ElevationFertility" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_MoonBarren_GenStep_RocksFromGrid</defName>
+		<order>200</order>
+		<genStep Class="RimNauts2.MoonBarren.RocksFromGrid" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_MoonBarren_GenStep_Terrain</defName>
+		<order>210</order>
+		<genStep Class="RimNauts2.MoonBarren.Terrain" />
+	</GenStepDef>
+	<!-- stripped moon -->
+	<GenStepDef>
+		<defName>RimNauts2_MoonStripped_GenStep_Stripes</defName>
+		<order>211</order>
+		<genStep Class="RimNauts2.MoonStripped.Stripes" />
+	</GenStepDef>
+	<!-- water moon -->
+	<GenStepDef>
+		<defName>RimNauts2_MoonWater_GenStep_Terrain</defName>
+		<order>210</order>
+		<genStep Class="RimNauts2.MoonWater.Terrain" />
+	</GenStepDef>
+	<GenStepDef>
+		<defName>RimNauts2_MoonWater_GenStep_Environment</defName>
+		<order>1002</order>
+		<genStep Class="RimNauts2.Environment">
+            <apply_SOS2_weather>false</apply_SOS2_weather>
+		</genStep>
+	</GenStepDef>
+	<!-- ore -->
+	<GenStepDef>
+		<defName>RimNauts2_Ore_GenStep_ElevationFertility</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.ElevationFertility" />
+	</GenStepDef>
+	<!-- gold -->
+	<GenStepDef>
+		<defName>RimNauts2_OreGold_GenStep_RocksFromGrid</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.RocksFromGrid">
+            <rock_def_name>Limestone</rock_def_name>
+            <ore_def_name>MineableGold</ore_def_name>
+            <ore_chance_outer>(0.01, 0.02)</ore_chance_outer>
+            <ore_chance_inner>(0.10, 0.30)</ore_chance_inner>
+            <inner_elevation>0.85</inner_elevation>
+            <roof_elevation>0.55</roof_elevation>
+        </genStep>
+	</GenStepDef>
+	<!-- plasteel -->
+	<GenStepDef>
+		<defName>RimNauts2_OrePlasteel_GenStep_RocksFromGrid</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.RocksFromGrid">
+            <rock_def_name>Limestone</rock_def_name>
+            <ore_def_name>MineablePlasteel</ore_def_name>
+            <ore_chance_outer>(0.01, 0.02)</ore_chance_outer>
+            <ore_chance_inner>(0.20, 0.30)</ore_chance_inner>
+            <inner_elevation>0.80</inner_elevation>
+            <roof_elevation>0.55</roof_elevation>
+        </genStep>
+	</GenStepDef>
+	<!-- steel -->
+	<GenStepDef>
+		<defName>RimNauts2_OreSteel_GenStep_RocksFromGrid</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.RocksFromGrid">
+            <rock_def_name>Limestone</rock_def_name>
+            <ore_def_name>MineableSteel</ore_def_name>
+            <ore_chance_outer>(0.01, 0.02)</ore_chance_outer>
+            <ore_chance_inner>(0.30, 0.50)</ore_chance_inner>
+            <inner_elevation>0.75</inner_elevation>
+            <roof_elevation>0.55</roof_elevation>
+        </genStep>
+	</GenStepDef>
+	<!-- uranium -->
+	<GenStepDef>
+		<defName>RimNauts2_OreUranium_GenStep_RocksFromGrid</defName>
+		<order>10</order>
+		<genStep Class="RimNauts2.AsteroidOre.RocksFromGrid">
+            <rock_def_name>Marble</rock_def_name>
+            <ore_def_name>MineableUranium</ore_def_name>
+            <ore_chance_outer>(0.01, 0.02)</ore_chance_outer>
+            <ore_chance_inner>(0.20, 0.30)</ore_chance_inner>
+            <inner_elevation>0.80</inner_elevation>
+            <roof_elevation>0.55</roof_elevation>
+        </genStep>
+	</GenStepDef>
+</Defs>

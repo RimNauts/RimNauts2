@@ -13,6 +13,7 @@
         <designationCategory>Misc</designationCategory>
         <altitudeLayer>Building</altitudeLayer>
         <passability>Impassable</passability>
+        <disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
         <castEdgeShadows>false</castEdgeShadows>
         <pathCost>500</pathCost>
         <defaultPlacingRot>North</defaultPlacingRot>

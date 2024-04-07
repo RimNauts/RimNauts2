@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RimNauts2.Defs.General>
+		<defName>general</defName>
+        <allowed_incidents>
+            <li>RaidEnemy</li>
+            <li>SolarFlare</li>
+            <li>ShipChunkDrop</li>
+            <li>OrbitalTraderArrival</li>
+            <li>Infestation</li>
+            <li>GiveQuest_Random</li>
+            <li>MechCluster</li>
+            <li>PsychicDrone</li>
+            <li>PsychicSoothe</li>
+            <li>ResourcePodCrash</li>
+            <li>Disease_AnimalFlu</li>
+            <li>Disease_AnimalPlague</li>
+            <li>Disease_FibrousMechanites</li>
+            <li>Disease_Flu</li>
+            <li>Disease_Plague</li>
+            <li>Disease_SensoryMechanites</li>
+            <li>Disease_SleepingSickness</li>
+        </allowed_incidents>
+        <space_station_wall>Steel</space_station_wall>
+        <space_station_floor>MetalTile</space_station_floor>
+  	</RimNauts2.Defs.General>
+</Defs>

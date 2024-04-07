@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <MapGeneratorDef Name="RimNauts2_Moon_MapGen" Abstract="True">
+		<genSteps>
+			<li>Fog</li>
+			<li>FindPlayerStartSpot</li>
+      		<li>ScenParts</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="RimNauts2_Moon_MapGen">
+	    <defName>RimNauts2_MoonBarren_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_MoonBarren_GenStep_ElevationFertility</li>
+			<li>RimNauts2_MoonBarren_GenStep_RocksFromGrid</li>
+			<li>RimNauts2_MoonBarren_GenStep_Terrain</li>
+			<li>RockChunks</li>
+			<li>RimNauts2_MoonBarren_GenStep_Environment</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="RimNauts2_Moon_MapGen">
+		<defName>RimNauts2_MoonStripped_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_MoonBarren_GenStep_ElevationFertility</li>
+			<li>RimNauts2_MoonBarren_GenStep_RocksFromGrid</li>
+			<li>RimNauts2_MoonBarren_GenStep_Terrain</li>
+			<li>RimNauts2_MoonStripped_GenStep_Stripes</li>
+			<li>RockChunks</li>
+			<li>RimNauts2_MoonBarren_GenStep_Environment</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="RimNauts2_Moon_MapGen">
+		<defName>RimNauts2_MoonWater_MapGen</defName>
+		<genSteps>
+			<li>RimNauts2_MoonWater_GenStep_Terrain</li>
+			<li>RimNauts2_MoonWater_GenStep_Environment</li>
+		</genSteps>
+	</MapGeneratorDef>
+</Defs>

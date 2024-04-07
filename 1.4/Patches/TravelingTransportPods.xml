@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+		<xpath>Defs/WorldObjectDef[defName="TravelingTransportPods"]/expandingIconPriority</xpath>
+		<value>
+            <expandingIconPriority>1004</expandingIconPriority>
+		</value>
+	</Operation>
+</Patch>

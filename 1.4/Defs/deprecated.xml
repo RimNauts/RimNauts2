@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Bridge to build on vacuum -->
+	<TerrainDef>
+		<defName>RimNauts2_Vacuum_Platform</defName>
+		<label>Platform</label>
+		<description>Supportive beams which can be built over vacuum.</description>
+		<texturePath>Terrain/Surfaces/RimNauts2_Vacuum_Platform</texturePath>
+		<uiIconPath>Terrain/Surfaces/RimNauts2_Vacuum_Platform_Icon</uiIconPath>
+		<layerable>true</layerable>
+		<bridge>true</bridge>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<fertility>0</fertility>
+		<constructEffect>ConstructMetal</constructEffect>
+		<terrainAffordanceNeeded>RimNauts2_Vacuum_Affordance</terrainAffordanceNeeded>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>400</renderPrecedence>
+		<autoRebuildable>true</autoRebuildable>
+		<statBases>
+			<WorkToBuild>1500</WorkToBuild>
+		</statBases>
+		<costList>
+      		<Steel>20</Steel>
+		</costList>
+		<tags>
+			<li>Floor</li>
+		</tags>
+		<destroyOnBombDamageThreshold>35</destroyOnBombDamageThreshold>
+		<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+		<destroyEffect>Bridge_Collapse</destroyEffect>
+	</TerrainDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_ArtificalSatellite</defName>
+  	</WorldObjectDef>
+
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_1</defName>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_2</defName>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_3</defName>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_4</defName>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_5</defName>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_6</defName>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_7</defName>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_8</defName>
+  	</WorldObjectDef>
+   	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_Asteroid_9</defName>
+  	</WorldObjectDef>
+
+	<!-- Barren moon -->
+	<WorldObjectDef Name="RimNauts2_MoonBarren" ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_MoonBarren</defName>
+		<mapGenerator>RimNauts2_MoonBarren_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_MoonBarren">
+		<defName>RimNauts2_MoonBarren_Base</defName>
+	</WorldObjectDef>
+	<!-- Stripped moon -->
+	<WorldObjectDef Name="RimNauts2_MoonStripped" ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_MoonStripped</defName>
+		<mapGenerator>RimNauts2_MoonStripped_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_MoonStripped">
+		<defName>RimNauts2_MoonStripped_Base</defName>
+	</WorldObjectDef>
+	<!-- Water moon -->
+	<WorldObjectDef Name="RimNauts2_MoonWater" ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_MoonWater</defName>
+		<mapGenerator>RimNauts2_MoonWater_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_MoonWater">
+		<defName>RimNauts2_MoonWater_Base</defName>
+	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreSteel_1</defName>
+		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreSteel_2</defName>
+		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreSteel_3</defName>
+		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreSteel_4</defName>
+		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreSteel_5</defName>
+		<mapGenerator>RimNauts2_OreSteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreGold_1</defName>
+		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreGold_2</defName>
+		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreGold_3</defName>
+		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreGold_4</defName>
+		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreGold_5</defName>
+		<mapGenerator>RimNauts2_OreGold_MapGen</mapGenerator>
+	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OrePlasteel_1</defName>
+		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OrePlasteel_2</defName>
+		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OrePlasteel_3</defName>
+		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OrePlasteel_4</defName>
+		<mapGenerator>RimNauts2_OrePlasteel_MapGen</mapGenerator>
+	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_OreUranium_1</defName>
+		<mapGenerator>RimNauts2_OreUranium_MapGen</mapGenerator>
+	</WorldObjectDef>
+
+	<!-- root class -->
+	<WorldObjectDef Name="RimNauts2_Satellite">
+		<defName>RimNauts2_Satellite</defName>
+		<worldObjectClass>RimNauts2.Satellite</worldObjectClass>
+  	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_SpaceStation</defName>
+		<mapGenerator>RimNauts2_SpaceStation_MapGen</mapGenerator>
+	</WorldObjectDef>
+
+	<WorldObjectDef ParentName="RimNauts2_Satellite">
+		<defName>RimNauts2_WasteSatellite</defName>
+	</WorldObjectDef>
+
+    <ThingDef ParentName="RimNauts2_TransportPod">
+        <defName>RimNauts2_TransportPod_Satellite</defName>
+        <label>Satellite</label>
+        <description>A launchable satellite capable of carrying it out to orbit.</description>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+        <costList>
+            <Steel>60</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <comps></comps>
+        <designationCategory></designationCategory>
+        <researchPrerequisites></researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_TransportPod">
+        <defName>RimNauts2_TransportPod_SpaceStation</defName>
+        <label>Space station</label>
+        <description>A launchable space station capable of carrying it out to orbit.</description>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+        <costList>
+            <Steel>1000</Steel>
+            <ComponentIndustrial>40</ComponentIndustrial>
+        </costList>
+        <comps></comps>
+        <designationCategory></designationCategory>
+        <researchPrerequisites></researchPrerequisites>
+    </ThingDef>
+
+	<ThingDef ParentName="RimNauts2_DropPodLeaving">
+        <defName>RimNauts2_DropPodLeaving_ArtificialSatellite</defName>
+        <label>Satellite (leaving)</label>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutFlying</shaderType>
+            <drawSize>5</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="RimNauts2_DropPodLeaving">
+        <defName>RimNauts2_DropPodLeaving_SpaceStation</defName>
+        <label>Space station (leaving)</label>
+        <graphicData>
+            <texPath>Things/Special/RimNauts2_DropPod_Cargo</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutFlying</shaderType>
+            <drawSize>5</drawSize>
+            <drawOffset>(0.0, 0.0, 1.3)</drawOffset>
+        </graphicData>
+    </ThingDef>
+
+	<WorldObjectDef>
+		<defName>RimNauts2_ObjectHolder</defName>
+		<worldObjectClass>RimNauts2.World.ObjectHolder</worldObjectClass>
+		<canBePlayerHome>true</canBePlayerHome>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>RimNauts2_Transparent</expandingIconTexture>
+		<expandingIconPriority>1003</expandingIconPriority>
+		<texture>RimNauts2_Transparent</texture>
+  	</WorldObjectDef>
+</Defs>

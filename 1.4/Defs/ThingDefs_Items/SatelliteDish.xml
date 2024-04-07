@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Satellite Dish -->
+	<ThingDef ParentName="BuildingBase">
+		<defName>RimNauts2_SatelliteDish</defName>
+		<label>Satellite dish</label>
+		<description>A way for your colonist to explore outer space and find suitable places for exploration.</description>
+		<graphicData>
+			<texPath>Things/Items/RimNauts2_SatelliteDish</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(7,7)</drawSize>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<size>(7,7)</size>
+		<canBeUsedUnderRoof>false</canBeUsedUnderRoof>
+		<fillPercent>0.15</fillPercent>
+		<altitudeLayer>Building</altitudeLayer>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,-3)</interactionCellOffset>
+		<passability>PassThroughOnly</passability>
+		
+		<pathCost>50</pathCost>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<designationCategory>Misc</designationCategory>
+		<costList>
+			<Steel>150</Steel>
+			<Plasteel>25</Plasteel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<comps>
+			<li Class="RimNauts2.Things.SatelliteDish_Properties">
+                <celestialObjectDefName>RimNauts2_CelestialObject_Moon_Barren</celestialObjectDefName>
+				<label>Look for a barren moon</label>
+				<desc>Your pawn will look for a barren moon orbiting the planet.</desc>
+				<failMessage>more satellite(s) orbiting the planet is required.</failMessage>
+				<successMessage>Successfully found a barren moon orbiting the planet!</successMessage>
+				<texPath>Satellites/Moons/RimNauts2_MoonBarren</texPath>
+            </li>
+			<li Class="RimNauts2.Things.SatelliteDish_Properties">
+                <celestialObjectDefName>RimNauts2_CelestialObject_Moon_Ocean</celestialObjectDefName>
+				<label>Look for a water moon</label>
+				<desc>Your pawn will look for a water moon orbiting the planet.</desc>
+				<failMessage>more satellite(s) orbiting the planet is required.</failMessage>
+				<successMessage>Successfully found a water moon orbiting the planet!</successMessage>
+				<texPath>Satellites/Moons/RimNauts2_MoonWater</texPath>
+            </li>
+		</comps>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<MarketValue>350</MarketValue>
+			<Mass>7.5</Mass>
+			<JoyGainFactor>1.2</JoyGainFactor>
+		</statBases>
+        <researchPrerequisites>
+            <li>TransportPod</li>
+        </researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+	</ThingDef>
+</Defs>

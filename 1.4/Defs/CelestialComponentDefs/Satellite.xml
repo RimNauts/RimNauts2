@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<Universum.Defs.Component Name="RimNauts2_Component_Trail_Satellite">
+        <defName>RimNauts2_Component_Trail_Satellite</defName>
+        <componentClass>Universum.World.Component.Trail</componentClass>
+        <materialDefName>RimNauts2_Material_Trail</materialDefName>
+        <color>(211, 211, 211)</color>
+        <trailWidth>0.3</trailWidth>
+        <trailLength>2.0</trailLength>
+        <trailTransparency>0.5</trailTransparency>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component Name="RimNauts2_Component_Label_Satellite" Abstract="True">
+        <componentClass>Universum.World.Component.FloatingLabel</componentClass>
+        <offSet>(0.0, -2.0, 0.0)</offSet>
+        <color>(255, 255, 255)</color>
+        <hideAtMinAltitude>50</hideAtMinAltitude>
+        <hideAtMaxAltitude>150</hideAtMaxAltitude>
+        <fontSize>10.0</fontSize>
+        <outlineColor>(0, 0, 0)</outlineColor>
+        <outlineWidth>0.2</outlineWidth>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component ParentName="RimNauts2_Component_Label_Satellite">
+        <defName>RimNauts2_Component_Label_Satellite_Station</defName>
+        <offSet>(0.0, -5.0, 0.0)</offSet>
+        <hideAtMinAltitude>10</hideAtMinAltitude>
+        <hideAtMaxAltitude>400</hideAtMaxAltitude>
+        <fontSize>20.0</fontSize>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component ParentName="RimNauts2_Component_Label_Satellite">
+        <defName>RimNauts2_Component_Label_Satellite_Relay</defName>
+        <color>(116, 101, 90)</color>
+        <overwriteText>Relay Satellite</overwriteText>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component ParentName="RimNauts2_Component_Label_Satellite">
+        <defName>RimNauts2_Component_Label_Satellite_Energy</defName>
+        <color>(192, 150, 7)</color>
+        <overwriteText>Energy Relay Satellite</overwriteText>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component ParentName="RimNauts2_Component_Label_Satellite">
+        <defName>RimNauts2_Component_Label_Satellite_EnergyBooster</defName>
+        <color>(255, 205, 120)</color>
+        <overwriteText>Energy Booster Satellite</overwriteText>
+  	</Universum.Defs.Component>
+
+	<Universum.Defs.Component ParentName="RimNauts2_Component_Label_Satellite">
+        <defName>RimNauts2_Component_Label_Satellite_CosmicSurveillance</defName>
+        <color>(41, 58, 160)</color>
+        <overwriteText>Cosmic Surveillance Satellite</overwriteText>
+  	</Universum.Defs.Component>
+</Defs>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Moon_Barren_1">
+        <defName>RimNauts2_Mesh_Moon_Barren_1</defName>
+        <materialDefName>RimNauts2_Material_Surface_Rock</materialDefName>
+        <type>SPHERE</type>
+        <detailBetween>(5, 5)</detailBetween>
+        <radius>1.0</radius>
+        <maxElevationColor>(255, 255, 255)</maxElevationColor>
+        <minElevationColor>(0, 0, 0)</minElevationColor>
+        <noiseLayers>
+            <li>
+                <isMask>true</isMask>
+                <useMask>false</useMask>
+                <strenghtBetween>(0.03, 0.03)</strenghtBetween>
+                <roughnessBetween>(2.5, 2.5)</roughnessBetween>
+                <iterationsBetween>(4, 4)</iterationsBetween>
+                <persistenceBetween>(0.54, 0.54)</persistenceBetween>
+                <baseRoughnessBetween>(0.7, 0.7)</baseRoughnessBetween>
+                <minNoiseValueBetween>(0.3, 0.3)</minNoiseValueBetween>
+            </li>
+            <li>
+                <isMask>false</isMask>
+                <useMask>true</useMask>
+                <strenghtBetween>(0.03, 0.03)</strenghtBetween>
+                <roughnessBetween>(3.5, 3.5)</roughnessBetween>
+                <iterationsBetween>(6, 6)</iterationsBetween>
+                <persistenceBetween>(0.9, 0.9)</persistenceBetween>
+                <baseRoughnessBetween>(2.7, 2.7)</baseRoughnessBetween>
+                <minNoiseValueBetween>(0.1, 0.1)</minNoiseValueBetween>
+            </li>
+            <li>
+                <isMask>false</isMask>
+                <useMask>true</useMask>
+                <strenghtBetween>(0.05, 0.05)</strenghtBetween>
+                <roughnessBetween>(1.5, 1.5)</roughnessBetween>
+                <iterationsBetween>(5, 5)</iterationsBetween>
+                <persistenceBetween>(0.50, 0.50)</persistenceBetween>
+                <baseRoughnessBetween>(1.4, 1.4)</baseRoughnessBetween>
+                <minNoiseValueBetween>(0.2, 0.2)</minNoiseValueBetween>
+            </li>
+        </noiseLayers>
+    </Universum.Defs.Mesh>
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Moon_Barren_2">
+        <defName>RimNauts2_Mesh_Moon_Barren_2</defName>
+        <materialDefName>RimNauts2_Material_Surface_Rock</materialDefName>
+        <type>SPHERE</type>
+        <detailBetween>(5, 5)</detailBetween>
+        <radius>1.016</radius>
+        <maxElevationColor>(75, 75, 75)</maxElevationColor>
+        <minElevationColor>(25, 25, 25)</minElevationColor>
+        <noiseLayers>
+            <li>
+                <isMask>false</isMask>
+                <useMask>false</useMask>
+                <strenghtBetween>(0.003, 0.003)</strenghtBetween>
+                <roughnessBetween>(2.5, 2.5)</roughnessBetween>
+                <iterationsBetween>(5, 5)</iterationsBetween>
+                <persistenceBetween>(0.54, 0.54)</persistenceBetween>
+                <baseRoughnessBetween>(0.7, 0.7)</baseRoughnessBetween>
+                <minNoiseValueBetween>(0.3, 0.3)</minNoiseValueBetween>
+            </li>
+            <li>
+                <isMask>false</isMask>
+                <useMask>false</useMask>
+                <strenghtBetween>(0.004, 0.004)</strenghtBetween>
+                <roughnessBetween>(1.9, 1.9)</roughnessBetween>
+                <iterationsBetween>(5, 5)</iterationsBetween>
+                <persistenceBetween>(0.54, 0.54)</persistenceBetween>
+                <baseRoughnessBetween>(1.1, 1.1)</baseRoughnessBetween>
+                <minNoiseValueBetween>(0.0, 0.0)</minNoiseValueBetween>
+            </li>
+        </noiseLayers>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh Name="RimNauts2_Mesh_Moon_Ocean">
+        <defName>RimNauts2_Mesh_Moon_Ocean</defName>
+        <materialDefName>RimNauts2_Material_Surface_Wet</materialDefName>
+        <type>SPHERE</type>
+        <detailBetween>(6, 6)</detailBetween>
+        <radius>1.0</radius>
+        <maxElevationColor>(50, 150, 200)</maxElevationColor>
+        <minElevationColor>(10, 60, 80)</minElevationColor>
+        <noiseLayers>
+            <li>
+                <isMask>true</isMask>
+                <useMask>false</useMask>
+                <strenghtBetween>(0.01, 0.01)</strenghtBetween>
+                <roughnessBetween>(2.2, 2.2)</roughnessBetween>
+                <iterationsBetween>(5, 5)</iterationsBetween>
+                <persistenceBetween>(0.6, 0.6)</persistenceBetween>
+                <baseRoughnessBetween>(0.7, 0.7)</baseRoughnessBetween>
+                <minNoiseValueBetween>(0.4, 0.4)</minNoiseValueBetween>
+            </li>
+        </noiseLayers>
+    </Universum.Defs.Mesh>
+</Defs>

@@ -1,2 +1,2 @@
 # Changelog
-- Fixed translation formatting issue. Thanks to Proxyer for reporting this bug.
+- Support RimWorld version 1.5
