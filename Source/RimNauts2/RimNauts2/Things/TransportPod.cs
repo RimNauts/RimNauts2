@@ -72,7 +72,7 @@ namespace RimNauts2.Things {
         }
 
         public bool CanSelectCelestialObject(RimWorld.Planet.GlobalTargetInfo target) {
-            if (!target.IsValid) return false;
+            if (!target.IsValid || target.Tile == -1) return false;
 
             Universum.World.ObjectHolder objectHolder = Universum.World.ObjectHolderCache.Get(target.Tile);
             bool dynamicLifeCycle = objectHolder != null && (objectHolder.keepAfterAbandon == false || objectHolder.celestialObject.deathTick != null);
