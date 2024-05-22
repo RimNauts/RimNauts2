@@ -39,7 +39,8 @@ namespace RimNauts2.SpaceStation {
             // pad
             set_floor_rect(map, 1, 3, new IntVec3(0, 0, 7));
             set_floor_rect(map, 5, 5, new IntVec3(0, 0, 11));
-            GenSpawn.Spawn(ThingDef.Named("RimNauts2_PodLauncher"), new IntVec3(0, 0, 11) + map.Center, map);
+            Thing podLauncher = GenSpawn.Spawn(ThingDef.Named("RimNauts2_PodLauncher"), new IntVec3(0, 0, 11) + map.Center, map);
+            podLauncher.SetFaction(RimWorld.Faction.OfPlayer);
             // set power cables
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.PowerConduit), map, new IntVec3(16, 0, 0) + map.Center);
             set_thing(ThingMaker.MakeThing(RimWorld.ThingDefOf.PowerConduit), map, new IntVec3(15, 0, 0) + map.Center);
@@ -130,7 +131,8 @@ namespace RimNauts2.SpaceStation {
         }
 
         public void set_thing(Thing thing, Map map, IntVec3 pos) {
-            GenSpawn.Spawn(thing, pos, map, WipeMode.Vanish);
+            Thing placedThing = GenSpawn.Spawn(thing, pos, map, WipeMode.Vanish);
+            placedThing.SetFaction(RimWorld.Faction.OfPlayer);
         }
 
         public void set_roof(Map map, IntVec3 pos) {
