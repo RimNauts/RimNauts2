@@ -119,7 +119,7 @@ namespace RimNauts2.Things {
                 }
                 Universum.World.ObjectHolder objectHolder = Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: tile_id);
                 if (objectHolder == null) return;
-                if (Props.createMap) objectHolder.CreateMap(RimWorld.Faction.OfPlayer);
+                if (Props.createMap) objectHolder.CreateMap(RimWorld.Faction.OfPlayer, clearFog: true);
 
                 objectHolder.celestialObject.SetTarget(targetToOrbit);
             } else {
