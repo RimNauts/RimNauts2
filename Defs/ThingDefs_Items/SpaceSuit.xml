@@ -39,7 +39,6 @@
             <ShootingAccuracyPawn>-0.1</ShootingAccuracyPawn>
             <HypoxiaResistance MayRequire="kentington.saveourship2">1</HypoxiaResistance>
             <DecompressionResistance MayRequire="kentington.saveourship2">0.25</DecompressionResistance>
-            <VacuumSpeedMultiplier MayRequire="kentington.saveourship2">4</VacuumSpeedMultiplier>
         </equippedStatOffsets>
         <costList>
             <ComponentSpacer>1</ComponentSpacer>
@@ -113,7 +112,6 @@
             <MoveSpeed>-0.4</MoveSpeed>
             <ToxicResistance>1.0</ToxicResistance>
             <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.3</SlaveSuppressionOffset>
-            <HypoxiaResistance MayRequire="kentington.saveourship2">1</HypoxiaResistance>
             <DecompressionResistance MayRequire="kentington.saveourship2">0.75</DecompressionResistance>
             <VacuumSpeedMultiplier MayRequire="kentington.saveourship2">4</VacuumSpeedMultiplier>
         </equippedStatOffsets>
