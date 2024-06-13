@@ -5,7 +5,7 @@
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
         <scalePercentageBetween>(0.003, 0.003)</scalePercentageBetween>
         <minSize>0.3</minSize>
-        <speedPercentageBetween>(8.0, 10.0)</speedPercentageBetween>
+        <speedPercentageBetween>(4.0, 5.0)</speedPercentageBetween>
         <orbitPathOffsetPercentage>1.2</orbitPathOffsetPercentage>
         <orbitSpreadBetween>(0.05, 0.05)</orbitSpreadBetween>
         <orbitDirection>RANDOM</orbitDirection>

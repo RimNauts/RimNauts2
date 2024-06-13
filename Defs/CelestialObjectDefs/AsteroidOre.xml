@@ -4,7 +4,7 @@
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
         <scalePercentageBetween>(0.01, 0.015)</scalePercentageBetween>
-        <speedPercentageBetween>(4.0, 8.0)</speedPercentageBetween>
+        <speedPercentageBetween>(2.0, 4.0)</speedPercentageBetween>
         <orbitSpreadBetween>(0.3, 1.2)</orbitSpreadBetween>
         <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
         <orbitPathOffsetPercentage>2.5</orbitPathOffsetPercentage>
