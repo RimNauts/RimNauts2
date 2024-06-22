@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>RimNauts 2</name>
 	<packageId>sindre0830.rimnauts2</packageId>
+	<name>RimNauts 2</name>
 	<author>sindre0830</author>
+	<modVersion>5.2.4</modVersion>
 	<supportedVersions>
 		<li>1.4</li>
 		<li>1.5</li>
