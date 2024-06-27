@@ -34,7 +34,7 @@ namespace RimNauts2.Biome.Patch {
         public static bool Prefix(RimWorld.IncidentParms parms) {
             if (!Settings.Container.get_incident_patch) return true;
             if (!Universum.World.ObjectHolderCache.Exists(parms.target.Tile)) return true;
-            parms.raidArrivalMode = parms.raidArrivalMode = (Rand.Value < 0.6f) ? RimWorld.PawnsArrivalModeDefOf.EdgeDrop : RimWorld.PawnsArrivalModeDefOf.CenterDrop;
+            parms.raidArrivalMode = RimWorld.PawnsArrivalModeDefOf.EdgeDrop;
             return false;
         }
     }
