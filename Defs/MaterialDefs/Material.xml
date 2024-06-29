@@ -110,4 +110,39 @@
         <shaderName>Sprites/Default</shaderName>
         <texturePath>RimNauts2_Trail</texturePath>
     </Universum.Defs.Material>
+
+    <Universum.Defs.Material>
+		<defName>RimNauts2_Material_AsteroidRing</defName>
+        <shaderName>BasicShapeTransparent.shader</shaderName>
+        <shaderProperties>
+            <li>
+                <name>_Shininess</name>
+                <floatValue>0.1</floatValue>
+            </li>
+            <li>
+                <name>_SpecularIntensity</name>
+                <floatValue>0.1</floatValue>
+            </li>
+            <li>
+                <name>_DiffuseIntensity</name>
+                <floatValue>0.75</floatValue>
+            </li>
+            <li>
+                <name>_DiffuseColor</name>
+                <colorValue>(132, 101, 81)</colorValue>
+            </li>
+            <li>
+                <name>_AmbientColor</name>
+                <colorValue>(123, 154, 174)</colorValue>
+            </li>
+            <li>
+                <name>_BumpMap</name>
+                <texturePathValue>Universum_NormalMap_None</texturePathValue>
+            </li>
+            <li>
+                <name>_BumpIntensity</name>
+                <floatValue>1.0</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
 </Defs>
