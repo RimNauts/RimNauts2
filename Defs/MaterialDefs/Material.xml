@@ -111,8 +111,7 @@
         <texturePath>RimNauts2_Trail</texturePath>
     </Universum.Defs.Material>
 
-    <Universum.Defs.Material Name="RimNauts2_Material_AsteroidRing_1">
-		<defName>RimNauts2_Material_AsteroidRing_1</defName>
+    <Universum.Defs.Material Abstract="True" Name="RimNauts2_Material_AsteroidRing">
         <shaderName>AsteroidRing.shader</shaderName>
         <renderQueue>3620</renderQueue>
         <shaderProperties>
@@ -120,13 +119,131 @@
                 <name>_RingMap</name>
                 <texturePathValue>RimNauts2_NormalMap_AsteroidRing</texturePathValue>
             </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_1</defName>
+        <shaderProperties>
             <li>
-                <name>_RingStart</name>
-                <floatValue>145.0</floatValue>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>1.500</floatValue>
             </li>
             <li>
-                <name>_RingLength</name>
-                <floatValue>10.0</floatValue>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.080</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_2</defName>
+        <shaderProperties>
+            <li>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>1.610</floatValue>
+            </li>
+            <li>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.020</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_3</defName>
+        <shaderProperties>
+            <li>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>1.650</floatValue>
+            </li>
+            <li>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.010</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_4</defName>
+        <shaderProperties>
+            <li>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>1.670</floatValue>
+            </li>
+            <li>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.005</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_5</defName>
+        <shaderProperties>
+            <li>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>1.684</floatValue>
+            </li>
+            <li>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.004</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_6</defName>
+        <shaderProperties>
+            <li>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>1.816</floatValue>
+            </li>
+            <li>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.120</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_7</defName>
+        <shaderProperties>
+            <li>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>1.976</floatValue>
+            </li>
+            <li>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.030</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_8</defName>
+        <shaderProperties>
+            <li>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>2.026</floatValue>
+            </li>
+            <li>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.005</floatValue>
+            </li>
+        </shaderProperties>
+    </Universum.Defs.Material>
+
+    <Universum.Defs.Material ParentName="RimNauts2_Material_AsteroidRing">
+		<defName>RimNauts2_Material_AsteroidRing_9</defName>
+        <shaderProperties>
+            <li>
+                <name>_PlanetRadiusOffsetFactor</name>
+                <floatValue>2.136</floatValue>
+            </li>
+            <li>
+                <name>_PlanetRadiusMaxSpreadFactor</name>
+                <floatValue>0.090</floatValue>
             </li>
         </shaderProperties>
     </Universum.Defs.Material>

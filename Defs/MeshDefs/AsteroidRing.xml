@@ -5,6 +5,46 @@
         <materialDefName>RimNauts2_Material_AsteroidRing_1</materialDefName>
         <type>PLANE</type>
         <dimensions>(1.0, 1.0, 1.0)</dimensions>
-        <subdivisionIterations>20</subdivisionIterations>
+        <subdivisionIterations>1</subdivisionIterations>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh ParentName="RimNauts2_Mesh_AsteroidRing">
+        <defName>RimNauts2_Mesh_AsteroidRing_2</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_2</materialDefName>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh ParentName="RimNauts2_Mesh_AsteroidRing">
+        <defName>RimNauts2_Mesh_AsteroidRing_3</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_3</materialDefName>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh ParentName="RimNauts2_Mesh_AsteroidRing">
+        <defName>RimNauts2_Mesh_AsteroidRing_4</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_4</materialDefName>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh ParentName="RimNauts2_Mesh_AsteroidRing">
+        <defName>RimNauts2_Mesh_AsteroidRing_5</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_5</materialDefName>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh ParentName="RimNauts2_Mesh_AsteroidRing">
+        <defName>RimNauts2_Mesh_AsteroidRing_6</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_6</materialDefName>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh ParentName="RimNauts2_Mesh_AsteroidRing">
+        <defName>RimNauts2_Mesh_AsteroidRing_7</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_7</materialDefName>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh ParentName="RimNauts2_Mesh_AsteroidRing">
+        <defName>RimNauts2_Mesh_AsteroidRing_8</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_8</materialDefName>
+    </Universum.Defs.Mesh>
+
+    <Universum.Defs.Mesh ParentName="RimNauts2_Mesh_AsteroidRing">
+        <defName>RimNauts2_Mesh_AsteroidRing_9</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_9</materialDefName>
     </Universum.Defs.Mesh>
 </Defs>
