@@ -101,4 +101,4 @@ jobs:
         # commit and push changes
         git add .
         git commit -m "Update ChangeLog.md"
-        git push
+        git push origin HEAD:main
