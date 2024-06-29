@@ -3,9 +3,8 @@
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidRing">
         <defName>RimNauts2_Mesh_AsteroidRing</defName>
         <materialDefName>RimNauts2_Material_AsteroidRing</materialDefName>
-        <type>TORUS</type>
-        <detailBetween>(200, 200)</detailBetween>
-        <radius>0.20</radius>
-        <minElevationColor>(125, 125, 125)</minElevationColor>
+        <type>PLANE</type>
+        <dimensions>(1.0, 1.0, 1.0)</dimensions>
+        <subdivisionIterations>20</subdivisionIterations>
     </Universum.Defs.Mesh>
 </Defs>

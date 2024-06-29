@@ -4,7 +4,7 @@
         <defName>RimNauts2_CelestialObject_AsteroidRing</defName>
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(5.0, 5.0)</scalePercentageBetween>
+        <scalePercentageBetween>(10.0, 10.0)</scalePercentageBetween>
         <speedPercentageBetween>(0.0, 0.0)</speedPercentageBetween>
         <orbitPathOffsetPercentage>0.0</orbitPathOffsetPercentage>
         <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
