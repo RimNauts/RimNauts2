@@ -76,7 +76,7 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_1</defName>
-        <total>440</total>
+        <total>471</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -95,7 +95,7 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_2</defName>
-        <total>110</total>
+        <total>118</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -112,7 +112,7 @@
             </li>
         </objectGroup>
     </Universum.Defs.ObjectGeneration>
-    <Universum.Defs.ObjectGeneration>
+    <!--<Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_3</defName>
         <total>55</total>
         <initializationType>START_UP</initializationType>
@@ -168,10 +168,10 @@
                 <tickets>1</tickets>
             </li>
         </objectGroup>
-    </Universum.Defs.ObjectGeneration>
+    </Universum.Defs.ObjectGeneration>-->
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_6</defName>
-        <total>659</total>
+        <total>706</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -190,7 +190,7 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_7</defName>
-        <total>165</total>
+        <total>176</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -207,7 +207,7 @@
             </li>
         </objectGroup>
     </Universum.Defs.ObjectGeneration>
-    <Universum.Defs.ObjectGeneration>
+    <!--<Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_8</defName>
         <total>27</total>
         <initializationType>START_UP</initializationType>
@@ -225,10 +225,10 @@
                 <tickets>1</tickets>
             </li>
         </objectGroup>
-    </Universum.Defs.ObjectGeneration>
+    </Universum.Defs.ObjectGeneration>-->
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_9</defName>
-        <total>495</total>
+        <total>529</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
