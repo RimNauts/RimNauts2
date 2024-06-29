@@ -114,15 +114,19 @@
     <Universum.Defs.Material>
 		<defName>RimNauts2_Material_AsteroidRing</defName>
         <shaderName>AsteroidRing.shader</shaderName>
-        <renderQueue>3551</renderQueue>
+        <renderQueue>3620</renderQueue>
         <shaderProperties>
             <li>
                 <name>_RingMap</name>
                 <texturePathValue>RimNauts2_NormalMap_AsteroidRing</texturePathValue>
             </li>
             <li>
-                <name>_RingTransparencyReduction</name>
-                <floatValue>0.6</floatValue>
+                <name>_RingStart</name>
+                <floatValue>200.0</floatValue>
+            </li>
+            <li>
+                <name>_RingLength</name>
+                <floatValue>100.0</floatValue>
             </li>
         </shaderProperties>
     </Universum.Defs.Material>
