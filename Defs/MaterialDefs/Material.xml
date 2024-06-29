@@ -111,8 +111,8 @@
         <texturePath>RimNauts2_Trail</texturePath>
     </Universum.Defs.Material>
 
-    <Universum.Defs.Material>
-		<defName>RimNauts2_Material_AsteroidRing</defName>
+    <Universum.Defs.Material Name="RimNauts2_Material_AsteroidRing_1">
+		<defName>RimNauts2_Material_AsteroidRing_1</defName>
         <shaderName>AsteroidRing.shader</shaderName>
         <renderQueue>3620</renderQueue>
         <shaderProperties>
@@ -122,11 +122,11 @@
             </li>
             <li>
                 <name>_RingStart</name>
-                <floatValue>200.0</floatValue>
+                <floatValue>145.0</floatValue>
             </li>
             <li>
                 <name>_RingLength</name>
-                <floatValue>100.0</floatValue>
+                <floatValue>10.0</floatValue>
             </li>
         </shaderProperties>
     </Universum.Defs.Material>

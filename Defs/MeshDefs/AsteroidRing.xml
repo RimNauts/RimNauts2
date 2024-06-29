@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidRing">
-        <defName>RimNauts2_Mesh_AsteroidRing</defName>
-        <materialDefName>RimNauts2_Material_AsteroidRing</materialDefName>
+        <defName>RimNauts2_Mesh_AsteroidRing_1</defName>
+        <materialDefName>RimNauts2_Material_AsteroidRing_1</materialDefName>
         <type>PLANE</type>
         <dimensions>(1.0, 1.0, 1.0)</dimensions>
         <subdivisionIterations>20</subdivisionIterations>

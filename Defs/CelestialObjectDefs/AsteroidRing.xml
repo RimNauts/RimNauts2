@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_AsteroidRing">
-        <defName>RimNauts2_CelestialObject_AsteroidRing</defName>
+    <Universum.Defs.CelestialObject Abstract="True" Name="RimNauts2_CelestialObject_AsteroidRing">
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
         <scalePercentageBetween>(10.0, 10.0)</scalePercentageBetween>
@@ -12,9 +11,13 @@
         <yOffsetBetween>(0.0, 0.0)</yOffsetBetween>
         <orbitDirection>RIGHT</orbitDirection>
         <spinRotationSpeedBetween>(0.0, 0.0)</spinRotationSpeedBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_AsteroidRing">
+        <defName>RimNauts2_CelestialObject_AsteroidRing_1</defName>
         <shape>
             <meshes>
-                <li>RimNauts2_Mesh_AsteroidRing</li>
+                <li>RimNauts2_Mesh_AsteroidRing_1</li>
             </meshes>
         </shape>
     </Universum.Defs.CelestialObject>
