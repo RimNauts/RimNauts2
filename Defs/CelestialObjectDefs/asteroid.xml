@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+    <!-- Asteroid ring 1 -->
+
     <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_Asteroid_Small_1</defName>
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.003, 0.005)</scalePercentageBetween>
+        <scalePercentageBetween>(0.0045, 0.0075)</scalePercentageBetween>
         <speedPercentageBetween>(5.0, 10.0)</speedPercentageBetween>
-        <orbitPathOffsetPercentage>1.5</orbitPathOffsetPercentage>
+        <orbitPathOffsetPercentage>1.500</orbitPathOffsetPercentage>
         <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
-        <orbitSpreadBetween>(0.0, 0.05)</orbitSpreadBetween>
+        <orbitSpreadBetween>(0.0, 0.080)</orbitSpreadBetween>
         <yOffsetBetween>(-2.0, 2.0)</yOffsetBetween>
         <orbitDirection>RIGHT</orbitDirection>
         <spinRotationSpeedBetween>(0.2, 1.2)</spinRotationSpeedBetween>
@@ -22,21 +24,183 @@
     
     <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Asteroid_Medium" ParentName="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_Asteroid_Medium_1</defName>
-        <scalePercentageBetween>(0.005, 0.0075)</scalePercentageBetween>
+        <scalePercentageBetween>(0.0075, 0.01125)</scalePercentageBetween>
         <speedPercentageBetween>(4.0, 8.0)</speedPercentageBetween>
-        <orbitSpreadBetween>(0.0, 0.03)</orbitSpreadBetween>
+        <orbitSpreadBetween>(0.0, 0.040)</orbitSpreadBetween>
         <yOffsetBetween>(-1.5, 1.5)</yOffsetBetween>
         <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
     </Universum.Defs.CelestialObject>
     
     <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Asteroid_Large" ParentName="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_Asteroid_Large_1</defName>
-        <scalePercentageBetween>(0.0075, 0.008)</scalePercentageBetween>
+        <scalePercentageBetween>(0.01125, 0.0225)</scalePercentageBetween>
         <speedPercentageBetween>(3.0, 5.0)</speedPercentageBetween>
-        <orbitSpreadBetween>(0.0, 0.01)</orbitSpreadBetween>
+        <orbitSpreadBetween>(0.0, 0.008)</orbitSpreadBetween>
         <yOffsetBetween>(-0.5, 0.5)</yOffsetBetween>
         <spinRotationSpeedBetween>(0.02, 0.3)</spinRotationSpeedBetween>
     </Universum.Defs.CelestialObject>
+
+    <!-- Asteroid ring 2 -->
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+        <defName>RimNauts2_CelestialObject_Asteroid_Small_2</defName>
+        <orbitPathOffsetPercentage>1.610</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.020)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
+        <defName>RimNauts2_CelestialObject_Asteroid_Medium_2</defName>
+        <orbitPathOffsetPercentage>1.610</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.010)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
+        <defName>RimNauts2_CelestialObject_Asteroid_Large_2</defName>
+        <orbitPathOffsetPercentage>1.610</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.002)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <!-- Asteroid ring 3 -->
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+        <defName>RimNauts2_CelestialObject_Asteroid_Small_3</defName>
+        <orbitPathOffsetPercentage>1.650</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.010)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
+        <defName>RimNauts2_CelestialObject_Asteroid_Medium_3</defName>
+        <orbitPathOffsetPercentage>1.650</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.005)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
+        <defName>RimNauts2_CelestialObject_Asteroid_Large_3</defName>
+        <orbitPathOffsetPercentage>1.650</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.001)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <!-- Asteroid ring 4 -->
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+        <defName>RimNauts2_CelestialObject_Asteroid_Small_4</defName>
+        <orbitPathOffsetPercentage>1.670</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.005)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
+        <defName>RimNauts2_CelestialObject_Asteroid_Medium_4</defName>
+        <orbitPathOffsetPercentage>1.670</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.0025)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
+        <defName>RimNauts2_CelestialObject_Asteroid_Large_4</defName>
+        <orbitPathOffsetPercentage>1.670</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.0005)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <!-- Asteroid ring 5 -->
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+        <defName>RimNauts2_CelestialObject_Asteroid_Small_5</defName>
+        <orbitPathOffsetPercentage>1.684</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.004)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
+        <defName>RimNauts2_CelestialObject_Asteroid_Medium_5</defName>
+        <orbitPathOffsetPercentage>1.684</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.002)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
+        <defName>RimNauts2_CelestialObject_Asteroid_Large_5</defName>
+        <orbitPathOffsetPercentage>1.684</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.0004)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <!-- Asteroid ring 6 -->
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+        <defName>RimNauts2_CelestialObject_Asteroid_Small_6</defName>
+        <orbitPathOffsetPercentage>1.816</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.120)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
+        <defName>RimNauts2_CelestialObject_Asteroid_Medium_6</defName>
+        <orbitPathOffsetPercentage>1.816</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.060)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
+        <defName>RimNauts2_CelestialObject_Asteroid_Large_6</defName>
+        <orbitPathOffsetPercentage>1.816</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.012)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <!-- Asteroid ring 7 -->
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+        <defName>RimNauts2_CelestialObject_Asteroid_Small_7</defName>
+        <orbitPathOffsetPercentage>1.976</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.030)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
+        <defName>RimNauts2_CelestialObject_Asteroid_Medium_7</defName>
+        <orbitPathOffsetPercentage>1.976</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.015)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
+        <defName>RimNauts2_CelestialObject_Asteroid_Large_7</defName>
+        <orbitPathOffsetPercentage>1.976</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.003)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <!-- Asteroid ring 8 -->
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+        <defName>RimNauts2_CelestialObject_Asteroid_Small_8</defName>
+        <orbitPathOffsetPercentage>2.026</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.005)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
+        <defName>RimNauts2_CelestialObject_Asteroid_Medium_8</defName>
+        <orbitPathOffsetPercentage>2.026</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.0025)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
+        <defName>RimNauts2_CelestialObject_Asteroid_Large_8</defName>
+        <orbitPathOffsetPercentage>2.026</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.0005)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <!-- Asteroid ring 9 -->
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
+        <defName>RimNauts2_CelestialObject_Asteroid_Small_9</defName>
+        <orbitPathOffsetPercentage>2.136</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.090)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
+        <defName>RimNauts2_CelestialObject_Asteroid_Medium_9</defName>
+        <orbitPathOffsetPercentage>2.136</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.045)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
+        <defName>RimNauts2_CelestialObject_Asteroid_Large_9</defName>
+        <orbitPathOffsetPercentage>2.136</orbitPathOffsetPercentage>
+        <orbitSpreadBetween>(0.0, 0.009)</orbitSpreadBetween>
+    </Universum.Defs.CelestialObject>
+
+    <!-- Crashing asteroids -->
 
     <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
         <defName>RimNauts2_CelestialObject_CrashingAsteroid_Small</defName>
@@ -58,25 +222,5 @@
         <components>
             <li>RimNauts2_Component_Trail_CrashingAsteroid</li>
         </components>
-    </Universum.Defs.CelestialObject>
-
-    <!-- Asteroid ring 2 -->
-
-    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Small">
-        <defName>RimNauts2_CelestialObject_Asteroid_Small_2</defName>
-        <orbitPathOffsetPercentage>1.6</orbitPathOffsetPercentage>
-        <orbitSpreadBetween>(0.0, 0.04)</orbitSpreadBetween>
-    </Universum.Defs.CelestialObject>
-
-    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Medium">
-        <defName>RimNauts2_CelestialObject_Asteroid_Medium_2</defName>
-        <orbitPathOffsetPercentage>1.6</orbitPathOffsetPercentage>
-        <orbitSpreadBetween>(0.0, 0.02)</orbitSpreadBetween>
-    </Universum.Defs.CelestialObject>
-
-    <Universum.Defs.CelestialObject ParentName="RimNauts2_CelestialObject_Asteroid_Large">
-        <defName>RimNauts2_CelestialObject_Asteroid_Large_2</defName>
-        <orbitPathOffsetPercentage>1.6</orbitPathOffsetPercentage>
-        <orbitSpreadBetween>(0.0, 0.01)</orbitSpreadBetween>
     </Universum.Defs.CelestialObject>
 </Defs>

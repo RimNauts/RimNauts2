@@ -76,7 +76,7 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_1</defName>
-        <total>400</total>
+        <total>440</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -95,7 +95,7 @@
     </Universum.Defs.ObjectGeneration>
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_2</defName>
-        <total>400</total>
+        <total>110</total>
         <initializationType>START_UP</initializationType>
         <objectGroup>
             <li>
@@ -108,6 +108,139 @@
             </li>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large_2</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_AsteroidRing_3</defName>
+        <total>55</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_3</celestialDefName>
+                <tickets>90</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Medium_3</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large_3</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_AsteroidRing_4</defName>
+        <total>27</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_4</celestialDefName>
+                <tickets>90</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Medium_4</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large_4</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_AsteroidRing_5</defName>
+        <total>22</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_5</celestialDefName>
+                <tickets>90</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Medium_5</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large_5</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_AsteroidRing_6</defName>
+        <total>659</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_6</celestialDefName>
+                <tickets>90</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Medium_6</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large_6</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_AsteroidRing_7</defName>
+        <total>165</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_7</celestialDefName>
+                <tickets>90</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Medium_7</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large_7</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_AsteroidRing_8</defName>
+        <total>27</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_8</celestialDefName>
+                <tickets>90</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Medium_8</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large_8</celestialDefName>
+                <tickets>1</tickets>
+            </li>
+        </objectGroup>
+    </Universum.Defs.ObjectGeneration>
+    <Universum.Defs.ObjectGeneration>
+        <defName>RimNauts2_ObjectGeneration_AsteroidRing_9</defName>
+        <total>495</total>
+        <initializationType>START_UP</initializationType>
+        <objectGroup>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_9</celestialDefName>
+                <tickets>90</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Medium_9</celestialDefName>
+                <tickets>9</tickets>
+            </li>
+            <li>
+                <celestialDefName>RimNauts2_CelestialObject_Asteroid_Large_9</celestialDefName>
                 <tickets>1</tickets>
             </li>
         </objectGroup>
