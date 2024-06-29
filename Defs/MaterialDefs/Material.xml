@@ -127,7 +127,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>1.500</floatValue>
+                <floatValue>1.700</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
@@ -141,7 +141,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>1.610</floatValue>
+                <floatValue>1.810</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
@@ -155,7 +155,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>1.650</floatValue>
+                <floatValue>1.850</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
@@ -169,7 +169,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>1.670</floatValue>
+                <floatValue>1.870</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
@@ -183,7 +183,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>1.684</floatValue>
+                <floatValue>1.884</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
@@ -197,7 +197,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>1.816</floatValue>
+                <floatValue>2.016</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
@@ -211,7 +211,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>1.976</floatValue>
+                <floatValue>2.176</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
@@ -225,7 +225,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>2.026</floatValue>
+                <floatValue>2.226</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
@@ -239,7 +239,7 @@
         <shaderProperties>
             <li>
                 <name>_PlanetRadiusOffsetFactor</name>
-                <floatValue>2.136</floatValue>
+                <floatValue>2.336</floatValue>
             </li>
             <li>
                 <name>_PlanetRadiusMaxSpreadFactor</name>
