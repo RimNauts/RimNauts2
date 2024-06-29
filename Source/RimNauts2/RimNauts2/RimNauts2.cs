@@ -11,7 +11,7 @@ namespace RimNauts2 {
             Logger.print(
                 Logger.Importance.Info,
                 key: "RimNauts.Info.mod_loaded",
-                args: new NamedArgument[] { Info.name, RimNauts2_ModContent.instance.Content.ModMetaData.ModVersion }
+                args: new NamedArgument[] { RimNauts2_ModContent.instance.Content.ModMetaData.Name, RimNauts2_ModContent.instance.Content.ModMetaData.ModVersion }
             );
             Defs.Loader.init();
         }

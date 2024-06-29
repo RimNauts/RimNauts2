@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <Universum.Defs.CelestialObject Name="RimNauts2_CelestialObject_Asteroid_Disc">
+        <defName>RimNauts2_CelestialObject_Asteroid_Disc</defName>
+        <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
+        <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
+        <scalePercentageBetween>(10.0, 10.0)</scalePercentageBetween>
+        <speedPercentageBetween>(0.0, 0.0)</speedPercentageBetween>
+        <orbitPathOffsetPercentage>0.0</orbitPathOffsetPercentage>
+        <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
+        <orbitSpreadBetween>(0.0, 0.0)</orbitSpreadBetween>
+        <yOffsetBetween>(0.0, 0.0)</yOffsetBetween>
+        <orbitDirection>RIGHT</orbitDirection>
+        <spinRotationSpeedBetween>(0.0, 0.0)</spinRotationSpeedBetween>
+        <shape>
+            <meshes>
+                <li>RimNauts2_Mesh_AsteroidRing_1</li>
+                <li>RimNauts2_Mesh_AsteroidRing_2</li>
+                <li>RimNauts2_Mesh_AsteroidRing_3</li>
+                <li>RimNauts2_Mesh_AsteroidRing_4</li>
+                <li>RimNauts2_Mesh_AsteroidRing_5</li>
+                <li>RimNauts2_Mesh_AsteroidRing_6</li>
+                <li>RimNauts2_Mesh_AsteroidRing_7</li>
+                <li>RimNauts2_Mesh_AsteroidRing_8</li>
+                <li>RimNauts2_Mesh_AsteroidRing_9</li>
+            </meshes>
+        </shape>
+    </Universum.Defs.CelestialObject>
+</Defs>

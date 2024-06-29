@@ -79,7 +79,7 @@
         <type>SPHERE</type>
         <detailBetween>(6, 6)</detailBetween>
         <radius>1.0</radius>
-        <maxElevationColor>(50, 150, 200)</maxElevationColor>
+        <maxElevationColor>(35, 105, 140)</maxElevationColor>
         <minElevationColor>(10, 60, 80)</minElevationColor>
         <noiseLayers>
             <li>

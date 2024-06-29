@@ -7,7 +7,7 @@ namespace RimNauts2.Settings {
 
         public Page(ModContentPack content) : base(content) => GetSettings<Container>();
 
-        public override string SettingsCategory() => Info.name;
+        public override string SettingsCategory() => RimNauts2_ModContent.instance.Content.ModMetaData.Name;
 
         public override void DoSettingsWindowContents(Rect inRect) {
             // default button

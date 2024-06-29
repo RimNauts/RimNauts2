@@ -5,11 +5,11 @@
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
         <scalePercentageBetween>(0.01, 0.015)</scalePercentageBetween>
         <speedPercentageBetween>(2.0, 4.0)</speedPercentageBetween>
-        <orbitSpreadBetween>(0.3, 1.2)</orbitSpreadBetween>
+        <orbitSpreadBetween>(0.0, 0.120)</orbitSpreadBetween>
         <spinRotationSpeedBetween>(0.1, 0.6)</spinRotationSpeedBetween>
-        <orbitPathOffsetPercentage>2.5</orbitPathOffsetPercentage>
+        <orbitPathOffsetPercentage>2.016</orbitPathOffsetPercentage>
         <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
-        <yOffsetBetween>(-5.0, 5.0)</yOffsetBetween>
+        <yOffsetBetween>(-2.0, 2.0)</yOffsetBetween>
         <orbitDirection>RIGHT</orbitDirection>
         <objectHolder>
             <biomeDef>RimNauts2_Satellite_Biome</biomeDef>

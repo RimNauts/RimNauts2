@@ -4,7 +4,7 @@
         <defName>RimNauts2_CelestialObject_Moon_Barren</defName>
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.2, 0.3)</scalePercentageBetween>
+        <scalePercentageBetween>(0.15, 0.225)</scalePercentageBetween>
         <speedPercentageBetween>(1.0, 1.0)</speedPercentageBetween>
         <orbitPathOffsetPercentage>5.0</orbitPathOffsetPercentage>
         <orbitEccentricityBetween>(0.0, 0.5)</orbitEccentricityBetween>
@@ -39,7 +39,7 @@
         <defName>RimNauts2_CelestialObject_Moon_Ocean</defName>
         <celestialObjectClass>Universum.World.Objects.Basic</celestialObjectClass>
         <namePackDefName>RimNauts2_NamePack_Basic</namePackDefName>
-        <scalePercentageBetween>(0.25, 0.35)</scalePercentageBetween>
+        <scalePercentageBetween>(0.1875, 0.2625)</scalePercentageBetween>
         <speedPercentageBetween>(1.0, 1.0)</speedPercentageBetween>
         <orbitPathOffsetPercentage>5.0</orbitPathOffsetPercentage>
         <orbitEccentricityBetween>(0.1, 0.6)</orbitEccentricityBetween>
